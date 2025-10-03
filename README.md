@@ -1,8 +1,4 @@
 # Bibliothèque Lua pour grandMA3
-
-![grandMA3 Console](./images/grandma3-console-placeholder.png)
-*Image : Console d'éclairage professionnel grandMA3*
-
 ## 📖 Table des matières
 
 1. [Introduction à grandMA3](#introduction-à-grandma3)
