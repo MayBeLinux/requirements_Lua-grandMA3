@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="CouldNotCreatePathError" Author="MA" Version="0.1.0.0" Path="/ui/overlays" Placement="Multi">
+        <ComponentXML FileName="could_not_create_path_error.uixml" PlaceHolder="ModalOverlay" BuddyGroupId="DriveFull" DisplayTypePreference="BigOrSmall"/>
+        <ComponentLua FileName="could_not_create_path_error.lua" />
+    </Menu>
+</GMA3>

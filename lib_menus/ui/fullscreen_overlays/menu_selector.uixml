@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShadedOverlay Name="MenuCenter" W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="wvm_menus.html">
+        <TitleBar Anchors="0,0" Rows="1">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Menu" OnLoad=":OnTitleLoaded"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="16" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="29" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="29" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="16" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="16" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="32" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="16" />
+            </ItemCollectColumns>
+
+
+            <IndicatorControl Name="Patch" Anchors="1,1" Texture="corner5" Text="Patch" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'Patch'.'Edit'" Focus="InitialFocus" CloseAction="Ok" />
+            <IndicatorControl Name="LivePatch" Anchors="2,1" Texture="corner0" Text="Live Patch" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'Patch'.'Live'" CloseAction="Ok" />
+            <IndicatorControl Name="ConnectorConfig" Anchors="3,1" Texture="corner10" Text="Connector&#xD;Configuration" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'ConnectorConfig'" CloseAction="Ok" />
+            <IndicatorControl Name="DeskLightsColorTheme" Anchors="5,1" Texture="corner15" Text="Desk Lights & &#xD;Color Theme" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'DeskLightsEditor'" CloseAction="Ok" IndicatorIconAlignmentV="Center"  HelpTopic="si_desklights.html"/>
+
+            <IndicatorControl Anchors="1,3" Texture="corner5" Text="Network" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'Network'" CloseAction="Ok" />
+            <IndicatorControl Anchors="2,3" Texture="corner0" Text="In &amp; Out" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'RemoteInputs'" CloseAction="Ok" />
+            <IndicatorControl Anchors="3,3" Texture="corner10" Text="DMX&#xD;Protocols" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'ArtNet'" CloseAction="Ok" />
+            <IndicatorControl Anchors="5,3" Texture="corner15" Text="Settings" IndicatorIcon="DialogButtonIcon" Clicked=":OnOpenPopup" SignalValue="SettingsPopup" />
+
+            <IndicatorControl Anchors="1,5" Name="BackupBtn" Texture="corner5" Text="Backup" IndicatorIcon="DialogButtonIcon" IndicatorIconAlignmentV="Top" Clicked=":CommandLine" SignalValue="menu 'Backup'"  UserRights="Playback" CloseAction="Ok" />
+            <IndicatorControl Anchors="2,5" Texture="corner10" Text="Quick&#xD;Save"   Clicked=":CommandLine" SignalValue="SaveShow" CloseAction="Ok"  UserRights="Presets" />
+            <IndicatorControl Anchors="3,5" Texture="corner15" Text="Show&#xD;Creator" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'ShowCreator'" />
+
+            <!--<IndicatorControl Anchors="3,5" Texture="corner15" Text="Auto&#xD;Create" IndicatorIcon="DialogButtonIcon" IndicatorIconAlignmentV="Center" Clicked=":OnCallMenu" SignalValue="AutoCreate" />-->
+            <IndicatorControl Anchors="5,5" Texture="corner15" Text="Preferences and&#xD;Timings" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu 'PreferencesAndTiming'" CloseAction="Ok" />
+
+
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog>
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="RDM" Icon="setup_rdm"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <DBObjectTab TargetObject="ShowData.RDMData" IncludeTarget="No" Name="RDMTab" Type="Horizontal" Anchors="0,0" TabChanged=":MyTabChanged" />
+            <DBObjectGrid Name="RDMGrid" BackColor="UIGrid.Background" Anchors="0,1" ChangeTarget=":MyTabChanged"/>
+        </MainDialogContent>
+
+        <MainDialogSubMenu>
+            <PropertyControl Texture="corner3" TextColor="Button.Text" H="100" Anchors="0,0" Name="RDMEnable" Text="RDM" Target="ShowData.RDMData" Property="Enable" />
+            <UIObject Texture="corner12" Anchors="0,9" HasHover="No"  />
+        </MainDialogSubMenu>
+        <!--<MainDialogFunctionButtons />-->
+    </MainDialog>
+</GMA3>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="100%" H="100%" MinSize="800,480" WantsModal="1" OnLoad=":OnLoaded">
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Filter"/>
+
+            <AutoLayout Name="ButtonContainer" Anchors="1,0" Direction="Horizontal" Content="Yes" >
+                <SwipeButton  MinSize="60,0" W="100" Property="LineHeight" Text="Line Height" OnLoad=":SetButtonHeigtTarget" SelectionChanged=":ChangeLineHeight"/>
+                <Button      MinSize="60,0" W="100" Text="Select&#xD;All"  Clicked=":SelectAll" />
+                <Button      MinSize="60,0" W="100" Text="Select&#xD;None" Clicked=":SelectNothing" />
+            </AutoLayout>
+
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ScrollContainer Name="AtFilter" Margin="0,10,0,0" DefaultMargin="0">
+                <ScrollBox Name="Box">
+                    <UILayoutGrid DefaultMargin="6" Name="InnerGrid">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectRows>
+
+
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectColumns>
+
+                        <UILayoutGrid Name="TitleGrid" Anchors="0,0" H="50" DefaultMargin="8">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Fixed" Size="50" />
+                                <Item SizePolicy="Stretch" MinSize="100" />
+                                <Item SizePolicy="Stretch" MinSize="100" />
+                                <Item SizePolicy="Stretch" MinSize="100" />
+                                <Item SizePolicy="Stretch" MinSize="100" />
+                                <Item SizePolicy="Stretch" MinSize="100" />
+                                <Item SizePolicy="Stretch" MinSize="100" />
+                                <Item SizePolicy="Stretch" MinSize="100" />
+                            </ItemCollectColumns>
+
+                            <Button Anchors="0,0" Name="CollapseAll"       Texture="Corner15" Clicked=":OnCollapseAll" Icon="triangle_right" Margin="4,0,0,0" />
+                            <Button Anchors="1,0"     Text="Feature Group" Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                            <Button Anchors="2,0"     Text="Feature"       Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                            <Button Anchors="3,0,7,0" Text="Attributes"    Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                        </UILayoutGrid>
+
+
+                        <AtFilterDialog Name="ContentGrid" Anchors="0,1" Columns="8" DefaultMargin="8" DefaultMarginOnBorders="Yes" Transparent="No" BackColor="Global.Background" HasHover="No"/>
+                    </UILayoutGrid>
+                </ScrollBox>
+            </ScrollContainer>
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

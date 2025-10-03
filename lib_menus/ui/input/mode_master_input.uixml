@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="ModeMasterInput" W="50%" H="75%" MinSize="550,550" WantsModal="1" >
+
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select master channel function" />
+            <Button Texture="corner0" Text="Remove" Clicked=":RemoveMaster" Anchors="1,0" />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame >
+            <DBObjectGrid Name="ChannelFunctionGrid" BackColor="UIGrid.Background" Anchors="0,0" SelectionType="SingleRowGridSelection" AllowAddNewline="No" AllowEdit="No" AllowMergeChildren="No" LevelLimit="2" OnSelectedItem=":OnSelected" OnLoad=":OnGridLoaded">
+                <GridSettings>
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="Yes">
+                            <GridColumn Name="No" Visible="Yes" />
+                            <GridColumn Name="Type" Visible="Yes" />
+                            <GridColumn Name="Name" Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </GridSettings>
+            </DBObjectGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

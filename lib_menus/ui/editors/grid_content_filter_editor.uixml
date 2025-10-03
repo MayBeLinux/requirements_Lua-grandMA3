@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="GridContentFilter" W="500" H="35%" AlignmentH="Right" AutoClose="Yes" MinSize="400,300">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="Title">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Filters" Icon=""/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <IndicatorControl Name="EnableFilters" MinSize="50,0" W="60" Text="Filter" Property="AllowFilterContent" />
+                <SwipeButton Name="FilterMode" MinSize="50,0" W="60" Property="Mode" TextAutoAdjust="No" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Frame" >
+            <GridContentFilterEditor Name="ContentFilterEditor" Focus="InitialFocus" DefaultMargin="5">
+                <UIObject  Name="EmptyPlaceholder" Anchors="0,0" Visible="No" Text="Click '+' to add filter criteria" TextAlignmentH="Center" TextAutoAdjust="Yes" TextAlignmentV="Center" HasHover="No" BackColor="global.Background" />
+                <ScrollContainer Anchors="0,0" Visible="Yes">
+                    <ScrollBox >
+                        <UILayoutGrid DefaultMargin="10">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Fixed" Size="50" />
+                            </ItemCollectRows>
+
+                            <AutoLayout Name="FilterItems" DefaultMargin="5" SideSize="50" MinCellSize="200" Texture="corner15" Anchors="0,0" />
+                            <Button Name="AddNewFilterItem" Clicked=":AddFilterItem" Icon="plus" MinSize="50,0" Anchors="0,1" Texture="corner15" W="80" AlignmentH="Left" />
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+            </GridContentFilterEditor>
+        </DialogFrame>
+        <ResizeCorner />
+    </ShadedOverlay>
+</GMA3>

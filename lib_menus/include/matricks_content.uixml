@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UILayoutGrid Anchors="0,1" Name ="InnerGrid" DefaultMargin="2" Font="Regular18" LowDpiFont="Regular14">
+    <ItemCollectColumns>
+        <Item SizePolicy="Content" MinSize="50" />
+        <Item SizePolicy="Stretch" Size="1"/>
+    </ItemCollectColumns>
+    <ItemCollectRows>
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Content" Size="50"/>
+    </ItemCollectRows>
+
+    <Toolbar Name="ToolBarDirection" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,0,0,6" Direction="Vertical" >
+        <MatricksToggleButton H="50" W="50" Name="XDir" ActiveTextColor="Global.Selected"  ShowLabel="Yes" ShowValue="No" Icon="" Text="X" Property="EnableX" ToolTip="Show X content" />
+        <MatricksToggleButton H="50" W="50" Name="YDir" ActiveTextColor="Global.Selected"  ShowLabel="Yes" ShowValue="No" Icon="" Text="Y" Property="EnableY" ToolTip="Show Y content" />
+        <MatricksToggleButton H="50" W="50" Name="ZDir" ActiveTextColor="Global.Selected"  ShowLabel="Yes" ShowValue="No" Icon="" Text="Z" Property="EnableZ" ToolTip="Show Z content" />
+
+        <MatricksToggleButton H="50" W="50" Name="XRange" ActiveTextColor="Global.Selected"  ShowLabel="Yes" ShowValue="No" Icon="" Text="Rx" Property="AlignRangeX" ToolTip="Alignment range X"  OnLoad="::SetMatricksTarget" />
+        <MatricksToggleButton H="50" W="50" Name="YRange" ActiveTextColor="Global.Selected"  ShowLabel="Yes" ShowValue="No" Icon="" Text="Ry" Property="AlignRangeY" ToolTip="Alignment range Y"  OnLoad="::SetMatricksTarget" />
+        <MatricksToggleButton H="50" W="50" Name="ZRange" ActiveTextColor="Global.Selected"  ShowLabel="Yes" ShowValue="No" Icon="" Text="Rz" Property="AlignRangeZ" ToolTip="Alignment range Z"  OnLoad="::SetMatricksTarget" />
+    </Toolbar>
+
+    <ScrollContainer Name="TopContainer" Anchors ="1,0,1,5">
+        <ScrollBox Name="TopBox"  Margin="-2,5,5,5" >
+            <UILayoutGrid Name="TopGrid" DefaultMargin="6" Focus="CanHaveFocus" HideFocusFrame="Yes">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" Size="1"/>
+                    <Item SizePolicy="Content" Size="1"/>
+                    <Item SizePolicy="Content" Size="1"/>
+                </ItemCollectRows>
+                <MatricksContainer Name="DirectionX" Anchors="0,0" DefaultMargin="10" Visible="Yes"  H="250" BackColor="matricks.BackgroundX" Texture="corner15" Transparent="No">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                    </ItemCollectColumns>
+
+                    <UILayoutGrid Name="Grid" Anchors="0,0">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Fixed" Size="60" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <MatricksToggleButton      Name ="Invert"       Anchors="0,0" Texture="corner1" Icon="invert" ShowValue="No" ShowLabel="false" Property="Xinv" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate index." />
+                        <ValueFadeControl Name ="Ctrl"         Anchors="1,0" Texture="corner2" Property="X" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Select fixture for MATricks in direction X." />
+
+                        <MatricksToggleButton Name ="InvertBlock"  Anchors="0,1" Texture="corner0" Icon="invert"  ShowValue="No" ShowLabel="false" Property="XinvB" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate blocks." />
+                        <ValueFadeControl Name ="CtrlBlock"    Anchors="1,1" Texture="corner0" Property="XBlock" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks block for direction X." />
+
+                        <MatricksToggleButton Name ="InvertGroup"  Anchors="0,2" Texture="corner0" Icon="invert"  ShowValue="No" ShowLabel="false" Property="XinvG" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate groups." />
+                        <ValueFadeControl Name ="CtrlGroup"    Anchors="1,2" Texture="corner0" Property="XGroup" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks group for direction X." />
+
+                        <MatricksToggleButton Name ="InvertWing"   Anchors="0,3" Texture="corner4" Icon="invert"  ShowValue="No" ShowLabel="false" Property="XinvW" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate wings." />
+                        <ValueFadeControl Name ="CtrlWing"     Anchors="1,3" Texture="corner0" Property="XWings" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks wing for direction X." />
+
+                        <ValueFadeControl Name ="CtrlWidth"    Anchors="1,4" Texture="corner12" Property="XWidth" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks width for direction X." />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="Layers" Anchors="1,0" Columns="2">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Fixed" Size="60" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <ValueFadeControl Anchors="0,0" Name="FadeFromX"  Texture="corner1" Property="FadeFromX"  Text="Fade From X " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set FadeFrom for direction X." />
+                        <Button           Anchors="1,0"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="FadeFromX" ToolTip="Swap FadeFrom and FadeTo." />
+                        <ValueFadeControl Anchors="2,0" Name="FadeToX"    Texture="corner2" Property="FadeToX"    Text="Fade To X   " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set FadeTo for direction X." />
+                        <ValueFadeControl Anchors="0,1" Name="DelayFromX" Texture="corner0" Property="DelayFromX" Text="Delay From X" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set DelayFrom for direction X." />
+                        <Button           Anchors="1,1"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="DelayFromX" ToolTip="Swap DelayFrom and DelayTo." />
+                        <ValueFadeControl Anchors="2,1" Name="DelayToX"   Texture="corner0" Property="DelayToX"   Text="Delay To X  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set DelayTo for direction X." />
+                        <ValueFadeControl Anchors="0,2" Name="SpeedFromX" Texture="corner0" Property="SpeedFromX" Text="Speed From X" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set SpeedFrom for direction X." ForceFastFade="Yes" />
+                        <Button           Anchors="1,2"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="SpeedFromX" ToolTip="Swap SpeedFrom and SpeedTo." />
+                        <ValueFadeControl Anchors="2,2" Name="SpeedToX"   Texture="corner0" Property="SpeedToX"   Text="Speed To X  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set SpeedTo for direction X."   ForceFastFade="Yes" />
+                        <ValueFadeControl Anchors="0,3" Name="PhaseFromX" Texture="corner4" Property="PhaseFromX" Text="Phase From X" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set PhaseFrom for direction X." ForceFastFade="Yes" />
+                        <Button           Anchors="1,3"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="PhaseFromX" ToolTip="Swap PhaseFrom and PhaseTo." />
+                        <ValueFadeControl Anchors="2,3" Name="PhaseToX"   Texture="corner8" Property="PhaseToX"   Text="Phase To X  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set PhaseTo for direction X."   ForceFastFade="Yes" />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="Shuffle" Anchors="2,0" AlignmentH="Right">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <ValueFadeControl Name ="CtrlShuffle"  Anchors="0,0" Texture="corner3" Property="XShuffle" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks shuffle for direction X." />
+                        <ValueFadeControl Name ="CtrlShift"    Anchors="0,1" Texture="corner12" Property="XShift"  OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks shift for direction X." />
+                    </UILayoutGrid>
+                </MatricksContainer>
+
+                <MatricksContainer Name="DirectionY" Anchors="0,1" DefaultMargin="10"  Visible="No" H="250" BackColor="matricks.BackgroundY" Texture="corner15" Transparent="No">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                    </ItemCollectColumns>
+
+                    <UILayoutGrid Name="Grid" Anchors="0,0">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Fixed" Size="60" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+
+                        <MatricksToggleButton Name ="Invert"       Anchors="0,0" Texture="corner1" Icon="invert"  ShowValue="No" ShowLabel="false" Property="Yinv" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate index." />
+                        <ValueFadeControl Name ="Ctrl"         Anchors="1,0" Texture="corner2" Property="Y" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Select fixture for MATricks in direction Y." />
+
+                        <MatricksToggleButton Name ="InvertBlock"  Anchors="0,1" Texture="corner0" Icon="invert"  ShowValue="No" ShowLabel="false" Property="YinvB" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate blocks." />
+                        <ValueFadeControl Name ="CtrlBlock"    Anchors="1,1" Texture="corner0" Property="YBlock" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks block for direction Y." />
+
+                        <MatricksToggleButton Name ="InvertGroup"  Anchors="0,2" Texture="corner0" Icon="invert"  ShowValue="No" ShowLabel="false" Property="YinvG" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate groups." />
+                        <ValueFadeControl Name ="CtrlGroup"    Anchors="1,2" Texture="corner0" Property="YGroup" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks group for direction Y." />
+
+                        <MatricksToggleButton Name ="InvertWing"   Anchors="0,3" Texture="corner4" Icon="invert"  ShowValue="No" ShowLabel="false" Property="YinvW" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate wings." />
+                        <ValueFadeControl Name ="CtrlWing"     Anchors="1,3" Texture="corner0" Property="YWings" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks wing for direction Y." />
+
+                        <ValueFadeControl Name ="CtrlWidth"    Anchors="1,4" Texture="corner12" Property="YWidth" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks width for direction Y." />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="Layers" Anchors="1,0" Columns="2">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Fixed" Size="60" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <ValueFadeControl Anchors="0,0" Name="FadeFromY"  Texture="corner1" Property="FadeFromY"  Text="Fade From Y " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set FadeFrom for direction Y." />
+                        <Button           Anchors="1,0"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="FadeFromY" ToolTip="Swap FadeFrom and FadeTo." />
+                        <ValueFadeControl Anchors="2,0" Name="FadeToY"    Texture="corner2" Property="FadeToY"    Text="Fade To Y   " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set FadeTo for direction Y." />
+                        <ValueFadeControl Anchors="0,1" Name="DelayFromY" Texture="corner0" Property="DelayFromY" Text="Delay From Y" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set DelayFrom for direction Y." />
+                        <Button           Anchors="1,1"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="DelayFromY" ToolTip="Swap DelayFrom and DelayTo." />
+                        <ValueFadeControl Anchors="2,1" Name="DelayToY"   Texture="corner0" Property="DelayToY"   Text="Delay To Y  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set DelayTo for direction Y." />
+                        <ValueFadeControl Anchors="0,2" Name="SpeedFromY" Texture="corner0" Property="SpeedFromY" Text="Speed From Y" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set SpeedFrom for direction Y." ForceFastFade="Yes" />
+                        <Button           Anchors="1,2"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="SpeedFromY" ToolTip="Swap SpeedFrom and SpeedTo." />
+                        <ValueFadeControl Anchors="2,2" Name="SpeedToY"   Texture="corner0" Property="SpeedToY"   Text="Speed To Y  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set SpeedTo for direction Y."   ForceFastFade="Yes" />
+                        <ValueFadeControl Anchors="0,3" Name="PhaseFromY" Texture="corner4" Property="PhaseFromY" Text="Phase From Y" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set PhaseFrom for direction Y." ForceFastFade="Yes" />
+                        <Button           Anchors="1,3"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="PhaseFromY" ToolTip="Swap PhaseFrom and PhaseTo." />
+                        <ValueFadeControl Anchors="2,3" Name="PhaseToY"   Texture="corner8" Property="PhaseToY"   Text="Phase To Y  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set PhaseTo for direction Y."   ForceFastFade="Yes" />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="Shuffle" Anchors="2,0" AlignmentH="Right">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <ValueFadeControl Name ="CtrlShuffle"  Anchors="0,0" Texture="corner3" Property="YShuffle"  OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks shuffle for direction Y." />
+                        <ValueFadeControl Name ="CtrlShift"    Anchors="0,1" Texture="corner12" Property="YShift"   OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks shift for direction Y." />
+                    </UILayoutGrid>
+                </MatricksContainer>
+
+                <MatricksContainer Name="DirectionZ" Anchors="0,2" DefaultMargin="10" Visible="No" H="250" BackColor="matricks.BackgroundZ" Texture="corner15" Transparent="No">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                        <Item SizePolicy="Fixed" Size="500"/>
+                    </ItemCollectColumns>
+
+                    <UILayoutGrid Name="Grid" Anchors="0,0">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Fixed" Size="60" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <MatricksToggleButton Name ="Invert"       Anchors="0,0" Texture="corner1" Icon="invert"  ShowValue="No" ShowLabel="false" Property="Zinv" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate index." />
+                        <ValueFadeControl Name ="Ctrl"         Anchors="1,0" Texture="corner2" Property="Z" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Select fixture for MATricks in direction Z." />
+
+                        <MatricksToggleButton Name ="InvertBlock"  Anchors="0,1" Texture="corner0" Icon="invert"  ShowValue="No" ShowLabel="false" Property="ZinvB" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate blocks." />
+                        <ValueFadeControl Name ="CtrlBlock"    Anchors="1,1" Texture="corner0" Property="ZBlock" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks block for direction Z." />
+
+                        <MatricksToggleButton Name ="InvertGroup"  Anchors="0,2" Texture="corner0" Icon="invert"  ShowValue="No" ShowLabel="false" Property="ZinvG" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate groups." />
+                        <ValueFadeControl Name ="CtrlGroup"    Anchors="1,2" Texture="corner0" Property="ZGroup" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks group for direction Z." />
+
+                        <MatricksToggleButton Name ="InvertWing"   Anchors="0,3" Texture="corner4" Icon="invert"  ShowValue="No" ShowLabel="false" Property="ZinvW" OnLoad="::SetMatricksTarget" ToolTip="Enable value invert for alternate wings." />
+                        <ValueFadeControl Name ="CtrlWing"     Anchors="1,3" Texture="corner0" Property="ZWings" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks wing for direction Z." />
+
+                        <ValueFadeControl Name ="CtrlWidth"    Anchors="1,4" Texture="corner12" Property="ZWidth" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks width for direction Z." />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="Layers" Anchors="1,0" Columns="2">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Fixed" Size="60" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <ValueFadeControl Anchors="0,0" Name="FadeFromZ"  Texture="corner1" Property="FadeFromZ"  Text="Fade From Z " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set FadeFrom for direction Z." />
+                        <Button           Anchors="1,0"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="FadeFromZ" ToolTip="Swap FadeFrom and FadeTo." />
+                        <ValueFadeControl Anchors="2,0" Name="FadeToZ"    Texture="corner2" Property="FadeToZ"    Text="Fade To Z   " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set FadeTo for direction Z." />
+                        <ValueFadeControl Anchors="0,1" Name="DelayFromZ" Texture="corner0" Property="DelayFromZ" Text="Delay From Z" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set DelayFrom for direction Z." />
+                        <Button           Anchors="1,1"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="DelayFromZ" ToolTip="Swap DelayFrom and DelayTo." />
+                        <ValueFadeControl Anchors="2,1" Name="DelayToZ"   Texture="corner0" Property="DelayToZ"   Text="Delay To Z  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set DelayTo for direction Z." />
+                        <ValueFadeControl Anchors="0,2" Name="SpeedFromZ" Texture="corner0" Property="SpeedFromZ" Text="Speed From Z" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set SpeedFrom for direction Z." ForceFastFade="Yes" />
+                        <Button           Anchors="1,2"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="SpeedFromZ" ToolTip="Swap SpeedFrom and SpeedTo." />
+                        <ValueFadeControl Anchors="2,2" Name="SpeedToZ"   Texture="corner0" Property="SpeedToZ"   Text="Speed To Z  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set SpeedTo for direction Z."   ForceFastFade="Yes" />
+                        <ValueFadeControl Anchors="0,3" Name="PhaseFromZ" Texture="corner4" Property="PhaseFromZ" Text="Phase From Z" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set PhaseFrom for direction Z." ForceFastFade="Yes" />
+                        <Button           Anchors="1,3"                   Texture="corner0"                       Icon="ExecuteSwap20" Clicked=":OnInvertValues" SignalValue="PhaseFromZ" ToolTip="Swap PhaseFrom and PhaseTo." />
+                        <ValueFadeControl Anchors="2,3" Name="PhaseToZ"   Texture="corner8" Property="PhaseToZ"   Text="Phase To Z  " OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" ToolTip="Set PhaseTo for direction Z."   ForceFastFade="Yes" />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="Shuffle" Anchors="2,0" AlignmentH="Right">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <ValueFadeControl Name ="CtrlShuffle"  Anchors="0,0" Texture="corner3" Property="ZShuffle" OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks shuffle for direction Z." />
+                        <ValueFadeControl Name ="CtrlShift"    Anchors="0,1" Texture="corner12" Property="ZShift"  OnLoad="::SetMatricksTarget" ValueTextColor="MAtricks.TextActive" UseDefaultValue="Yes" ToolTip="Change MATricks shift for direction Z." />
+                    </UILayoutGrid>
+                </MatricksContainer>
+            </UILayoutGrid>
+        </ScrollBox>
+    </ScrollContainer>
+
+    <UILayoutGrid Anchors="1,6" Name="FunctionGrid" H="50" DefaultMargin="6" Margin="0,0,0,6">
+        <MatricksContainer Anchors="0,0"  Name="FunctionButtons" DefaultMargin="10">
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="500"/>
+                <Item SizePolicy="Fixed" Size="500"/>
+                <Item SizePolicy="Fixed" Size="500"/>
+            </ItemCollectColumns>
+            <UILayoutGrid Name="Invert" Anchors="0,0" Columns="5" DefaultMargin="1">
+                <SwipeButton     Anchors="0,0" Name="Invert4" Texture="corner5"  Property="InvertStyle" ValueTextShadow="Yes" ColorIndicatorHeight="0" OnLoad="::SetMatricksTarget" ToolTip="Define matricks invert style." />
+                <SwipeButton     Anchors="1,0" Name="PhaserTrans" Texture="corner10"  Property="PhaserTransform" Text="Transform" ValueTextShadow="Yes" ColorIndicatorHeight="0" OnLoad="::SetMatricksTarget" ToolTip="Transform inverted" Margin="0,0,2,0" />
+                <IndicatorControl Anchors="2,0" Name="Invert3" Texture="corner5"  Property="InvertX"  ColorIndicatorHeight="0" Icon="invert" IconAlignmentH="Left" IconAlignmentV="Top" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Complete X invert." />
+                <IndicatorControl Anchors="3,0" Name="Invert2" Texture="corner0"  Property="InvertY"  ColorIndicatorHeight="0" Icon="invert" IconAlignmentH="Left" IconAlignmentV="Top" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Complete Y invert." />
+                <IndicatorControl Anchors="4,0" Name="Invert1" Texture="corner10" Property="InvertZ"  ColorIndicatorHeight="0" Icon="invert" IconAlignmentH="Left" IconAlignmentV="Top" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Complete Z invert." />
+            </UILayoutGrid>
+            <UILayoutGrid Name="Layers" Anchors="1,0" Columns="4" DefaultMargin="1">
+                <Button  VisibleOnlyInAlpha="Yes" VisibleOnlyInDebug="Yes" Anchors="1,0" Name="AdaptiveSpeed" Texture="corner5"  Text="Adaptive&#xD;Speed" TextShadow="Yes" Clicked=":AdaptiveSpeed" ToolTip="Divide speed by number of fixtures"/>
+                <Button  VisibleOnlyInAlpha="Yes" VisibleOnlyInDebug="Yes" Anchors="2,0" Name="AdaptiveWidth" Texture="corner10" Text="Adaptive&#xD;Width" TextShadow="Yes" Clicked=":AdaptiveWidth" ToolTip="Create a pwm pulse for a number of fixtures"/>
+                <!--
+                <IndicatorControl Anchors="0,0,3,0" Name="RelativeCombinedBtn"  Text="Relative [Will promised to come up with a name]"  Texture="corner15"  Property="Relative"   ColorIndicatorHeight="0" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Relative layer values" />
+                <IndicatorControl Anchors="0,0" Name="RelativeFadeBtn"  Text="Rel. Fade"  Texture="corner5"  Property="RelativeFade"   ColorIndicatorHeight="0" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Relative Fade" />
+                <IndicatorControl Anchors="1,0" Name="RelativeDelayBtn" Text="Rel. Delay" Texture="corner0"  Property="RelativeDelay"  ColorIndicatorHeight="0" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Relative Delay" />
+                <IndicatorControl Anchors="2,0" Name="RelativeSpeedBtn" Text="Rel. Speed" Texture="corner0"  Property="RelativeSpeed"  ColorIndicatorHeight="0" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Relative Speed" />
+                <IndicatorControl Anchors="3,0" Name="RelativePhaseBtn" Text="Rel. Phase" Texture="corner10" Property="RelativePhase"  ColorIndicatorHeight="0" Padding="6,0,0,0" TextShadow="Yes" ShowLabel="1" ShowValue="No" OnLoad="::SetMatricksTarget" ToolTip="Relative Phase" />
+                -->
+            </UILayoutGrid>
+            <UILayoutGrid Name="Shuffle" Anchors="2,0" Columns="5" DefaultMargin="1" AlignmentH="Right">
+                <Button          Anchors="0,0" Name="Selection1" Texture="corner5" Text="Copy&#xD;Values" TextShadow="Yes" Clicked=":CopyValues" ToolTip="Copy Values from background selection to current selection"/>
+                <Button          Anchors="1,0" Name="Selection2" Texture="corner0" Text="Copy&#xD;Sel" TextShadow="Yes" Clicked=":CopyActiveSel" ToolTip="Copy the active selection to the second selection"/>
+                <SwipeButton     Anchors="2,0" Name="Selection3" Texture="corner0" Target="#" Property="ActiveSel" ValueTextShadow="Yes" ColorIndicatorHeight="0" ToolTip="Choose active selection"/>
+                <Button          Anchors="3,0" Name="Shuffle1"   Texture="corner0" Text="Shuffle" TextShadow="Yes" Clicked=":OnDoShuffle" ToolTip="Shuffle randomly"/>
+                <SwipeButton     Anchors="4,0" Name="Shuffle2"   Texture="corner10" Property="ShuffleMode" ValueTextShadow="Yes" OnLoad="::SetMatricksTarget" ColorIndicatorHeight="0" ToolTip="Special shuffle modes." />
+            </UILayoutGrid>
+        </MatricksContainer>
+    </UILayoutGrid>
+
+    <UIObject Name="OnlyForRecipeWarning" Visible="No" HasHover="No" BackColor="Global.Transparent50"/>
+</UILayoutGrid>

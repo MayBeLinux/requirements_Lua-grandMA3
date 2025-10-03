@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="12" Name="CameraEditor" Guid="00 00 00 00 B9 7B 00 00 2D 52 36 54 84 B3 52 B1" Author="MA" Version="0.1.0.0" Path="/ui/editors">
+        <ComponentXML Index="1" Guid="00 00 00 00 72 57 00 00 2C 52 36 54 84 B3 52 B1" FileName="camera_editor.uixml" PlaceHolder="ScreenOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="00 00 00 00 9D 13 00 00 2F 52 36 54 86 B5 54 B3" FileName="camera_editor.lua" />
+    </Menu>
+</GMA3>

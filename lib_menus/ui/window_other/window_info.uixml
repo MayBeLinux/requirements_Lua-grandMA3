@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <WindowInfo Name="ObjectReferences" OnLoad=":OnLoad" HelpTopic="si_info_window.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="120"/>
+            </ItemCollectColumns>
+            <TitleButton Texture="corner0" Anchors="1,0" Text="Info" Icon=""/>
+            <TitleAutoLayout Anchors="2,0" Name="Buttons" Direction="Horizontal" Content="Yes" Inverted="Yes">
+                <SwipeButton        Name="LinkMode"          W="180" SelectionChanged=":OnLinkModeChanged"    Text="Link Type"/>
+                <SwipeButton        Name="WindowMode"             W="150" SelectionChanged=":OnWindowModeChanged"       Text="Window Mode"/>
+                <IndicatorControl   Name="EditMode"                     MinSize="50,0" W="100" Property="EditMode"                      Text="Edit&#xD;Note"/>
+                <IndicatorControl   Name="ShowEmpty"                    MinSize="50,0" W="120" Property="ShowEmpty"     Text="Show Empty"/>
+                <SwipeButton        Name="RememberedTab"        W="150"                        Property="RememberedTab" Text="Selected Tab"/>
+                <IndicatorControl   Name="AutoScroll"                   MinSize="50,0" W="80" Property="AutoScroll"    Text="Auto&#xD;Scroll"/>
+            </TitleAutoLayout>
+            <Button Anchors="3,0" Name="RefMode" Texture="corner2" Text="List&#xD;Reference" TextAutoAdjust="Yes" Clicked=":ToggleListRef" />
+            <ContextButton Texture="corner1" Anchors="0,0" Icon="object_info" ToolTip="Configures references viewer"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="DialogFrame" Anchors="0,1" >
+            <ReferencesContainer Name="RefContainer" OnListRefDone=":OnListRefDone">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UITab TextAutoAdjust="Yes" Texture="corner3" Name="ReferencesTab" AvoidScroll="Yes" Anchors="0,0" TabChanged=":TabChanged" Property="RememberedTab" OnLoad=":SetTarget" Font="Regular18" LowDpiFont="Regular14" >
+                    <ItemStr Title="Referenced by" Value="ReferencesGrid" />
+                    <ItemStr Title="Depends on" Value="DependenciesGrid" />
+                    <ItemStr Title="Note" Value="NotesGrid"/>
+                </UITab>
+                <DialogContainer Name="ListContainer" Anchors="0,1" ChangeActive=":TabChanged">
+                    <ReferencesGrid Name="ReferencesGrid" Padding="5,5,5,5" />
+                    <ReferencesGrid Name="DependenciesGrid" Padding="5,5,5,5" />
+
+                    <UILayoutGrid Name="NotesGrid" HelpTopic="si_info_window.html">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Content"/>
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+
+                        <UILayoutGrid Anchors="0,0" Name="EditToolbar" Margin="0,5,0,5">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50" />
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1" />
+                                <Item SizePolicy="Fixed" Size="120"/>
+                                <Item SizePolicy="Fixed" Size="120"/>
+                            </ItemCollectColumns>
+
+                            <Button     Anchors="1,0" Name="Undo"    Icon="undo" ActiveBackColor="Button.Background" ToolTip="Undo last change" HotKey="Ctrl+Z" Texture="corner5" Clicked=":UndoTextEdit"/>
+                            <Button     Anchors="2,0" Name="Redo"    Icon="redo" ActiveBackColor="Button.Background" ToolTip="Redo last undo" HotKey="Ctrl+Y" Texture="corner10" Clicked=":RedoTextEdit"/>
+
+                        </UILayoutGrid>
+
+                        <ScrollContainer Name="NotesViewScroll" Anchors="0,1" >
+                            <InfoNotesGridScroller Name="NotesGridScroller" BackColor="Global.Background"/>
+                        </ScrollContainer>
+                    </UILayoutGrid>
+                </DialogContainer>
+            </ReferencesContainer>
+        </DialogFrame>
+    </WindowInfo>
+</GMA3>

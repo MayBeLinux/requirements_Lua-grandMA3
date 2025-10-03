@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <StageViewBar DefaultMargin="3" OnLoad=":BarLoaded" HelpTopic="patch_position_fixtures.html">
+        <UILayoutGrid Name="InnerBox" Anchors="0,0" Rows="3"  Columns="10" OnLoad=":SetTarget" >
+
+            <SwipeButton     Text="Function"   Name="EncoderFunction"  Anchors="0,0" Texture="corner1"   TextAutoAdjust="Yes" Property="EncoderFunction"  Margin="0,0,0,0" TriggerIndirectInitLevel="Full" />
+            <SwipeButton     Text="Resolution" Name="EncoderResolution"  Anchors="1,0" Texture="corner2"   TextAutoAdjust="Yes" Property="EncoderResolution3d"  Margin="0,0,1,0" TriggerIndirectInitLevel="Full" />
+
+            <UILayoutGrid Name="Upper" Anchors="2,0,9,0"  Columns="12" OnLoad=":SetTarget" Margin="2,0,0,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+
+                <SwipeButton        TriggerIndirectInitLevel="Full" Text="Axis"              Name="AxisSystem"       Anchors="0,0" Texture="corner5"   TextAutoAdjust="Yes" Property="AxisSystem"      Margin="0,3,0,3" />
+                <SwipeButton        TriggerIndirectInitLevel="Full" Text="Rotation Mode"     Name="RotationMode"     Anchors="1,0" Texture="corner10"  TextAutoAdjust="Yes" Property="RotationMode"    Margin="0,3,0,3" />
+                <IndicatorButton    Text="Calibrate Position" Name="CalibratePosition"  Anchors="2,0" Texture="corner15"  TextAutoAdjust="Yes" Clicked=":CommandLine" SignalValue="menu PositionCalibration" Margin="3,3,0,3" />
+                <IndicatorControl   TriggerIndirectInitLevel="Full" Text="Change on Encoder Event" Name="SendChangesWhileEncoderEvent"  Anchors="3,0" Texture="corner15"  TextAutoAdjust="Yes"  Property="SendChangesWhileEncoderEvent" Margin="3,3,0,3" />
+                <IndicatorControl   TriggerIndirectInitLevel="Full" Text="Apply on Change"   Name="ArrangeOnChange"  Anchors="7,0" Texture="corner5"  TextAutoAdjust="Yes" Clicked=":ArrangePosition" Property="ArrangeOnChange" Margin="0,3,0,3" />
+                <IndicatorButton    Text="Rotate to Circle Center" Name="RotateToCircleCenter"  Anchors="5,0" Texture="corner15"  TextAutoAdjust="Yes" Clicked=":RotateToCircleCenter" Margin="3,3,0,3" />
+                <IndicatorButton    Text="Line up"           Name="Rotate90ToLine"  Anchors="5,0" Texture="corner15"  TextAutoAdjust="Yes" Clicked=":Rotate90ToLine" Margin="3,3,0,3" />
+                <IndicatorButton    Text="Reset Encoder Values" Name="FactoryDefaults"  Anchors="6,0" Texture="corner15"  TextAutoAdjust="Yes" Clicked=":FactoryDefaults" Margin="3,3,0,3" />
+                <IndicatorButton    Text="Apply"             Name="Apply"            Anchors="8,0" Texture="corner10"  TextAutoAdjust="Yes" Clicked=":ArrangePosition" Margin="0,3,0,3" />
+                <IndicatorButton    Text="Center"            Name="CenterPosition"   Anchors="9,0" Texture="corner5"   TextAutoAdjust="Yes" Clicked=":CenterPosition" Margin="3,3,0,3" />
+                <IndicatorButton    Text="Reset Position"    Name="ResetPosition"    Anchors="10,0" Texture="corner0"   TextAutoAdjust="Yes" Clicked=":ResetPosition" Margin="0,3,0,3" />
+                <IndicatorButton    Text="Reset Rotation"    Name="ResetRotation"    Anchors="11,0" Texture="corner10"  TextAutoAdjust="Yes" Clicked=":ResetRotation" Margin="0,3,0,3" />
+                <SwipeButton        TriggerIndirectInitLevel="Full" Text="Layout Type"       Name="LayoutType"       Anchors="0,0" Texture="corner15"  TextAutoAdjust="Yes" Property="LayoutType"      Margin="0,3,0,3" />
+                <SwipeButton        TriggerIndirectInitLevel="Full" Text="Axis Group Type"   Name="AxisGroupType"    Anchors="1,0" Texture="corner5"  TextAutoAdjust="Yes" Property="AxisGroupType"   Margin="0,3,0,3" />
+                <IndicatorButton    Text="Reset Unused Axis" Name="ResetUnusedAxis"  Anchors="2,0" Texture="corner10"  TextAutoAdjust="Yes" Margin="0,3,0,3" Clicked=":ResetUnusedAxis"/>
+                <SwipeButton        TriggerIndirectInitLevel="Full" Text="Direction"         Name="Direction"        Anchors="3,0" Texture="corner15"  TextAutoAdjust="Yes" Property="GridDirection"   Margin="0,3,0,3" />
+                <SwipeButton        TriggerIndirectInitLevel="Full" Text="Row Order"         Name="RowOrder"         Anchors="4,0" Texture="corner5"  TextAutoAdjust="Yes"  Property="GridRowOrder"    Margin="0,3,0,3" />
+                <SwipeButton        TriggerIndirectInitLevel="Full" Text="Column Order"      Name="ColumnOrder"      Anchors="5,0" Texture="corner10"  TextAutoAdjust="Yes"  Property="GridColumnOrder" Margin="0,3,0,3" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Lower" Anchors="0,1,9,2" Columns="5" Rows="2" DefaultMargin="4,0,4,0" OnLoad=":SetTarget" >
+                <EncoderControl Visible="1" Name="TransX"  System="TransRot" Property="Pos X"  EncoderRing="Inner" EncoderType="Inside1"  Anchors="0,0" Texture="corner0"/>
+                <EncoderControl Visible="1" Name="TransY"  System="TransRot" Property="Pos Y"  EncoderRing="Inner" EncoderType="Inside2"  Anchors="1,0" Texture="corner0" />
+                <EncoderControl Visible="1" Name="TransZ"  System="TransRot" Property="Pos Z"  EncoderRing="Inner" EncoderType="Inside3"  Anchors="2,0" Texture="corner0" />
+                <EncoderControl Visible="1" Name="RotX"    System="TransRot" Property="Rot X"  EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" />
+                <EncoderControl Visible="1" Name="RotY"    System="TransRot" Property="Rot Y"  EncoderRing="Outer" EncoderType="Outside2" Anchors="1,1" Texture="corner0" />
+                <EncoderControl Visible="1" Name="RotZ"    System="TransRot" Property="Rot Z"  EncoderRing="Outer" EncoderType="Outside3" Anchors="2,1" Texture="corner0" />
+
+                <EncoderControl Visible="0" Name="Arrangement1"  System="Arrangement" Property="Arrangement1"  EncoderRing="Both" EncoderType="Inside1" Anchors="0,0,0,1" Texture="corner0" />
+                <EncoderControl Visible="0" Name="Arrangement2"  System="Arrangement" Property="Arrangement2"  EncoderRing="Both" EncoderType="Inside2" Anchors="1,0,1,1" Texture="corner0" />
+                <EncoderControl Visible="0" Name="Arrangement3"  System="Arrangement" Property="Arrangement3"  EncoderRing="Both" EncoderType="Inside3" Anchors="2,0,2,1" Texture="corner0" />
+                <EncoderControl Visible="0" Name="Arrangement4"  System="Arrangement" Property="Arrangement4"  EncoderRing="Both" EncoderType="Inside4" Anchors="3,0,3,1" Texture="corner0" />
+
+                <EncoderControl Visible="0" Name="ArrangementSplitInner1"    Property="Arrangement1"   System="Arrangement" EncoderRing="Inner" EncoderType="Inside1"  Anchors="0,0" Texture="corner0" />
+                <EncoderControl Visible="0" Name="ArrangementSplitOuter1"    Property="Arrangement2"   System="Arrangement" EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" />
+                <EncoderControl Visible="0" Name="ArrangementSplitInner2"    Property="Arrangement3"   System="Arrangement" EncoderRing="Inner" EncoderType="Inside2"  Anchors="1,0" Texture="corner0" />
+                <EncoderControl Visible="0" Name="ArrangementSplitOuter2"    Property="Arrangement4"   System="Arrangement" EncoderRing="Outer" EncoderType="Outside2" Anchors="1,1" Texture="corner0" />
+                <EncoderControl Visible="0" Name="ArrangementSplitInner3"    Property="Arrangement5"   System="Arrangement" EncoderRing="Inner" EncoderType="Inside3"  Anchors="2,0" Texture="corner0" />
+                <EncoderControl Visible="0" Name="ArrangementSplitOuter3"    Property="Arrangement6"   System="Arrangement" EncoderRing="Outer" EncoderType="Outside3" Anchors="2,1" Texture="corner0" />
+                <!-- The big 'Apply' button right of the Encoder Buttons-->
+                <!-- <IndicatorButton Text="Apply" Name="Apply"  Anchors="4,0,4,1" Texture="corner15"  TextAutoAdjust="Yes" Clicked=":ArrangePosition"/> -->
+
+
+                <ScreenEncoderControl Name="Encoder5aScr" System="Scroll"      EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" />
+                <ScreenEncoderControl Name="Encoder5bScr" System="Scroll"      EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" />
+            </UILayoutGrid>
+        </UILayoutGrid>
+        <!-- </StageViewBar> -->
+    </StageViewBar>
+</GMA3>

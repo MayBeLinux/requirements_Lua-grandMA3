@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ShowCreatorCreatePresets" Author="MA" Version="0.1.0.0" Path="/ui/input/show_creator">
+        <ComponentXML Index="1" FileName="show_creator_create_presets.uixml" PlaceHolder="MainDialog" DisplayTypePreference="Big"  Toggle="No" CanProvideUiGridSelection="No" SingletonDialogGroup="ShowCreator" />
+        <ComponentLua Index="2" FileName="show_creator_ft_presets.lua" />
+        <ComponentLua Index="3" FileName="show_creator_create_presets.lua" />
+    </Menu>
+</GMA3>

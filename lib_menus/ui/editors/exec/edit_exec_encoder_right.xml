@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="69" Name="EditExecEncoderRight" Guid="00 1B 21 63 C1 D0 00 00 A2 52 36 54 09 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/editors/exec">
+        <ComponentXML Index="1" Guid="00 1B 21 63 F6 84 00 00 A5 52 36 54 09 82 55 B0" FileName="edit_exec_encoder_right.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 2A 89 00 00 A4 52 36 54 09 82 55 B0" FileName="edit_exec_encoder_right.lua" />
+    </Menu>
+</GMA3>

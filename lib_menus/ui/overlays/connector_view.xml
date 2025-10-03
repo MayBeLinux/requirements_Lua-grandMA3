@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ConnectorView" Author="MA" Version="0.1.0.0" Path="/ui/overlays" Placement="Multi">
+        <ComponentXML FileName="connector_view.uixml" PlaceHolder="FullScreen" DisplayTypePreference="Long" DefaultDisplay="8"  BuddyGroupId="ConnectorView" BuddyGroupIdUnique="No" Toggle="Yes" SearchFocusAllowed="No"/>
+        <ComponentLua FileName="connector_view.lua" />
+    </Menu>
+</GMA3>

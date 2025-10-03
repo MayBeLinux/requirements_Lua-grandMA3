@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="195" Name="WindowClock" Guid="71 BF 9A B0 0C F3 44 1C A5 DD 9C 4A E0 F8 F3 FF" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="CA B5 3E 6C 48 A4 44 11 89 BB 11 27 74 22 F0 DF" FileName="window_clock.uixml" PlaceHolder="UiScreen" WindowSettings="ClockWindowSettings" WindowContext="ContextClockWindow" Toggle="No" />
+        <ComponentLua Index="2" Guid="" FileName="window_clock.lua"/>
+    </Menu>
+</GMA3>

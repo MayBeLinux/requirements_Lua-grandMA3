@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow Name="UserPool" HelpTopic="user_create.html">
+        <UserPoolLayoutGrid Text="Users" TitleButtonIcon="object_user"  ToolTip="User pool window" HelpTopic="user_create.html">
+            <PoolTitleButton/>
+        </UserPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

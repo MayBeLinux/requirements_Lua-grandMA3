@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="91" Name="FixtureTypeEditor" Guid="70 8B CD 59 72 4C 00 00 3D 52 36 54 9A 84 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup" >
+        <ComponentXML Index="1" Guid="70 8B CD 59 9E 7B 00 00 3C 52 36 54 9A 84 55 B0" FileName="fixture_type_editor.uixml" PlaceHolder="MainDialog" Toggle="No" />
+        <ComponentLua Index="2" Guid="00 00 00 00 D6 3C 00 00 3E 52 36 54 19 8E 55 B0" FileName="fixture_type_editor.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <AllPoolWindow Name="SequencePool" HelpTopic="cue_sequence.html">
+        <AllPoolLayoutGrid  Text="Sequence" TitleButtonIcon="object_sequence" ToolTip="Sequence pool window" Pooltype="Sequence">
+            <AllPoolTitleButton />
+        </AllPoolLayoutGrid>
+    </AllPoolWindow>
+</GMA3>

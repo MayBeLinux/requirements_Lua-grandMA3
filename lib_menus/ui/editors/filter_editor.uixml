@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <FilterEditor Name="FilterEditor" DefaultMargin="2" OnLoad=":OnLoaded" OnSetEditTarget=":OnSetEditTarget" ChangeDestination="1" CanBeEmbedded="Yes" UpdateSettingsVisibility="Yes" InitialSaveEditTarget="true" HelpTopic="worldfilter_filter_create.html" >
+
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Filter"/>
+
+            <AutoLayout Name="ButtonContainer" Anchors="1,0" Direction="Horizontal" Content="Yes" >
+                <IndicatorControl Texture="corner0" MinSize="50,0" W="100" Name="Settings" Text="Settings" Property="ShowSettingsInEditors" Target="~"/>
+                <ScreenSelectorButton  MinSize="50,0" />
+            </AutoLayout>
+
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" DefaultMargin="4" DefaultMarginOnBorders="1" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="FilterRuleGrid" Anchors="0,0"  MinSize="200,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <PlaceHolderBase Anchors="0,0" Name="ObjectSettings" OnLoad=":LoadFilterObjectSettings"/>
+
+                <UILayoutGrid Name="FilterRules" Anchors="0,1">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="60"/>
+                    </ItemCollectRows>
+
+                    <FilterGrid Anchors="0,0" Name="FilterRuleGrid" BackColor="UIGrid.Background" Focus="InitialFocus" AlternateBackColor="Yes" DataType="FilterGridData" CellType="FilterGridCell" >
+                        <GridSettings>
+                            <GridColumnFilterCollect>
+                                <GridColumnNamesFilter Inclusive="No">
+                                    <GridColumn Name="Name" Visible="No" />
+                                    <!-- <GridColumn Name="Size" Visible="Yes" /> -->
+                                </GridColumnNamesFilter>
+                            </GridColumnFilterCollect>
+                        </GridSettings>
+                    </FilterGrid>
+
+                    <UILayoutGrid Name="FilterGrid" Anchors="0,1" DefaultMargin="4" DefaultMarginOnBorders="Yes" Texture="Corner15" Transparent="No" BackColor="CustomMasters.Section">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Fixed" Size="150" />
+                            <Item SizePolicy="Fixed" Size="10" />
+                            <Item SizePolicy="Fixed" Size="150" />
+                            <Item SizePolicy="Fixed" Size="150" />
+                            <Item SizePolicy="Fixed" Size="150" />
+                            <Item SizePolicy="Fixed" Size="150" />
+                            <Item SizePolicy="Fixed" Size="150" />
+                        </ItemCollectColumns>
+                        <Button         Anchors="0,0"  Text="Programming&#xD;Layers" Texture="Corner15" Enabled="No"        TextAlignmentH="Center" Padding="6,0,0,0" />
+                        <PropertyInput  Anchors="2,0"  Name="ValueAbs" Texture="Corner5"  Target="#.AtFilter" Property="Absolute" />
+                        <PropertyInput  Anchors="3,0"  Name="ValueRel" Texture="Corner0"  Target="#.AtFilter" Property="Relative" />
+                        <PropertyInput  Anchors="4,0"  Name="ValueTiming" Texture="Corner0"  Target="#.AtFilter" Property="Timing" />
+                        <PropertyInput  Anchors="5,0"  Name="ValuePhaser" Texture="Corner10" Target="#.AtFilter" Property="Phaser"/>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="2,0" Name="AtFilterGrid" Texture="Corner15" Transparent="No"  MinSize="200,0" BackColor="CustomMasters.Section">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="60"/>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <UILayoutGrid Name="FilterTitleBar" Anchors="0,0" Texture="Corner3" BackColor="Global.Transparent" >
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Fixed" Size="100" />
+                        <Item SizePolicy="Fixed" Size="100" />
+                        <Item SizePolicy="Fixed" Size="100" />
+                    </ItemCollectColumns>
+
+                    <UIObject Name="FilterTitle" Anchors="0,0"  Interactive="No" Text="Filter" BackColor="Global.Transparent"  Margin="2,0,0,0" TextAlignmentH="Left" Font="Regular20" />
+                    <SwipeButton  Anchors="1,0" Texture="Corner15" Margin="4,4,4,4" Property="LineHeight" Text="Line Height" OnLoad=":SetButtonHeigtTarget" SelectionChanged=":ChangeLineHeight"/>
+                    <IndicatorButton Name="SelectAll"  Anchors="2,0" Texture="Corner15" Margin="4,4,4,4" Text="Select&#xD;All"  Clicked=":SelectAll" />
+                    <IndicatorButton Name="SelectNone" Anchors="3,0" Texture="Corner15" Margin="4,4,4,4" Text="Select&#xD;None" Clicked=":SelectNothing" />
+                </UILayoutGrid>
+
+                <ScrollContainer Name="AtFilter" Anchors="0,1" DefaultMargin="0"  >
+                    <ScrollBox Name="Box" ResetChildrenSize="Yes" >
+                        <UILayoutGrid DefaultMargin="6" Name="InnerGrid" >
+                            <ItemCollectRows>
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Stretch" />
+                            </ItemCollectRows>
+
+
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" />
+                            </ItemCollectColumns>
+
+                            <UILayoutGrid Name="TitleGrid" Anchors="0,0" H="50" DefaultMargin="8">
+                                <ItemCollectColumns>
+                                    <Item SizePolicy="Fixed" Size="50" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                </ItemCollectColumns>
+
+                                <Button Anchors="0,0" Name="CollapseAll"       Texture="Corner15" Clicked=":OnCollapseAll" Icon="triangle_right" Margin="4,0,0,0" />
+                                <Button Anchors="1,0"     Text="Feature Group" Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                                <Button Anchors="2,0"     Text="Feature"       Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                                <Button Anchors="3,0,7,0" Text="Attributes"    Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                            </UILayoutGrid>
+
+
+                            <AtFilterDialog Name="AtDialog" Anchors="0,1" Columns="8" DefaultMargin="8" DefaultMarginOnBorders="Yes" Transparent="No" BackColor="Global.Background" HasHover="No"/>
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+            </UILayoutGrid>
+
+            <SplitterH Name="resizer"  UIToControl="Left"  Anchors="1,0" ResizeEnd=":ReInitAtFilterGrid" Property="SplitPos" OnLoad=":SetSettingsTarget" />
+
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportEditorButton WorkWithGrid="No" />
+                <MainDlgExportEditorButton WorkWithGrid="No" />
+            </CmdDlgFunctionButtonsLeft>
+
+            <CmdDlgFunctionButtonsRight>
+                <UIObject        Anchors="0,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject        Anchors="0,1,2,1" Texture="corner0" HasHover="0"/>
+                <IndicatorButton Anchors="3,1" Name="ColorListRef" Text="List References" Clicked=":OnListReference" />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </FilterEditor>
+</GMA3>

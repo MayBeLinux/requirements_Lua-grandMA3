@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <RunningPlaybacksWindow OnLoad=":OnLoad" Name="WindowRunningPlaybacks" HelpTopic="executor_running_playbacks.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title" Texture="corner2">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton    Text="Running Playbacks"    Anchors="1,0,2,0" Texture="corner2" ToolTip="Running Playbacks Window"/>
+            <TitleAutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <IndicatorControl  Name="MyPlaybacksOnlyControl"    MinSize="50,0" W="150"   Property="MyPlaybacksOnly" Focus="Never" Clicked=":MyPlaybacksOnlyClick"/>
+                <SwipeButton       Name="UserControl"               MinSize="50,0" W="150"   Property="User"            OnLoad=":SetTarget"  Text="Started by"   TextAutoAdjust="No" BackColor="global.Default"  IndirectEdit="1" />
+                <SwipeButton       Name="DataPoolControl"           MinSize="50,0" W="150"   Property="SelectedDataPool"        OnLoad=":SetTarget"  Text="DataPool"     TextAutoAdjust="No" BackColor="global.Default"  IndirectEdit="1" />
+                <IndicatorControl  Name="SheetStyleControl"         MinSize="50,0" W="100"   Property="SheetStyle"      Focus="Never" />
+                <IndicatorControl  Name="LockListControl"           MinSize="50,0" W="100"   Property="HoldList"        Focus="Never" />
+                <IndicatorControl  Name="OffModeControl"            MinSize="50,0"  W="100"  Property="OffMode"         Focus="Never" />
+            </TitleAutoLayout>
+            <ContextButton  Texture="corner1"  Icon="object_runningpb"   Anchors="0,0" ToolTip="Running Playbacks Window"/>
+        </NormedTitleBar>
+
+        <UITab Anchors="0,1" Name="PoolPagesTab" Property="PlaybacksToShow" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":SetUITabTarget" Rounded="No" ShowAdditionalInfo="Yes">
+            <ItemStr Title="Sequences"  Value="Sequences"   NumberValue="0"/>
+            <ItemStr Title="Macros"     Value="Macros"      NumberValue="1"/>
+            <ItemStr Title="Timecodes"  Value="Timecodes"   NumberValue="2"/>
+            <ItemStr Title="Presets"    Value="Presets"     NumberValue="3"/>
+            <ItemStr Title="Timers"     Value="Timers"      NumberValue="4"/>
+            <ItemStr Title="Sounds"     Value="SoundFiles"  NumberValue="5"/>
+            <ItemStr Title="All"        Value="AllPlaybacks" NumberValue="6"/>
+        </UITab>
+        <!-- Pool -->
+        <RunningPlaybacksPoolLayoutGrid Anchors="0,2" Name="Pool" OnLoad=":PoolLoaded"/>
+
+        <!-- Grid -->
+        <DialogFrame Anchors="0,1,0,2" Name="Frame" MixInBackColorFromParent="Yes" Margin="0,-1,0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <UITab Anchors="0,0" Name="SheetPagesTab" Property="PlaybacksToShow" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":SetUITabTarget" Rounded="No" Margin="1,1,1,0" ShowAdditionalInfo="Yes">
+                <ItemStr Title="Sequences"  Value="Sequences"   NumberValue="0"/>
+                <ItemStr Title="Macros"     Value="Macros"      NumberValue="1"/>
+                <ItemStr Title="Timecodes"  Value="Timecodes"   NumberValue="2"/>
+                <ItemStr Title="Presets"    Value="Presets"     NumberValue="3"/>
+                <ItemStr Title="Timers"     Value="Timers"      NumberValue="4"/>
+                <ItemStr Title="Sounds"     Value="SoundFiles"  NumberValue="5"/>
+                <ItemStr Title="All"        Value="AllPlaybacks" NumberValue="6"/>
+            </UITab>
+            <DBObjectGrid Anchors="0,1" Name="Grid" DataType="RunningPlaybacksDBObjectGridData" LevelLimit="0" OnLoad=":SetGridTarget" OnSelectedItem=":CommandLine" SignalValue="UiGrid" AllowAddContent="No" AllowAddNewline="0" AllowEdit="No" Margin="0,1,0,0">
+                <RunningPlaybacksDBObjectGridData Name="GridData"/>
+            </DBObjectGrid>
+        </DialogFrame>
+    </RunningPlaybacksWindow>
+</GMA3>

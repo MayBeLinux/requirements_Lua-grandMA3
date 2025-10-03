@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="212" Name="WindowHelpViewer" Guid="EF 91 05 19 45 C3 4C 73 BC 59 EB 79 B7 7C CE 77" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="13 DA 94 8B 60 BB 46 76 84 DF CC 59 B5 2A 3E 97" FileName="window_help_viewer.uixml" PlaceHolder="UiScreen" WindowSettings="HelpViewerWindowSettings" WindowContext="ContextHelpWindow" Toggle="No" />
+        <ComponentLua FileName="window_help_viewer.lua" />
+    </Menu>
+</GMA3>

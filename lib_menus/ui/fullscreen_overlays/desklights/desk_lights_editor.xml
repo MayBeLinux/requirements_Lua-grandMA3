@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="55" Name="DeskLightsEditor" Guid="63 45 05 8A 44 D6 43 3A 81 A8 E7 66 97 6A 76 5E" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays/desklights">
+        <ComponentXML Index="1" Guid="A1 DA 34 33 C0 A3 4E 17 BA CA 6F 2F 97 71 06 0A" FileName="desk_lights_editor.uixml" PlaceHolder="FullScreen" />
+        <ComponentLua Index="2" FileName="desk_lights_editor.lua" />
+    </Menu>
+</GMA3>

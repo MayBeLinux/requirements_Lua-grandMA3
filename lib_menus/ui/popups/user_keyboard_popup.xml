@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="184" Name="UserKeyboardPopup" Guid="C5 C3 75 0F 7A 31 4B 55 94 B2 8C 93 F9 31 41 AC" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="03 95 97 F9 4F EC 48 3C AB 28 A7 9E 8C C0 1A 76" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="28 7A B8 26 F4 8B 4F 77 B9 21 8D D5 94 92 2D 9A" FileName="user_keyboard_popup.lua" />
+    </Menu>
+</GMA3>

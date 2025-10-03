@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <UILayoutGrid Name="SplashScreenDialog" OnLoad=":SplashScreenDialogLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <UIObject Name="SplashScreenText" Anchors="0,0" Interactive="No" TextAlignmentH="Center" TextAlignmentV="Center" TextColor="Global.LabelText" BackColor="Global.Background"/>
+    </UILayoutGrid>
+</GMA3>

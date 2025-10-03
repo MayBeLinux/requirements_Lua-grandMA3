@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="2.1.0.0">
+    <PSRImportMainDialog Name="PSRImport" OnLoad=":OnLoad" HelpTopic="sc_psr.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="PSR Import"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="ImportDialogContent" DefaultMargin="5" Margin="6,1,0,0" Rows="1" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="3" />
+                <Item SizePolicy="Fixed" Size="30" />
+                <Item SizePolicy="Stretch" Size="2" />
+            </ItemCollectColumns>
+
+            <!-- PSR GRID AREA -->
+            <UILayoutGrid Anchors="0,0" Name="PSRArea" DefaultMargin="4">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <UILayoutGrid Anchors="0,0" Name="LocalSubTitle">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <TitleButton Anchors="0,0" Name="Title" Texture="corner3" Text="PSR" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="Frame" Anchors="0,1" DefaultMargin="4" Texture="Corner12" Transparent="No" >
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <PSRTreeViewFrame Name="TreeViewFrame" Anchors="0,0" Focus="InitialFocus" Clicked=":OnSelectedTreeItem" Scrolled=":OnScrolledTreeItem" Texture="Corner4" BackColor="ShowCreator.Section" Transparent="No" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed"   Size="20" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed"   Size="20" />
+                        </ItemCollectColumns>
+                        <TreeViewRows Anchors="0,0,1,1">
+                        </TreeViewRows>
+                        <ScrollBarV Anchors="1,0" ScrollTarget="../../TreeViewFrame" />
+                        <ScrollBarH Anchors="0,1" ScrollTarget="../../TreeViewFrame" />
+                    </PSRTreeViewFrame>
+
+                    <PSRImportGrid Anchors="1,0" Name="PSRItem" AllowEdit="Yes" CanProvideUiGridSelection="No" OnLoad=":OnLocalGridLoaded" OnSelectedItem=":OnLocalGridSelected" LevelLimit="0" DefaultMargin="4" Texture="Corner8" BackColor="ShowCreator.Section" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <!-- TRIANGLE -->
+            <Button Icon="arrow_triangle" Anchors="1,0"  Interactive="No" BackColor="Global.Transparent" IconColor="ShowCreator.DirectionIcon"/>
+
+            <!-- LOCAL AREA -->
+            <UILayoutGrid Anchors="2,0" Name="LocalArea" DefaultMargin="4">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <UILayoutGrid Anchors="0,0" Name="LocalSubTitle">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="100" />
+                    </ItemCollectColumns>
+                    <TitleButton Anchors="0,0" Name="Title" Texture="corner1" Text="Local" />
+                    <IndicatorControl Anchors="1,0" Name="SheetStyleBtn" Texture="corner2" OnLoad=":UseSettingsTarget" Property="SheetStyle" ColorIndicatorHeight="0" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="Frame" Anchors="0,1" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+                    <UILayoutGrid Anchors="0,0" Name="PoolWindowPlace" CellWidth="50" CellHeight="50" BlockHeight="2" BlockWidth="2">
+                        <PsrImportPoolWindow Anchors="0,0" Name="PoolWindow" Margin="0,0,0,0" OnLoad=":PoolWindowLoaded" >
+                            <PsrPoolGrid />
+                        </PsrImportPoolWindow>
+                    </UILayoutGrid>
+                    <PSRResultShowGrid Anchors="0,0" Name="LocalGrid" BackColor="Global.Background"  AllowEdit="Yes" CanProvideUiGridSelection="No" OnLoad=":OnLocalGridLoaded" OnSelectedItem=":OnLocalGridSelected" LevelLimit="0" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </MainDialogContent>
+
+
+        <MainDialogFunctionButtons Name="MainDialogFunctionButtons" >
+            <CmdDlgFunctionButtonsLeft Name="ButtonsLeft" Rows="2">
+                <IndicatorButton Anchors="0,0" Text="Collapse&#xD;All"    Clicked=":OnCollapseAll" ToolTip="Collapse all PSR objects."/>
+                <IndicatorButton Anchors="0,1" Text="Expand&#xD;Selected" Clicked=":OnExpandSelected" ToolTip="Expand selected PSR objects." />
+
+                <IndicatorButton Anchors="1,0" Text="Clear&#xD;Selection" Clicked=":OnClearSelection" ToolTip="Deselect all PSR objects." />
+                <IndicatorButton Anchors="1,1" Text="Cleanup"         Clicked=":OnCleanup" ToolTip="Remove already imported PSR objects." />
+
+                <IndicatorButton Anchors="2,1" Text="Import"          Clicked=":OnRunImport" ColorIndicator="Button.BackgroundPlease" ToolTip="Import selected PSR objects." />
+                <UIObject Anchors="2,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="3,1" Texture="corner0" HasHover="0"/>
+
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight Name="ButtonsRight" Rows="2">
+                <IndicatorControl Anchors="0,1" Property="IncludeDependencies" OnLoad=":DepBtnUseSettingsTarget"/>
+                <IndicatorControl Anchors="1,1" Property="GapsImport" Text="" OnLoad=":GapsBtnUseSettingsTarget"/>
+                <UIObject Anchors="0,1,3,1" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="0,0,3,0" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+
+    </PSRImportMainDialog>
+</GMA3>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShadedOverlay Name="DisplayConfig" W="450" H="450" AlignmentH="Center" AlignmentV="Center" WantsModal="0"  OnLoad=":OnLoaded" HelpTopic="ws_ui_display_configuration.html" AdjustInitialPosition="Yes">
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Configure Display" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Body"  DefaultMargin="10" OnLoad=":BodyLoaded" >
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1"  />
+                <Item SizePolicy="Content"  />
+                <Item SizePolicy="Content"  />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="2" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+
+            <PropertyControl  Name="ShowHeadline"   Text="Show Title Bar"           Property="ShowHeadline"     Anchors="0,0,2,0" ToolTip="Toggles the os window title bar" ShowValue="0" Visible="No" H="50" />
+
+            <UILayoutGrid Name="StaticContainer" Anchors="0,1,2,1" Rows="1" Columns="4" DefaultMargin="10">
+                <PropertyControl  Name="ShowMainMenu" Text="Show&#xD;Control&#xD;Bar" Property="ShowMainmenu" Anchors="0,0,0,0" ToolTip="Toggles the control bar"  ShowValue="0" texture="corner10"/>
+                <UILayoutGrid Name="ScreenFrame" Anchors="1,0,2,0" Rows="4" Columns="3">
+                    <AppearanceInput Name="AppearanceSelector" Anchors="0,0,2,0"  Texture="corner3" />
+                    <Button Name="ScreenResetToDefault" Anchors="0,1,2,1"  Text="Reset Size" Texture="corner0" Clicked=":ResetToDefault" />
+                    <PropertyControl Name="ScreenRequestedW" Anchors="0,2"  TextAlignmentH="Left" Text="Width" Property="ViewW" Texture="corner0" />
+                    <PropertyControl Name="ScreenRequestedH" Anchors="1,2"  TextAlignmentH="Left" Text="Height" Property="ViewH" Texture="corner0" />
+                    <SwipeButton Name="ScaleRatio" Anchors="2,2"  TextAlignmentH="Left" Text="Scale" Property="ScaleRatio" Texture="corner0" />
+                    <PropertyControl  Name="ShowFeedback" Anchors="0,3,2,3"  Text="Show Feedback"    Texture="corner12"  Property="ShowFeedback"  ToolTip="Toggles the Feedback" ShowValue="0" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="ViewBarFrame" Anchors="3,0,3,0" Rows="11" Columns="3">
+                    <PropertyControl  Text=" " Name="TurnViewBar" Anchors="0,0,2,2" Icon="icon_turn" Texture="corner1" Property="TurnViewBar" ToolTip="Turns view bar horizontal" ShowValue="0" />
+                    <PropertyControl  Name="ShowViewBar"  Text="Show&#xD;View&#xD;Bar"  Anchors="0,3,2,6"  Property="ShowViewBar"   ToolTip="Toggles the view bar"     ShowValue="0"  />
+                    <PropertyControl Name="ShowScrollButton" Anchors="0,9,2,10" Property="ShowScrollButton" Text=" " ShowValue="0" Icon="triangle_down" Texture="corner4"  ToolTip="Toggles the general visibility of the View Bar Scroll Button"/>
+                    <PropertyControl  Text="+" Name="ViewBarAddition"  Anchors="2,7,2,8" Texture="corner0" Property="ViewBarAddition" ToolTip="Sets the ammount of view bar buttons" ShowValue="0" Clicked=":AddViewBar"/>
+                    <Button  Name="ViewBarLines"    Anchors="1,7,1,8" Texture="corner0"  ToolTip="Sets the ammount of view bar buttons"  />
+                    <PropertyControl  Text="-" Name="ViewBarSubtraction"    Anchors="0,7,0,8" Texture="corner0" Property="ViewBarSubtraction" ToolTip="Sets the ammount of view bar buttons" ShowValue="0" Clicked=":SubstractViewBar" />
+                </UILayoutGrid>
+
+
+            </UILayoutGrid>
+
+            <PropertyControl  Name="ShowCmdline"  Text="Show Command Line"        Property="ShowCmdline"  Anchors="0,2,2,2" ToolTip="Toggles the command line" ShowValue="0" H="50" />
+            <PropertyControl  Name="ShowEncoderBar" Text="Show Encoder Bar"         Property="ShowEncoderBar"   Anchors="0,3,2,3" ToolTip="Toggles the encoder bar"         ShowValue="0" H="50"  />
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

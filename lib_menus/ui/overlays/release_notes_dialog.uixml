@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <UILayoutGrid Name="ReleaseNotesDialog" OnLoad=":ReleaseNotesDialogLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <DialogReleaseNotes Name="ReleaseNotesHelp" Anchors="0,0" Focus="InitialFocus" />
+        <IndicatorControl Name="WithCodecs" Anchors="0,1" H="50" Visible="No" Text="3rd party codecs" />
+    </UILayoutGrid>
+</GMA3>

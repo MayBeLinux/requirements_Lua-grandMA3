@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="WindowRecipeEditor" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" FileName="window_recipe_editor.uixml" PlaceHolder="UiScreen" WindowSettings="RecipeSheetSettings" WindowContext="ContextRecipeEditor"/>
+        <ComponentLua FileName="window_recipe_editor.lua" />
+    </Menu>
+</GMA3>

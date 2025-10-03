@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="113" Name="MenuSelector" Guid="58 52 33 D8 37 DC 49 93 B4 79 38 D7 CF A4 C2 1D" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays" DisplayFrom="Intern1" DisplayTo="Extern5" Placement="Multi">
+        <ComponentLua Index="1" Guid="0A 00 27 00 B0 5D 00 00 EE 3C 0A 42 33 0A 8E 73" FileName="menu_selector.lua" />
+        <ComponentXML Index="2" Guid="C3 CF 90 FF D2 74 4D 47 99 D2 97 06 1D 17 07 C4" FileName="menu_clear_screen.uixml" PlaceHolder="ScreenOverlay" BuddyGroupId="MenuSelector" BuddyGroupIdUnique="No" DefaultDisplay="1" DisplayTypePreference="Big" />
+        <ComponentXML Index="3" Guid="F3 E3 09 6A 09 6B 4D 36 9F B4 B6 AF B0 C2 AA 7E" FileName="menu_selector.uixml"     PlaceHolder="FullScreen"    BuddyGroupId="MenuSelector" BuddyGroupIdUnique="No" DisplayTypePreference="Big" />
+        <ComponentXML Index="4" Guid="70 4D 7B 2D 0B 6A 00 00 5B 58 86 BB 78 B1 01 1A" FileName="menu_clear_screen.uixml" PlaceHolder="FullScreen"    BuddyGroupId="MenuSelector" BuddyGroupIdUnique="No" DisplayTypePreference="Small" />
+    </Menu>
+</GMA3>

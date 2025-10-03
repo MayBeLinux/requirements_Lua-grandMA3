@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="RunningPlaybacksOverlay" Author="MA" Version="0.1.0.0" Path="/ui/main_overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML FileName="running_playbacks_overlay.uixml" PlaceHolder="MainOverlay" />
+        <ComponentLua FileName="../window_other/window_running_playbacks.lua" />
+    </Menu>
+</GMA3>

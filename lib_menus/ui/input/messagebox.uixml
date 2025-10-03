@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MessageBox Name="MsgBox" W="700" H="300" AlignmentH="Center" AlignmentV="Center" WantsModal="1" UserRights="None">
+
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner3" Anchors="0,0" Text="Message" Icon=""/>
+            <AutoLayout Name="TitleCommands" Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes" Visible="No" >
+            </AutoLayout>
+        </TitleBar>
+
+
+        <DialogFrame DefaultMargin="10" DefaultMarginOnBorders="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <!-- Progress -->
+            <ProgressBar H="24" Name="Progress" ProgressColor="MessageBox.Progress" Anchors="0,0" Visible="No" Interactive="No" />
+
+            <!-- Text -->
+            <ScrollContainer Name="TextScroll" Anchors="0,1" ContentDriven="Yes" ContentWidth="No" MaxSize="0,400" Padding="20,20,20,20" Visible="No" Interactive="No">
+                <ScrollBox ContentDriven="Yes" ContentWidth="No" Interactive="No">
+                    <UIObject  Name="Text"  Texture="" Text="" TextAlignmentV="Top" ContentDriven="Yes" ContentWidth="No" TextAutoAdjust="Yes" Interactive="No" TextUniform="No" />
+                </ScrollBox>
+            </ScrollContainer>
+
+            <!-- Inputs, Selectors, States -->
+            <ScrollContainer Name="ButtonScroll" Anchors="0,2" ContentDriven="Yes" MaxSize="0,400">
+                <ScrollBox ContentDriven="Yes">
+                    <UILayoutGrid>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+
+                        <UILayoutGrid Name="Inputs" Anchors="0,0" Visible="0" >
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                            </ItemCollectColumns>
+                        </UILayoutGrid>
+
+                        <AutoLayout Name="Selectors" Anchors="0,1" Texture="corner15" Visible="0" ContentDriven="Yes" Content="Yes" ContentWidth="No" Direction="Horizontal" ChildrenFillPolicy="RowFirst" GroupedCellsCount="SizeDriven" />
+                        <AutoLayout Name="States"    Anchors="0,2" Texture="corner15" Visible="0" ContentDriven="Yes" Content="Yes" ContentWidth="No" Direction="Horizontal" ChildrenFillPolicy="RowFirst" GroupedCellsCount="SizeDriven" />
+
+                    </UILayoutGrid>
+                </ScrollBox>
+            </ScrollContainer>
+
+            <!-- Commands -->
+            <UILayoutGrid Name="Commands" Anchors="0,3" Visible="0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </MessageBox>
+</GMA3>

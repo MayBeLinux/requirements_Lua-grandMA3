@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="worldfilter.html" >
+        <FilterPoolLayoutGrid Text="Filters" TitleButtonIcon="object_filter" ToolTip="Filter pool window" ReactToRecipeEdit="Yes">
+            <PoolTitleButton />
+        </FilterPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+    <Window Name="PhaserWindow" ReactToPreview="Yes" ReactToEdit="Yes" HelpTopic="phaser_editor.html" OnLoad=":OnLoad" SmallResizeArea="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content"/>
+            </ItemCollectColumns>
+            <TitleButton Texture="corner0" Anchors="1,0,2,0" Text="Phaser Editor" Texture="corner2"/>
+
+            <TitleAutoLayout Anchors="2,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <SwipeButton       Name="Mode1D"        MinSize="50,0" W="100" OnLoad=":SetTarget" Property="Mode1D" Text="1D Mode" FocusSearchPolicy="Suppress" Undo="No" ToolTip="Toggle value / transition" />
+                <SwipeButton       Name="AbsRelMode"    MinSize="50,0" W="100" OnLoad=":SetTarget" Property="AbsRelMode" Text="Values" Undo="No" ToolTip="Choose Abs Rel view mode" />
+				<Button            Name="Spacer"        MinSize="10,0" W="10"  HasHover="No" BackColor="ContextButton.Background" />
+                <ValueRadioControl Name="ViewModeSheet" MinSize="50,0" W="100" OnLoad=":SetTarget" Property="ViewMode" Text="Sheet" Value="Sheet" ToolTip="Set ViewMode to 'Sheet'"  />
+                <ValueRadioControl Name="ViewMode1D"    MinSize="50,0" W="100" OnLoad=":SetTarget" Property="ViewMode" Text="1D"    Value="1D"    ToolTip="Set ViewMode to '1D'"  />
+                <ValueRadioControl Name="ViewMode2D"    MinSize="50,0" W="100" OnLoad=":SetTarget" Property="ViewMode" Text="2D"    Value="2D"    ToolTip="Set ViewMode to '2D'"  />
+                <ValueRadioControl Name="ViewModeAuto"  MinSize="50,0" W="100" OnLoad=":SetTarget" Property="ViewMode" Text="Auto"  Value="Auto"  ToolTip="Set ViewMode to 'Auto'"  />
+                <SwipeButton       Name="Attributes"    MinSize="50,0" W="100" OnLoad=":SetTarget" Property="Attributes" />
+                <SwipeButton       Name="EncoderBar"    MinSize="50,0" W="100" OnLoad=":SetTarget" Property="EncoderBar" />
+                <PropertyInput     Name="StepBar"       MinSize="50,0" W="100" OnLoad=":SetTarget" Property="StepBar" />
+                <PropertyInput     Name="LayerBar"      MinSize="50,0" W="100" OnLoad=":SetTarget" Property="LayerBar" />
+                <IndicatorControl  Name="ShowBeams"     MinSize="50,0" W="100" OnLoad=":SetTarget" Property="ShowBeams" />
+                <SwipeButton       Name="ColorMode"     MinSize="50,0" W="100" OnLoad=":SetTarget" Property="ColorMode" />
+            </TitleAutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0" Icon="object_phase"  ToolTip="Phaser editor settings"/>
+        </NormedTitleBar>
+        <!INCLUDE ../../include/phaser_editor_content.uixml >
+    </Window>
+
+</GMA3>

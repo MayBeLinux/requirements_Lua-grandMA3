@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="MainDialog" HelpTopic="si_date_and_time.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Date and Time" Icon="setup_time"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="MainDateTime" Rows="2" Columns="3">
+            <UILayoutGrid Name="FrameTime" Anchors="0,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Name="TitleBarTime" Anchors="0,0,1,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Name="Time" Texture="corner3" Anchors="0,0" Text="Time" />
+                </TitleBar>
+                <UIObject Anchors="0,1" Text="Hour" HasHover="No" />
+                <IndicatorControl Name="Hour" ShowValue="Yes" Anchors="1,1" Target="StationSettings.TimeConfig" Property="Hour" />
+                <UIObject Anchors="0,2" Text="Minute" HasHover="No" />
+                <IndicatorControl Name="Minute" ShowValue="Yes" Anchors="1,2" Target="StationSettings.TimeConfig" Property="Minute" />
+                <UIObject Anchors="0,3" Text="Second" HasHover="No" />
+                <IndicatorControl Name="Second" ShowValue="Yes" Anchors="1,3" Target="StationSettings.TimeConfig" Property="Second" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="FrameDate" Anchors="1,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Name="TitleBarDate" Anchors="0,0,1,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Name="Date" Texture="corner3" Anchors="0,0" Text="Date" />
+                </TitleBar>
+                <UIObject Anchors="0,1" Text="Day" HasHover="No" />
+                <IndicatorControl Name="Day" ShowValue="Yes" Anchors="1,1" Target="StationSettings.TimeConfig" Property="Day" />
+                <UIObject Anchors="0,2" Text="Month" HasHover="No" />
+                <IndicatorControl Name="Month" ShowValue="Yes" Anchors="1,2" Target="StationSettings.TimeConfig" Property="Month" />
+                <UIObject Anchors="0,3" Text="Year" HasHover="No" />
+                <IndicatorControl Name="Year" ShowValue="Yes" Anchors="1,3" Target="StationSettings.TimeConfig" Property="Year" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="2,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0,1,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner3" Anchors="0,0" Text="Location" />
+                </TitleBar>
+                <UIObject Anchors="0,1" Text="Time zone" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="1,1" Target="StationSettings.TimeConfig" Property="TimezoneStr" Text="Time zone" />
+                <UIObject Anchors="0,2" Text="Latitude" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="1,2" Target="StationSettings.TimeConfig" Property="Latitude" />
+                <UIObject Anchors="0,3" Text="Longitude" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="1,3" Target="StationSettings.TimeConfig" Property="Longitude" />
+            </UILayoutGrid>
+
+            <!--<UILayoutGrid Anchors="1,1,2,1">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0,3,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner1" Anchors="0,0" Text="Daylight Saving" />
+                    <PropertyInput Anchors="1,0" Name="DSEnabledBtn" Margin="1,0,0,0" MinSize="150,0" W="100" Target="StationSettings.TimeConfig" Property="DaylightSavingEnabled" Texture="corner2" TextAutoAdjust="Yes" BackColor="Button.Background" OnLoad=":SetTarget"/>
+                </TitleBar>
+                <UIObject Anchors="0,1" Text="Start Day" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="1,1" Target="StationSettings.TimeConfig" Property="DaylightDayStart" />
+                <UIObject Anchors="0,2" Text="Start Month" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="1,2" Target="StationSettings.TimeConfig" Property="DaylightMonthStart" />
+                <UIObject Anchors="0,3" Text="Shift Forward At" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="1,3" Target="StationSettings.TimeConfig" Property="TimeOfForwardTimeshift" />
+                <UIObject Anchors="2,1" Text="End Day" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="3,1" Target="StationSettings.TimeConfig" Property="DaylightDayEnd" />
+                <UIObject Anchors="2,2" Text="End Month" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="3,2" Target="StationSettings.TimeConfig" Property="DaylightMonthEnd" />
+                <UIObject Anchors="2,3" Text="Shift Backward At" HasHover="No" />
+                <IndicatorControl ShowValue="Yes" Anchors="3,3" Target="StationSettings.TimeConfig" Property="TimeOfBackwardTimeshift" />
+            </UILayoutGrid>-->
+
+        </MainDialogContent>
+        <MainDialogPrimaryMenu>
+            <MainDialogMainTabs ItemSize="100" Name="MainTabs" TabChanged=":ContentChange">
+                <ItemStr Title="Session&#xD;Time" Value="" />
+                <ItemStr Title="Daylight&#xD;Info" Value="DaylightConfiguration" />
+                <ItemStr Title="Time&#xD;Server" Value="TimeServer" />
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+        <MainDialogPlaceHolder Name="MainDialog" />
+    </MainDialog>
+</GMA3>

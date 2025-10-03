@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <AppearanceEditor Name="AppearanceEditor" W="800" H="480" WantsModal="0" OnLoad=":OnLoaded" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Appearance" HelpTopic="appear_create.html" InitialSaveEditTarget="true" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton  Texture="corner1" Anchors="0,0" Text="Edit Appearance"/>
+            <RevertButton Texture="corner0" Anchors="1,0" />
+            <CloseButton  Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PlaceHolder Name="AppearanceEditPlaceholder" Anchors="0,0" Margin="4,4,4,4"/>
+
+        </DialogFrame>
+    </AppearanceEditor>
+
+</GMA3>

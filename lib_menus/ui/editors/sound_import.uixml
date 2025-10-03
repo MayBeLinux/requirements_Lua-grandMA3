@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericImport Name="SoundImport" W="70%" H="60%" RelativeToDisplay="Yes" MinSize="750,450" WantsModal="1" OnLoad=":ImporterLoaded" FilterChanged=":SoundFilterChanged" DriveReset="true" >
+
+        <TitleBar Anchors="0,0" Name="Title">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select Sound File for Import" />
+            <DriveSelector Name="DriveSelector" Texture="corner0" Anchors="1,0" Target="Temp.DriveCollect" SelectionChanged=":DriveChange" ShowOldVersions="No"/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Anchors="0,0" Name="LeftArea">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Content" Size="50" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <UILayoutGrid Anchors="0,0" Name="FilterBlock">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Content" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Content" Size="1" />
+                    </ItemCollectColumns>
+                    <UIObject Text="Filter:" Anchors="0,0" BackColor="global.BackGround" HasHover="No" ContentDriven="Yes"/>
+                    <LineEdit Name="FilterEdit" Anchors="1,0" Target="../../SoundGrid/Internals/GridBase/GridSettings/GridObjectContentFilter/Filter" Property="Filter" Clear=":ClearFilters" Execute=":JumpToGrid" />
+                    <IndicatorButton Name="Clear" Text="Clear" Clicked=":ClearFilters" Anchors="2,0" W="80" Texture="corner10" WantsNumericRedirect="Yes" />
+                </UILayoutGrid>
+                <AutoLayout Name="FilterSwitches" Anchors="0,1" DefaultMargin="1" Direction="Horizontal" Texture="corner15" Content="Yes" Visible="No">
+                    <PropertyInput Name="FilterName"         Text="Name"          MinSize="50,0" W="100" ShowLabel="Yes" ShowValue="1" Property="FilterByName"         TextAutoAdjust="No" />
+                </AutoLayout>
+                <DBObjectGrid Name="SoundGrid" WantsNumericRedirect="Yes" Anchors="0,2" FilterBlockUIEnabled="No" AllowFilterContent="Yes" SelectionType="ColumnGridSelection" OnSelectedRow=":OnSelected" AllowEdit="No" KeyUp=":SoundGridOnChar" AllowMergeChildren="Yes" CanProvideUiGridSelection="No" >
+                    <GridSettings ContentFilterType="GridObjectContentFilter">
+                        <GridObjectContentFilter>
+                            <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                        </GridObjectContentFilter>
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Inclusive="No">
+                                <GridColumn Name="Name" Visible="No"/>
+                                <GridColumn Name="Lock" Visible="No"/>
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                </DBObjectGrid>
+                <IndicatorButton Name="Import" Text="Import" Clicked=":DoImportSound" Anchors="0,3" W="130" AlignmentH="Right" Texture="corner15" WantsNumericRedirect="Yes" />
+            </UILayoutGrid>
+            <AudioPreview Name="Preview" Play=":AudioPlay" Pause=":AudioPause" Stop=":AudioStop" />
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="PlayerBlock" Direction="Vertical" Texture="corner2" Content="Yes">
+                <AutoLayout Margin="1,0,0,0" DefaultMargin="1"  Direction="Horizontal" Content="Yes" H="50">
+                    <UIObject Text="Duration: " W="150" HasHover="0" />
+                    <PropertyLabel Target="../../../Preview" Property="Duration" W="150" BackColor="global.BackGround" />
+                </AutoLayout>
+                <AutoLayout Margin="1,0,0,0" DefaultMargin="1"  Direction="Horizontal" Content="Yes" H="50">
+                    <UIObject Text="Position: " W="150" HasHover="0" />
+                    <PropertyLabel Target="../../../Preview" Property="Position" W="150" BackColor="global.BackGround" />
+                </AutoLayout>
+                <AutoLayout Margin="1,0,0,0" DefaultMargin="10"  Name="PlayerButtons"    Direction="Horizontal" Texture="corner2" Content="Yes" H="70" AlignmentV="Center" AlignmentH="Center">
+                    <Button W="90" Clicked=":AudioPlay" Icon="PlaybackForward" />
+                    <Button W="90" Clicked=":AudioPause" Icon="PlaybackPaused" />
+                    <Button W="90" Clicked=":AudioStop" Icon="PlaybackStop" />
+                </AutoLayout>
+                <UIObject Name="TooBigError" H="100" W="100%" BackColor="Global.Transparent" TextColor="Global.AlertText" TextAutoAdjust="Yes" HasHover="0" Visible="No" />
+            </AutoLayout>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </GenericImport>
+</GMA3>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <DatumInput W="600" H="200" WantsModal="1" OnLoad=":OnLoaded" Mode="Time">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Date"/>
+            <IndicatorButton Texture="corner0" Anchors="1,0" Clicked=":SetTimeNow" Text="Now"/>
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Cancel"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Name="Settings" Anchors="0,0" Visible="Yes" DefaultMargin="10" DefaultMarginOnBorders="1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="100" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+
+                <UILayoutGrid Name="Time" Anchors="0,0" Rows="1" Columns="3" DefaultMarginOnBorders="1" >
+                    <ValueFadeControl Text="Hour"    Texture="corner5"  Anchors="0,0" UseDefaultValue="Yes" Property="Hour" Focus="InitialFocus"/>
+                    <ValueFadeControl Text="Minute"  Texture="corner0"  Anchors="1,0" UseDefaultValue="Yes" Property="Minute" />
+                    <ValueFadeControl Text="Second"  Texture="corner10" Anchors="2,0" UseDefaultValue="Yes" Property="Second" />
+                </UILayoutGrid>
+
+                <UILayoutGrid Anchors="0,1" Name="Close" DefaultMargin="5" DefaultMarginOnBorders="Yes" Columns="2" Rows="1">
+                    <Button Anchors="0,0" Text="Apply"  Texture="corner5"  Clicked=":Apply" BackColor="Button.BackgroundPlease" />
+                    <Button Anchors="1,0" Text="Cancel" Texture="corner10" Clicked=":Cancel"/>
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </DialogFrame>
+    </DatumInput>
+</GMA3>

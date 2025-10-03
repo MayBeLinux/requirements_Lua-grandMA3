@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="800" H="480" WantsModal="1" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Sound" HelpTopic="sound.html" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Image"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="4" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <PlaceHolderBase Anchors="0,0" Name="ObjectSettings" OnLoad=":LoadObjectSettings"/>
+            <IndicatorControl Texture="corner15" Anchors ="0,1" Text="Import" IndicatorIcon="DialogButtonIcon" Clicked=":ImportSound" />
+        </DialogFrame>
+    </GenericEditorOverlay>
+
+</GMA3>

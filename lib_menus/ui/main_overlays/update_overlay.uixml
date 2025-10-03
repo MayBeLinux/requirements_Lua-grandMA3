@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <MainDlgUpdateMenu Name="UpdateOverlay" OnLoad=":OnLoad" WantsNumericRedirect="Yes" AutoClose="Yes">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Update" Icon="update_small"/>
+            <AutoLayout Margin="1,0,1,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <ScreenSelectorButton MinSize="50,0" />
+                <Button Texture="corner0" Text="Load&#xD;Preferences" Clicked=":OnLoadPreferences" W="150" MinSize="50,0" />
+                <Button Texture="corner0" Text="Save&#xD;Preferences" Clicked=":OnSavePreferences" W="150" MinSize="50,0" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="MainDlg" DefaultMargin="5" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="PresetLayoutGrid" Anchors="0,0" HelpTopic="presets_update.html">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="70" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UIObject Name="PresetHeader" Anchors="0,0" BackColor="PoolWindow.Presets" Texture="corner3" Padding="0,10,0,10">
+                    <UILayoutGrid Name="PresetHeaderDetails" Rows="1">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectColumns>
+                        <IndicatorControl W="60" Anchors="0,0" Name="PresetExtendedOptionsExpandBtn" Target="~" Property="UpdateMenuPresetOptionsExpanded" IconInactive="triangle_right" IconActive="triangle_down" ShowLabel="No" ShowValue="No" SetIconAsActiveInactive="Yes" ColorIndicatorHeight="0" HeaderHeight="0" Texture="corner15" />
+                        <UIObject Anchors="1,0" ContentDriven="Yes" Text="Update Preset" Texture="" Margin="20,0,20,0" />
+                        <AutoLayout Name="PresetModeBlock" Margin="6,0,6,0" ModifyTextureLayout="No" Anchors="2,0" Texture="corner15" ContentDriven="Yes" Direction="Horizontal" Content="Yes" Transparent="No" >
+                            <UIObject Margin="6,0,0,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Text="Preset Update Mode:" TextColor="UpdateMenu.OptionsSummaryLabelText" />
+                            <UIObject Margin="0,0,6,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Name="PresetModeSummary" Text="" TextColor="UpdateMenu.OptionsSummaryValueText" />
+                        </AutoLayout>
+                        <AutoLayout Name="PresetUpdateModeBlock" Margin="6,0,6,0" ModifyTextureLayout="No" Anchors="3,0" Texture="corner15" ContentDriven="Yes" Direction="Horizontal" Content="Yes" Transparent="No" >
+                            <UIObject Margin="6,0,0,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Text="Preset Mode:" TextColor="UpdateMenu.OptionsSummaryLabelText" />
+                            <UIObject Margin="0,0,6,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Name="PresetUpdateModeSummary" Text="" TextColor="UpdateMenu.OptionsSummaryValueText" />
+                        </AutoLayout>
+                        <AutoLayout Name="InputFilterBlock" Margin="6,0,6,0" ModifyTextureLayout="No" Anchors="4,0" Texture="corner15" ContentDriven="Yes" Direction="Horizontal" Content="Yes" Transparent="No" >
+                            <UIObject Margin="6,0,0,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Text="Input Filter:" TextColor="UpdateMenu.OptionsSummaryLabelText" />
+                            <UIObject Margin="0,0,6,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Name="InputFilterSummary" Text="" TextColor="UpdateMenu.OptionsSummaryValueText" />
+                        </AutoLayout>
+                    </UILayoutGrid>
+                </UIObject>
+                <UILayoutGrid Name="PresetExtendedOptions" Anchors="0,1" Columns="3" H="190" Visible="No" Transparent="No" Texture="corner0" BackColor="UpdateMenu.ExtendedOptionsBackground">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Fixed" Size="60" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <SwipeButton        Anchors="0,1" Texture="corner5" Target="%.TempStoreSettings"  Property="UpdateModePresets"   Text="Preset Update Mode"  />
+                    <SwipeButton        Anchors="1,1" Texture="corner0" Target="%.TempStoreSettings"  Property="UpdatePresetMode"    Text="Preset Mode" />
+                    <IndicatorControl   Anchors="2,1" Texture="corner10" Target="%.TempStoreSettings"  Property="UpdateInputFilter"   Text="Input&#xD;Filter" />
+                </UILayoutGrid>
+                <DBObjectGrid Name="PresetGrid" Anchors="0,2" AutoFitColumn="5" FrameThickness="3" SelectionType="SingleRowGridSelection" OnLoad=":SetPresetTargets" AllowEdit="No" BackColor="Overlay.Background" Margin="0,5,0,5" OnCellMouseClicked=":OnObjectUpdated" DataType="UpdateGridData">
+                    <UIGridInternals>
+                        <DBObjectGridCell ReadOnlyBackColor="UpdateMenu.CellBackground" ReadOnlyAltBackColor="UpdateMenu.CellAltBackground" WeakAlternationInData="Yes" />
+                    </UIGridInternals>
+                    <UpdateGridData />
+                    <GridSettings RowHeightFactor="1.5" AdjustColumns="Yes" NoFixedColumns="Yes">
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Inclusive="Yes">
+                                <GridColumn Name="DataPoolNo" Visible="Yes" />
+                                <GridColumn Name="DataPoolName" Visible="Yes" />
+                                <GridColumn Name="PresetPoolNo" Visible="Yes" />
+                                <GridColumn Name="PresetPoolName" Visible="Yes" />
+                                <GridColumn Name="PresetNo" Visible="Yes" />
+                                <GridColumn Name="PresetName" Visible="Yes" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                </DBObjectGrid>
+            </UILayoutGrid>
+            <UIObject Name="VerticalVisualSeparator" Anchors="1,0" BackColor="Overlay.FrameColor" Texture="corner0" />
+            <UILayoutGrid Name="CueLayoutGrid" Anchors="2,0" HelpTopic="cue_update.html">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="70" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UIObject Name="CueHeader" Anchors="0,0" BackColor="PoolWindow.Sequences" Texture="corner3" Padding="0,10,0,10">
+                    <UILayoutGrid Name="CueHeaderDetails" Rows="1">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectColumns>
+                        <IndicatorControl W="60" Anchors="0,0" Name="CueExtendedOptionsExpandBtn" Target="~" Property="UpdateMenuCueOptionsExpanded" IconInactive="triangle_right" IconActive="triangle_down" ShowLabel="No" ShowValue="No" SetIconAsActiveInactive="Yes" ColorIndicatorHeight="0" HeaderHeight="0" Texture="corner15" />
+                        <UIObject Anchors="1,0" ContentDriven="Yes" Text="Update Cue" Texture="" Margin="20,0,20,0" />
+                        <AutoLayout Name="SequenceUpdateModeBlock" Margin="6,0,6,0" ModifyTextureLayout="No" Anchors="2,0" Texture="corner15" ContentDriven="Yes" Direction="Horizontal" Content="Yes" Transparent="No" >
+                            <UIObject Margin="6,0,0,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Text="Sequence Update Mode:" TextColor="UpdateMenu.OptionsSummaryLabelText" />
+                            <UIObject Margin="0,0,6,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Name="SequenceUpdateModeSummary" Text="" TextColor="UpdateMenu.OptionsSummaryValueText" />
+                        </AutoLayout>
+                        <AutoLayout Name="SequenceModeBlock" Margin="6,0,6,0" ModifyTextureLayout="No" Anchors="3,0" Texture="corner15" ContentDriven="Yes" Direction="Horizontal" Content="Yes" Transparent="No" >
+                            <UIObject Margin="6,0,0,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Text="Sequence Mode:" TextColor="UpdateMenu.OptionsSummaryLabelText" />
+                            <UIObject Margin="0,0,6,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Name="SequenceModeSummary" Text="" TextColor="UpdateMenu.OptionsSummaryValueText" />
+                        </AutoLayout>
+                        <AutoLayout Name="CueUpdateOptionsBlock" Margin="6,0,6,0" ModifyTextureLayout="No" Anchors="4,0" Texture="corner15" ContentDriven="Yes" Direction="Horizontal" Content="Yes" Transparent="No" >
+                            <UIObject Margin="6,0,0,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Text="Cue Options:" TextColor="UpdateMenu.OptionsSummaryLabelText" />
+                            <UIObject Margin="0,0,6,0" Font="Regular14" ContentDriven="Yes" H="50" Texture="" Name="CueUpdateOptionsSummary" Text="" TextColor="UpdateMenu.OptionsSummaryValueText" />
+                        </AutoLayout>
+                    </UILayoutGrid>
+                </UIObject>
+                <UILayoutGrid Name="CueExtendedOptions" DefaultMargin="10" Anchors="0,1" Columns="3" H="190" Visible="No" Transparent="No" Texture="corner0" BackColor="UpdateMenu.ExtendedOptionsBackground">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Fixed" Size="20" />
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Fixed" Size="1" />
+                    </ItemCollectRows>
+                    <UILayoutGrid Name="CueBlock" Anchors="0,0,2,0">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1.5" />
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="0.75" />
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+                        <UIObject Texture="" Anchors="0,0" Margin="0,5,0,5" ContentDriven="Yes" TextAlignmentH="Left" Text="Cue" TextColor="UpdateMenu.OptionsLabelText" />
+                        <PropertyRadioButtonList Anchors="0,1" Type="Horizontal" Property="UpdateCueOperationMode" AvoidScroll="Yes" SetType="Property" Target="%.TempStoreSettings" />
+                        <UIObject Anchors="2,0" Margin="0,5,0,5" ContentDriven="Yes" Texture="" Text="Protect from Tracking:" TextColor="UpdateMenu.OptionsLabelText" TextAlignmentH="Left" />
+                        <IndicatorControl Anchors="2,1" Texture="corner15" Text="Dimmer Cue Only" Property="UpdateDimmerCueOnly" DirectProperty="Yes" Target="%.TempStoreSettings" />
+                        <UIObject Anchors="4,0" Margin="0,5,0,5" ContentDriven="Yes" Texture="" Text="Shield tracked values:" TextColor="UpdateMenu.OptionsLabelText" TextAlignmentH="Left" />
+                        <PropertyRadioButtonList Anchors="4,1" Type="Horizontal" Property="UIUpdateTrackingShield" SetType="Property" Target="%.TempStoreSettings" ShowLeftIcon="Yes" SkipTextIfIconExists="Yes" ItemSize="80" />
+                    </UILayoutGrid>
+                    <SwipeButton     H="60"   Anchors="0,2" Texture="corner5" Target="%.TempStoreSettings"  Property="UpdateModeCues"      Text="Sequence Update Mode"  />
+                    <SwipeButton     H="60"   Anchors="1,2" Texture="corner10" OnLoad=":SetTargetCueUpdates" Property="FilterMode"          Text="Sequence Mode" />
+                </UILayoutGrid>
+                <ProgUpdateGrid Name="CueGrid"    Anchors="0,2" AutoFitColumn="6" FrameThickness="3" SelectionType="SingleRowGridSelection" OnLoad=":SetCueTargets" AllowEdit="No" BackColor="Overlay.Background" Margin="0,5,0,5" OnCellMouseClicked=":OnObjectUpdated" DataType="CueUpdateGridData">
+                    <UIGridInternals>
+                        <DBObjectGridCell ReadOnlyBackColor="UpdateMenu.CellBackground" ReadOnlyAltBackColor="UpdateMenu.CellAltBackground" WeakAlternationInData="Yes" />
+                    </UIGridInternals>
+                    <CueUpdateGridData UseLocalExpandedState="Yes" LocalExpandedStateDefault="No" />
+                    <GridSettings RowHeightFactor="1.5" AdjustColumns="Yes" NoFixedColumns="Yes">
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Inclusive="Yes">
+                                <GridColumn Name="DataPoolNo" Visible="Yes" />
+                                <GridColumn Name="DataPoolName" Visible="Yes" />
+                                <GridColumn Name="SequenceNo" Visible="Yes" />
+                                <GridColumn Name="SequenceName" Visible="Yes" />
+                                <GridColumn Name="TargetCue" Visible="Yes" />
+                                <GridColumn Name="TargetPart" Visible="Yes" />
+                                <GridColumn Name="TargetName" Visible="Yes" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                </ProgUpdateGrid>
+            </UILayoutGrid>
+        </MainDialogContent>
+    </MainDlgUpdateMenu>
+</GMA3>

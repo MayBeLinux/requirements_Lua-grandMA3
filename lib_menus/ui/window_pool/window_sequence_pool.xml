@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="232" Name="WindowSequencePool" Guid="73 B9 1E 74 CA 42 46 BD BB 05 4A 7D CC BD DB 65" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="2B E7 A7 D9 85 9C 42 63 A5 72 11 85 76 F5 31 FA" FileName="window_sequence_pool.uixml" PlaceHolder="UiScreen" WindowSettings="SequencePoolSettings" WindowContext="ContextSequencePool" Toggle="No" />
+    </Menu>
+</GMA3>

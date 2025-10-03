@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolOverlay DefaultMargin="2" AutoCloseOnOverlay="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Text="Pool Overlay" Texture="corner1" Anchors="0,0" />
+            <AutoLayout Name="TitleButtons" Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Direction="Horizontal" Texture="corner0" Content="Yes" >
+            </AutoLayout>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Direction="Horizontal" Texture="corner0" Content="Yes" >
+                <ScreenSelectorButton MinSize="50,0" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="3,0" />
+        </TitleBar>
+
+        <PoolScreen Name="UiScreen" Anchors="0,1" Visible="Yes" OnLoad=":OnPoolScreenLoaded">
+        </PoolScreen>
+    </PoolOverlay>
+</GMA3>

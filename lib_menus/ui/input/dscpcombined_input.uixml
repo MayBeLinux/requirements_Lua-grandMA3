@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="DSCPCombinedInput" W="600" H="300" MinSize="500,200" WantsModal="1" EscModalResult="Ok">
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="DSCP Configuration" />
+            <CloseButton Texture="corner2" Anchors="1,0" CloseAction="Ok" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Content">
+            <UILayoutGrid Name="PropertyButtons"  Rows="2" Columns="3" DefaultMargin="10" Margin="10,10,10,10">
+                <PropertyInput Anchors="0,0" Texture="corner15" Text="MA-Net DMX"     Target="ShowData.ShowSettings.GlobalSettings" Property="DSCPDMX" ToolTip=""/>
+                <PropertyInput Anchors="1,0" Texture="corner15" Text="MA-Net Data"    Target="ShowData.ShowSettings.GlobalSettings" Property="DSCPManetData" ToolTip=""/>
+                <PropertyInput Anchors="2,0" Texture="corner15" Text="Network&#13;Update" Target="ShowData.ShowSettings.GlobalSettings" Property="DSCPNetworkUpdate" ToolTip=""/>
+                <PropertyInput Anchors="0,1" Texture="corner15" Text="DMX&#13;Protocols" Target="ShowData.ShowSettings.GlobalSettings" Property="DSCPDMXProtocols" ToolTip=""/>
+                <PropertyInput Anchors="1,1" Texture="corner15" Text="In/Out&#13;Protocols" Target="ShowData.ShowSettings.GlobalSettings" Property="DSCPInOutProtocols" ToolTip=""/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

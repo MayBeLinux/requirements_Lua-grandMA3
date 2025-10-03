@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <XKeysViewWindow OnLoad=":XKeysViewLoaded" ReactToPreview="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50"  />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0,2,0" Text="Xkeys" />
+            <TitleAutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <SwipeButton   Name="Page"      W="100" MinSize="50,0" OnLoad=":SetTarget" Property="Page"      Text="Page" TextAutoAdjust="Yes" />
+                <PropertyInput Name="Labels"    W="100" MinSize="50,0" OnLoad=":SetTarget" Property="Labels"    AutoHide="Yes" />
+                <PropertyInput Name="Executors" W="100" MinSize="50,0" OnLoad=":SetTarget" Property="Executors" AutoHide="Yes" />
+            </TitleAutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_xkeys"  ToolTip="configures xkeys view"/>
+        </NormedTitleBar>
+
+        <DialogFrame  name="XKeySection" Anchors="0,1" Font="Regular14" LowDpiFont="Regular9" MixInBackColorFromParent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="2" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" Size="3" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <!-- XKeys executor bar -->
+            <XKeysViewExecutorBar Name="XKeysExecutorBar" Anchors="0,0">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Fixed" Size="4" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectColumns>
+                <ExecutorSectionXKeys Name="Section" Anchors="0,0" Rows="2" Columns="4" />
+                <ExecutorSectionXKeys Name="Section" Anchors="2,0" Rows="2" Columns="4" />
+            </XKeysViewExecutorBar>
+
+            <!-- XKeys as executor buttons -->
+            <UILayoutGrid  Name="XKeyExec" Anchors="0,2" Transparent="true" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <!-- X-Encoders -->
+                <XKeysHardwareMiniEncoder Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="291"  />
+                <XKeysHardwareMiniEncoder Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="292"  />
+                <XKeysHardwareMiniEncoder Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="293"  />
+                <XKeysHardwareMiniEncoder Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="294"  />
+                <XKeysHardwareMiniEncoder Anchors="5,0" H="1r" AlignmentH="Center" ExecutorIndex="295"  />
+                <XKeysHardwareMiniEncoder Anchors="6,0" H="1r" AlignmentH="Center" ExecutorIndex="296"  />
+                <XKeysHardwareMiniEncoder Anchors="7,0" H="1r" AlignmentH="Center" ExecutorIndex="297"  />
+                <XKeysHardwareMiniEncoder Anchors="8,0" H="1r" AlignmentH="Center" ExecutorIndex="298"  />
+
+                <!-- X-Keys -->
+                <XKeysHardwareButton Texture="corner5"  Anchors="0,1" SignalValue="X1" ExecutorIndex="291"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="1,1" SignalValue="X2" ExecutorIndex="292"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="2,1" SignalValue="X3" ExecutorIndex="293"  />
+                <XKeysHardwareButton Texture="corner10" Anchors="3,1" SignalValue="X4" ExecutorIndex="294"  />
+                <XKeysHardwareButton Texture="corner5"  Anchors="5,1" SignalValue="X5" ExecutorIndex="295"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="6,1" SignalValue="X6" ExecutorIndex="296"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="7,1" SignalValue="X7" ExecutorIndex="297"  />
+                <XKeysHardwareButton Texture="corner10" Anchors="8,1" SignalValue="X8" ExecutorIndex="298"  />
+
+                <XKeysHardwareButton Texture="corner5"  Anchors="0,3" SignalValue="X9" ExecutorIndex="191"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="1,3" SignalValue="X10" ExecutorIndex="192"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="2,3" SignalValue="X11" ExecutorIndex="193"  />
+                <XKeysHardwareButton Texture="corner10" Anchors="3,3" SignalValue="X12" ExecutorIndex="194"  />
+                <XKeysHardwareButton Texture="corner5"  Anchors="5,3" SignalValue="X13" ExecutorIndex="195"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="6,3" SignalValue="X14" ExecutorIndex="196"  />
+                <XKeysHardwareButton Texture="corner0"  Anchors="7,3" SignalValue="X15" ExecutorIndex="197"  />
+                <XKeysHardwareButton Texture="corner10" Anchors="8,3" SignalValue="X16" ExecutorIndex="198"  />
+            </UILayoutGrid>
+
+            <!-- XKeys as MA-command buttons -->
+            <UILayoutGrid  Name="XKeyCommands" Anchors="0,2" Transparent="true" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <!-- X-Keys -->
+                <HardkeyButton Texture="corner5"  Anchors="0,1" SignalValue="X1"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="1,1" SignalValue="X2"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="2,1" SignalValue="X3"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner10" Anchors="3,1" SignalValue="X4"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner5"  Anchors="5,1" SignalValue="X5"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="6,1" SignalValue="X6"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="7,1" SignalValue="X7"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner10" Anchors="8,1" SignalValue="X8" MouseUp=":MainDlgCmdCtrlHKMouseUp"  HelpTopic="ws_command_area.html"/>
+
+                <HardkeyButton Texture="corner5"  Anchors="0,3" SignalValue="X9"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="1,3" SignalValue="X10"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="2,3" SignalValue="X11"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner10" Anchors="3,3" SignalValue="X12"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner5"  Anchors="5,3" SignalValue="X13"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="6,3" SignalValue="X14"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner0"  Anchors="7,3" SignalValue="X15"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                <HardkeyButton Texture="corner10" Anchors="8,3" SignalValue="X16"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </XKeysViewWindow>
+</GMA3>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="1800" H="800" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Cue Part Recipe" HelpTopic="cue_recipe.html">
+
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Cue Part Recipe"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" DefaultMargin="10" DefaultMarginOnBorders="1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+
+            <DBObjectGrid Name="RecipeGrid" BackColor="UIGrid.Background" Anchors="0,0" FixedColumns="4" Focus="InitialFocus" AddTargets="0" />
+
+            <UILayoutGrid Name="Commands"  Anchors="0,1" DefaultMargin="10" Rows="1" Columns="4" >
+                <Button Anchors="3,0" Texture="corner15" Text="Cook"    Clicked=":OnCook" />
+            </UILayoutGrid>
+
+        </DialogFrame>
+
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+
+    </GenericEditorOverlay>
+
+</GMA3>

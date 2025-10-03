@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <TextInput MinSize="200,0" W="300">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectRows>
+        <TitleBar Anchors="0,0" Name="TitleBar" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <Button Name="VK" W="50" Texture="corner1" Anchors="0,0" Clicked=":ToggleVirtualKeyboard" Icon="triangle_down" />
+            <TitleButton Texture="corner0" Anchors="1,0" Text="Text input" Icon=""/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <UILayoutGrid Name="InputGrid" Anchors="0,0" Rows="1">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+                <IndicatorButton Texture="corner15" Anchors="0,0" Name="ipmask" Text="IP/Prefix" Enabled="No" w="90"/>
+                <LineEdit Name="InputField" Anchors="1,0" Focus="InitialFocus" ContentDriven="Yes" Execute=":CloseOK" Filter="0123456789./" Clear=":ClearField" ShowKeyboardButton="No" />
+            </UILayoutGrid>
+            <VirtualKeyboard Name="VirtualKeyboard" Columns="3" H="300" Anchors="0,2" Visible="Yes" TargetObject="../InputGrid/InputField" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectRows>
+                <VirtualKeyboardButton Name="Delete" Text="Del" KeyCode="Delete" Anchors="0,0"  Texture="corner1"/>
+                <VirtualKeyboardButton Name="Backspace" Text="Backspace" KeyCode="Backspace" Anchors="1,0,2,0"  Texture="corner2"/>
+
+                <VirtualKeyboardButton Text="7" KeyCode="7" Anchors="0,1" />
+                <VirtualKeyboardButton Text="8" KeyCode="8" Anchors="1,1" />
+                <VirtualKeyboardButton Text="9" KeyCode="9" Anchors="2,1" />
+
+                <VirtualKeyboardButton Text="4" KeyCode="4" Anchors="0,2" />
+                <VirtualKeyboardButton Text="5" KeyCode="5" Anchors="1,2" />
+                <VirtualKeyboardButton Text="6" KeyCode="6" Anchors="2,2" />
+
+                <VirtualKeyboardButton Text="1" KeyCode="1" Anchors="0,3" />
+                <VirtualKeyboardButton Text="2" KeyCode="2" Anchors="1,3" />
+                <VirtualKeyboardButton Text="3" KeyCode="3" Anchors="2,3" />
+
+                <VirtualKeyboardButton Text="0" KeyCode="0" Anchors="0,4" />
+                <VirtualKeyboardButton Name="Period" Text="." KeyCode="Period" Anchors="1,4"/>
+                <VirtualKeyboardButton Name="Slash" Text="/" KeyCode="Slash" Anchors="2,4"/>
+
+                <IndicatorButton Name="Clear" Text="Clear" Anchors="0,5" Clicked=":ClearField" Texture="corner4" />
+                <VirtualKeyboardButton Name="Please" Text="Please" KeyCode="Enter" Anchors="1,5,2,5" Texture="corner8" />
+
+            </VirtualKeyboard>
+        </DialogFrame>
+
+        <PlaceHolder Name="ModalOverlay" />
+
+    </TextInput>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="95" Name="GelPoolPopup" Guid="00 1B 21 63 B0 F6 00 00 40 53 36 54 0F 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="00 1B 21 63 84 81 00 00 43 53 36 54 0F 82 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 3F 9C 00 00 42 53 36 54 0F 82 55 B0" FileName="gel_pool_popup.lua" />
+    </Menu>
+</GMA3>

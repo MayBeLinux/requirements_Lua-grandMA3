@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="QuickeyEditor" Author="MA" Version="0.1.0.0" Path="/ui/editors">
+        <ComponentXML FileName="quickey_editor.uixml" PlaceHolder="ScreenOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="quickey_editor.lua" />
+        <ComponentLua FileName="editor_settings_load.lua" />
+    </Menu>
+</GMA3>

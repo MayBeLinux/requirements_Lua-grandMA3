@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="76" Name="ExecFaderPopup" Guid="00 00 00 00 53 57 00 00 3D 52 36 54 19 8E 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="00 00 00 00 BF 60 00 00 3C 52 36 54 19 8E 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="00 00 00 00 67 5C 00 00 3F 52 36 54 19 8E 55 B0" FileName="exec_fader_popup.lua" />
+    </Menu>
+</GMA3>

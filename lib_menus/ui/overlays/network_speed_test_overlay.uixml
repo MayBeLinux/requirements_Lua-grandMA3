@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <NetworkSpeedTestOverlay Name="NetworkSpeedTestOverlay" W="1000" H="480" AlignmentH="Center" AlignmentV="Center" DefaultMargin="0" >
+
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1"/>
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="TitleBar" Rows="1" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Network Speed Test" />
+            <CloseButton Texture="corner2" Anchors="1,0" Focus="Never"/>
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="1" Name="Content" Rows="1" >
+            <NetworkSpeedTestGrid Anchors="0,0" Name="Grid" AllowFilterContent="No" AllowEdit="No" CanProvideUiGridSelection="No" Focus="InitialFocus" >
+                <GridSettings AdjustColumns="Yes" />
+            </NetworkSpeedTestGrid>
+        </DialogFrame>
+    </NetworkSpeedTestOverlay>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="45" Name="ContextSysteminfoWindow" Guid="70 4D 7B 2D 0C 75 00 00 06 58 86 BB 7A B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/window_context">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 09 43 00 00 05 58 86 BB 7A B1 01 1A" FileName="context_systeminfo_window.uixml" PlaceHolder="ModalOverlay" Toggle="No" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 34 CD 00 00 91 52 36 54 0A 82 55 B0" FileName="context_window.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <CopyCueMessageBox Name="MsgBox" W="800" H="450" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="cue_copy.html">
+
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBtn" Texture="corner1" Anchors="0,0" Text="Message" Icon=""/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Direction="Horizontal" Texture="corner2" Content="Yes">
+                <Button  W="110" Name="LoadPrefBtn"  Text="Load&#xD;Preferences" Clicked=":LoadPrefClicked" />
+                <Button  W="110" Name="SavePrefBtn"  Text="Save&#xD;Preferences" Clicked=":SavePrefClicked" />
+            </AutoLayout>
+        </TitleBar>
+
+
+        <DialogFrame DefaultMargin="10" DefaultMarginOnBorders="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <ProgressBar H="24" Name="Progress" ProgressColor="MessageBox.Progress" Anchors="0,0" Visible="No" />
+
+            <ScrollContainer Name="Content" ContentDriven="Yes" ContentWidth="No" MaxSize="0,400" Anchors="0,1" Padding="20,20,20,20" Visible="No">
+                <ScrollBox ContentDriven="Yes" ContentWidth="No">
+                    <UIObject  Name="Text"  Texture="" Text="" TextAlignmentV="Top" ContentDriven="Yes" ContentWidth="No" TextAutoAdjust="Yes" />
+                </ScrollBox>
+            </ScrollContainer>
+
+            <UILayoutGrid Name="CueOptions" Anchors="0,1" Visible="No" DefaultMargin="25" DefaultMarginOnBorders="Yes" Margin="10,10,10,10" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="2" />
+                </ItemCollectRows>
+                <UILayoutGrid Name="CueSource" Anchors="0,0" Columns="1" Visible="No" DefaultMargin="5" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="20" />
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <UIObject Anchors="0,0" Texture="" Text="Copy Values from Source Cue:" TextAlignmentH="Left" />
+                    <PropertyRadioButtonList Anchors="0,1" Type="Horizontal" Property="CueSrc" SetType="Property" OnLoad=":SetTargetMsgBox" />
+                </UILayoutGrid>
+                <UIObject W="100%" H="10" Margin="10,0,0,10" AlignmentV="Center" Texture="flow_separator_h" BackColor="Global.Text" Interactive="No" Anchors="0,1" />
+                <UILayoutGrid Name="CueDestinationOptions" Anchors="0,2" Visible="No" DefaultMargin="15" DefaultMarginOnBorders="No" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Fixed" Size="20" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1.1" />
+                        <Item SizePolicy="Fixed"   Size="190" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <UILayoutGrid Name="CueOnly" Anchors="0,0" Columns="1" Visible="No" DefaultMargin="5" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="20" />
+                            <Item SizePolicy="Fixed" Size="50" />
+                        </ItemCollectRows>
+                        <UIObject Anchors="0,0" Texture="" Text="Copy Values:" TextAlignmentH="Left" />
+                        <PropertyRadioButtonList Anchors="0,1" Type="Horizontal" Property="CueOperationMode" SetType="Property" OnLoad=":SetTargetMsgBox" ItemSize="130" />
+                    </UILayoutGrid>
+                    <UILayoutGrid Name="DimmerCueOnly" Anchors="1,0" Columns="1" Visible="No" DefaultMargin="5" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="20" />
+                            <Item SizePolicy="Fixed" Size="50" />
+                        </ItemCollectRows>
+                        <UIObject Anchors="0,0" Texture="" Text="Protect from Tracking:" TextAlignmentH="Left" />
+                        <IndicatorControl Anchors="0,1" Texture="corner15" Property="DimmerCueOnly" OnLoad=":SetTargetMsgBox" DirectProperty="Yes" />
+                    </UILayoutGrid>
+                    <UILayoutGrid Name="TrackingShield" Anchors="2,0" Columns="1" Visible="No" DefaultMargin="5" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="20" />
+                            <Item SizePolicy="Fixed" Size="50" />
+                        </ItemCollectRows>
+                        <UIObject Anchors="0,0" Texture="" Text="Shield tracked Values:" TextAlignmentH="Left" />
+                        <PropertyRadioButtonList Anchors="0,1" Type="Horizontal" Property="TrackingShield" SetType="Property" OnLoad=":SetTargetMsgBox" ShowLeftIcon="Yes" SkipTextIfIconExists="Yes" ItemSize="80" />
+                    </UILayoutGrid>
+                    <UILayoutGrid Name="CueDestination" Anchors="0,2,1,2" Visible="No" DefaultMargin="5" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="20" />
+                            <Item SizePolicy="Fixed" Size="50" />
+                        </ItemCollectRows>
+                        <UIObject Name="CueDstLabel" Anchors="0,0" Texture="" Text="Existing Values tracking into Destination:" ContentDriven="Yes" ContentHeight="No" TextAlignmentH="Left" Visible="No" />
+                        <PropertyRadioButtonList Name="CueDstRadio" Anchors="0,1" Type="Horizontal" Property="CueDst" ContentDriven="Yes" ContentHeight="No" SetType="Property" OnLoad=":SetTargetMsgBox" Visible="No" />
+                    </UILayoutGrid>
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <AutoLayout Name="Commands" Anchors="0,3" H="50" Direction="Horizontal" Margin="5,0,5,0">
+                <Button Name="BtnOverwrite" Text="Overwrite" Clicked=":CommandClicked" SignalValue="Overwrite" Focus="InitialFocus" />
+                <Button Name="BtnMerge"     Text="Merge" Clicked=":CommandClicked" SignalValue="Merge" Focus="InitialFocus" />
+                <Button Name="BtnCancel"    Text="Cancel" CloseAction="Cancel" />
+            </AutoLayout>
+
+        </DialogFrame>
+
+
+    </CopyCueMessageBox>
+</GMA3>

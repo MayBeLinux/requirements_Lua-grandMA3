@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <WindowAgenda Name="WindowAgenda" OnLoad=":OnLoad" HelpTopic="agenda.html" OnToolOperate=":OnToolBtnClicked">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" MinSize="50" />
+                <Item SizePolicy="Content"/>
+            </ItemCollectColumns>
+
+            <TitleButton   Name="TitleButton" Anchors="1,0,2,0" Text="Agenda" Texture="corner2"/>
+            <TitleAutoLayout Anchors="2,0" Name="Buttons" Direction="Horizontal" Texture="corner2" Content="Yes" Inverted="Yes">
+                <UIObject         Name="DeleteOld"        W="100" MinSize="50,0"  Clicked=":DeleteOld" Text="Delete Old" TextAutoAdjust="Yes" Texture="corner0"/>
+                <IndicatorButton  Name="ResetSelection"   W="150" MinSize="100,0" Clicked=":DoResetSelection" Text="Reset Selection"/>
+                <IndicatorButton  Name="NavigateToday"    W="100" MinSize="50,0"  Clicked=":JumpToToday" Text="Today"/>
+                <IndicatorButton  Name="NavigatePrevious" W="50"  MinSize="50,0"  Clicked=":JumpToPrevious" Icon="arrow_left"/>
+                <IndicatorButton  Name="NavigateNext"     W="50"  MinSize="50,0"  Clicked=":JumpToNext" Icon="arrow_right"/>
+                <SwipeButton      Name="ColumnConfig"     W="100" MinSize="50,0"  Property="SelectedColumnConfiguration" Text="Columns" ValueRole="DisplayShort" IndirectEdit="Yes" InteractWithCommandline="Yes"/>
+                <IndicatorControl Name="Running"          W="90"  MinSize="50,0"  Property="Running" Target="ShowData.Agendas" Text="Running" TextAutoAdjust="No" TextAlignmentV="Bottom" />
+                <SwipeButton      Name="ViewMode"         W="100" MinSize="50,0"  Property="ViewMode" Text="View Mode"/>
+                <IndicatorControl Name="Setup"            W="70"  MinSize="50,0"  Property="Setup" Text="Setup"/>
+            </TitleAutoLayout>
+            <ContextButton Anchors="0,0"  Icon="object_agenda" Texture="corner1"  ToolTip=""/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Content">
+            <UILayoutGrid Name="Grid" Anchors="0,0" DefaultMargin="1">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch"  />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+
+                <!-- ToolBar -->
+                <Toolbar Name="ToolBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,0" Direction="Vertical" HelpTopic="agenda_toolbar.html">
+                    <ValueControl H="50" W="50" Name="select" ShowLabel="No" ShowValue="No" Icon="select" Property="Tool" Value="Select"  Undo="No" ToolTip="" HotKey="Alt+S"/>
+                    <ValueControl H="50" W="50" Name="store"  ShowLabel="No" ShowValue="No" Icon="plus"   Property="Tool" Value="Store"   Undo="No" ToolTip="Store a new Agenda entry" HotKey="Insert"/>
+                    <ValueControl H="50" W="50" Name="delete" ShowLabel="No" ShowValue="No" Icon="minus"  Property="Tool" Value="Delete"  Undo="No" ToolTip="Delete an Agenda entry" HotKey="Delete"/>
+                    <Button       H="50" W="50" Name="call"   Clicked=":OnToolBtnClicked" SignalValue="Call"   Icon="test"        ToolTip="Test an Agenda entry"/>
+                    <Button       H="50" W="50" Name="edit"   Clicked=":OnToolBtnClicked" SignalValue="Edit"   Icon="tools"       ToolTip="Edit an Agenda entry"/>
+                    <Button       H="50" W="50" Name="cut"    Clicked=":OnToolBtnClicked" SignalValue="Cut"    Icon="PhaserCut"   ToolTip="Cut an Agenda entry into the clipboard"   HotKey="Ctrl+X"/>
+                    <Button       H="50" W="50" Name="copy"   Clicked=":OnToolBtnClicked" SignalValue="Copy"   Icon="PhaserCopy"  ToolTip="Copy an Agenda entry into the clipboard"  HotKey="Ctrl+C"/>
+                    <Button       H="50" W="50" Name="paste"  Clicked=":OnToolBtnClicked" SignalValue="Paste"  Icon="PhaserPaste" ToolTip="Paste an Agenda entry from the clipboard" HotKey="Ctrl+V"/>
+                </Toolbar>
+
+                <!-- Content -->
+                <UILayoutGrid Name="Sheet" Anchors="1,0" Visible="Yes" DefaultMargin="0">
+                    <AgendaGrid Name="Content" TargetObject="ShowData.Agendas" DataType="AgendaGridData" LevelLimit="0" LassoFinished=":OnGridClicked" Clicked=":OnGridClicked" OnSelectedItem=":OnItemSelected"/>
+                    <GridSettings AdjustColumns="No"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="Year" Anchors="1,0" Visible="No" DefaultMargin="0">
+                    <AgendaMonthsGrid Name="Content" Anchors="0,0"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="Month" Anchors="1,0" Visible="No" DefaultMargin="0">
+                    <AgendaDaysGrid Name="Content" Anchors="0,0" Mode="Month"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="Week" Anchors="1,0" Visible="No" DefaultMargin="0">
+                    <AgendaDaysGrid Name="Content" Anchors="0,0" Mode="Week"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="Day" Anchors="1,0" Visible="No" DefaultMargin="5">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="0.6"/>
+                        <Item SizePolicy="Stretch" Size="0.4"/>
+                    </ItemCollectColumns>
+                    <AgendaDaysGrid Anchors="0,0" Name="Content" Mode="Month" ShowVisibleDay="1"/>
+                    <AgendaDaysGrid Anchors="1,0" Name="Content" Mode="Day"/>
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </DialogFrame>
+    </WindowAgenda>
+</GMA3>

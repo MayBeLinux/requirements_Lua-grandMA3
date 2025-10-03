@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ImageImport Name="ImageImport" W="70%" H="60%" RelativeToDisplay="Yes" MinSize="400,300" WantsModal="1" OnLoad=":ImporterLoaded" FilterChanged=":ImageFilterChanged" DriveReset="true" >
+
+        <TitleBar Anchors="0,0" Name="Title">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Select Image for Import" />
+            <DriveSelector Name="DriveSelector" Texture="corner0" Anchors="1,0" Target="Temp.DriveCollect" SelectionChanged=":DriveChange" ShowOldVersions="No"/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" MinSize="400" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Anchors="0,0" Name="LeftArea">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Content" Size="50" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <UILayoutGrid Anchors="0,0" Name="FilterBlock">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Content" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Content" Size="1" />
+                    </ItemCollectColumns>
+                    <UIObject Text="Filter:" Anchors="0,0" BackColor="global.BackGround" HasHover="No" ContentDriven="Yes"/>
+                    <LineEdit Name="FilterEdit" Anchors="1,0" Target="../../ImageGrid/Internals/GridBase/GridSettings/GridContentFilter/Filter" Property="Filter" />
+                    <IndicatorButton Name="Clear" Text="Clear" Clicked=":ClearFilters" Anchors="2,0" W="80" Texture="corner10" WantsNumericRedirect="Yes" />
+                </UILayoutGrid>
+                <AutoLayout Name="FilterSwitches" Anchors="0,1" DefaultMargin="1" Direction="Horizontal" Texture="corner15" Content="Yes" Visible="No">
+                    <PropertyInput Name="FilterName"         Text="Name"          MinSize="50,0" W="100" ShowLabel="Yes" ShowValue="1" Property="FilterByName"         TextAutoAdjust="No" />
+                </AutoLayout>
+                <DBObjectGrid Name="ImageGrid" WantsNumericRedirect="Yes" Anchors="0,2" FilterBlockUIEnabled="No" CanProvideUiGridSelection="No" AllowFilterContent="Yes" SelectionType="ColumnGridSelection" OnSelectedRow=":OnSelected" AllowEdit="No" KeyUp=":ImageGridOnChar" AllowMergeChildren="Yes">
+                    <GridContentFilter>
+                        <GridContentFilterItem Name="Filter" Columns="" />
+                    </GridContentFilter>
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="No">
+                            <GridColumn Name="Name" Visible="No"/>
+                            <GridColumn Name="Lock" Visible="No"/>
+                            <!--<GridColumn Name="FileTime" Visible="No" />-->
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </DBObjectGrid>
+                <IndicatorButton Name="Import" Text="Import" Clicked=":DoImportImage" Anchors="0,3" W="130" AlignmentH="Right" Texture="corner15" WantsNumericRedirect="Yes" />
+            </UILayoutGrid>
+            <AppearancePreview Name="Preview" Texture="checkboard" Anchors="1,0"/>
+            <UIObject Name="TooBigError" Anchors="1,0" H="100" W="100%" BackColor="Global.Transparent" TextColor="Global.AlertText" TextAutoAdjust="Yes" HasHover="0" Visible="No" />
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </ImageImport>
+</GMA3>

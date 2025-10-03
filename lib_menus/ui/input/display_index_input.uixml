@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="400" H="500" WantsModal="1" OnLoad=":OnLoaded" Name="DisplayIndexEditor" HelpTopic="wvm_change_location.html">
+
+        <TitleBar Anchors="0,0" HelpTopic="wvm_change_location.html">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="70" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select Display Index" HelpTopic="wvm_change_location.html"/>
+            <Button Name="Clear" Anchors="1,0" Text="Clear" Clicked=":OnClear" HelpTopic="wvm_change_location.html"/>
+            <CloseButton Texture="corner2" Anchors="2,0" HelpTopic="wvm_change_location.html"/>
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame" Columns="1" DefaultMargin="10" DefaultMarginOnBorders="Yes" HelpTopic="wvm_change_location.html">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Name="Displays" Anchors="0,0" Rows="3" Columns="3" DefaultMargin="10" HelpTopic="wvm_change_location.html">
+                <IndicatorButton  Name="D1" Anchors="2,1" SignalValue="1" Text="Internal 1" Texture="corner8" Clicked=":OnSetTarget" HelpTopic="wvm_change_location.html"/>
+                <IndicatorButton  Name="D2" Anchors="1,1" SignalValue="2" Text="Internal 2"                   Clicked=":OnSetTarget" HelpTopic="wvm_change_location.html"/>
+                <IndicatorButton  Name="D3" Anchors="0,1" SignalValue="3" Text="Internal 3" Texture="corner4" Clicked=":OnSetTarget" HelpTopic="wvm_change_location.html"/>
+                <IndicatorButton  Name="D4" Anchors="2,0" SignalValue="4" Text="External 4" Texture="corner2" Clicked=":OnSetTarget" HelpTopic="wvm_change_location.html"/>
+                <IndicatorButton  Name="D5" Anchors="0,0" SignalValue="5" Text="External 5" Texture="corner1" Clicked=":OnSetTarget" HelpTopic="wvm_change_location.html"/>
+                <IndicatorButton  Name="D6" Anchors="2,2" SignalValue="6" Text="Small 6" Texture="corner10" Clicked=":OnSetTarget" HelpTopic="wvm_change_location.html"/>
+                <IndicatorButton  Name="D7" Anchors="1,2" SignalValue="7" Text="Small 7" Texture="corner5" Clicked=":OnSetTarget" HelpTopic="wvm_change_location.html"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

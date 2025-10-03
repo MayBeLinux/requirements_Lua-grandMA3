@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="229" Name="WindowPresetPool" Guid="00 1B 21 70 35 AB 00 00 57 9F 41 2A 7C 8C D2 5B" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="00 1B 21 70 58 C6 00 00 56 9F 41 2A 7C 8C D2 5B" FileName="window_preset_pool.uixml" PlaceHolder="UiScreen" WindowSettings="PresetPoolSettings" WindowContext="ContextPresetPool" Toggle="No" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShowCreatorFTPresetsMainDialog Name="AutoStorePresets" OnLoad=":OnMenuLoaded" OverrideKeybSC="Yes"  ShowCreatorType="AutoStore">
+
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Anchors="0,0" Texture="corner1" Text="Show Creator" />
+            <IndicatorControl Anchors="1,0" Property="Advanced"  OnLoad=":UseSettingsTarget" />
+            <CloseButton Anchors="2,0" Texture="corner2" />
+        </TitleBar>
+
+        <!-- body -->
+        <MainDialogContent Name="Content" DefaultMargin="6" DefaultMarginOnBorders="Yes" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Fixed" Size="30" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+            </ItemCollectColumns>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <!-- PRESET POOL SELECTOR -->
+            <ChildRadioButtonList Anchors="0,0,4,0" H="50" Name="SubPoolSelector"  Type="Horizontal" AvoidScroll="Yes" ItemType="RadioItemButtonV2" OnSelectedItem=":OnSubPoolChanged" UseCommandlineClick="No"/>
+            <!-- LOCAL AREA -->
+            <!INCLUDE ../../../include/show_creator/preset_area.uixml >
+            <!-- AT FILTER -->
+            <!INCLUDE ../../../include/show_creator/at_filter_area.uixml >
+            <!-- TRIANGLE -->
+            <Button Icon="arrow_triangle" Anchors="2,1"  Interactive="No" BackColor="Global.Transparent" IconColor="ShowCreator.DirectionIcon"/>
+            <!-- FIXTURE AREA -->
+            <!INCLUDE ../../../include/show_creator/fixture_area.uixml >
+            <!-- FT PRESET AREA -->
+            <!INCLUDE ../../../include/show_creator/ft_preset_area.uixml >
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons H="60">
+            <CmdDlgFunctionButtonsLeft>
+                <ItemCollectRows>
+                    <!-- Hide First Row as its empty -->
+                    <Item SizePolicy="Fixed" Size="0"/>
+                    <Item SizePolicy="Stretch" Size="0.5" />
+                </ItemCollectRows>
+                <UIObject Anchors="0,1,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <ItemCollectRows>
+                    <!-- Hide First Row as its empty -->
+                    <Item SizePolicy="Fixed" Size="0"/>
+                    <Item SizePolicy="Stretch" Size="0.5" />
+                </ItemCollectRows>
+                <UIObject Anchors="0,1,2,1" HasHover="0"/>
+                <IndicatorButton Anchors="3,1" Name="Store"  Texture="corner8" Text="AutoStore Presets" Clicked=":StoreOrCreateFTPresets" SignalValue="Store" ToolTip="Autostore presets to fixture type." />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </ShowCreatorFTPresetsMainDialog>
+</GMA3>

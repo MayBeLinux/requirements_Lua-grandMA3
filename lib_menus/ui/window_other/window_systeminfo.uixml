@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window Name="SysteminfoWindow" OnLoad=":WindowLoaded" HelpTopic="si_system_info.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner0"   Anchors="1,0" Text="System Info" />
+            <SwipeButton Name="DispView"     Anchors="2,0" Property="DispView" Texture="corner2"  TextAutoAdjust="Yes"  ShowLabel="No" ToolTip="Toggle between the different systeminfo views" />
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_sysinfo" ToolTip="configures systeminfo window"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="DialogFrame" Anchors="0,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <PerformanceView     Name="PerformanceView"     Anchors="0,0" Focus="CanHaveFocus" Visible="No" />
+            <CPUTestView         Name="CPUTestView"         Anchors="0,0" Focus="CanHaveFocus" Visible="No" SampleTexture="FaderGrad2" SampleColor="SystemInfo.Cpu" PrintCurrentValue="Yes"/>
+            <MemTestView         Name="MemTestView"         Anchors="0,0" Focus="CanHaveFocus" Visible="No" SampleTexture="FaderGrad2" SampleColor="SystemInfo.Mem" PrintCurrentValue="Yes" />
+            <CpuTempView         Name="CpuTempView"         Anchors="0,0" Focus="CanHaveFocus" Visible="No" SampleTexture="FaderGrad2" SampleColor="SystemInfo.CpuTempLow" UpperSampleColor="SystemInfo.CpuTempHigh" PrintCurrentValue="Yes" PrintMaxValue="No" />
+            <GpuTempView         Name="GpuTempView"         Anchors="0,0" Focus="CanHaveFocus" Visible="No" SampleTexture="FaderGrad2" SampleColor="SystemInfo.GpuTempLow" UpperSampleColor="SystemInfo.GpuTempHigh" PrintCurrentValue="Yes" PrintMaxValue="No" />
+            <SysTempView         Name="SysTempView"         Anchors="0,0" Focus="CanHaveFocus" Visible="No" SampleTexture="FaderGrad2" SampleColor="SystemInfo.SysTempLow" UpperSampleColor="SystemInfo.SysTempHigh" PrintCurrentValue="Yes" PrintMaxValue="No" />
+            <FanRpmView          Name="FanRpmView"          Anchors="0,0" Focus="CanHaveFocus" Visible="No" SampleTexture="FaderGrad2" SampleColor="SystemInfo.FanRpmLow" UpperSampleColor="SystemInfo.FanRpmHigh" PrintCurrentValue="Yes" />
+            <UILayoutGrid        Name="HddView"             Anchors="0,0" Focus="CanHaveFocus" Visible="No" HasHover="No" Columns="1">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size ="75" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <PropertyControl Target="StationSettings.LocalSettings.$SelectedDriveObject$" Property="Name" Name="Select" Texture="corner0" Anchors="0,0" Text="Selected drive" />
+                <DBObjectGrid Name="HddDetailsGrid" BackColor="UIGrid.Background" Anchors="0,1" TargetObject="Temp.DriveCollect" AllowAddNewline="No" AllowEdit="No" AllowFilterContent="Yes" FilterBlockUIEnabled="No">
+                    <GridSettings ContentFilterType="GridObjectContentFilter" NoFixedColumns="Yes">
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter>
+                                <GridColumn Name="Lock" Visible="No" />
+                                <GridColumn Name="Path" Visible="No" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                        <GridObjectContentFilter>
+                            <GridObjectContentFilterItem Columns="DriveType" Filter="Internal" />
+                            <GridObjectContentFilterItem Columns="DriveType" Filter="Removeable" />
+                            <GridObjectContentFilterItem Columns="DriveType" Filter="RemoteDrive" />
+                        </GridObjectContentFilter>
+                    </GridSettings>
+                </DBObjectGrid>
+            </UILayoutGrid>
+            <UILayoutGrid        Name="SysDetailsView"      Anchors="0,0" Focus="CanHaveFocus" Visible="No" HasHover="No" Rows="11" Columns="3" OnLoad=":GetSysDetails">
+
+                <Button Name="SerialNumberText" Text="Serial Number" Anchors="0,0" HasHover="No"/>
+                <!--<Button Name="SerialNumberValue" Text="not initialized" Anchors="1,0,2,0" />-->
+                <PropertyControl Anchors="1,0,2,0" Target="Certificates" Property="SerialNumber" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+
+                <Button Name="HostTypeText" Text="Host Type" Anchors="0,1" HasHover="No"/>
+                <PropertyControl Anchors="1,1" Target="ManetSocket" Property="HostType" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+                <PropertyControl Anchors="2,1" Target="ManetSocket" Property="HostSubType" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+
+                <Button Name="HostOsText" Text="Host OS" Anchors="0,2" HasHover="No"/>
+                <Button Name="HostOsValue" Text="not initialized" Anchors="1,2,2,2" Enabled="No" TextColor="SysInfoButton.Text"/>
+
+                <Button Name="ProductionDateText" Text="Production Date" Anchors="0,3" HasHover="No"/>
+                <PropertyControl Anchors="1,3,2,3" Target="Certificates" Property="Date" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+
+                <Button Name="VersionText" Text="Software Version" Anchors="0,4" HasHover="No"/>
+                <Button Name="VersionValue" Text="not initialized" Anchors="1,4,2,4" Enabled="No" TextColor="SysInfoButton.Text"/>
+
+                <Button Name="ReleaseTypeText" Text="Release Type" Anchors="0,5" HasHover="No"/>
+                <Button Name="ReleaseTypeValue" Text="not initialized" Anchors="1,5" Enabled="No" TextColor="SysInfoButton.Text"/>
+                <Button Name="CodeTypeValue" Text="not initialized" Anchors="2,5" Enabled="No" TextColor="SysInfoButton.Text"/>
+
+                <Button Name="BuildDateText" Text="Build Date" Anchors="0,6" HasHover="No"/>
+                <Button Name="BuildDateValue" Text="not initialized" Anchors="1,6" Enabled="No" TextColor="SysInfoButton.Text"/>
+                <Button Name="BuildTimeValue" Text="not initialized" Anchors="2,6" Enabled="No" TextColor="SysInfoButton.Text"/>
+
+                <Button Name="GitHashText" Text="Git Hash" Anchors="0,7" HasHover="No"/>
+                <Button Name="GitHashValue" Text="not initialized" Anchors="1,7" Enabled="No" TextColor="SysInfoButton.Text"/>
+                <Button Name="GitDateValue" Text="not initialized" Anchors="2,7" Enabled="No" TextColor="SysInfoButton.Text"/>
+
+                <Button Name="ParamCountText" Text="Parameter Count" Anchors="0,8" HasHover="No"/>
+                <Button Name="ParamCountText" Text="ShowData" Anchors="0,9" HasHover="No"/>
+                <Button Name="ImagePoolText" Text="Media Pools" Anchors="0,10" HasHover="No"/>
+                <!-- <Button Name="DiskUsageText" Text="Disk Space" Anchors="0,12" HasHover="No"/> -->
+                <!--<Button Name="ParamCountValue" Text="not initialized" Anchors="1,9,2,9" />-->
+                <UILayoutGrid  Name="UICount"   Anchors="1,8,1,8" Focus="Never" Visible="Yes" HasHover="No" Rows="1" Columns="2" Transparent="No" DefaultMargin="0">
+                    <Button Text="Used: " Anchors="0,0" TextAlignmentH="Right" Enabled="No" TextColor="SysInfoButton.Text"/>
+                    <PropertyControl Name="UICountCtrl" Anchors="1,0" Target="ShowData.LivePatch" Property="CountUIChannels" ShowLabel="false" Text="Used" Focus="Never" ValueAlignmentH="Left" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+                </UILayoutGrid>
+                <UILayoutGrid  Name="ParamCount"   Anchors="2,8,2,8" Focus="Never" Visible="Yes" HasHover="No" Rows="1" Columns="2" Transparent="No" DefaultMargin="0">
+                    <Button Text="Available: " Anchors="0,0" TextAlignmentH="Right" Enabled="No" TextColor="SysInfoButton.Text"/>
+                    <PropertyControl Anchors="1,0" Target="ShowData" Property="ParameterCount" ShowLabel="false" Text="Available" Focus="Never" ValueAlignmentH="Left" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+                </UILayoutGrid>
+                <UILayoutGrid  Name="ShowDataUsed"   Anchors="1,9,1,9" Focus="Never" Visible="Yes" HasHover="No" Rows="1" Columns="2" Transparent="No" DefaultMargin="0">
+                    <Button Text="Used: " Anchors="0,0" TextAlignmentH="Right" Enabled="No" TextColor="SysInfoButton.Text"/>
+                    <PropertyControl Name="ShowDataUsedCtrl" Enabled="No" Anchors="1,0" Target="ShowData" Property="MemoryFootprint" ShowLabel="false" Text="Used" Focus="Never" ValueRole="DisplayShort" ValueAlignmentH="Left" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+                </UILayoutGrid>
+                <UILayoutGrid  Name="ShowDataLimit"   Anchors="2,9,2,9" Focus="Never" Visible="Yes" HasHover="No" Rows="1" Columns="2" Transparent="No" DefaultMargin="0">
+                    <Button Text="Maximum: " Anchors="0,0" TextAlignmentH="Right" Enabled="No" TextColor="SysInfoButton.Text"/>
+                    <PropertyControl Anchors="1,0" Enabled="No" Target="ShowData" Property="MemoryLimit" ValueRole="DisplayShort" ShowLabel="false" Text="Available" Focus="Never" ValueAlignmentH="Left" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+                </UILayoutGrid>
+                <UILayoutGrid  Name="ImagePoolUsed"   Anchors="1,10,1,10" Focus="Never" Visible="Yes" HasHover="No" Rows="1" Columns="2" Transparent="No" DefaultMargin="0">
+                    <Button Text="Used: " Anchors="0,0" TextAlignmentH="Right" Enabled="No" TextColor="SysInfoButton.Text"/>
+                    <PropertyControl Name="ImagePoolUsedCtrl" Enabled="No" Anchors="1,0" Target="ShowData.MediaPools" Property="MemoryFootprint" ShowLabel="false" Text="Used" Focus="Never" ValueRole="DisplayShort" ValueAlignmentH="Left" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+                </UILayoutGrid>
+                <UILayoutGrid  Name="ImagePoolLimit"   Anchors="2,10,2,10" Focus="Never" Visible="Yes" HasHover="No" Rows="1" Columns="2" Transparent="No" DefaultMargin="0">
+                    <Button Text="Maximum: " Anchors="0,0" TextAlignmentH="Right" Enabled="No" TextColor="SysInfoButton.Text"/>
+                    <PropertyControl Anchors="1,0" Enabled="No" Target="ShowData.MediaPools" Property="MemoryLimit" ValueRole="DisplayShort" ShowLabel="false" Text="Available" Focus="Never" ValueAlignmentH="Left" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text"/>
+                </UILayoutGrid>
+            </UILayoutGrid>
+            <UILayoutGrid        Name="Network"      Anchors="0,0" Focus="CanHaveFocus" Visible="No" HasHover="No" Rows="4" Columns="2" >
+
+                <Button Name="Console" Text="Console" Anchors="0,0" HasHover="No"/>
+                <PropertyControl Anchors="1,0" Target="DeviceConfigurations.OutputStations.Console" Property="DevicesInSession" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text" ForceIntensity="256"/>
+
+                <Button Name="onPC" Text="onPC" Anchors="0,1" HasHover="No"/>
+                <PropertyControl Anchors="1,1" Target="DeviceConfigurations.OutputStations.onPC" Property="DevicesInSession" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text" ForceIntensity="256"/>
+
+                <Button Name="PU" Text="PU" Anchors="0,2" HasHover="No"/>
+                <PropertyControl Anchors="1,2" Target="DeviceConfigurations.OutputStations.PU" Property="DevicesInSession" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text" ForceIntensity="256"/>
+
+                <Button Name="NetworkNode" Text="Node" Anchors="0,3" HasHover="No"/>
+                <PropertyControl Anchors="1,3" Target="DeviceConfigurations.OutputStations.NetworkNode" Property="DevicesInSession" ShowLabel="false" Focus="Never" BackColor="Button.Background" ValueTextColor="SysInfoButton.Text" ForceIntensity="256"/>
+            </UILayoutGrid>
+        </DialogFrame>
+
+
+    </Window>
+</GMA3>

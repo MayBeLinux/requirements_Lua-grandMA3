@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UIDMXPatch W="100%" H="100%" OnMoveToUniverse=":MoveToUniverse" OnPatchToClicked=":PatchTo" OnPatchToNextFree=":PatchToNextFree" OnUnpatchClicked=":Unpatch" OnBreakSelected=":OnSelectedFixture" OnBreakPatched=":CheckAutoClose" OnAddressSelected=":DMXAddressSelected" AutoClose="No" EditEncoderBar="PatchBar" >
+
+        <ItemCollectRows>
+            <Item SizePolicy="Content"/>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="60"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Fixture(s) to Patch" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0"/>
+        </TitleBar>
+
+        <SplitView Anchors="0,1">
+            <UILayoutGrid Name="Fixtures">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner3" Anchors="0,0" Text="Fixture(s) to Patch"  BackColor="Global.Transparent" Icon=""/>
+                </TitleBar>
+
+                <GenericSheet Name="FixturesGrid" DataType="DMXPatchFixtureGridData" SelectionType="ColumnGridSelection" Anchors="0,1" OnSelectedItem=":OnSelectedFixture" OnAfterEdit=":CheckAutoClose" WantsNumericRedirect="Yes" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="DMX">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner1" Anchors="0,0" Text="DMX Universe"  BackColor="Global.Transparent" Icon=""/>
+                    <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal"  Texture="corner2" Content="Yes" >
+                        <DialogButton Name="ColumnCountContorl"  W="100" Property="ColumnsCount" Text="Columns" TextAutoAdjust="No" BackColor="Global.Transparent" ShowValue="Yes"/>
+                        <DialogButton Name="AddressControl"  W="100" Property="Address" TextAutoAdjust="No" BackColor="Global.Transparent" ShowValue="Yes"/>
+                        <Button Name="UniverseDown" Clicked=":UniverseDown" ToolTip="Universe Down"  Icon="arrow_left" W="50" BackColor="Global.Transparent"/>
+                        <DialogButton Name="UniverseControl"  W="100" Property="Universe" TextAutoAdjust="No" BackColor="Global.Transparent" ShowValue="Yes"/>
+                        <Button Name="UniverseUp" Clicked=":UniverseUp"  ToolTip="Universe Up"  Icon="arrow_right" W="50" BackColor="Global.Transparent"/>
+                    </AutoLayout>
+                </TitleBar>
+
+                <DMXSheet  OnUniverseDownClicked=":UniverseDown" OnUniverseUpClicked=":UniverseUp" Anchors="0,1" Name="UniverseGrid" DataType="DMXSheetListGridData" OnSelectedItem=":DMXAddressSelected"/>
+
+            </UILayoutGrid>
+
+        </SplitView>
+
+        <UILayoutGrid Anchors="0,2" DefaultMargin="1">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectColumns>
+            <IndicatorButton Anchors="0,0" Text="PatchTo" Clicked=":PatchTo" Texture="corner5"/>
+            <IndicatorButton Name="UnpatchBtn" Anchors="1,0" Clicked=":Unpatch" Text="Unpatch"/>
+            <IndicatorButton Anchors="2,0" Text="Move Patched To&#xD;Selected Universe" Clicked=":MoveToUniverse" />
+            <SwipeButton Anchors="3,0" Name="AddressMode" Property="AddressMode" TextAutoAdjust="No" />
+            <IndicatorButton Anchors="4,0" Text="Patch To Next&#xD;Free Address" SignalValue="Address" Clicked=":PatchToNextFree" />
+            <IndicatorButton Anchors="5,0" Text="Patch To Next&#xD;Free Universe" SignalValue="Universe" Clicked=":PatchToNextFree" />
+            <IndicatorControl Anchors="6,0" Name="SkipPatched" Property="SkipPatched" ContentAreaMargin="4,7,4,2"/>
+            <PropertyInput Anchors="7,0" Name="Offset" Property="PatchOffset" Texture="corner10" OnLoad=":SetUIDMXPatchAsTarget"/>
+        </UILayoutGrid>
+    </UIDMXPatch>
+</GMA3>

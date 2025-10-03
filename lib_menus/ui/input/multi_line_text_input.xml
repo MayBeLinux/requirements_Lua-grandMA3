@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="117" Name="MultiLineTextInput" Guid="1C 3F 12 ED 8F 77 49 2E 92 E5 63 01 B7 54 AA 4C" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" Guid="EA AB 9A E2 41 FC 45 C2 B9 8A A8 71 65 4D AF 64" FileName="multi_line_text_input.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="CF 69 45 AC C7 A6 42 89 85 E8 41 BB 6C 77 59 64" FileName="multi_line_text_input.lua" />
+        <ComponentLua Index="3" FileName="../content/placeholder_base.lua" />
+    </Menu>
+</GMA3>

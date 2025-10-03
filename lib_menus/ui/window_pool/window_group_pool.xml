@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="210" Name="WindowGroupPool" Guid="53 45 FF E6 15 D4 41 D2 9A 65 BC 56 A2 0D D6 48" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="79 A9 B2 09 41 63 4A E3 A1 73 AF 1D 54 A7 10 7E" FileName="window_group_pool.uixml" PlaceHolder="UiScreen" WindowSettings="GroupPoolSettings" WindowContext="ContextGroupPool" Toggle="No" />
+    </Menu>
+</GMA3>

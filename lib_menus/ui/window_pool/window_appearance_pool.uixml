@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="appear.html" >
+        <AppearancePoolLayoutGrid  Text="Appear." TitleButtonIcon="object_appear" ToolTip="Appearance pool window">
+            <PoolTitleButton />
+        </AppearancePoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <RecurringOverlay Name="ReleaseNotesFullscreen" OnLoad=":ReleaseNotesFullscreenLoaded" CloseOnEscape="No" WantsModal="Yes" AutoClose="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="180" />
+                <Item SizePolicy="Fixed" Size="120" />
+                <Item SizePolicy="Fixed" Size="120" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Release Notes" Icon=""/>
+            <Button Texture="corner0" Name="DontAgreeBtn" Text="I DO NOT agree" Anchors="1,0" Enabled="Yes" Clicked=":DontAgreeBtn" />
+            <Button Texture="corner0" Name="Ok" Enabled="Yes" Text="I agree" Anchors="2,0" Clicked=":Ok" />
+            <IndicatorControl Texture="corner2" OnLoad=":SetTarget" Text="Show again" Name="ShowAgainBtn" Anchors="3,0" Property="ShowReleaseNotes" TextAutoAdjust="Yes" BackColor="global.Default"/>
+        </TitleBar>
+        <PlaceHolder Name="ReleaseNotesPlace" Anchors="0,1" />
+    </RecurringOverlay>
+</GMA3>

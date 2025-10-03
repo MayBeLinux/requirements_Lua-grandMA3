@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="FilterSettings" Author="MA" Version="0.1.0.0" Path="/ui/setup">
+        <ComponentXML FileName="filter_settings.uixml" PlaceHolder="FilterSettings" Toggle="No" SearchFocusAllowed="No" />
+        <ComponentLua FileName="filter_settings.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ImageImport" Author="MA" Version="0.1.0.0" Path="/ui/editors">
+        <ComponentXML FileName="image_import.uixml" PlaceHolder="ModalOverlay"  DisplayTypePreference="BigOrSmall" Toggle="No" />
+        <ComponentLua FileName="image_import.lua" />
+    </Menu>
+</GMA3>

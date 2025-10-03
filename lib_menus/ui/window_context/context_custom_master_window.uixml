@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="executor_special.html" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Custom Master Section Window Settings" Icon=""/>
+            <DeleteWindowButton   Anchors="1,0"  />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame  Anchors="0,1" Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged" >
+
+                <UILayoutGrid Name="Display" Rows="4" Columns="6" DefaultMargin="8" DefaultMarginOnBorders="Yes">
+
+                    <PropertyInput Anchors="0,0" Texture="corner3" AutoHide="Yes" Property="ShowLabels" Text="Labels" />
+                    <PropertyInput Anchors="0,1" Texture="corner12" AutoHide="Yes" Property="ShowHardwareButtons" Text="Hardware&#xD;Buttons" />
+
+                    <PropertyInput Anchors="2,0" Texture="corner15" AutoHide="Yes" Property="ShowCustomSection" Text="Custom&#xD;Area" />
+                    <PropertyInput Anchors="3,0" Texture="corner3" AutoHide="Yes" Property="ShowMasterSection" Text="Master&#xD;Area" />
+                    <PropertyInput Anchors="3,1" Texture="corner12" AutoHide="Yes" Property="ShowMasterSectionKnobs" Text="Master Area&#xD;Knobs" />
+                    <PropertyInput Anchors="4,0" Texture="corner15" AutoHide="Yes" Property="ShowGrandMasterSection" Text="Grand&#xD;Master" />
+                    <PropertyInput Anchors="5,0" Texture="corner15" AutoHide="Yes" Property="ShowPageSection" Text="Page&#xD;Area" />
+                    <IndicatorControl Anchors="5,3" Texture="corner15" Property="ShowTitleBar"  TextAutoAdjust="Yes" Text="Show Title Bar" />
+
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Mask" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

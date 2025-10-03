@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GraphicsEncoderBar OnLoad=":BarLoaded" DefaultMargin="3">
+
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <UILayoutGrid Name="Upper" Anchors="0,0" Columns="1" Rows="1" DefaultMargin="3" Margin="0,3,3,3">
+            <UIObject Texture="corner15" HasHover="No" />
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Lower" Anchors="0,1" Columns="5" Rows="2" DefaultMargin="4,0,4,0" Margin="0,0,3,0">
+            <EncoderControl Name="Encoder1" EncoderRing="Inner" EncoderType="Inside1" Anchors="0,0" Texture="corner0" System="DmxPatch" Property="FixtureFrom" />
+            <EncoderControl Name="Encoder2" EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" System="DmxPatch" Property="FixtureTo" />
+            <EncoderControl Name="Encoder3" EncoderRing="Both" EncoderType="Inside2" Anchors="1,0,1,1" Texture="corner0" System="DmxPatch" Property="Break" />
+            <EncoderControl Name="Encoder4" EncoderRing="Both" EncoderType="Inside3" Anchors="2,0,2,1" Texture="corner0" System="DmxPatch" Property="Universe" />
+            <EncoderControl Name="Encoder5" EncoderRing="Both" EncoderType="Inside4" Anchors="3,0,3,1" Texture="corner0" System="DmxPatch" Property="Address" />
+            <EncoderControl Name="Encoder6" EncoderRing="Both" EncoderType="Inside5" Anchors="4,0,4,1" Texture="corner0" System="DmxPatch" Property="TestLevel" />
+
+            <!--Screen encoder controls that are visible depending on the UserProfile setting in m_Data.m_Flags.m_Bits.m_ScreenEncoders-->
+            <ScreenEncoderControl Name="Encoder5aScr" System="Scroll"      EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" />
+            <ScreenEncoderControl Name="Encoder5bScr" System="Scroll"      EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" />
+        </UILayoutGrid>
+
+    </GraphicsEncoderBar>
+</GMA3>

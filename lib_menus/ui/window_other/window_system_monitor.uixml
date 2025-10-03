@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <SystemMonitorWindow Name="SystemMonitor" BackColor="Global.Background"  Font="console16" HelpTopic="si_system_monitor.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="System Monitor" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0" Icon="object_sysmonitor" ToolTip="Configures system monitor"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TextView Name="SystemMonitor" Anchors="0,0,1,0" TextViewProvider="/ShowData" BackColor="SystemMonitor.Background" SelectionColor="SystemMonitor.SelectedRow" FixedBackColor="SystemMonitor.FixedBackground" />
+            <ScrollBarV Anchors="1,0" ScrollTarget="../SystemMonitor" />
+            <ScrollBarH Anchors="0,1" ScrollTarget="../SystemMonitor" />
+        </DialogFrame>
+
+    </SystemMonitorWindow>
+</GMA3>

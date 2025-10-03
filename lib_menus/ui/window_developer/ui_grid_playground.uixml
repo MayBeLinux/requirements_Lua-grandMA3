@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Overlay Name="Test" BackColor="Overlay.Background" >
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="150" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="140" />
+            <Item SizePolicy="Fixed" Size="50" />
+        </ItemCollectRows>
+        <!-- body -->
+        <UIObject Name="Test" Visible="No">
+            <UIObject Name="Child Test">
+                <UIObject Name="Sub 2">
+                    <UIObject Name="Sub 22" />
+                    <UIObject Name="Sub 23" />
+                    <UIObject Name="Sub 24" />
+                    <UIObject Name="Sub 25" />
+                </UIObject>
+                <UIObject Name="Sub 5" />
+                <UIObject Name="Sub 6">
+                    <UIObject Name="Sub 34" />
+                    <UIObject Name="Sub 35" />
+                    <UIObject Name="Sub 36" />
+                    <UIObject Name="Sub 37" />
+                </UIObject>
+            </UIObject>
+            <UIObject Name="Child Test 2" />
+            <UIObject Name="Child Test 3" />
+        </UIObject>
+
+        <DBObjectGrid Name="TestGrid" BackColor="UIGrid.TextBackground" Anchors="0,0,1,0" TargetObject="../Test" Visible="No" />
+        <ToggleButton Name="Statebutton" Texture="corner0" Text="Transpose" BackColor="Button.Background" TextColor="ButtonLabel.Text" Anchors="0,1" Target="../TestGrid/Internals/GridBase 1" TargetProperty="DbgTranspose" Visible="No" />
+
+        <ObjectProperties Name="ObjProp" Anchors="0,0,1,0" ChangeTarget=":MyTabChanged2" Visible="No" />
+        <DBObjectGrid Name="TestGrid2" BackColor="UIGrid.TextBackground" Anchors="0,0,1,0" ChangeTarget=":MyTabChanged" Visible="Yes" />
+        <DBObjectTab Name="TestTab" BackColor="UITab.Background" Type="Horizontal" Anchors="0,2,0,2" TargetObject="ShowData" TabChanged=":MyTabChanged" Visible="Yes" />
+
+        <DialogContainer Anchors="0,0,1,0" ChangeActive=":SimpleTabChange" Visible="No" >
+            <UIObject Name="DummyTab" Text="text for the dummy" />
+            <UIObject Name="Tab 1" Text="The content of tab1" />
+            <UIObject Name="Another Tab" Text="The content of another tab" />
+            <UIObject Name="Tab 2" Text="The content of tab2" />
+        </DialogContainer>
+
+        <UITab Anchors="1,2" TabChanged=":SimpleTabChange" Visible="No" >
+            <!--Warning: this is outdated-->
+            <TabItem Name="Tab 1" Size="200" AlignmentH="Left" />
+            <TabItem Name="Tab 2" />
+            <TabItem Name="Another Tab" />
+            <TabItem Name="Non Existing Tab" />
+        </UITab>
+    </Overlay>
+</GMA3>

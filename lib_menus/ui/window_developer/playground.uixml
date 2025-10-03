@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<GMA3>
+    <Overlay Name="Playground" BackColor="Global.Background">
+        <UILayoutGrid>
+            <ItemCollectRows>
+                <Item Name="LayoutItem 1" SizePolicy="Fixed" Size="50" />
+                <Item Name="LayoutItem 2" SizePolicy="Fixed" Size="47" />
+                <Item Name="LayoutItem 3" />
+                <Item Name="LayoutItem 4" SizePolicy="Fixed" Size="47" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item Name="LayoutItem 1" />
+            </ItemCollectColumns>
+
+            <TitleBar Name="TitleBar" Anchors="0,0">
+                <ItemCollectRows>
+                    <Item Name="LayoutItem 1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item Name="LayoutItem 1" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectColumns>
+
+                <TitleButton Name="TitleButton 1" Texture="corner1" Text="Playground" Padding="5,0,0,0" Anchors="0,0" />
+                <CloseButton Name="CloseButton 2" Texture="corner2" Anchors="1,0" />
+            </TitleBar>
+
+            <UIObject Name="TabControlDummyUIObject" Texture="corner0" Text="This will be a tabcontrol later" BackColor="Global.TextActive" Anchors="0,1" />
+            <UILayoutGrid Name="ContentArea" Anchors="0,2">
+                <ItemCollectRows>
+                    <Item Name="LayoutItem 1" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 2" SizePolicy="Fixed" Size="84" />
+                    <Item Name="LayoutItem 3" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 4" SizePolicy="Fixed" Size="84" />
+                    <Item Name="LayoutItem 5" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 6" SizePolicy="Fixed" Size="84" />
+                    <Item Name="LayoutItem 7" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item Name="LayoutItem 1" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 2" SizePolicy="Fixed" Size="100" />
+                    <Item Name="LayoutItem 3" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 4" SizePolicy="Fixed" Size="100" />
+                    <Item Name="LayoutItem 5" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 6" SizePolicy="Fixed" Size="100" />
+                    <Item Name="LayoutItem 7" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 8" SizePolicy="Fixed" Size="100" />
+                    <Item Name="LayoutItem 9" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 10" SizePolicy="Fixed" Size="100" />
+                    <Item Name="LayoutItem 11" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 12" SizePolicy="Fixed" Size="100" />
+                    <Item Name="LayoutItem 13" SizePolicy="Fixed" Size="10" />
+                    <Item Name="LayoutItem 14" SizePolicy="Fixed" Size="100" />
+                    <Item Name="LayoutItem 15" />
+                </ItemCollectColumns>
+
+                <DialogButton Name="DialogButton" Text="DeskLock" Anchors="1,1" Clicked=":CommandLine" SignalValue="menu Desklock" ColorIndicator="Global.Text" />
+                <ToggleButton Name="ToggleButtonTwoState" Text="Art-Net Out" Anchors="3,1" Target="/ShowData/DMXProtocols/Art-Net" TargetProperty="Out" />
+                <PropertyControl Name="PropertyControl" Text="Art-Net Out" Anchors="5,1" Target="/ShowData/DMXProtocols/Art-Net" TargetProperty="Out" />
+                <ToggleButton Name="ToggleButtonMultiState" Text="AlignmentH Disp 1" Anchors="7,1,9,1" Target="/GraphicsRoot/DisplayCollect/Display 1" TargetProperty="AlignmentH" />
+                <IndicatorControl Name="FunctionButton" Text="Click me" Anchors="11,1" ColorIndicator="LineEdit.Background" />
+                <IndicatorControl Name="FunctionButton2" Text="No! Me!!" Anchors="13,1" ColorIndicator="LineEdit.Background" />
+                <IndicatorControl Name="IndicatorControl" Text="Art-Net Out" Anchors="1,3,3,3" ColorIndicator="LineEdit.Background" Target="/ShowData/DMXProtocols/Art-Net" TargetProperty="Out" />
+                <RadioButtons Name="RadioButton" Texture="corner0" Text="RadioButton" Anchors="5,3,7,5" Target="/GraphicsRoot/DisplayCollect/Display 1" TargetProperty="AlignmentH" />
+                <Button Name="Button 1" Texture="corner0" Text="Button1" Anchors="9,3" Enabled="No" />
+                <Button Name="Button 2" Texture="corner0" Text="Button2" Anchors="11,3" />
+                <Button Name="Button 3" Texture="corner0" Text="Button3" Anchors="13,3" />
+                <Button Name="Button 4" Texture="corner0" Text="Button4" Anchors="1,5" />
+                <Button Name="Button 5" Texture="corner0" Text="Button5" Anchors="3,5" />
+                <Button Name="Button 6" Texture="corner0" Text="Button6" Anchors="9,5" />
+                <Button Name="Button 7" Texture="corner0" Text="Button7" Anchors="11,5" />
+                <Button Name="Button 8" Texture="corner0" Text="Button8" Anchors="13,5" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="BottomLineUILayoutGrid" Texture="white" BackColor="Default" Anchors="0,3">
+                <ItemCollectRows>
+                    <Item Name="LayoutItem 1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item Name="LayoutItem 1" />
+                    <Item Name="LayoutItem 2" />
+                    <Item Name="LayoutItem 3" />
+                    <Item Name="LayoutItem 4" />
+                    <Item Name="LayoutItem 5" />
+                </ItemCollectColumns>
+
+                <DialogButton Name="DialogButton 1" Texture="corner15" Text="PopupButton1" BackColor="Global.Default" Anchors="0,0" ColorIndicator="LineEdit.Background" />
+                <DialogButton Name="DialogButton 2" Texture="corner15" Text="PopupButton2" BackColor="Global.Default" Anchors="1,0" ColorIndicator="LineEdit.Background" />
+                <DialogButton Name="DialogButton 3" Texture="corner15" Text="PopupButton3" BackColor="Global.Default" Anchors="2,0" ColorIndicator="LineEdit.Background" />
+                <DialogButton Name="DialogButton 4" Texture="corner15" Text="PopupButton4" BackColor="Global.Default" Anchors="3,0" ColorIndicator="LineEdit.Background" />
+                <DialogButton Name="DialogButton 5" Texture="corner15" Text="PopupButton5" BackColor="Global.Default" Anchors="4,0" ColorIndicator="LineEdit.Background" />
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </Overlay>
+</GMA3>

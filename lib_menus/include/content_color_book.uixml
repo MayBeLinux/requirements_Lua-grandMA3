@@ -1,0 +1,52 @@
+﻿
+<UILayoutGrid Name="WindowColorPickerBook" Texture="White" BackColor="Global.Background" OnLoad=":BookOnLoad" >
+    <ItemCollectRows>
+        <Item SizePolicy="Fixed" Size="50" />
+        <Item SizePolicy="Stretch" Size="1" />
+    </ItemCollectRows>
+    <ItemCollectColumns>
+        <Item SizePolicy="Stretch" Size="6" />
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Stretch" Size="12" />
+    </ItemCollectColumns>
+    <UILayoutGrid Name="Buttons" Anchors="0,0,2,0">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="3" />
+        </ItemCollectColumns>
+        <UIObject Text="Filter:" Anchors="0,0" BackColor="global.BackGround" HasHover="No"/>
+        <LineEdit Name="NameEdit" Focus="InitialFocus" Anchors="1,0" Texture="corner5" Target="../../Gels/Internals/GridBase/GelGridSettings/GridContentFilter/NameKey" Property="Filter" Clear=":ClearBookFilter" />
+        <Button Text="Clear Filter" Clicked=":ClearBookFilter" Anchors="2,0" ContentDriven="Yes" />
+        <SwipeButton Anchors="3,0" Name="GridTypeSelector" ShowLabel="Yes" Property="View" DirectProperty="Yes" />
+        <SwipeButton Anchors="4,0" Name="SortTypeSelector" ShowLabel="Yes" Property="SortBy" DirectProperty="Yes" Texture="corner10"/>
+    </UILayoutGrid>
+    <DBObjectGrid Name="Pools" LevelLimit="0" Anchors="0,1" SelectionType="SingleRowGridSelection" OnSelectedItem=":OnPoolSelected" TargetObject="ShowData.GelPools" AllowAddNewline="No" AllowEdit="No" AllowMergeChildren="No">
+        <GridSettings AdjustColumns="Yes" NoFixedColumns="Yes" >
+            <GridColumnFilterCollect>
+                <GridColumnNamesFilter Inclusive="Yes">
+                    <GridColumn Name="Manufacturer" Visible="Yes" />
+                </GridColumnNamesFilter>
+            </GridColumnFilterCollect>
+        </GridSettings>
+    </DBObjectGrid>
+    <GelGrid Name="Gels" Anchors="2,1" OnSelectedItem=":OnGelSelected" AllowFilterContent="Yes" AllowAddNewline="No" AllowEdit="No" AllowMergeChildren="No" >
+        <GelGridSettings AdjustColumns="Yes" NoFixedColumns="Yes" >
+            <GridColumnFilterCollect>
+                <GridColumnNamesFilter Inclusive="Yes">
+                    <GridColumn Name="Name" Visible="Yes" />
+                    <GridColumn Name="Key" Visible="Yes" />
+                    <GridColumn Name="Color" Visible="Yes" />
+                </GridColumnNamesFilter>
+            </GridColumnFilterCollect>
+        </GelGridSettings>
+        <GridContentFilter>
+            <GridContentFilterItem Name="NameKey" Columns="Name,Key" />
+        </GridContentFilter>
+    </GelGrid>
+</UILayoutGrid>

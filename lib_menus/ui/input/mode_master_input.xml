@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.78.0">
+    <Menu Lock="Yes" Index="119" Name="ModeMasterInput" Guid="70 4D 7B 2D DB D9 00 00 ED 7F 27 00 2A DD 1D 07" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 40 E6 00 00 EC 7F 27 00 2A DD 1D 07" FileName="mode_master_input.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="70 4D 7B 2D FB 94 00 00 EB 7F 27 00 2A DD 1D 07" FileName="mode_master_input.lua" />
+    </Menu>
+</GMA3>

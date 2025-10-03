@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <StoreCueMessageBox Name="MsgBox" W="800" H="450" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="cue_store.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBtn" Texture="corner1" Anchors="0,0" Text="Message" Icon=""/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Direction="Horizontal" Texture="corner2" Content="Yes">
+                <Button  W="110" Name="LoadPrefBtn"  Text="Load&#xD;Preferences" Clicked=":LoadPrefClicked" />
+                <Button  W="110" Name="SavePrefBtn"  Text="Save&#xD;Preferences" Clicked=":SavePrefClicked" />
+            </AutoLayout>
+        </TitleBar>
+
+        <DialogFrame DefaultMargin="10" DefaultMarginOnBorders="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <ProgressBar H="24" Name="Progress" ProgressColor="MessageBox.Progress" Anchors="0,0" Visible="No" />
+
+            <ScrollContainer Name="Content" ContentDriven="Yes" ContentWidth="No" MaxSize="0,400" Anchors="0,1" Padding="20,20,20,20" Visible="No">
+                <ScrollBox ContentDriven="Yes" ContentWidth="No">
+                    <UIObject  Name="Text"  Texture="" Text="" TextAlignmentV="Top" ContentDriven="Yes" ContentWidth="No" TextAutoAdjust="Yes" />
+                </ScrollBox>
+            </ScrollContainer>
+
+            <UILayoutGrid Name="CueDestinationOptions" Anchors="0,1" Columns="3" Rows="1" Visible="No" DefaultMargin="25" DefaultMarginOnBorders="Yes" Margin="10,10,10,10" >
+                <UILayoutGrid Name="CueOnly" Anchors="0,0" Columns="1" Visible="Yes" DefaultMargin="15" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="30" />
+                        <Item SizePolicy="Fixed" Size="240" />
+                    </ItemCollectRows>
+                    <UIObject Anchors="0,0" Texture="" Text="Store Values:" TextAlignmentH="Left" />
+                    <PropertyRadioButtonList Anchors="0,1" Type="Vertical" Property="CueOperationMode" SetType="Property" OnLoad=":SetTargetMsgBox" Distance="20" ItemSize="55" ItemIndividualCorners="Yes" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="DimmerCueOnly" Anchors="1,0" Columns="1" Visible="Yes" DefaultMargin="15" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="30" />
+                        <Item SizePolicy="Fixed" Size="69" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <UIObject Anchors="0,0" Texture="" Text="Protect from Tracking:" TextAlignmentH="Left" />
+                    <IndicatorControl Anchors="0,1" Texture="corner15" Property="DimmerCueOnly" OnLoad=":SetTargetMsgBox" DirectProperty="Yes" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="TrackingShield" Anchors="2,0" Columns="1" Visible="Yes" DefaultMargin="15" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="30" />
+                        <Item SizePolicy="Fixed" Size="240" />
+                    </ItemCollectRows>
+                    <UIObject Anchors="0,0" Texture="" Text="Shield tracked values:" TextAlignmentH="Left" />
+                    <PropertyRadioButtonList Anchors="0,1" Type="Vertical" Property="TrackingShield" SetType="Property" OnLoad=":SetTargetMsgBox" ShowLeftIcon="Yes" ItemIndividualCorners="Yes" SkipTextIfIconExists="Yes" Distance="20" ItemSize="55" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <AutoLayout Name="Commands" Anchors="0,3" H="50" Direction="Horizontal" Margin="5,0,5,0" >
+                <Button Name="BtnOverwrite" Text="Overwrite" Visible="No" Clicked=":CommandClicked" SignalValue="Overwrite" Focus="InitialFocus" />
+                <Button Name="BtnMerge"     Text="Merge"     Visible="No" Clicked=":CommandClicked" SignalValue="Merge" Focus="InitialFocus" />
+                <Button Name="BtnRemove"    Text="Remove"    Visible="No" Clicked=":CommandClicked" SignalValue="Remove" />
+                <Button Name="BtnRelease"   Text="Release"   Visible="No" Clicked=":CommandClicked" SignalValue="Release" />
+                <Button Name="BtnCancel"    Text="Cancel"    Visible="Yes" CloseAction="Cancel" />
+            </AutoLayout>
+        </DialogFrame>
+    </StoreCueMessageBox>
+</GMA3>

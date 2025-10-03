@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="UserEditor" Author="MA" Version="0.1.0.0" Path="/ui/editors/user">
+        <ComponentXML FileName="user_editor.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="user_editor.lua" />
+        <ComponentLua FileName="/../editor_settings_load.lua" />
+    </Menu>
+</GMA3>

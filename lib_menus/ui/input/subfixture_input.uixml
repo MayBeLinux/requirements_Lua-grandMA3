@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="SubfixtureInput" W="50%" H="75%" MinSize="550,550" WantsModal="1" OnLoad=":OnInputLoaded">
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select subfixture" />
+            <SwipeButton Name="StageControl" Anchors="1,0" MinSize="50,0" W="100" ShowLabel="Yes" Text="Stage" TextAutoAdjust="No" SelectionChanged=":StageSelected" />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <DBObjectGrid Name="SubfixtureGrid" TargetObject="ShowData.LivePatch.Stages" BackColor="UIGrid.Background" Anchors="0,0" SelectionType="SingleRowGridSelection" AllowAddNewline="No" AllowEdit="No" AllowMergeChildren="No" OnSelectedItem=":OnSelected">
+                <GridSettings>
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="Yes">
+                            <GridColumn Name="FID" Visible="Yes" />
+                            <GridColumn Name="CID" Visible="Yes" />
+                            <GridColumn Name="IDType" Visible="Yes" />
+                            <GridColumn Name="Name" Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </GridSettings>
+            </DBObjectGrid>
+            <Button Name="ClearBtn" Anchors="0,1" H="50" W="100" AlignmentH="Right" Text="Clear" Clicked=":ClearFixture" />
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

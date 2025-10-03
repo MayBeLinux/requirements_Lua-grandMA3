@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <HelpPopup Name="CsHelpViewer" W="80%" H="74%" AlignmentH="Center" Y="0" UseSimplifiedResize="Yes" RelativeToDisplay="Yes" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0,1,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Help" Icon=""/>
+            <AutoLayout Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Content="Yes">
+                <Button Name="Forward" Text="" Clicked=":WV_GoForward" Icon="UrlFwd" MinSize="50,0" />
+                <Button Name="Backward" Text="" Clicked=":WV_GoBackward" Icon="UrlBack" MinSize="50,0" />
+                <ValueFadeControl Name="ZoomFactor" Text="Zoom Factor" UseDefaultValue="Yes" Property="HelpPopupZoomFactor" DataAsIs="Yes" MinSize="250,0" Target="~"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" Rows="1" Columns="1">
+            <DialogHelp Name="HelpDialog" Anchors="0,0" Focus="InitialFocus" Priority="2" />
+        </DialogFrame>
+
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </HelpPopup>
+</GMA3>

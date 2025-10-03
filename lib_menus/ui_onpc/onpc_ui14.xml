@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" UserRights="None" Name="OnpcUI14" Guid="70 4D 7B 2D A5 3D 00 00 5F 58 86 BB 79 B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui_onpc" DisplayFrom="Encoders" DisplayTo="Executors6" HostType="onPC" Core="Yes">
+        <ComponentLua UserRights="None"  FileName="../ui_console/console_ui14.lua" />
+        <ComponentXML UserRights="None" Guid="70 4D 7B 2D 5E 53 00 00 5D 58 86 BB 79 B1 01 1A" FileName="onpc_ui14.uixml" PlaceHolder="Display" Toggle="No" />
+        <ComponentXML UserRights="None" FileName="../ui/bars/encoder_bar.uixml" PlaceHolder="EncoderBarBase" />
+        <ComponentLua UserRights="None" FileName="../ui/bars/encoder_bar.lua" />
+    </Menu>
+</GMA3>

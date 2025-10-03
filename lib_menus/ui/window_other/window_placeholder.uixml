@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window DefaultMargin="0" Rows="1" Columns="1" Enabled="No">
+        <UIObject Anchors="0,0" Texture="corner15" Transparent="No" />
+    </Window>
+</GMA3>

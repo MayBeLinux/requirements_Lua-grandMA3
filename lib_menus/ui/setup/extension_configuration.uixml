@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog OnLoad=":onLoad" >
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Extension Configuration" Icon="setup_wings"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <SwipeButton Name="ColumnsFilters" MinSize="50,0" W="130" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" SelectionChanged=":ColumnsFilterSelected" Property="SelectedFilter" DirectProperty="Yes" ValueRole="Default" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <DBObjectGrid Name="ExtensionsGrid" TargetObject="UsbNotifier.MA3Modules" BackColor="UIGrid.Background" Anchors="0,1" AllowFilterContent="Yes" FilterBlockUIEnabled="No">
+                <GridSettings ContentFilterType="GridObjectContentFilter" Name="MyGridSettings" >
+                    <GridColumnFilterCollect SelectedFilter="Condensed">
+                        <GridColumnNamesFilter Name="Full" Inclusive="Yes">
+                            <GridColumn Name="Connected" Visible="Yes" />
+                            <GridColumn Name="Connected Count" Visible="Yes" />
+                            <GridColumn Name="IP" Visible="Yes" />
+                            <GridColumn Name="DeviceType" Visible="Yes" />
+                            <GridColumn Name="WingID" Visible="Yes" />
+                            <GridColumn Name="ConnectionTime" Visible="Yes" />
+                        </GridColumnNamesFilter>
+                        <GridColumnNamesFilter Name="Condensed" Inclusive="Yes">
+                            <GridColumn Name="Connected" Visible="Yes" />
+                            <GridColumn Name="IP" Visible="Yes" />
+                            <GridColumn Name="WingID" Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                    <GridObjectContentFilter>
+                        <GridObjectContentFilterItem Name="FilterTypeExtension" Columns="Extension" Filter="1" />
+                    </GridObjectContentFilter>
+                </GridSettings>
+            </DBObjectGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialog>
+</GMA3>

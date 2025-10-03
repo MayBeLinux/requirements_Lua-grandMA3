@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SettingsBox Columns="7" DefaultMargin="10" Margin ="10,10,10,10">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="0.5" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+
+        <UIObject       Texture=""          Anchors="0,0" Text="Label" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="1,0" Text="Start" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="3,0" Text="Playback" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="4,0" Text="Speed" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="5,0" Text="Protect" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="6,0" Text="Preset" TextColor="Global.Bright" Interactive="No" />
+
+        <PropertyInput   Texture ="corner3" Anchors="0,1" Property="Name"   ValueRole="Default"/>
+        <ScribbleInput                      Anchors="0,2" Name="Scribble"   AutoHide="Yes" />
+        <AppearanceInput                    Anchors="0,3" Name="Appearance" AutoHide="Yes" />
+        <PropertyInput   Texture="corner0"  Anchors="0,4" Property="Tags"  AutoHide="Yes"/>
+        <SwipeButton     Texture="corner12" Anchors="0,5" Property="ExecutorDisplayMode" />
+
+        <PropertyInput  Texture ="corner3"  Anchors="1,1" Property="AutoStart" />
+        <PropertyInput                      Anchors="1,2" Property="AutoStop" />
+        <PropertyInput                      Anchors="1,4" Property="AutoFix"   />
+        <PropertyInput  Texture ="corner12" Anchors="1,5" Property="AutoStomp"    />
+
+        <PropertyInput  Texture ="corner15" Anchors="1,7" Property="DelayToPhase"    />
+
+        <PropertyInput  Texture ="corner3"  Anchors="3,1" Property="OutputFilter" ValueRole="DisplayShort" ValueAutoAdjust="Yes" />
+        <SwipeButton                        Anchors="3,2" Property="Priority" />
+        <PropertyInput                      Anchors="3,3" Property="SoftLTP"  />
+        <PropertyInput  Texture ="corner12" Anchors="3,4" Property="PlaybackMaster"   />
+
+        <PropertyInput  Texture ="corner3"  Anchors="4,3" Property="SpeedMaster" />
+        <SwipeButton    Texture ="corner12" Anchors="4,4" Property="SpeedScale"  />
+
+        <PropertyInput  Texture ="corner3"  Anchors="5,1" Property="InputFilter" ValueRole="DisplayShort" ValueAutoAdjust="Yes" />
+        <PropertyInput                      Anchors="5,2" Property="SwapProtect"   />
+        <PropertyInput                      Anchors="5,3" Property="KillProtect"   Visible="0"   />
+        <PropertyInput                      Anchors="5,5" Property="UseExecutorTime"/>
+        <PropertyInput                      Anchors="5,6" Property="OffWhenOverridden"/>
+        <PropertyInput  Texture ="corner12" Anchors="5,7" Property="Lock" Text="Lock&#xD;Preset"/>
+
+        <PropertyInput  Texture ="corner3"  Anchors="6,1" Property="CuePart" />
+        <PropertyInput                      Anchors="6,2" Property="MAgic" />
+        <PropertyInput                      Anchors="6,3" Property="PresetMode" />
+        <PropertyInput  Texture ="corner12" Anchors="6,4" Property="OffFade" />
+        <PropertyInput  Texture ="corner12" Anchors="6,5" Property="RecipeTemplate" />
+
+    </SettingsBox>
+</GMA3>

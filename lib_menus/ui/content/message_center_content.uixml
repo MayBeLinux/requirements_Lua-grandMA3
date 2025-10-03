@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UILayoutGrid Name="MessageCenterContent">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50"/>
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="2" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectColumns>
+
+        <UIObject Texture="corner3" Anchors="0,0" Margin="2,2,2,0" Text="Messages" Interactive="No"/>
+        <UIObject Texture="corner3" Anchors="1,0" Margin="2,2,2,0" Text="Status" Interactive="No" />
+
+        <UiMessageCenter Visible="1" Name="MessageCenter" Anchors="0,1" Margin="2,0,2,2">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <!-- Column 0 All, System... -->
+            <MessageCenterButton Anchors="0,0"  Priority="Undefined"    Category="Undefined"    Headline="Yes" />
+            <MessageCenterButton Anchors="0,1"  Priority="Undefined"    Category="System"       Headline="Yes" />
+            <MessageCenterButton Anchors="0,2"  Priority="Undefined"    Category="Cmdline"      Headline="Yes" />
+            <MessageCenterButton Anchors="0,3"  Priority="Undefined"    Category="Power"        Headline="Yes" />
+            <MessageCenterButton Anchors="0,4"  Priority="Undefined"    Category="Manet"       Headline="Yes" />
+            <MessageCenterButton Anchors="0,5"  Priority="Undefined"    Category="USB"          Headline="Yes" />
+            <MessageCenterButton Anchors="0,6"  Priority="Undefined"    Category="Chat"         Headline="Yes" />
+
+            <!-- Column 1: Spam ... -->
+            <MessageCenterButton Anchors="1,0"  Priority="Spam"         Category="Undefined"    Headline="Yes" />
+            <MessageCenterButton Anchors="1,1"  Priority="Spam"         Category="System" />
+            <MessageCenterButton Anchors="1,2"  Priority="Spam"         Category="Cmdline" />
+            <MessageCenterButton Anchors="1,3"  Priority="Spam"         Category="Power"  />
+            <MessageCenterButton Anchors="1,4"  Priority="Spam"         Category="Manet" />
+            <MessageCenterButton Anchors="1,5"  Priority="Spam"         Category="USB"  />
+            <MessageCenterButton Anchors="1,6"  Priority="Spam"         Category="Chat"  />
+
+            <MessageCenterNotificationButton Anchors="1,1" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent"/>
+            <MessageCenterNotificationButton Anchors="1,2" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent"/>
+            <MessageCenterNotificationButton Anchors="1,3" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent"/>
+            <MessageCenterNotificationButton Anchors="1,4" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent"/>
+            <MessageCenterNotificationButton Anchors="1,5" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent"/>
+            <MessageCenterNotificationButton Anchors="1,6" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent"/>
+
+            <!-- Column 2: Warnings ... -->
+            <MessageCenterButton Anchors="2,0"  Priority="Warnings"     Category="Undefined"    Headline="Yes" />
+            <MessageCenterButton Anchors="2,1"  Priority="Warnings"     Category="System" />
+            <MessageCenterButton Anchors="2,2"  Priority="Warnings"     Category="Cmdline" />
+            <MessageCenterButton Anchors="2,3"  Priority="Warnings"     Category="Power"  />
+            <MessageCenterButton Anchors="2,4"  Priority="Warnings"     Category="Manet" />
+            <MessageCenterButton Anchors="2,5"  Priority="Warnings"     Category="USB"  />
+            <MessageCenterButton Anchors="2,6"  Priority="Warnings"     Category="Chat"  />
+
+            <MessageCenterNotificationButton Anchors="2,1" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="2,2" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="2,3" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="2,4" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="2,5" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="2,6" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+
+            <!-- Column 3: Errors ... -->
+            <MessageCenterButton Anchors="3,0"  Priority="Errors"       Category="Undefined"    Headline="Yes" />
+            <MessageCenterButton Anchors="3,1"  Priority="Errors"       Category="System" />
+            <MessageCenterButton Anchors="3,2"  Priority="Errors"       Category="Cmdline" />
+            <MessageCenterButton Anchors="3,3"  Priority="Errors"       Category="Power"  />
+            <MessageCenterButton Anchors="3,4"  Priority="Errors"       Category="Manet" />
+            <MessageCenterButton Anchors="3,5"  Priority="Errors"       Category="USB"  />
+            <MessageCenterButton Anchors="3,6"  Priority="Errors"       Category="Chat"  />
+
+            <MessageCenterNotificationButton Anchors="3,1" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="3,2" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="3,3" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="3,4" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="3,5" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="3,6" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+
+            <!-- Column 4: Alerts ... -->
+            <MessageCenterButton Anchors="4,0"  Priority="Alerts"       Category="Undefined"    Headline="Yes" />
+            <MessageCenterButton Anchors="4,1"  Priority="Alerts"       Category="System" />
+            <MessageCenterButton Anchors="4,2"  Priority="Alerts"       Category="Cmdline" />
+            <MessageCenterButton Anchors="4,3"  Priority="Alerts"       Category="Power"  />
+            <MessageCenterButton Anchors="4,4"  Priority="Alerts"       Category="Manet" />
+            <MessageCenterButton Anchors="4,5"  Priority="Alerts"       Category="USB"  />
+            <MessageCenterButton Anchors="4,6"  Priority="Alerts"       Category="Chat"  />
+
+            <MessageCenterNotificationButton Anchors="4,1" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="4,2" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="4,3" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="4,4" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="4,5" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+            <MessageCenterNotificationButton Anchors="4,6" ColorIndicatorHeight="0" IndicatorIcon="" Texture="corner4" BackColor="Global.Transparent" />
+
+        </UiMessageCenter>
+
+        <ScrollContainer Name="StatusConfigScroll" Anchors="1,1">
+            <MainDialogSubMenuScrollBox Name="ScrollBox" >
+                <UILayoutGrid Name="StatusCenter" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="30"/>
+                        <Item SizePolicy="Content" Size="80"/>
+
+                        <Item SizePolicy="Fixed" Size="30"/>
+                        <Item SizePolicy="Content" Size="80"/>
+
+                        <Item SizePolicy="Fixed" Size="30"/>
+                        <Item SizePolicy="Content" Size="80"/>
+
+                        <Item SizePolicy="Fixed" Size="30"/>
+                        <Item SizePolicy="Content" Size="80"/>
+
+                        <Item SizePolicy="Fixed" Size="30"/>
+                        <Item SizePolicy="Content" Size="80"/>
+                    </ItemCollectRows>
+
+                    <UIObject   Anchors="0,0" Text="Programmer" Interactive="No" BackColor="Global.Transparent" />
+                    <AutoLayout Anchors="0,1" GroupedCellsCount="2" SideSize="80" MinCellSize="180">
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Highlight" Name="Highlight" />
+                            <StatusIcon             Margin="2,2,2,2" Category="Highlight" Name="Highlight" Icon="status_highlight" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Lowlight" Name="Lowlight"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="Lowlight" Icon="status_lowlight" BackColor="Global.Transparent" ActiveIconColor="StatusCenter.Lowlight"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Solo" Name="Solo"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="Solo"  Icon="status_solo" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Blind" Name="Blind"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="Blind" Icon="status_blind" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Preview" Name="Preview"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="Preview" Icon="status_preview" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="TimecodeRec" Name="Timecode Record" />
+                            <TimecodeRecStatusIcon  Margin="2,2,2,2" Category="TimecodeRec" Icon="status_timecode_record" ActiveIcon="PlaybackRecord" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="RecipeEditing" Name="Recipe Editing"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="RecipeEditing" Icon="cooking" ActiveIconColor="StatusCenter.Cooking" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                    </AutoLayout>
+
+                    <UIObject   Anchors="0,2" Text="Filter" Interactive="No" BackColor="Global.Transparent" />
+                    <AutoLayout Anchors="0,3" GroupedCellsCount="2" SideSize="80" MinCellSize="180">
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Filter" Name="Filter"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="Filter" Icon="status_filter" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="World" Name="World"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="World" Icon="status_world_filter"  BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                    </AutoLayout>
+
+                    <UIObject   Anchors="0,4" Text="Universe/Patch" Interactive="No" BackColor="Global.Transparent" />
+                    <AutoLayout Anchors="0,5" GroupedCellsCount="2" SideSize="80" MinCellSize="180">
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Parked" Name="Parked"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="Parked" Icon="status_parked" BackColor="Global.Transparent" ActiveIconColor="StatusCenter.Parked"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Tester" Name="DMX Tester"/>
+                            <StatusIcon             Margin="2,2,2,2" Category="Tester" Icon="status_dmx_tester_output" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="NotEnoughParameters" Name="Not Enough Parameters" />
+                            <NEParamsStatusIcon     Margin="2,2,2,2" Category="NotEnoughParameters" Icon="status_not_enough_parameters" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                    </AutoLayout>
+
+                    <UIObject   Anchors="0,6" Text="More" Interactive="No" BackColor="Global.Transparent" />
+                    <AutoLayout Anchors="0,7" GroupedCellsCount="2" SideSize="80" MinCellSize="180">
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Worldserver" Name="World Server" />
+                            <StatusIcon             Margin="2,2,2,2" Category="Worldserver" Icon="object_world_server" ActiveIconColor="StatusCenter.Enabled" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter>
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Battery" Name="Battery" />
+                            <BatteryStatusIcon      Margin="2,2,2,2" Category="Battery" BackColor="Global.Transparent"/>
+                        </UIStatusCenter>
+                        <UIStatusCenter >
+                            <StatusCenterButton     Margin="2,2,2,2" Category="Phasers" Name="Phasers" />
+                            <SensorStatusIcon       Margin="2,2,2,2" Category="Phasers" BackColor="Global.Transparent" Name="Phasers" X="-12" />
+                        </UIStatusCenter>
+                        <UIStatusCenter >
+                            <StatusCenterButton     Margin="2,2,2,2" Category="FlowControl" Name="Flow Control" />
+                            <SensorStatusIcon       Margin="2,2,2,2" Category="FlowControl" BackColor="Global.Transparent"  Name="FlowControl" X="-12" />
+                        </UIStatusCenter>
+                    </AutoLayout>
+
+                    <UIObject   Anchors="0,8" Text="Toggles" Interactive="No" BackColor="Global.Transparent" />
+                    <AutoLayout Anchors="0,9" GroupedCellsCount="2" SideSize="80" MinCellSize="180">
+                        <UIStatusCenter>
+                            <StatusCenterButton             Margin="2,2,2,2" Category="KeyboardShortcuts" Name="Keyboard Shortcuts"/>
+                            <KeyboardShortcutsToggleIcon    Margin="2,2,2,2" Category="KeyboardShortcuts" Icon="keyboard" ActiveBackColor="Global.Transparent" BackColor="Global.Transparent" Text="ShCuts" Property="KeyboardShortcutsActive" Target="~.KeyboardShortCuts" Texture="corner8"/>
+                        </UIStatusCenter>
+                    </AutoLayout>
+
+                </UILayoutGrid>
+            </MainDialogSubMenuScrollBox>
+        </ScrollContainer>
+
+        <UILayoutGrid Margin="10,10,10,10" Name="MessageGrid" Visible="0" Anchors="0,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content"/>
+            </ItemCollectRows>
+
+            <UILayoutGrid Name="TitleBar" Anchors="0,0" Margin="0,0,0,10" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="110" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Fixed" Size="360" />
+                </ItemCollectColumns>
+
+                <IndicatorButton                 Anchors="0,0" Texture="corner15" Icon="arrow_left" Clicked=":BackToMain" Padding="10,0,10,0" IconAlignmentH="Left" Text="Back"/>
+
+            </UILayoutGrid>
+
+            <GenericSheet Anchors="0,1" Name="MessageSheet" DataType="MessageGridData" Clicked=":OnClickedMessageGrid" Font="Regular18" LowDpiFont="Regular14" />
+
+            <UILayoutGrid Name="BottomBar" Anchors="0,2" Margin="0,10,0,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+
+                <IndicatorButton Name="Confirm"  Anchors="0,0" Texture="corner15" Icon="ok" Clicked=":ConfirmMessages" Padding="10,0,10,0" IconAlignmentH="Left" Text="Confirm"/>
+
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </UILayoutGrid>
+</GMA3>

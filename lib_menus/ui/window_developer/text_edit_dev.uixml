@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window Name="TextEditDev" OnLoad=":TextEditLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="Text Edit Dev" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip="Dummy"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Name="GenericTab" Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" />
+
+            <DialogContainer Name="DialogContainer" Anchors="0,1" ChangeActive=":MyTabChanged" >
+                <UILayoutGrid Name="MyTab1">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+
+                    <UIObject Anchors="0,0" Text="Text unwrapped" Focus="Never" Transparent="No"/>
+
+                    <ScrollContainer Anchors="0,1" Name="ContainerUnwrapped" Margin="0,6,0,0" DefaultMargin="0">
+                        <ScrollBox Name="Box">
+                            <TextEdit Name="TextEdit" Anchors="0,0" TextAutoAdjust="No" Focus="InitialFocus" TextAlignmentH="Left" TextAlignmentV="Top"/>
+                        </ScrollBox>
+                    </ScrollContainer>
+
+                    <UIObject Anchors="0,2" Text="Text Wrapped" Focus="Never" Transparent="No"/>
+
+                    <!-- Check for cases: Text uniform-->
+
+                    <ScrollContainer Anchors="0,3" Name="ContainerWrapped" Margin="0,6,0,0" DefaultMargin="0">
+                        <ScrollBox Name="Box">
+                            <TextEdit Name="TextEdit" Anchors="0,0" TextAutoAdjust="Yes" Focus="InitialFocus" TextUniform="Yes" TextAlignmentH="Left" TextAlignmentV="Top"/>
+                        </ScrollBox>
+                    </ScrollContainer>
+                </UILayoutGrid>
+                <UILayoutGrid Name="MyTab2">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+
+                    <ScrollContainer Anchors="0,0" Name="ContainerWrapped" Margin="0,6,0,0" DefaultMargin="0">
+                        <ScrollBox Name="Box">
+                            <TextEdit Name="InputField" Anchors="0,0" Font="console20" Focus="InitialFocus" TextAutoAdjust="Yes" HasHover="No" BackColor="LineEdit.Background" ShowLineNumbers="Yes" ShowWhiteSpace="Yes" HighlightCurrentLine="Yes" NewlineWithSpaces="Yes"/>
+                        </ScrollBox>
+                    </ScrollContainer>
+                </UILayoutGrid>
+            </DialogContainer>
+        </DialogFrame>
+    </Window>
+</GMA3>

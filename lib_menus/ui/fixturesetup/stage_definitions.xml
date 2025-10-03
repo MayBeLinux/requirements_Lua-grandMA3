@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="166" Name="StageDefinitions" Guid="00 1B 21 63 25 90 00 00 61 53 36 54 02 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML Index="1" Guid="00 1B 21 63 89 C8 00 00 60 53 36 54 02 82 55 B0" FileName="stage_definitions.uixml" PlaceHolder="MainDialog" Toggle="No" />
+    </Menu>
+</GMA3>

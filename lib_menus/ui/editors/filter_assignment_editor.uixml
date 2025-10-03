@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericAssignmentInput  MinSize="800,480" WantsModal="1" Rows="2" Columns="1" OnLoad=":OnLoad" OnAssignTarget=":OnAssignTarget" FilterChanged=":AssignFilterChanged" RelativeToDisplay="Yes">
+        <TitleBar Name="Title" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Assignment Editor" Icon="logo_small" />
+            <ObjectSelector Name="DataPoolSelect" Text="DataPool" W="100" Anchors="1,0" SelectionChanged=":OnDataPoolChanged" ShowLabel="Yes" TextColor="Button.Text" />
+            <ObjectSelector Name="StageSelect"   Text="Stage"     W="100" Anchors="1,0" SelectionChanged=":OnStageChanged" ShowLabel="Yes" TextColor="Button.Text" />
+            <SwipeButton Name="AttributeFilterButton" Text="Filter" W="100" Anchors="1,0" Property="RowFilterActive" SelectionChanged=":OnStageChanged" TextColor="Button.Text" />
+            <CloseButton Texture="corner2" Anchors="2,0" W="50" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1">
+            <GenericAssignmentSelector Name="Selector" Anchors="0,0" OnAssignTargetSelected=":OnAssignTarget" ProvideExtra="Yes" ExtraTabs="&lt;Selected&gt;,&lt;Called&gt;">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="52" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <AssignmentUITab Anchors="0,0" Name="AssignmentUITab"/>
+
+                <UILayoutGrid Name="GridArea" Anchors="0,1">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Content" Size="1" />
+                    </ItemCollectRows>
+
+                    <UILayoutGrid Anchors="0,0" Name="SearchBlock">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Content" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Content" Size="1" />
+                        </ItemCollectColumns>
+                        <UIObject Text="Search:" Anchors="0,0" HasHover="No" ContentDriven="Yes"/>
+                        <LineEdit Name="SearchEdit" Focus="InitialFocus" Anchors="1,0" Property="Filter" OnLoad=":SetFilterTarget" TextChanged=":TextToFilter" Execute=":SelectFirstEntry"/>
+                        <IndicatorButton Name="Clear" Text="Clear" Clicked=":ClearSearch" Anchors="2,0" W="80" WantsNumericRedirect="Yes" />
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="AssignmentGrid" Focus="WantsFocus" Anchors="0,1" OnSelectedItem=":OnDBObjectSelected" DoubleClicked=":SelectClicked" AllowEdit="No" AllowAddNewline="No" EditAllowedAdd="No" AllowAddContent="No" SelectionType="SingleRowGridSelection" AllowFilterContent="Yes" FilterBlockUIEnabled="No" ConvertCursorToTabAtBoundaries="Yes" GridVersion="1">
+                        <GridContentFilter Name="GCF">
+                            <GridContentFilterItem Name="Filter" Columns="" />
+                            <AssignmentEditorFilterItem Name="AttributeFilter" Columns=""/>
+                        </GridContentFilter>
+                    </DBObjectGrid>
+                    <UILayoutGrid Name="ButtonsArea" Anchors="0,2">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Content" Size="1" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Content" Size="1" />
+                            <Item SizePolicy="Content" Size="1" />
+                        </ItemCollectColumns>
+                        <IndicatorButton Name="Select" Visible="No" H="50" W="100" Anchors="2,0" Texture="corner15" AlignmentH="Right" Text="Select" Clicked=":SelectClicked" />
+                        <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Visible="No" H="50" Name="SpecialButtons" Direction="Horizontal" Inverted="Yes" Texture="corner15" Content="Yes" >
+                        </AutoLayout>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+            </GenericAssignmentSelector>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </GenericAssignmentInput>
+
+
+</GMA3>

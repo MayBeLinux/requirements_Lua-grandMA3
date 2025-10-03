@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window OnLoad=":SelectionBarLoad" HelpTopic="operate_selection_bar.html">
+        <AppearanceTitleBar Name="Title" Transparent="No" Texture="corner15" BackColor="TitleButton.Background" HasHover="No" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="Context" Anchors="0,0" Transparent="No" W="100" Texture="corner15" BackColor="TitleButton.Background" >
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+                <ItemCollectRows>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+                <!-- MA + Title -->
+                <TitleButton   Name="TitleBtn"   Anchors="0,1" Text="Selection Bar" TextAlignmentH="Left" TextAlignmentV="Top" Icon=""/>
+                <ContextButton Name="ContextBtn" Anchors="0,0" Icon="object_sel_bar" />
+
+
+            </UILayoutGrid>
+            <!-- BUTTONS -->
+            <ScrollBox Name="ButtonScroll" Anchors="1,0" ResetChildrenSize="Yes">
+                <AutoLayout Name="Buttons" Texture="corner15" Direction="Horizontal" MinCellSize="50" SideSize="100" GroupedCellsCount="SizeDriven">
+                    <HardkeyButton SignalValue="PREV"  ColorIndicatorHeight="0" />
+                    <HardkeyButton SignalValue="SET" ColorIndicatorHeight="0" />
+                    <HardkeyButton SignalValue="NEXT"  ColorIndicatorHeight="0" />
+                    <HardkeyButton SignalValue="FULL"  ColorIndicatorHeight="0" />
+                </AutoLayout>
+            </ScrollBox>
+
+        </AppearanceTitleBar>
+    </Window>
+</GMA3>

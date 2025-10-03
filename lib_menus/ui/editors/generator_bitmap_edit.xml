@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="GeneratorBitmapEdit" Author="MA" Version="0.1.0.0" Path="/ui/editors" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" FileName="generator_bitmap_edit.uixml" PlaceHolder="MainDialog" Toggle="No" DisplayTypePreference="BigOrSmall" DefaultDisplay="1" />
+        <ComponentLua Index="2" FileName="generator_bitmap_edit.lua" />
+        <ComponentLua Index="3" FileName="editor_settings_load.lua" />
+        <ComponentLua Index="4" FileName="generic_edit.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditor AlignmentV="Center" OnSetEditTarget=":OnSetEditTarget" OnLoad=":OnLoaded">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Layout Element Defaults"/>
+            <AutoLayout Margin="1,0,1,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <ScreenSelectorButton MinSize="50,0" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" DefaultMargin="10" DefaultMarginOnBorders="1" >
+            <DBObjectGrid Name="ObjGrid" Anchors="0,0" TargetObject="" LevelLimit="0">
+                <GridSettings AdjustColumns="Yes" NoFixedColumns="No">
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="Yes">
+                            <GridColumn Name="ElementType"  Visible="Yes" />
+                            <GridColumn Name="Action"       Visible="Yes" />
+                            <GridColumn Name="Width"        Visible="Yes" />
+                            <GridColumn Name="Height"       Visible="Yes" />
+                            <GridColumn Name="Appearance"   Visible="Yes" />
+                            <GridColumn Name="Bar"          Visible="Yes" />
+                            <GridColumn Name="ObjectName"   Visible="Yes" />
+                            <GridColumn Name="ID"           Visible="Yes" />
+                            <GridColumn Name="Border"       Visible="Yes" />
+                            <GridColumn Name="BorderSize"   Visible="Yes" />
+                            <GridColumn Name="Value"        Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </GridSettings>
+            </DBObjectGrid>
+        </MainDialogContent>
+
+        <MainDialogSubMenu>
+            <UIObject Texture="corner0" Anchors="0,2,0,9" HasHover="No" />
+        </MainDialogSubMenu>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" HasHover="0" Texture="Corner4" />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" HasHover="0" Texture="Corner8"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </GenericEditor>
+
+</GMA3>

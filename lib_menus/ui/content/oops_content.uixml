@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UILayoutGrid Name="OopsContent" OnLoad=":OnLoad">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch"/>
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+
+        <UILayoutGrid Name="MainDlg" DefaultMargin="5" Anchors="0,0">
+            <OopsGrid Name="OopsGrid" Anchors="0,0" SelectionType="OopsGridSelection" OnSelectedRow=":OnSelectedRowChanged" OnScreenPushed=":UndoButtonClicked" Focus="InitialFocus" AllowFilterContent="Yes" FilterBlockUIEnabled="No" AllowSorting="1" DataType="OopsGridData" HelpTopic="">
+                <GridSettings ContentFilterType="GridObjectContentFilter" >
+                    <GridColumnFilterCollect SelectedFilter="ElapsedTime">
+                        <GridColumnNamesFilter Name="ElapsedTime">
+                            <GridColumn Name="No"              Visible="No"  />
+                            <GridColumn Name="UIndex"          Visible="No"  />
+                            <GridColumn Name="SessionTime"     Visible="No"  />
+                        </GridColumnNamesFilter>
+                        <GridColumnNamesFilter Name="SessionTime">
+                            <GridColumn Name="No"              Visible="No"  />
+                            <GridColumn Name="UIndex"          Visible="No"  />
+                            <GridColumn Name="ElapsedTime"     Visible="No"  />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                    <GridObjectContentFilter>
+                        <GridObjectContentFilterItem Name="InMySession" Columns="InMySession" Filter="Yes" />
+                    </GridObjectContentFilter>
+                </GridSettings>
+            </OopsGrid>
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="MainDialogFunctionButtons" H="60" Anchors="0,1" Columns="2">
+            <CmdDlgFunctionButtonsLeft Rows="1" Anchors="0,0">
+                <IndicatorControl     Anchors="0,0" Texture="corner0" Name="CreateOopsButton" Property="CreateOops" />
+                <IndicatorControl     Anchors="1,0" Texture="corner0" Name="ViewsOopsButton" Property="OopsViews" />
+                <IndicatorControl     Anchors="2,0" Texture="corner0" Name="ProgrammerOopsButton" Property="OopsProgrammer" />
+                <IndicatorControl     Anchors="3,0" Texture="corner0" Name="SelectionOopsButton" Property="OopsSelection" />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight Rows="1" Anchors="1,0">
+                <SwipeButton        Anchors="0,0" Texture="corner0" Name="OopsConfirmationButton" Property="OopsConfirmation" />
+                <UIObject           Anchors="1,0" Texture="corner0" HasHover="No"/>
+                <Button             Anchors="2,0,3,0" Texture="corner0" Name="UndoButton" Text="Oops last Action"  Clicked=":UndoButtonClicked"/>
+            </CmdDlgFunctionButtonsRight>
+        </UILayoutGrid>
+    </UILayoutGrid>
+</GMA3>

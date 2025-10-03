@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Popup OnLoad=":DoResetScreens" AlignmentH="Center" AlignmentV="Center" H="400" AutoClose="No" CloseOnEscape="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="400" />
+        </ItemCollectColumns>
+
+        <TitleBar Name="TitleBar" Anchors="0,0" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Detecting Screens" ContentDriven="Yes" ContentHeight="No" ForceContentMin="Yes" Icon="" Padding="4,0,4,0" Texture="corner3"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" ExpandContent="Yes">
+            <UIObject  Name="InfoField" Texture="corner0" Text="Please wait 10 s" TextAutoAdjust="Yes" Interactive="No" TextUniform="No" />
+        </DialogFrame>
+
+
+    </Popup>
+</GMA3>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="patch_3d_camera.html">
+        <CameraPoolLayoutGrid  Text="Cameras" TitleButtonIcon="object_camera" ToolTip="Camera pool window">
+            <PoolTitleButton />
+        </CameraPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

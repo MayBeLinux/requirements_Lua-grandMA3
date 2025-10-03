@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShadedOverlay Name="AddWindowDialog" W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="wvm_add_window.html" OnLoad=":AddWindowLoaded" AdjustInitialPosition="Yes" KeyDown=":ExecuteOnKeyDown">
+
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Add Window" />
+            <Button Name="Configure" Anchors="1,0" Text="Configure" Clicked=":CommandLine" SignalValue="Menu 'DisplayConfig'" CloseAction="Ok" ToolTip="Configure the screen." Focus="Never"/>
+            <Button Name="ClearDisplay" Anchors="2,0" Text="Delete&#xD;Screen" BackColor="Button.BackgroundClear" Clicked=":CommandLine" SignalValue="DELETE SCREENCONTENT DEFAULT.THRU" CloseAction="Ok" ToolTip="Delete all windows in the user-configurable screen area." Focus="Never"/>
+            <CloseButton Texture="corner2" Anchors="3,0" ToolTip="Close Add Window." Focus="Never"/>
+        </TitleBar>
+
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Name="AddWindowTabs" Anchors="0,0" AvoidScroll="Yes" TabChanged=":TabChanged" UseTabRegistry="Yes" Focus="WantsFocus">
+                <ItemStr Title="Common"     Value="Common" ToolTip="Show all common windows."/>
+                <ItemStr Title="Data&#xD;Pools" Value="Data Pools" ToolTip="Show Data Pools."/>
+                <ItemStr Title="Presets"    Value="Presets" HelpTopic="presets_pools.html" ToolTip="Show Presets."/>
+                <ItemStr Title="Pools"      Value="Pools" ToolTip="Show Pools."/>
+                <ItemStr Title="Tools"      Value="Tools" ToolTip="Show Tools."/>
+                <ItemStr Title="More"       Value="More" HelpTopic="system_information.html" ToolTip="Show More."/>
+                <ItemStr Title="All"        Value="All" ToolTip="Show All."/>
+                <ItemStr Title="Developer"  Value="Developer" VisibleOnlyInAlpha="Yes"/>
+            </UITab>
+
+            <DialogContainer Name="TabContainer" Anchors="0,1" ChangeActive=":TabChanged"  >
+
+                <ScrollContainer Name="Common">
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes">
+                        <UILayoutGrid  DefaultMargin="5" OnLoad=":CommonElementsLoaded" DefaultMarginOnBorders="Yes" Columns="4">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                            </ItemCollectRows>
+
+                            <!-- first column   -->
+
+                            <IndicatorButton Name="Fixture"             Anchors="0,0" Texture="corner15" Padding="10,0,10,0" Text="Fixture Sheet"      Icon="object_fixture"   IconAlignmentH="Left"                                               Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowFixtureSheet'  MinW=3 MinH=4 /NC"                          CloseAction="Ok"   ToolTip="Open a Fixture Sheet window."/>
+                            <IndicatorButton Name="Sequence"            Anchors="0,1" Texture="corner15" Padding="10,0,10,0" Text=" Sequence&#xD;Sheet"    Icon="object_sequence"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Sequences"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSequenceSheet' MinW=3 MinH=4 /NC"                      CloseAction="Ok"   ToolTip="Open a Sequence Sheet window."/>
+                            <IndicatorButton Name="Content"             Anchors="0,2" Texture="corner15" Padding="10,0,10,0" Text="Content Sheet"      Icon="object_content"   IconAlignmentH="Left"   ColorIndicator="PoolWindow.Sequences"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowContentSheet'  MinW=3 MinH=4 /NC"                          CloseAction="Ok"   ToolTip="Open a Content Sheet window."/>
+                            <IndicatorButton Name="WindowPhaserEditor"  Anchors="0,3" Texture="corner15" Padding="10,0,10,0" Text="Phaser Editor"      Icon="object_phase"     IconAlignmentH="Left"   ColorIndicator="EncoderBar.Multistep"            Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowPhaserEditor'  MinW=8 MinH=10 MinSizeTranspose='Yes' /NC" CloseAction="Ok"   ToolTip="Open a Phaser Editor window."/>
+
+                            <!-- second column   -->
+
+                            <IndicatorButton Name="Window3D"            Anchors="1,0" Texture="corner15" Padding="10,0,10,0" Text="3D Viewer"          Icon="object_3d"  IconAlignmentH="Left"         ColorIndicator="PoolWindow.RenderQualities" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'Window3D' MinW=4 MinH=4 /NC"                                         CloseAction="Ok"   ToolTip="Open a 3D Viewer window."/>
+                            <IndicatorButton Name="WindowLayoutView"    Anchors="1,1" Texture="corner15" Padding="10,0,10,0" Text=" Layout Viewer"     Icon="object_layout"  IconAlignmentH="Left"     ColorIndicator="PoolWindow.Layouts"         Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowLayoutView' MinW=4 MinH=4 /NC"                                 CloseAction="Ok"   ToolTip="Open a Layout Viewer window."/>
+                            <IndicatorButton Name="WindowSelection"     Anchors="1,2" Texture="corner15" Padding="10,0,10,0" Text="Selection Grid"     Icon="object_selgrid"  IconAlignmentH="Left"                                                Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSelectionView'   MinW=4 MinH=4 /NC"                            CloseAction="Ok"   ToolTip="Open a Selection Grid window."/>
+                            <IndicatorButton Name="WindowSpecial"       Anchors="1,3" Texture="corner15" Padding="10,0,10,0" Text="Special Dialog"     Icon="object_colpick"  IconAlignmentH="Left"                                                Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSpecialDialog' MinW=4 MinH=4 /NC"                              CloseAction="Ok"   ToolTip="Open a Special Dialog window. "/>
+                            <IndicatorButton Name="WindowMAtricks"      Anchors="1,4" Texture="corner15" Padding="10,0,10,0" Text="  MAtricks Editor"  Icon="object_matricks" IconAlignmentH="Left"    ColorIndicator="PoolWindow.Matricks"        Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMatricks'          MinH=4 MinW=4 /NC"                          CloseAction="Ok"   ToolTip="Open an MAtricks Editor window."/>
+
+                            <!-- 3rd column   -->
+
+                            <IndicatorButton Name="WindowPlayback"      Anchors="2,0" Texture="corner15" Padding="10,0,10,0" Text="Playbacks"          Icon="object_playback"  IconAlignmentH="Left"                                               Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowPlaybacks'         MinW=5 MinH=2 /NC"                          CloseAction="Ok"   ToolTip="Open a Playbacks window."/>
+                            <IndicatorButton Name="WindowXkeys"         Anchors="2,1" Texture="corner15" Padding="10,0,10,0" Text="Xkeys"              Icon="object_xkeys"  IconAlignmentH="Left"                                                  Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowXkeys'             MinW=4 MinH=4 /NC"                          CloseAction="Ok"   ToolTip="Open an Xkeys window."/>
+
+                            <!-- 4th column   -->
+
+                            <IndicatorButton Name="WindowCmdline"       Anchors="3,0" Texture="corner15" Padding="10,0,10,0" Text="Command Line&#xD;History"     Icon="object_cmd"  IconAlignmentH="Left"                                                  Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowCommandLine' MinW=4 MinH=4 /NC"                        CloseAction="Ok"   ToolTip="Open a Command Line History window."/>
+                            <IndicatorButton Name="DMX"                 Anchors="3,1" Texture="corner15" Padding="10,0,10,0" Text="DMX Sheet"                    Icon="object_dmx"  IconAlignmentH="Left"                                                    Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowDmxSheet' MinW=3 MinH=4 /NC"                         CloseAction="Ok"   ToolTip="Open a DMX Sheet window."/>
+
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+
+                <ScrollContainer Name="Pools" >
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes">
+
+                        <UILayoutGrid Name="PoolInside" OnLoad=":ElementsLoaded" DefaultMargin="5" DefaultMarginOnBorders="Yes" Columns="4" >
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                            </ItemCollectRows>
+
+                            <!-- USE COLUMNS FOR PRIORITY (LEFT = MORE IMPORTANT) AND ALPHABETICAL ORDER -->
+                            <!-- first column   -->
+                            <UIObject        Texture=""                 Anchors="0,0" Text="Show Data" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="PoolAppearance"      Anchors="0,1" Texture="corner15"  Padding="10,0,10,0" Text="Appearances"             Icon="object_appear"      IconAlignmentH="Left"            ColorIndicator="PoolWindow.Appearances"     Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowAppearancePool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"   ToolTip="Open an Appearances pool window."/>
+                            <IndicatorButton Name="PoolDataPools"       Anchors="0,2" Texture="corner15"  Padding="10,0,10,0" Text="Data Pools"              Icon="object_datapool"      IconAlignmentH="Left"            ColorIndicator="PoolWindow.DataPools"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowDataPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"              CloseAction="Ok"   ToolTip="Open a Data Pools pool window."/>
+                            <IndicatorButton Name="PoolGels"            Anchors="0,3" Texture="corner15"  Padding="10,0,10,0" Text="Gels"                    Icon="object_gels"      IconAlignmentH="Left"            ColorIndicator="PoolWindow.Gels"            Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowGelPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"                   CloseAction="Ok"   ToolTip="Open a Gels pool window."/>
+                            <IndicatorButton Name="PoolScribbles"       Anchors="0,4" Texture="corner15"  Padding="10,0,10,0" Text="Scribbles"               Icon="object_scribbles"      IconAlignmentH="Left"            ColorIndicator="PoolWindow.Scribbles"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowScribblePool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"         CloseAction="Ok"   ToolTip="Open a Scribbles pool window."/>
+                            <IndicatorButton Name="PoolTags"            Anchors="0,5" Texture="corner15"  Padding="10,0,10,0" Text="Tags"                    Icon="object_tags"      IconAlignmentH="Left"   ColorIndicator="PoolWindow.Tags"           Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowTagPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"                             CloseAction="Ok"   ToolTip="Open a Tag pool window."/>
+                            <IndicatorButton Name="PoolTimecodeSlots"   Anchors="0,6" Texture="corner15"  Padding="10,0,10,0" Text="Timecode Slots"          Icon="object_timecodeslots"      IconAlignmentH="Left"            ColorIndicator="PoolWindow.TimecodeSlots"   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowTimecodeSlotPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC" CloseAction="Ok"   ToolTip="Open a Timecode Slots pool window."/>
+
+                            <!-- second column   -->
+                            <UIObject        Texture=""                 Anchors="1,0" Text="Show Data" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="PoolUniverses"       Anchors="1,1" Texture="corner15"  Padding="10,0,10,0" Text="Universes"               Icon="object_universe"      IconAlignmentH="Left"            ColorIndicator="PoolWindow.Universes"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowUniversePool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"   ToolTip="Open a Universes pool window."/>
+                            <IndicatorButton Name="PoolUsers"           Anchors="1,2" Texture="corner15"  Padding="10,0,10,0" Text="Users"                   Icon="object_user"      IconAlignmentH="Left"   ColorIndicator="PoolWindow.Users"           Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowUserPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"                           CloseAction="Ok"   ToolTip="Open a Users pool window."/>
+
+                            <!-- 3rd column   -->
+                            <UIObject        Texture=""                 Anchors="2,0" Text="Media" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="PoolGobos"           Anchors="2,1" Texture="corner15"  Padding="10,0,10,0" Text="Gobos"                  Icon="object_gobos"      IconAlignmentH="Left"              ColorIndicator="PoolWindow.Gobos"           Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowGoboPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"                CloseAction="Ok"   ToolTip="Open a Gobos pool window."/>
+                            <IndicatorButton Name="PoolImages"          Anchors="2,2" Texture="corner15"  Padding="10,0,10,0" Text="Images"                 Icon="object_images"      IconAlignmentH="Left"              ColorIndicator="PoolWindow.Images"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowImagePool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"              CloseAction="Ok"   ToolTip="Open an Images pool window."/>
+                            <IndicatorButton Name="PoolMesh3DS"         Anchors="2,3" Texture="corner15"  Padding="10,0,10,0" Text="Meshes"                 Icon="object_meshes"      IconAlignmentH="Left"              ColorIndicator="PoolWindow.Meshes"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMeshPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"               CloseAction="Ok"   ToolTip="Open a Meshes pool window."/>
+                            <IndicatorButton Name="PoolSounds"          Anchors="2,4" Texture="corner15"  Padding="10,0,10,0" Text="Sounds"                 Icon="object_sound3"    IconAlignmentH="Left"   ColorIndicator="PoolWindow.Sounds"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSoundPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"                           CloseAction="Ok"   ToolTip="Open a Sounds pool window." />
+                            <IndicatorButton Name="PoolSymbols"         Anchors="2,5" Texture="corner15"  Padding="10,0,10,0" Text="Symbols"                Icon="object_symbols"      IconAlignmentH="Left"              ColorIndicator="PoolWindow.Images"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSymbolPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"            CloseAction="Ok"   ToolTip="Open a Symbols pool window."/>
+                            <IndicatorButton Name="PoolVideos"          Anchors="2,6" Texture="corner15"  Padding="10,0,10,0" Text="Videos"                 Icon="object_video"      IconAlignmentH="Left"              ColorIndicator="PoolWindow.Videos"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowVideoPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"               CloseAction="Ok"   ToolTip="Open a Videos pool window."/>
+
+                            <!-- 4th column   -->
+                            <UIObject        Texture=""                 Anchors="3,0" Text="User Profile" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="PoolCameras"         Anchors="3,1" Texture="corner15"  Padding="10,0,10,0" Text="Cameras"                Icon="object_camera"    IconAlignmentH="Left"            ColorIndicator="Poolwindow.Cameras"         Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowCameraPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"                 CloseAction="Ok"   ToolTip="Open a Cameras pool window."/>
+                            <IndicatorButton Name="PoolEncoderBars"     Anchors="3,2" Texture="corner15"  Padding="10,0,10,0" Text="Encoder Bars"           Icon="object_encbar"    IconAlignmentH="Left"            ColorIndicator="PoolWindow.EncoderBars"     Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowEncoderBarPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"        CloseAction="Ok"   ToolTip="Open a Encoder Bars pool window."/>
+                            <IndicatorButton Name="PoolRenderQualities" Anchors="3,3" Texture="corner15"  Padding="10,0,10,0" Text="Render Qualities"       Icon="object_fps"       IconAlignmentH="Left"            ColorIndicator="PoolWindow.RenderQualities" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowRenderQualityPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"   ToolTip="Open a Render Qualities pool window."/>
+                            <IndicatorButton Name="PoolViews"           Anchors="3,4" Texture="corner15"  Padding="10,0,10,0" Text="Views"                  Icon="object_view"      IconAlignmentH="Left"            ColorIndicator="PoolWindow.Views"           Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowViewPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"                   CloseAction="Ok"   ToolTip="Open a Views pool window."/>
+
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <ScrollContainer Name="Data Pools" >
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes">
+
+                        <UILayoutGrid Name="PoolInside" OnLoad=":ElementsLoaded" DefaultMargin="5" DefaultMarginOnBorders="Yes" Columns="4" >
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                            </ItemCollectRows>
+
+                            <!-- USE COLUMNS FOR PRIORITY (LEFT = MORE IMPORTANT) AND ALPHABETICAL ORDER -->
+                            <!-- first column   -->
+                            <UIObject        Texture=""                 Anchors="0,0" Text="Data Pool" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="PoolBitmaps"         Anchors="0,1" Texture="corner15" Padding="10,0,10,0" Text="Bitmaps"                 Icon="object_bitmaps"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Bitmaps"     Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowGeneratorBitmapPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"      CloseAction="Ok" ToolTip="Create a generator bitmap pool window"/>
+                            <IndicatorButton Name="PoolExecConfig"      Anchors="0,2" Texture="corner15" Padding="10,0,10,0" Text="Executor&#xD;Configurations" Icon="execconfig"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Configurations"  Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowConfigurationPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"  CloseAction="Ok"    ToolTip="Open an Executor Configurations pool window." />
+                            <IndicatorButton Name="PoolFilters"         Anchors="0,3" Texture="corner15" Padding="10,0,10,0" Text="Filters"                Icon="object_filter"    IconAlignmentH="Left"   ColorIndicator="PoolWindow.Filters"         Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowFilterPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"         CloseAction="Ok"    ToolTip="Open a Filters pool window." />
+                            <IndicatorButton Name="PoolRandoms"         Anchors="0,4" Texture="corner15" Padding="10,0,10,0" Text="Generators"              Icon="object_generators" IconAlignmentH="Left"   ColorIndicator="PoolWindow.Generators"     Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowGeneratorRandomPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"      CloseAction="Ok" ToolTip="Create a generator random pool window"/>
+                            <IndicatorButton Name="PoolGroups"          Anchors="0,5" Texture="corner15" Padding="10,0,10,0" Text="Groups"                 Icon="object_group1"    IconAlignmentH="Left"   ColorIndicator="PoolWindow.Groups"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowGroupPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"    ToolTip="Open a Groups pool window." />
+                            <IndicatorButton Name="PoolLayouts"         Anchors="0,6" Texture="corner15" Padding="10,0,10,0" Text="Layouts"                Icon="object_layout"    IconAlignmentH="Left"   ColorIndicator="PoolWindow.Layouts"         Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowLayoutPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"         CloseAction="Ok"    ToolTip="Open a Layouts pool window." />
+
+
+                            <!-- second column   -->
+                            <UIObject        Texture=""                 Anchors="1,0" Text="Data Pool" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="PoolMacros"          Anchors="1,1" Texture="corner15" Padding="10,0,10,0" Text="Macros"                 Icon="object_macro"     IconAlignmentH="Left"   ColorIndicator="Poolwindow.Macros"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMacroPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"    ToolTip="Open a Macros pool window." />
+                            <IndicatorButton Name="PoolMAtricks"        Anchors="1,2" Texture="corner15" Padding="10,0,10,0" Text="MAtricks"               Icon="object_matricks"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Matricks"        Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMatricksPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"       CloseAction="Ok"    ToolTip="Open an MAtricks pool window." />
+                            <IndicatorButton Name="PoolPages"           Anchors="1,3" Texture="corner15" Padding="10,0,10,0" Text="Pages"                      Icon="object_pages"     IconAlignmentH="Left"   ColorIndicator="PoolWindow.Pages"           Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowPagePool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"           CloseAction="Ok"    ToolTip="Open a Pages pool window."/>
+                            <IndicatorButton Name="PoolPlugins"         Anchors="1,4" Texture="corner15" Padding="10,0,10,0" Text="Plugins"                    Icon="object_plugin1"   IconAlignmentH="Left"   ColorIndicator="PoolWindow.Plugins"         Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowPluginPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"         CloseAction="Ok"    ToolTip="Open a Plugins pool window." />
+                            <IndicatorButton Name="PoolQuickeys"        Anchors="1,5" Texture="corner15" Padding="10,0,10,0" Text="Quickeys"                   Icon="object_quickey"   IconAlignmentH="Left"   ColorIndicator="Poolwindow.Quickeys"        Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowQuickeyPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"        CloseAction="Ok"    ToolTip="Open a Quickeys pool window." />
+                            <IndicatorButton Name="PoolSequences"       Anchors="1,6" Texture="corner15" Padding="10,0,10,0" Text="Sequences"                  Icon="object_sequence"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Sequences"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSequencePool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"       CloseAction="Ok"    ToolTip="Open a Sequences pool window." />
+
+                            <!-- 3rd column   -->
+                            <UIObject        Texture=""                 Anchors="2,0" Text="Data Pool" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="PoolTimecodes"       Anchors="2,1" Texture="corner15" Padding="10,0,10,0" Text="Timecodes"                  Icon="object_timecode"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Timecodes"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowTimecodePool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"       CloseAction="Ok"    ToolTip="Open a Timecodes pool window." />
+                            <IndicatorButton Name="PoolTimers"          Anchors="2,2" Texture="corner15" Padding="10,0,10,0" Text="Timers"                     Icon="icon_timer"       IconAlignmentH="Left"   ColorIndicator="PoolWindow.Timers"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowTimerPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"    ToolTip="Open a Timers pool window."/>
+                            <IndicatorButton Name="PoolWorlds"          Anchors="2,3" Texture="corner15" Padding="10,0,10,0" Text="Worlds"  Icon="object_world1"         IconAlignmentH="Left"   ColorIndicator="PoolWindow.Worlds"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowWorldPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"  ToolTip="Create a world pool window"/>
+
+
+                            <!-- 4th column   -->
+                            <UIObject        Texture=""                 Anchors="3,0" Text="" TextAutoAdjust="Yes"/>
+
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <ScrollContainer Name="Presets" >
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes">
+                        <UILayoutGrid OnLoad=":PresetElementsLoaded" DefaultMargin="5" DefaultMarginOnBorders="Yes" Columns="4">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                            </ItemCollectRows>
+
+                            <!-- first column   -->
+                            <UIObject        Texture=""                 Anchors="0,0" Text="Dynamic and All" TextAutoAdjust="Yes"/>
+                            <!-- second column   -->
+                            <UIObject        Texture=""                 Anchors="1,0" Text="Feature Group" TextAutoAdjust="Yes"/>
+                            <!-- third column   -->
+                            <UIObject        Texture=""                 Anchors="2,0" Text="Feature Group" TextAutoAdjust="Yes"/>
+                            <!-- fourth column   -->
+                            <UIObject        Texture=""                 Anchors="3,0" Text="Feature Group" TextAutoAdjust="Yes"/>
+
+                            <!-- Filled in LUA   -->
+
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <ScrollContainer Name="Tools"  HelpTopic="system_information.html" >
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes">
+                        <UILayoutGrid OnLoad=":ElementsLoaded" DefaultMargin="5" DefaultMarginOnBorders="Yes" Columns="4">
+
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                            </ItemCollectRows>
+
+                            <!-- USE COLUMNS FOR PRIORITY (LEFT = MORE IMPORTANT) AND ALPHABETICAL ORDER -->
+
+                            <!-- first column   -->
+                            <UIObject        Texture=""                 Anchors="0,0" Text="Sheets" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="Content"             Anchors="0,1" Texture="corner15" Padding="10,0,10,0" Text="Content Sheet"       Icon="object_content"          IconAlignmentH="Left"       ColorIndicator="PoolWindow.Sequences"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowContentSheet'  MinW=3 MinH=4 /NC"                            CloseAction="Ok"    ToolTip="Open a Content Sheet window."/>
+                            <IndicatorButton Name="DMX"                 Anchors="0,2" Texture="corner15" Padding="10,0,10,0" Text="DMX Sheet"           Icon="object_dmx"              IconAlignmentH="Left"                                                   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowDmxSheet' MinW=3 MinH=4 /NC"                                 CloseAction="Ok"    ToolTip="Open a DMX Sheet window."/>
+                            <IndicatorButton Name="Fixture"             Anchors="0,3" Texture="corner15" Padding="10,0,10,0" Text="Fixture Sheet"       Icon="object_fixture"          IconAlignmentH="Left"                                                   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowFixtureSheet'  MinW=3 MinH=4 /NC"                            CloseAction="Ok"    ToolTip="Open a Fixture Sheet window."/>
+                            <IndicatorButton Name="Sequence"            Anchors="0,4" Texture="corner15" Padding="10,0,10,0" Text=" Sequence&#xD;Sheet"     Icon="object_sequence"   IconAlignmentH="Left"       ColorIndicator="PoolWindow.Sequences"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSequenceSheet' MinW=3 MinH=4 /NC"                              CloseAction="Ok"    ToolTip="Open a Sequence Sheet window."/>
+
+                            <!-- second column   -->
+                            <UIObject        Texture=""                 Anchors="1,0"  Text="Programmer Tools" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="WindowAtFilter"      Anchors="1,1"  Texture="corner15" Padding="10,0,10,0" Text="At Filter"          Icon="object_filter"           IconAlignmentH="Left"       ColorIndicator="PoolWindow.Filters"         Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowAtFilter' MinH=4 MinW=4 /NC"                                 CloseAction="Ok"    ToolTip="Open an At Filter window."/>
+                            <IndicatorButton Name="WindowRecipeEditor"  Anchors="1,2"  Texture="corner15" Padding="10,0,10,0" Text="Recipe&#xD;Editor"  Icon="cooking"                 IconAlignmentH="Left"       ColorIndicator="PoolWindow.Recipes"         Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowRecipeEditor'  MinW=4 MinH=2 /NC"                            CloseAction="Ok"    ToolTip="Open a Recipe Editor window."/>
+                            <IndicatorButton Name="WindowSelection"     Anchors="1,3"  Texture="corner15" Padding="10,0,10,0" Text="Selection Grid"     Icon="object_selgrid"          IconAlignmentH="Left"                                                   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSelectionView'   MinW=4 MinH=4 /NC"                          CloseAction="Ok"    ToolTip="Open a Selection Grid window."/>
+                            <IndicatorButton Name="WindowSmartView"     Anchors="1,4"  Texture="corner15" Padding="10,0,10,0" Text="sMArt"              Icon="object_smart"            IconAlignmentH="Left"                                                   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSmartView'       MinW=4 MinH=4 SnapToBlockSize='Yes' /NC"    CloseAction="Ok"    ToolTip="Open a sMArt window."/>
+                            <IndicatorButton Name="WindowSpecial"       Anchors="1,5"  Texture="corner15" Padding="10,0,10,0" Text="Special Dialog"     Icon="object_colpick"          IconAlignmentH="Left"                                                   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSpecialDialog' MinW=4 MinH=4 /NC"                            CloseAction="Ok"    ToolTip="Open a Special Dialog window. "/>
+
+
+                            <!-- 3rd column   -->
+                            <UIObject        Texture=""                 Anchors="2,0"   Text="Viewers and Editors" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="Window3D"            Anchors="2,1"   Texture="corner15" Padding="10,0,10,0" Text="3D Viewer"          Icon="object_3d"               IconAlignmentH="Left"       ColorIndicator="PoolWindow.RenderQualities" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'Window3D' MinW=4 MinH=4 /NC"                                      CloseAction="Ok"    ToolTip="Open a 3D Viewer window."/>
+                            <IndicatorButton Name="WindowAgenda"        Anchors="2,2"   Texture="corner15" Padding="10,0,10,0" Text="Agenda Viewer"      Icon="object_agenda"               IconAlignmentH="Left"                                                Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowAgenda'   MinW=4 MinH=4 /NC"                               CloseAction="Ok"    ToolTip="Open an Agenda Viewer window."/>
+                            <IndicatorButton Name="WindowClock"         Anchors="2,3"   Texture="corner15" Padding="10,0,10,0" Text="Clock Viewer"       Icon="object_clock"       IconAlignmentH="Left"                                                           Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowClock' MinW=4 MinH=2 /NC"                                CloseAction="Ok"    ToolTip="Open  a Clock Viewer window."/>
+                            <IndicatorButton Name="WindowLayoutView"    Anchors="2,4"   Texture="corner15" Padding="10,0,10,0" Text="Layout Viewer"      Icon="object_layout"    IconAlignmentH="Left"   ColorIndicator="PoolWindow.Layouts"                     Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowLayoutView' MinW=4 MinH=4 /NC"                             CloseAction="Ok"    ToolTip="Open a Layout Viewer window."/>
+                            <IndicatorButton Name="WindowMAtricks"      Anchors="2,5"   Texture="corner15" Padding="10,0,10,0" Text="  MAtricks Editor"  Icon="object_matricks"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Matricks"                    Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMatricks'          MinH=4 MinW=4 /NC"                      CloseAction="Ok"    ToolTip="Open an MAtricks Editor window."/>
+                            <IndicatorButton Name="WindowPhaserEditor"  Anchors="2,6"   Texture="corner15" Padding="10,0,10,0" Text="Phaser Editor"      Icon="object_phase"     IconAlignmentH="Left"      ColorIndicator="ProgLayer.Phase"                        Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowPhaserEditor'  MinW=8 MinH=10 MinSizeTranspose='Yes' /NC" CloseAction="Ok"  ToolTip="Open a Phaser Editor window."/>
+
+                            <!-- 4th column   -->
+                            <UIObject        Texture=""                 Anchors="3,0"   Text="Viewers and Editors" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="WindowRDM"           Anchors="3,1"   Texture="corner15"  Padding="10,0,10,0"    Text="RDM Devices&#xD;Viewer"     Icon="object_rdm"       IconAlignmentH="Left"                                            Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowRDM' MinH=2 MinW=4 /NC"                                       CloseAction="Ok"    ToolTip="Open an RDM Devices Viewer window."/>
+                            <IndicatorButton Name="WindowSound"         Anchors="3,2"   Texture="corner15"  Padding="10,0,10,0"    Text=" Sound Viewer"         Icon="object_sound3"    IconAlignmentH="Left"   ColorIndicator="PoolWindow.Sounds"      Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSound'           MinW=4 MinH=4 /NC"                                 CloseAction="Ok"    ToolTip="Open a Sound Viewer window."/>
+                            <IndicatorButton Name="WindowTimecode"      Anchors="3,3"   Texture="corner15"  Padding="10,0,10,0"    Text="Timecode&#xD;Viewer"       Icon="object_timecode"  IconAlignmentH="Left"   ColorIndicator="PoolWindow.Timecodes"   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowTimecode'   MinW=4 MinH=4 /NC"                                  CloseAction="Ok"    ToolTip="Open a Timecode Viewer window."/>
+                            <!--<IndicatorButton Name="WindowCloning"       Anchors="3,4"   Texture="corner15" Padding="10,0,10,0" Text="Cloning (Temp)"     Icon=""            IconAlignmentH="Left"                                                   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowCloning'       MinW=4 MinH=4 /NC"                                       CloseAction="Ok"    ToolTip="Open a Cloning window."/>-->
+
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <ScrollContainer Name="More"  HelpTopic="system_information.html" >
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes">
+                        <UILayoutGrid OnLoad=":ElementsLoaded" DefaultMargin="5" DefaultMarginOnBorders="Yes" Columns="4">
+
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                                <Item SizePolicy="Fixed" Size="60" />
+                            </ItemCollectRows>
+
+                            <!-- USE COLUMNS FOR PRIORITY (LEFT = MORE IMPORTANT) AND ALPHABETICAL ORDER -->
+
+                            <!-- first column   -->
+                            <UIObject        Texture=""                       Anchors="0,0"  Text="Bars"          TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="WindowAlignBar"            Anchors="0,1"  Texture="corner15"   Padding="10,0,10,0" Text="Align Bar"        Icon="object_align"         IconAlignmentH="Left"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowAlignBar'  MinW=8 MinH=1 MaxH=1 MinSizeTranspose='Yes' /NC" CloseAction="Ok" ToolTip="Open an Align Bar window."/>
+                            <IndicatorButton Name="WindowCommandWingBar"      Anchors="0,2"  Texture="corner15"   Padding="10,0,10,0" Text="command wing Bar"  Icon="object_commandwing"    IconAlignmentH="Left"            Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowCommandWingBar'  MinW=18 MinH=6 /NC" CloseAction="Ok" TextAutoAdjust="Yes" ToolTip="Open a command wing Bar window."/>
+                            <IndicatorButton Name="WindowEncoderBar"          Anchors="0,3"  Texture="corner15"   Padding="10,0,10,0" Text="Encoder Bar"      Icon="object_encbar"      IconAlignmentH="Left"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowEncoderBar'  MinW=4 MinH=3 /NC" CloseAction="Ok" ToolTip="Open an Encoder Bar window."/>
+                            <IndicatorButton Name="WindowSelectionBar"        Anchors="0,4"  Texture="corner15"   Padding="10,0,10,0" Text="Selection Bar"    Icon="object_sel_bar"      IconAlignmentH="Left"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSelectionBar' MinW=8 MinH=1 MaxH=1 MinSizeTranspose='Yes' /NC" CloseAction="Ok" ToolTip="Open a Selection Bar window."/>
+                            <IndicatorButton Name="WindowStepBar"             Anchors="0,5"  Texture="corner15"   Padding="10,0,10,0" Text="Step Bar"         Icon="object_stepbar"      IconAlignmentH="Left"       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowStepBar'     MinW=8 MinH=1 MaxH=1 MinSizeTranspose='Yes' /NC" CloseAction="Ok" ToolTip="Open a Step Bar window."/>
+
+
+                            <!-- second column   -->
+                            <UIObject        Texture=""                       Anchors="1,0"  Text="Playback"        TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="WindowCustomMasterSection" Anchors="1,1"  Texture="corner15"     Padding="10,0,10,0"     Text="Custom Master&#xD;Section"    Icon="object_special_master"      IconAlignmentH="Left"                    Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowCustomMasterSection'             MinW=2 MinH=4 /NC" CloseAction="Ok" ToolTip="Open a Custom Master Section window."/>
+                            <IndicatorButton Name="WindowRunningPlaybacks"    Anchors="1,2"  Texture="corner15"     Padding="10,0,10,0"     Text="Running&#xD;Playbacks"        Icon="object_runningpb"  IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowRunningPlaybacks' MinW=4 MinH=4 SnapToBlockSize='Yes' /NC" CloseAction="Ok" ToolTip="Open a Running Playbacks window."/>
+                            <IndicatorButton Name="WindowPlayback"            Anchors="1,3"  Texture="corner15"     Padding="10,0,10,0"     Text="Playbacks"                     Icon="object_playback"  IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowPlaybacks'         MinW=5 MinH=2 /NC"                        CloseAction="Ok" ToolTip="Open a Playbacks window."/>
+                            <IndicatorButton Name="WindowXkeys"               Anchors="1,4"  Texture="corner15"     Padding="10,0,10,0"     Text="Xkeys"                        Icon="object_xkeys"     IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowXkeys'             MinW=4 MinH=4 /NC"                        CloseAction="Ok" ToolTip="Open an Xkeys window."/>
+
+                            <!-- 3rd column   -->
+                            <UIObject        Texture=""                       Anchors="2,0"  Text="Info and System" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="WindowCmdline"             Anchors="2,1"  Texture="corner15"     Padding="10,0,10,0"     Text="Command Line&#xD;History"     Icon="object_cmd"       IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowCommandLine' MinW=4 MinH=4 /NC"                              CloseAction="Ok" ToolTip="Open a Command Line History window."/>
+                            <IndicatorButton Name="WindowHelp"                Anchors="2,2"  Texture="corner15"     Padding="10,0,10,0"     Text="Help"                         Icon="object_question_small"  IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowHelpViewer' MinW=4 MinH=4 /NC" CloseAction="Ok" ToolTip="Open a Help window."/>
+                            <IndicatorButton Name="WindowInfo"                Anchors="2,3"  Texture="corner15"     Padding="10,0,10,0"     Text="Info"                         Icon="object_info"      IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowInfo' MinW=4 MinH=4 /NC" CloseAction="Ok" ToolTip="Open an Info window."/>
+                            <IndicatorButton Name="WindowMessageCenter"       Anchors="2,4"  Texture="corner15"     Padding="10,0,10,0"     Text="Message&#xD;Center"           Icon="object_message"   IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMessageCenter'     MinW=4 MinH=4 /NC" CloseAction="Ok" ToolTip="Open a Message Center window."/>
+                            <IndicatorButton Name="WindowSysteminfo"          Anchors="2,5"  Texture="corner15"     Padding="10,0,10,0"     Text="System Info"                  Icon="object_sysinfo"   IconAlignmentH="Left"                       Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSysteminfo'      MinW=2 MinH=2 /NC" CloseAction="Ok" ToolTip="Open a System Info window."/>
+                            <IndicatorButton Name="WindowSystemMonitor"       Anchors="2,6"  Texture="corner15"     Padding="10,0,10,0"     Text="System Monitor"               Icon="object_sysmonitor" IconAlignmentH="Left"                      Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSystemMonitor'   MinW=4 MinH=4 /NC" CloseAction="Ok" ToolTip="Open a System Monitor window."/>
+                            <!-- 4th column   -->
+                            <UIObject        Texture=""                       Anchors="3,0"  Text="Info and System" TextAutoAdjust="Yes"/>
+                            <IndicatorButton Name="WindowTrackpad"            Anchors="3,1"  Texture="corner15"     Padding="10,0,10,0"     Text="Trackpad"                     Icon="object_trackp"    IconAlignmentH="Left"           Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowTrackpad'        MinW=4 MinH=4 /NC" CloseAction="Ok" ToolTip="Open a Trackpad window."/>
+
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <ScrollContainer Name="All" >
+                    <ScrollBox Name="AllScrollBox" PanScrollArea="Yes">
+                        <UILayoutGrid Name="AllLayoutGrid" DefaultMargin="5" DefaultMarginOnBorders="Yes" >
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50" />
+                                <Item SizePolicy="Stretch" Size="1" />
+                            </ItemCollectRows>
+                            <UILayoutGrid Anchors="0,0" Name="FilterBlock" >
+                                <ItemCollectColumns>
+                                    <Item SizePolicy="Content" Size="1" />
+                                    <Item SizePolicy="Stretch" Size="1" />
+                                    <Item SizePolicy="Content" Size="1" />
+                                    <Item SizePolicy="Content" Size="1" />
+                                </ItemCollectColumns>
+                                <UIObject Text="Filter:" Anchors="0,0" BackColor="global.BackGround" HasHover="No" ContentDriven="Yes" ToolTip="Enter text to search for a window."/>
+                                <LineEdit Name="FilterEdit" Focus="WantsFocus" Anchors="1,0" Texture="corner5" Target="../../AllWindowsGrid/Internals/GridBase/MyGridSettings/GridObjectContentFilter/FilterIndexKeywords" Property="Filter" Clear=":ClearFilters" Execute=":JumpToGrid" ToolTip="Enter text to search for a window."/>
+                                <IndicatorButton Name="Clear" Text="Clear" Clicked=":ClearFilters" Anchors="2,0" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" ToolTip="Delete search term."/>
+                                <AutoLayout Name="FilterSwitches" Anchors="3,0" DefaultMargin="1" Direction="Horizontal" Texture="corner15" Content="Yes">
+                                    <PropertyInput Name="FilterSheets"  Text="Sheets"   MinSize="50,0" W="100" ShowLabel="Yes" Property="Enabled" Focus="Never" ToolTip="Hide or show all sheets."/>
+                                    <PropertyInput Name="FilterPools"   Text="Pools"    MinSize="50,0" W="100" ShowLabel="Yes" Property="Enabled" Focus="Never" ToolTip="Hide or show all pool windows."/>
+                                    <PropertyInput Name="FilterPresets" Text="Presets"  MinSize="50,0" W="100" ShowLabel="Yes" Property="Enabled" Focus="Never" ToolTip="Hide or show all presets."/>
+                                    <PropertyInput Name="FilterOthers"  Text="Others"   MinSize="50,0" W="100" ShowLabel="Yes" Property="Enabled" Focus="Never" ToolTip="Hide or show all other windows."/>
+                                </AutoLayout>
+                            </UILayoutGrid>
+                            <WindowTypeGrid Name="AllWindowsGrid" Anchors="0,1" TargetObject="~.WindowTypes" OnSelectedItem=":OnAllWindowsItemSelected" TextAutoAdjust="Yes" AllowAddNewline="No" AllowEdit="No" SelectionType="SingleRowGridSelection" FilterBlockUIEnabled="No" AllowFilterContent="Yes" Focus="TabOnly" >
+                                <GridSettings ContentFilterType="GridObjectContentFilter" Name="MyGridSettings" AdjustColumns="Yes">
+                                    <GridColumnFilterCollect>
+                                        <GridColumnNamesFilter Inclusive="Yes">
+                                            <GridColumn Name="Window Name" Visible="Yes" />
+                                            <GridColumn Name="Category" Visible="Yes" />
+                                            <GridColumn Name="Type" Visible="Yes" />
+                                            <GridColumn Name="IndexKeywords" Visible="No" />
+                                        </GridColumnNamesFilter>
+                                    </GridColumnFilterCollect>
+                                    <GridObjectContentFilter>
+                                        <GridObjectContentFilterItem Name="FilterName"          Columns="Window Name" />
+                                        <GridObjectContentFilterItem Name="FilterCategory"      Columns="Category" />
+                                        <GridObjectContentFilterItem Name="FilterIndexKeywords" Columns="IndexKeywords" />
+                                        <GridObjectContentFilterItem Name="FilterTypeSheets"    Columns="Type" Filter="Sheets" />
+                                        <GridObjectContentFilterItem Name="FilterTypePools"     Columns="Type" Filter="Pools" />
+                                        <GridObjectContentFilterItem Name="FilterTypePresets"   Columns="Type" Filter="Presets" />
+                                        <GridObjectContentFilterItem Name="FilterTypeOthers"    Columns="Type" Filter="Others" />
+                                    </GridObjectContentFilter>
+                                </GridSettings>
+                            </WindowTypeGrid>
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <ScrollContainer Name="Developer" >
+                    <ScrollBox PanScrollArea="Yes">
+                        <UILayoutGrid DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes" Rows="5" Columns="6">
+                            <IndicatorButton Anchors="0,0"  Texture="corner15"  Text="EncoderBar&#xD;Test" Clicked=":CommandLine" SignalValue="menu 'EncoderBarTest'" CloseAction="Ok" />
+                            <IndicatorButton Anchors="1,0"  Texture="corner15"  Text="OpenGlTest" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowOpenGlTest' MinW=4 MinH=3 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="2,0"  Texture="corner15"  Text="Playground" Clicked=":CommandLine" SignalValue="menu 'playground'" CloseAction="Ok" />
+                            <IndicatorButton Anchors="3,0"  Texture="corner15"  Text="PopupDev" Clicked=":CommandLine" SignalValue="menu 'PopupDev'" CloseAction="Ok" />
+                            <IndicatorButton Anchors="4,0"  Texture="corner15"  Text="ScribEdit&#xD;ViewDev" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'ScribbleEditViewDev' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="5,0" Texture="corner15"   Text="SplitView&#xD;Dev" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'SplitViewDev' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+
+                            <IndicatorButton Anchors="0,1"  Texture="corner15"  Text="Window&#xD;Video" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowVideo' MinW=4 MinH=6 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="1,1"  Texture="corner15"  Text="UIGrid&#xD;Playground" Clicked=":CommandLine" SignalValue="menu 'UIGridPlayground'" CloseAction="Ok" />
+                            <IndicatorButton Anchors="2,1"  Texture="corner15"  Text="UITab&#xD;Example" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'UITabExample' MinW=6 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="3,1"  Texture="corner15"  Text="TexPage&#xD;DebugDev" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'TexPageDebugView' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="4,1" Texture="corner15"   Text="ColEng&#xD;DebugView" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'ColEngineDebugView' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="5,1" Texture="corner15"   Text="TextEdit&#xD;Dev" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'TextEditDev' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+
+                            <IndicatorButton Anchors="0,2" Texture="corner15"   Text="Filebrowser&#xD;Dev" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'FilebrowserDev' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="1,2" Texture="corner15"   Text="Fader&#xD;Test" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'FaderTest' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="2,2" Texture="corner15"   Text="Sync&#xD;Test" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'SyncTest' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="3,2" Texture="corner15"   Text="WebView&#xD;Dev" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WebViewDev' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="4,2" Texture="corner15"   Text="ColorTest&#xD;Dev" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'ColorTestDev' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="5,2" Texture="corner15"   Text="SystemTest&#xD;Dev" Clicked=":CommandLine" SignalValue="_SystemTest" CloseAction="Ok" />
+
+                            <IndicatorButton Anchors="0,3" Texture="corner15"   Text="Mesh&#xD;Statistics"    Name="WindowMeshStatistics"          Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMeshStatistics'  MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="1,3" Texture="corner15"   Text="Texture&#xD;Statistics" Name="WindowTextureStatistics"      Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowTextureStatistics'  MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="2,3" Texture="corner15"   Text="Channel&#xD;Test" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'ChannelTest' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="3,3" Texture="corner15"   Text="ModularPlaybackWindow" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowPlaybacksModular' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="4,3" Texture="corner15"   Text="Macro&#xD;AllPool" Name="MacroAllPool"    Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowMacroAllPool' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"   ToolTip="Open a pool window for Macro Buttons, rendered with new renderData."/>
+
+                            <IndicatorButton Anchors="0,4" Texture="corner15"   Text="Diligent 1&#xD;Test" Name="WindowDiligentTest1"      Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowDiligentTest1'  MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="1,4" Texture="corner15"   Text="Diligent 2&#xD;Test" Name="WindowDiligentTest2"      Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowDiligentTest2'  MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="2,4" Texture="corner15"   Text="Network&#xD;Test" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'NetworkTest' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+                            <IndicatorButton Anchors="3,4" Texture="corner15"   Text="UndoWindow" Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowOops' MinW=4 MinH=4 /NC" CloseAction="Ok" />
+
+
+                            <IndicatorButton Anchors="4,4" Texture="corner15"   Text="Old&#xD;Sequences" Name="OldSequencePool"   Clicked=":CommandLine" SignalValue="STORE SCREENCONTENT DEFAULT 'WindowSequencePoolOld' MinH=2 MinW=2 SnapToBlockSize='Yes' /NC"          CloseAction="Ok"   ToolTip="Open a pool window for Sequnce Buttons, rendered with new renderData."/>
+
+                            <IndicatorButton Anchors="5,4" Texture="corner15"   Text="SystemTest&#xD;Worker" Clicked=":CommandLine" SignalValue="_SystemTestWorker" CloseAction="Ok" />
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+            </DialogContainer>
+
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

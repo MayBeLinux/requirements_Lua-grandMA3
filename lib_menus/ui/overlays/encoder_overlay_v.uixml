@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <EncoderOverlay Name="EncoderOverlayV" W="125" H="750" WantsModal="1" OnLoad=":OnLoaded" AdjustInitialPosition="Yes" >
+        <DialogFrame Name="Frame" Texture="frame15" Columns="1">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="25" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Fixed" Size="85" />
+                <Item SizePolicy="Stretch" Size="14" />
+                <Item SizePolicy="Fixed" Size="85" />
+            </ItemCollectRows>
+            <Button Name="GroupType"  Texture="corner3" Anchors="0,0" />
+            <SwipeButton Name="Speedfactor" Texture="corner0"  Undo="No" Property="Resolution"  Anchors="0,1" />
+            <Button Name ="Plus" Clicked=":SetPlus" Texture="corner0" Anchors="0,2" />
+            <BandFader Name ="Fader" Anchors="0,3" HideFocusFrame="1" Focus="InitialFocus" Texture="corner0" Direction="Vertical" Clicked=":OpenCalc" AutoCloseAllowed="Yes" />
+            <Button Name ="Minus"  Anchors="0,4"  Clicked=":SetMinus" Texture="corner12" />
+        </DialogFrame>
+    </EncoderOverlay>
+</GMA3>

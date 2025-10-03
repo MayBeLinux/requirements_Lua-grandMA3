@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <LearnOverlay Name="LearnOverlay" W="480" H="80" OnLoad=":OnLoaded" AlignmentH="Center" AlignmentV="Top" Margin="0,8,0,0" AutoClose="0" WantsModal="0" ContentDriven="No" DefaultMargin="0" FocusSearchPolicy="Default" Transparent="Yes" >
+        <ItemCollectColumns>
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Content" Size="1"/>
+        </ItemCollectRows>
+        <UILayoutGrid Anchors="0,1" Name="BackFiller" Margin="2,2,2,2" Texture="Corner15" BackColor="Global.Transparent50" Transparent="No" Interactive="No" />
+        <DialogFrame Anchors="0,1" Name="Frame" Texture="Frame15" DefaultMargin="4" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="60"  />
+            </ItemCollectRows>
+            <LearnBeatDisplay Anchors="0,0" LedIndex="0" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60" />
+            <LearnBeatDisplay Anchors="1,0" LedIndex="1" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60" />
+            <LearnBeatDisplay Anchors="2,0" LedIndex="2" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60" />
+            <LearnBeatDisplay Anchors="3,0" LedIndex="3" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60" />
+            <LearnBeatDisplay Anchors="4,0" LedIndex="4" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60"  />
+            <LearnBeatDisplay Anchors="5,0" LedIndex="5" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60"  />
+            <LearnBeatDisplay Anchors="6,0" LedIndex="6" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60"  />
+            <LearnBeatDisplay Anchors="7,0" LedIndex="7" Texture="CircleBackground" BackColor="Beat.InactiveBeat" Interactive="No" W="60"  />
+        </DialogFrame>
+
+    </LearnOverlay>
+</GMA3>

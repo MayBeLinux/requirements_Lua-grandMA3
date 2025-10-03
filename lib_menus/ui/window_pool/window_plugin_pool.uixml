@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <PoolWindow HelpTopic="plugins.html">
+        <PluginPoolLayoutGrid Text="Plugins" TitleButtonIcon="object_plugin1"  ToolTip="Plugin pool window">
+            <PoolTitleButton />
+        </PluginPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

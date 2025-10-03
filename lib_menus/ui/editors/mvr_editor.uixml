@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+    <GenericEditorOverlay Name="MvrEditor" WantsModal="1" FocusSearchPolicy="Default" AutoClose="0" AutoCloseOnOverlay="1" OnLoad=":MvrEditorLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Anchors="0,0" Text="MVR Merge" Texture="corner1" />
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Texture="corner0" Content="Yes" >
+                <SwipeButton Name="ColumnsFilters" MinSize="50,0" W="130" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" SelectionChanged=":ColumnsFilterSelected" />
+            </AutoLayout>
+            <CloseButton    Anchors="2,0" Texture="corner2"  CloseAction="Confirm" />
+        </TitleBar>
+
+
+        <UILayoutGrid Name="Content" Anchors="0,1" DefaultMargin="5" DefaultMarginOnBorders="1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <DBObjectGrid Name="ObjectGrid" Anchors="0,0,1,0" TargetObject="Temp.PsrFixtures" AllowAddContent="No" DataType="PsrFixtureGridData">
+                <GridSettings ContentFilterType="GridObjectContentFilter" >
+                    <GridColumnFilterCollect SelectedFilter="Condensed">
+                        <GridColumnNamesFilter Name="Full">
+                            <GridColumn Name="Lock"            Visible="No" />
+                            <GridColumn Name="LeftSubfixtureIndex"            Visible="No" />
+                            <GridColumn Name="RightSubfixtureIndex"            Visible="No" />
+                        </GridColumnNamesFilter>
+                        <GridColumnNamesFilter Name="Condensed" Inclusive="Yes">
+                            <GridColumn Name="No"              Visible="Yes" />
+                            <GridColumn Name="Name"            Visible="Yes" />
+                            <GridColumn Name="My FixtureType"            Visible="Yes" />
+                            <GridColumn Name="My Patch"            Visible="Yes" />
+                            <GridColumn Name="FixtureID"          Visible="Yes" />
+                            <GridColumn Name="Primary"            Visible="Yes" />
+                            <GridColumn Name="Other Name"      Visible="Yes" />
+                            <GridColumn Name="Other FixtureType"            Visible="Yes" />
+                            <GridColumn Name="Other Patch"            Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </GridSettings>
+            </DBObjectGrid>
+            <Button Anchors="1,1" Texture="corner15"  Text="Import MVR" Clicked=":ButtonClicked" SignalValue="AddOn 'MVR' 'MVRIMPORTPSR'"/>
+        </UILayoutGrid>
+
+    </GenericEditorOverlay>
+
+</GMA3>

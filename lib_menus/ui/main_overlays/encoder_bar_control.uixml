@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgCommandControl  Name="EncoderBarControl" OnLoad=":EncoderBarControlLoaded" DefaultMargin="2" HardkeyMouseUp=":MainDlgCmdCtrlHKMouseUp" HardkeyMouseDown=":MainDlgCmdCtrlHKMouseDown" AutoCloseOnOverlay="Yes">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Encoder Bar Control" Icon="object_encbar" HelpTopic="ws_command_area.html"/>
+            <AutoLayout DefaultMargin="0" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" HelpTopic="ws_command_area.html"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" HelpTopic="ws_command_area.html"/>
+        </TitleBar>
+
+        <MainDialogContent Name="ContentContainer">
+            <!-- Placeholders -->
+
+            <!INCLUDE ../../include/encoder_bar_content.uixml >
+
+            <!--<Button Texture="corner0" Anchors="4,0,4,4" Text="&gt;" Clicked=":CommandLine" SignalValue="menu PlaybackControl1"/>-->
+        </MainDialogContent>
+    </MainDlgCommandControl>
+</GMA3>

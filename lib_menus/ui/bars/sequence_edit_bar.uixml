@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SequenceEditBar OnLoad=":BarLoaded" LinkedObjectChanged=":BarLoaded" DefaultMargin="3">
+        <UILayoutGrid Name="InnerBox" Anchors="0,0" Rows="3"  Columns="10">
+
+            <SwipeButton Anchors="0,0" Name="Pages" Text="Pages" Texture="corner3" Property="EncoderFunction" SelectionChanged=":EncoderPageChanged" Margin="0,3,3,0" />
+            <UILayoutGrid Name="Upper" Anchors="1,0,9,0" Columns="9" Rows="1" Margin="0,3,3,3" >
+
+                <IndicatorButton Anchors="0,0" Name="EditBtn" Text="Edit Seq" Texture="corner15" Clicked=":CommandLine" SignalValue="Edit Cue" TextAutoAdjust="Yes"/>
+
+                <AutoLayout Name="CueEdit" Anchors="1,0,2,0" Texture="corner15" Direction="Horizontal" Margin="3,0,3,0">
+                    <IndicatorButton Name ="PrevCue" Clicked=":SelectPrevCue" ToolTip="Edit previous cue" Icon="arrow_left" />
+                    <IndicatorButton Name ="CurrCue" Clicked=":SelectCurrCue" ToolTip="Edit the current cue" Text="Edit Cue" TextAutoAdjust="Yes"/>
+                    <IndicatorButton Name ="NextCue" Clicked=":SelectNextCue" ToolTip="Edit next cue" Icon="arrow_right" />
+                </AutoLayout>
+                <UILayoutGrid Name="NavButtons" Anchors="3,0,8,0" Columns="8" >
+                    <IndicatorButton Anchors="0,0" Name="FirstBtn" Texture="corner5" ToolTip="Jump to first cue" Icon="PlaybackJumpbackward"    Clicked=":CommandLine"  SignalValue="Top"           />
+                    <IndicatorButton Anchors="1,0" Name="FastBackBtn"  Texture="corner0" ToolTip="&lt;&lt;&lt;"  Icon="PlaybackTrippleBackward" Clicked=":CommandLine"  SignalValue="&lt;&lt;&lt;"  />
+                    <IndicatorButton Anchors="2,0" Name="BackBtn"  Texture="corner0" ToolTip="Go-"               Icon="PlaybackBackward"        Clicked=":CommandLine"  SignalValue="Go-"           />
+                    <IndicatorButton Anchors="3,0" Name="PauseBtn" Texture="corner0" ToolTip="Pause Sequence"    Icon="PlaybackPaused"          Clicked=":CommandLine"  SignalValue="Pause"         />
+                    <IndicatorButton Anchors="4,0" Name="StopBtn"  Texture="corner0" ToolTip="Stop Sequence"     Icon="PlaybackStop"            Clicked=":CommandLine"  SignalValue="Off"           />
+                    <IndicatorButton Anchors="5,0" Name="NextBtn"  Texture="corner0" ToolTip="Go+"               Icon="PlaybackForward"         Clicked=":CommandLine"  SignalValue="Go+"           />
+                    <IndicatorButton Anchors="6,0" Name="FastNextBtn"  Texture="corner0" ToolTip="&gt;&gt;&gt;"  Icon="PlaybackTrippleForward"  Clicked=":CommandLine"  SignalValue="&gt;&gt;&gt;"  />
+                    <IndicatorButton Anchors="7,0" Name="LastBtn"  Texture="corner10" ToolTip="Jump to last cue"  Icon="PlaybackJumpforward"     Clicked=":GoLast"                                  />
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+
+            <UILayoutGrid Name="Lower" Anchors="0,1,9,2" Columns="5" Rows="2" Margin="0,0,3,0" DefaultMargin="4,0,4,0">
+                <EncoderControl Name="Encoder1a" System="CueTiming" EncoderRing="Inner" EncoderType="Inside1"  Anchors="0,0" Texture="corner0" />
+                <EncoderControl Name="Encoder1b" System="CueTiming" EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" />
+
+                <EncoderControl Name="Encoder2a" System="CueTiming" EncoderRing="Inner" EncoderType="Inside2"  Anchors="1,0" Texture="corner0" />
+                <EncoderControl Name="Encoder2b" System="CueTiming" EncoderRing="Outer" EncoderType="Outside2" Anchors="1,1" Texture="corner0" />
+
+                <EncoderControl Name="Encoder3a" System="CueTiming" EncoderRing="Inner" EncoderType="Inside3"  Anchors="2,0" Texture="corner0" />
+                <EncoderControl Name="Encoder3b" System="CueTiming" EncoderRing="Outer" EncoderType="Outside3" Anchors="2,1" Texture="corner0" />
+
+                <EncoderControl Name="Encoder4a" System="CueTiming" EncoderRing="Inner" EncoderType="Inside4"  Anchors="3,0" Texture="corner0" />
+                <EncoderControl Name="Encoder4b" System="CueTiming" EncoderRing="Outer" EncoderType="Outside4" Anchors="3,1" Texture="corner0" />
+
+                <EncoderControl Name="Encoder5a" System="Scroll"      EncoderRing="Inner" EncoderType="Inside5"  Anchors="4,0" Texture="corner0" Text="Focus scroll"/>
+                <EncoderControl Name="Encoder5b" System="Scroll"      EncoderRing="Outer" EncoderType="Outside5" Anchors="4,1" Texture="corner0" Text="Window scroll" />
+
+                <!--Screen encoder controls that are visible depending on the UserProfile setting in m_Data.m_Flags.m_Bits.m_ScreenEncoders-->
+                <ScreenEncoderControl Name="Encoder5aScr" System="Scroll"      EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" />
+                <ScreenEncoderControl Name="Encoder5bScr" System="Scroll"      EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" />
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </SequenceEditBar>
+</GMA3>

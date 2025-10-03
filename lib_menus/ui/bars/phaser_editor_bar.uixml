@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PhaserEditorBar OnLoad=":BarLoaded" LinkedObjectChanged=":LinkedWindowChanged" HelpTopic="phaser_editor.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <UILayoutGrid Name="Options" H="60" Rows="1" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <SwipeButton Anchors="0,0" Name="Pages" Text="Pages" Texture="corner3" Property="EncoderFunction" SelectionChanged=":EncoderPageChanged" W="190" Margin="1,3,3,0"/>
+            <UILayoutGrid Name="Upper" DefaultMargin="3" Anchors="1,0" Margin="1,3,3,3">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectColumns>
+                <UILayoutGrid Name="StepControl" Anchors="8,0" Columns="4" W="196">
+                    <IndicatorControl Name="PrevStep" Texture="corner5" Anchors="0,0" Property="AllStepSelected" Target="#"  ShowValue="No" ShowLabel="No" DefaultAction="No"  Clicked=":CommandLine" SignalValue="Prev Step" MouseDownHold=":CommandLine" SignalValueHold="Step 1" Icon="arrow_left" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon" ToolTip="Select previous step" Margin="0,0,0,0" />
+                    <PropertyInput  Anchors="1,0" ShowLabel="0" ShowValue="0" Property="MultiStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="PropertyInputIcon" IconInactive="PropertyInputIcon" ActiveIconColor="ContextButton.Icon" >
+                        <PropertyControl Name="FirstStep" ShowLabel="No"  Texture=""  Property="FirstStep" Target="#" TextAutoAdjust="No"  Margin="0,6,0,0" Icon="" />
+                    </PropertyInput>
+                    <IndicatorControl Name="NextStep" Texture="corner0" Anchors="2,0"  Property="AllStepSelected" Target="#"  ShowValue="0" ShowLabel="No" DefaultAction="No" Clicked=":CommandLine" SignalValue="Next Step"  ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon"  ToolTip="Select next step" Icon="arrow_right" Margin="0,0,0,0" />
+                    <PropertyInput Anchors="3,0" ShowLabel="No" Texture="corner10" ShowValue="No" Clicked=":CommandLine" signalValue="Step Toggle" Property="AllStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" Icon="PhaserSelectReset" ToolTip="Select all steps" Margin="0,0,0,0" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </UILayoutGrid>
+
+
+        <UILayoutGrid Name="Lower" Anchors="0,1" Columns="5" Rows="2"  DefaultMargin="0" Margin="1,0,3,0">
+            <Gma3EncoderControl Name="Encoder1a" System="Move" Property="MoveX" EncoderRing="Inner" EncoderType="Inside1"  Anchors="0,0" Texture="corner0" Margin="0,0,1,1"/>
+            <Gma3EncoderControl Name="Encoder1b" System="Handle" Property="Handle" EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" Margin="0,0,1,0"/>
+
+            <Gma3EncoderControl Name="Encoder2a" System="Move" Property="MoveY" EncoderRing="Inner" EncoderType="Inside2"  Anchors="1,0" Texture="corner0" Margin="0,0,1,1"/>
+            <Gma3EncoderControl Name="Encoder2b" System="Rotate" Property="Rotate" EncoderRing="Outer" EncoderType="Outside2"  Anchors="1,1" Texture="corner0" Margin="0,0,1,0"/>
+
+            <Gma3EncoderControl Name="Encoder3a" System="Size" Property="Size"   EncoderRing="Inner" EncoderType="Inside3"  Anchors="2,0" Texture="corner0" Margin="0,0,1,1"/>
+            <Gma3EncoderControl Name="Encoder3b" System="Size" Property="Aspect" EncoderRing="Outer" EncoderType="Outside3" Anchors="2,1" Texture="corner0" Margin="0,0,1,0"/>
+
+            <Gma3EncoderControl Name="Encoder4" System="Scroll" Property="ScrollStep"    Text="Select Step"    EncoderRing="Both" EncoderType="Inside4" Anchors="3,0,3,1" Texture="corner0" Margin="0,0,2,0"/>
+
+            <!--Screen encoder controls that are visible depending on the UserProfile setting in m_Data.m_Flags.m_Bits.m_ScreenEncoders-->
+            <ScreenEncoderControl Name="Encoder5aScr" System="Scroll"      EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" Margin="22,0,0,1"/>
+            <ScreenEncoderControl Name="Encoder5bScr" System="Scroll"      EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" Margin="22,0,0,0" />
+        </UILayoutGrid>
+    </PhaserEditorBar>
+</GMA3>

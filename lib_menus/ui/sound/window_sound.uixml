@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window Name="SoundWindow" OnLoad=":OnWindowLoaded" HelpTopic="sound.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0"  Name="Title">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content"/>
+            </ItemCollectColumns>
+            <TitleButton Name="Headline" Texture="corner0" Anchors="1,0" Text="Sound" />
+            <AutoLayout Anchors="2,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="No" Texture="corner2" Content="Yes">
+                <PropertyInput Name="OnPCAudioInDeviceNameBtn"  Margin="1,0,0,0" MinSize="250,0" W="250" Texture="corner0" Property="OnPCAudioInDeviceName" Target="StationSettings.LocalSettings" Text="Audio In Device" BackColor="Button.Background"/>
+                <SwipeButton Texture="corner2"  Margin="1,0,0,0" MinSize="100,0" W="100" Text="View Mode" Name="ActiveDisplay" Property="ActiveDisplay" BackColor="Button.Background"/>
+            </AutoLayout>
+            <ContextButton Texture="corner1" Icon="object_sound3" Anchors="0,0" ToolTip="Configures sound window"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Frame">
+            <UILayoutGrid Name="Wave">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="70" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="90" />
+                </ItemCollectColumns>
+                <SoundLevelView  Anchors="0,0" />
+                <SoundWaveView  Anchors="1,0" />
+                <UiFader Text="Sound&#xD;In" Target="ShowData.Masters.Grand.SoundIn" Anchors="2,0" ToolTip="GrandSoundIn" Texture="corner0" HeadLineTexture="corner0" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Sound">
+                <UILayoutGrid >
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="10" />
+                        <Item SizePolicy="Fixed" Size="90" />
+                    </ItemCollectColumns>
+
+                    <SoundBandView  Anchors="0,0" Band="All" LevelColor="Oscilloscope.All" />
+                    <SoundBandView  Anchors="1,0" Band="Bass" LevelColor="Oscilloscope.Bass" />
+                    <SoundBandView  Anchors="2,0" Band="Mid" LevelColor="Oscilloscope.Mid" />
+                    <SoundBandView  Anchors="3,0" Band="High" LevelColor="Oscilloscope.High" />
+
+                    <SoundBandView  Anchors="5,0" Band="Band1" LevelColor="Oscilloscope.Band1" />
+                    <SoundBandView  Anchors="6,0" Band="Band2" LevelColor="Oscilloscope.Band2" />
+                    <SoundBandView  Anchors="7,0" Band="Band3" LevelColor="Oscilloscope.Band3" />
+                    <SoundBandView  Anchors="8,0" Band="Band4" LevelColor="Oscilloscope.Band4" />
+                    <SoundBandView  Anchors="9,0" Band="Band5" LevelColor="Oscilloscope.Band5" />
+                    <SoundBandView  Anchors="10,0" Band="Band6" LevelColor="Oscilloscope.Band6" />
+                    <SoundBandView  Anchors="11,0" Band="Band7" LevelColor="Oscilloscope.Band7" />
+
+                    <UiFader Name="GrandSoundFade" Text="Sound&#xD;Fade" Target="ShowData.Masters.Grand.SoundFade" Anchors="13,0" ToolTip="GrandSoundFade" Texture="corner0" HeadLineTexture="corner0" />
+
+
+                </UILayoutGrid>
+                <UIObject Name="BPMWarning" H="40" Visible="No" Text="Warning! BPM Sound master is either disabled or low!" TextColor="Global.AlertText" Texture="" Interactive="No" />
+
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Beat">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="90" />
+                </ItemCollectColumns>
+                <SoundBeatView Anchors="0,0" />
+                <UiFader Anchors="1,0" Text="BPM" Target="ShowData.Masters.Speed.BPM" ToolTip="Grand Speed BPM" Texture="corner0" HeadLineTexture="corner0" />
+            </UILayoutGrid>
+
+            <!--
+            <UILayoutGrid Name="Chroma">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <SoundChromaView Anchors="0,0" />
+            </UILayoutGrid>
+            -->
+
+        </DialogFrame>
+
+    </Window>
+</GMA3>

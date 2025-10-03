@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UILayoutGrid Name="TitleButtons" OnVisible=":OnTitleButtonTabVisible" >
+    <ItemCollectColumns>
+        <Item SizePolicy="Stretch" Size="1.62"/>
+        <Item SizePolicy="Stretch"/>
+    </ItemCollectColumns>
+    <!-- LEFT: SCROLLABLE LIST -->
+    <UILayoutGrid Anchors="0,0" Name="ActiveButtons" OnLoad=":OnLoadedTitlebuttonContent" Margin="5,5,5,5">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="70"  />
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectColumns>
+        <!-- Buttons -->
+        <UILayoutGrid Anchors="0,0" W="60" AlignmentH="Center" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <Button Anchors="0,1" Icon="arrow_up"    Texture="corner3"  Clicked=":OnClickedTbUp"/>
+            <Button Anchors="0,2" Icon="arrow_down"  Texture="corner12" Clicked=":OnClickedTbDown"/>
+            <Button Anchors="0,4" Icon="trash"       Texture="corner15" Clicked=":OnClickedTbDelete"/>
+        </UILayoutGrid>
+        <!-- List -->
+        <ScrollableItemList Anchors="1,0" Name="ActiveList" Margin="5,5,5,5" ItemType="ListItemButton" ItemSize="50" Distance="2" Rounded="No"/>
+        <ScrollBarV         Anchors="1,0" Name="ScrollV" W="20" ScrollTarget="../ActiveList" ScrollOpposite="No" Visible="Yes" AlignmentH="Right" />
+    </UILayoutGrid>
+
+    <!-- RIGHT: BUTTONS -->
+    <UILayoutGrid Anchors="1,0" Margin="20,5,5,5" DefaultMargin="2">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Fixed" Size="60" />
+        </ItemCollectRows>
+        <IndicatorButton Anchors="0,0" Text="Load Defaults" Texture="corner15" Clicked=":OnClickedTbDefaults"/>
+        <IndicatorButton Anchors="0,1" Text="Delete All"    Texture="corner15" Clicked=":OnClickedTbDeleteAll"/>
+    </UILayoutGrid>
+</UILayoutGrid>

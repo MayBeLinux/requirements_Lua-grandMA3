@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="215" Name="WindowMacroPool" Guid="6A 6C 4A CD 18 A4 4A FE AB 55 28 52 AB 7A 63 C0" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="5F 26 33 16 54 45 4B ED B0 88 A3 1A 3B 82 60 CA" FileName="window_macro_pool.uixml" PlaceHolder="UiScreen" WindowSettings="MacroPoolSettings" WindowContext="ContextMacroPool" Toggle="No" />
+    </Menu>
+</GMA3>

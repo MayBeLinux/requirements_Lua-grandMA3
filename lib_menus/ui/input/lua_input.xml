@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="LuaInput" Author="MA" Path="/ui/input">
+        <ComponentXML FileName="lua_input.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="lua_input.lua" />
+        <ComponentLua FileName="../content/placeholder_base.lua" />
+    </Menu>
+</GMA3>

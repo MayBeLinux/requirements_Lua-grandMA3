@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="DeleteCueMessageBox" Guid="" Author="MA" Version="0.1.0.0" Path="/ui/input" Placement="Multi">
+        <ComponentXML Guid="" FileName="delete_cue_message_box.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" Toggle="No" BuddyGroupId="DeleteCueMessageBox" />
+        <ComponentLua Guid="" FileName="delete_cue_message_box.lua" />
+    </Menu>
+</GMA3>

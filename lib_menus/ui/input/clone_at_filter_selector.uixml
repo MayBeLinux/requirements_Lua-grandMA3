@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <CloneAtFilterSelector Name="CloneAtFilterSelector" W="800" H="480" MinSize="800,480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" OnLoad=":OnFilterLoaded" ReactToPreview="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <TitleBar Name="TitleBar" Anchors="0,0" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton     Anchors="0,0" Texture="corner1" Text="Select Filter" Icon="object_filter" />
+            <AutoLayout Name="Auto" Anchors="1,0" Direction="Horizontal" Content="Yes" >
+                <SwipeButton Name="BtnLineHeight" MinSize="60,0" W="100" Property="LineHeight" Text="Line Height" OnLoad=":SetButtonHeigtTarget" SelectionChanged=":CloneAtFilterChangeLineHeight" Focus="Never"/>
+                <Button      Name="BtnSelectAll" MinSize="60,0" W="100" Text="Select&#xD;All" Clicked=":SelectAll" Focus="Never"/>
+                <Button      Name="BtnSelectNone" MinSize="60,0" W="100" Text="Select&#xD;None" Clicked=":SelectNothing" Focus="Never"/>
+            </AutoLayout>
+            <CloseButton    Anchors="2,0" Texture="corner2"  CloseAction="Confirm" Focus="Never" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":OnTabChanged" >
+                <ItemStr Title="At Filter" Value="FrameAtFilter" />
+                <ItemStr Title="Filter Pool" Value="FramePoolFilter" />
+            </UITab>
+
+            <DialogContainer Name="DC" Anchors="0,1" ChangeActive=":OnTabChanged" ActiveChild="FrameAtFilter" MixInBackColorFromParent="Yes">
+
+                <!-- ++++++++++++++++++++++++++ AT FILTER AREA ++++++++++++++++++++++++++ -->
+
+                <ScrollContainer Name="FrameAtFilter" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+                    <ScrollBox Name="Box" ResetChildrenSize="Yes">
+                        <UILayoutGrid DefaultMargin="6" Name="InnerGrid" Padding="4,4,4,4">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Stretch" />
+                            </ItemCollectRows>
+
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" />
+                                <Item SizePolicy="Fixed" Size="180" />
+                            </ItemCollectColumns>
+
+                            <UILayoutGrid Name="TitleGrid" Anchors="0,0" H="50" DefaultMargin="8" Font="Regular18" LowDpiFont="Regular14">
+                                <ItemCollectColumns>
+                                    <Item SizePolicy="Fixed" Size="50" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                    <Item SizePolicy="Stretch" MinSize="100" />
+                                </ItemCollectColumns>
+
+                                <Button Anchors="0,0" Name="CollapseAll"       Texture="Corner15" Clicked=":OnCollapseAll" Icon="triangle_right" Margin="4,0,0,0" />
+                                <Button Anchors="1,0"     Text="Feature Group" Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                                <Button Anchors="2,0"     Text="Feature"       Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                                <Button Anchors="3,0,7,0" Text="Attributes"    Texture="Corner15" Enabled="No" TextAlignmentH="Left" Padding="6,0,0,0" />
+                            </UILayoutGrid>
+
+
+                            <AtFilterDialog Name="ContentGrid" Anchors="0,1" Columns="8" DefaultMargin="8" DefaultMarginOnBorders="Yes" Transparent="No" BackColor="Global.Background" HasHover="No" Font="Regular18" LowDpiFont="Regular14" />
+                            <UILayoutGrid Name="FilterGrid" Anchors="1,0,1,1" DefaultMargin="4" Margin="20,0,10,0" Texture="Corner15" Transparent="No" BackColor="CustomMasters.Section">
+                                <ItemCollectRows>
+                                    <Item SizePolicy="Fixed" Size="50" />
+                                    <Item SizePolicy="Fixed" Size="10" />
+                                    <Item SizePolicy="Fixed" Size="57" />
+                                    <Item SizePolicy="Fixed" Size="57" />
+                                    <Item SizePolicy="Fixed" Size="57" />
+                                    <Item SizePolicy="Fixed" Size="57" />
+                                    <Item SizePolicy="Fixed" Size="57" />
+                                </ItemCollectRows>
+                                <Button         Anchors="0,0"  Text="Programming&#xD;Layers" Texture="Corner15" Enabled="No"        TextAlignmentH="Center" Padding="6,0,0,0" />
+                                <PropertyInput  Anchors="0,2"  Name="Values" Texture="Corner3"  Target="#.AtFilter" Property="Absolute" />
+                                <PropertyInput  Anchors="0,3"  Name="Values" Texture="Corner0"  Target="#.AtFilter" Property="Relative" />
+                                <PropertyInput  Anchors="0,4"  Name="Values" Texture="Corner0"  Target="#.AtFilter" Property="Timing" />
+                                <PropertyInput  Anchors="0,5"  Name="Values" Texture="Corner12" Target="#.AtFilter" Property="Phaser" Margin ="0,0,0,4" />
+                            </UILayoutGrid>
+                        </UILayoutGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <!-- ++++++++++++++++++++++++++ FILTER POOL AREA ++++++++++++++++++++++++++ -->
+
+                <UILayoutGrid Name="FramePoolFilter" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+                    <!--<UIObject       Texture="" Text="Work in progress"  Anchors="0,0" TextColor="Global.Bright" Interactive="No" />-->
+                    <UILayoutGrid Anchors="0,0" Name="PoolWindowPlace" CellWidth="50" CellHeight="50" BlockHeight="2" BlockWidth="2">
+                        <PoolWindow Anchors="0,0" Name="PoolWindow" Margin="0,0,0,0" >
+                            <FilterPoolLayoutGrid Text="Filters" PoolColor="PoolWindow.Filters" TitleButtonIcon="object_filter" OnLoad=":PoolLoaded" ToolTip="Filter pool" />
+                        </PoolWindow>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+
+            </DialogContainer>
+
+        </DialogFrame>
+        <!--<ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />-->
+
+    </CloneAtFilterSelector>
+</GMA3>

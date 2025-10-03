@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <BackupMenu Name="StartupShow" OnLoad=":StartupShowLoaded" DriveReset="true" OverrideKeybSC="Yes" DefaultMargin="0" HelpTopic="show_file_management.html">
+        <TitleBar Name="Title" Anchors="0,0,2,0" SearchFocusTestParent="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="160" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectColumns>
+            <TitleButton        Anchors="0,0,3,0" Name="TitleBtn"        Texture="corner1" Margin="1,0,0,0" Text="Startup Show File" Icon="folder_open" HasPressedAnimation="No"/>
+            <SwipeButton        Anchors="2,0"     Name="Filter"          Texture="corner0" Margin="1,0,0,0" Target="StationSettings.LocalSettings" Property="StartupBrowserFilter" ShowLabel="No" Undo="No" />
+            <CloseButton        Anchors="3,0"                            Texture="corner2" Margin="0,0,0,0" />
+            <WarningInfoButton  Anchors="0,0,3,0" Name="WarningButton" Font="Regular32" H="45"/>
+        </TitleBar>
+
+        <!INCLUDE ../../include/show_selector_content.uixml >
+
+        <PlaceHolderBase Name="KeyboardPlaceholder" AllowedInvisible="Yes" />
+    </BackupMenu>
+</GMA3>

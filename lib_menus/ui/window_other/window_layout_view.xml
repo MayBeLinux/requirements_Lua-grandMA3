@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="WindowLayoutView" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" FileName="window_layout_view.uixml" PlaceHolder="UiScreen" WindowSettings="LayoutViewSettings" WindowContext="ContextLayoutView"/>
+        <ComponentLua FileName="window_layout_view.lua" />
+    </Menu>
+</GMA3>

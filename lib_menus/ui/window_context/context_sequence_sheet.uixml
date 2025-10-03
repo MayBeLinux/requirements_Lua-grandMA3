@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="wvm_settings.html" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Sequence Sheet Settings" Icon=""/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Direction="Horizontal" Texture="corner0" Content="Yes">
+                <EditTitlebarButton />
+                <Button W="100" Name="LoadPrefBtn"  Text="Load" Clicked=":LoadPrefClicked" SignalValue="SequenceSheet" />
+                <Button W="100" Name="SavePrefBtn"  Text="Save" Clicked=":SavePrefClicked" SignalValue="SequenceSheet" />
+                <DeleteWindowButton W="100" Name="DeleteBtn" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+                <ItemStr Title="Mask"    Value="Mask" />
+                <ItemStr Title="Mask Buttons"    Value="MaskButtons" HelpTopic="worldfilter_filter_rules.html"/>
+                <ItemStr Title="Columns" Value="ColumnConfig" HelpTopic="ws_ui_adjustable_columns.html" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged">
+
+                <UILayoutGrid Name="Display" Rows ="4" Columns="6" DefaultMargin="10" DefaultMarginOnBorders="Yes" Margin="10,10,10,10">
+
+                    <SwipeButton Name="Layer" Text="Layer" Anchors="0,0" Texture="corner15" Property="Layer" DataAsIs="Yes" ReferencedTitleButton="Layer"/>
+                    <PropertyInput Name="Step" Text="Step" Anchors="1,0" Texture="corner15" Property="Step" ReferencedTitleButton="Step" />
+                    <SwipeButton Name="Readout" Text="Readout" Anchors="2,0" Texture="corner15" Property="Readout" DataAsIs="Yes" ReferencedTitleButton="Readout"/>
+                    <IndicatorControl Text="Condensed Timing" Anchors="3,0" Texture="corner15" TextAutoAdjust="Yes" Property="CompressedTiming" ReferencedTitleButton="CondensedTiming"/>
+                    <SwipeButton Name="Preset" Text="Preset" Anchors="4,0" Texture="corner15" Property="PresetReadout" ReferencedTitleButton="Preset"/>
+                    <SwipeButton Name="MergeCells" Text="Merge Cells" Anchors="5,0" Texture="corner15" TextAutoAdjust="Yes" Property="MergeCells" ReferencedTitleButton="MergeCells" />
+
+                    <IndicatorControl Text="Cue Only" Anchors="0,1" Texture="corner15" TextAutoAdjust="Yes" Property="CueOnly" ReferencedTitleButton="CueOnlyBtn"/>
+                    <TitlebuttonControl Text="Settings" Anchors="1,1" Texture="corner15" ReferencedTitleButton="Settings" />
+                    <PropertyInput    Text="#Columns" Anchors="2,1" Texture="corner15" Property="ColumnsCount" />
+                    <IndicatorControl Text="Adjust Columns" Anchors="3,1" Texture="corner15" TextAutoAdjust="Yes" Property="AdjustColumns" />
+                    <IndicatorControl Text="Transpose" Anchors="4,1" Texture="corner15" TextAutoAdjust="No" Property="Transposed" ReferencedTitleButton="Transpose"/>
+                    <IndicatorControl Text="Auto Scroll" Anchors="5,1" Texture="corner15" TextAutoAdjust="Yes" Property="AutoScroll" ReferencedTitleButton="AutoScroll" />
+
+                    <IndicatorControl Text="Fixture Sort" Anchors="0,2" Texture="corner15" TextAutoAdjust="Yes" Property="FixtureSort" ReferencedTitleButton="FixtureSort"/>
+                    <IndicatorControl Text="Feature Sort" Anchors="1,2" Texture="corner15" TextAutoAdjust="Yes" Property="FeatureSort" ReferencedTitleButton="FeatureSort"/>
+                    <SwipeButton Name="ChannelSet" Text="ChannelSet" Anchors="2,2" Texture="corner15" Property="ChannelSetReadout" ReferencedTitleButton="ChannelSet"/>
+                    <SwipeButton Text="Time Format" Anchors="3,2" Texture="corner15" TextAutoAdjust="Yes" Property="Timedisplayformat" />
+                    <SwipeButton Anchors="4,2" Texture="corner15" Property="FrameReadout" />
+                    <SwipeButton   Text="Link Type"    Anchors="5,2" Texture="corner15" Property="LinkType" ReferencedTitleButton="LinkType" />
+
+                    <AppearanceInput Anchors="0,3" Texture="corner15" />
+                    <SwipeButton   Anchors="1,3" Texture="corner15" Property="FontSize"/>
+                    <PropertyInput Name="ShowLayerToolbar" Text="Layer Toolbar" Anchors="2,3" Texture="corner15" TextAutoAdjust="Yes" Property="ShowLayerToolbar" ReferencedTitleButton="ShowLayerToolbar"/>
+                    <SwipeButton Text="Countdown" Anchors="3,3" Texture="corner15" TextAutoAdjust="Yes" Property="Countdown" ReferencedTitleButton="Countdown"/>
+                    <SwipeButton Anchors="4,3" Texture="corner15" Property="CuePartAppearance" ReferencedTitleButton="CuePartAppearance"/>
+                    <PropertyInput Text="Fixed Target" Anchors="5,3" Texture="corner15" Property="FixedTarget" />
+
+
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Mask"   Rows ="4" Columns="6" DefaultMargin="10" DefaultMarginOnBorders="Yes" Margin="10,10,10,10">
+                    <IndicatorControl Text="Show Steps" Anchors="0,1" Texture="corner15" TextAutoAdjust="Yes" Property="ShowSteps" ReferencedTitleButton="ShowSteps"/>
+                    <SwipeButton Text="Line Height" Anchors="1,1" Texture="corner15" TextAutoAdjust="Yes" Property="LineHeight" ReferencedTitleButton="LineHeight"/>
+                    <PropertyInput Text="Show&#xD;Command&#xD;Test" Anchors="3,1" Texture="corner15" Property="TestCommand" OnLoad=":SetFixtureSettingsTarget" ReferencedTitleButton="TestCommand" />
+                    <SwipeButton  Anchors="4,1" Texture="corner15" Property="ColorMode" ReferencedTitleButton="ColorMode"/>
+
+                    <IndicatorControl Text="Track Sheet" Anchors="0,2" Texture="corner15" TextAutoAdjust="Yes" Property="TrackSheet" ReferencedTitleButton="TrackSheetBtn" />					
+                    <IndicatorControl Text="Show Recipes" Anchors="1,2" Texture="corner15" TextAutoAdjust="Yes" Property="ShowRecipes" ReferencedTitleButton="ShowRecipes"/>
+                    <IndicatorControl Text="Show Notes" Anchors="2,2" Texture="corner15" TextAutoAdjust="Yes" Property="ShowNotes" ReferencedTitleButton="ShowNotes"/>
+                    <PropertyInput Name="ShowNameField" Text="Show Fixture Name" Anchors="3,2" Texture="corner15" TextAutoAdjust="Yes" Property="ShowNameField" ReferencedTitleButton="ShowNameField"/>
+                    
+
+                    
+                    
+                    <PropertyInput Anchors="5,3" Texture="corner15" Property="FeatureGraphic" OnLoad=":SetFixtureSettingsTarget" />
+
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="MaskButtons"   Rows ="4" Columns="6" DefaultMargin="10" DefaultMarginOnBorders="Yes" Margin="10,10,10,10" HelpTopic="worldfilter_filter_rules.html">
+                    <PropertyInput Anchors="0,0" Texture="corner15" Property="Mask1"  ReferencedTitleButton="Mask1"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="1,0" Texture="corner15" Property="Mask2"  ReferencedTitleButton="Mask2"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="2,0" Texture="corner15" Property="Mask3"  ReferencedTitleButton="Mask3"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="3,0" Texture="corner15" Property="Mask4"  ReferencedTitleButton="Mask4"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="4,0" Texture="corner15" Property="Mask5"  ReferencedTitleButton="Mask5"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="5,0" Texture="corner15" Property="Mask6"  ReferencedTitleButton="Mask6"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="0,1" Texture="corner15" Property="Mask7"  ReferencedTitleButton="Mask7"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="1,1" Texture="corner15" Property="Mask8"  ReferencedTitleButton="Mask8"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="2,1" Texture="corner15" Property="Mask9"  ReferencedTitleButton="Mask9"  PrefereValueText="Yes" />
+                    <PropertyInput Anchors="3,1" Texture="corner15" Property="Mask10" ReferencedTitleButton="Mask10" PrefereValueText="Yes" />
+                    <PropertyInput Anchors="4,1" Texture="corner15" Property="Mask11" ReferencedTitleButton="Mask11" PrefereValueText="Yes" />
+                    <PropertyInput Anchors="5,1" Texture="corner15" Property="Mask12" ReferencedTitleButton="Mask12" PrefereValueText="Yes" />
+                    <PropertyInput Anchors="0,2" Texture="corner15" Property="Mask13" ReferencedTitleButton="Mask13" PrefereValueText="Yes" />
+                    <PropertyInput Anchors="1,2" Texture="corner15" Property="Mask14" ReferencedTitleButton="Mask14" PrefereValueText="Yes" />
+                    <PropertyInput Anchors="2,2" Texture="corner15" Property="Mask15" ReferencedTitleButton="Mask15" PrefereValueText="Yes" />
+                    <PropertyInput Anchors="3,2" Texture="corner15" Property="Mask16" ReferencedTitleButton="Mask16" PrefereValueText="Yes" />
+                    <PropertyInput Text="Mask Toolbar" Anchors="0,3,5,3" Texture="corner15" TextAutoAdjust="Yes" Property="ShowMaskToolbar" ReferencedTitleButton="ShowMaskToolbar"/>
+                </UILayoutGrid>
+
+                <!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+
+                <!INCLUDE ../../include/content_column_set.uixml >
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

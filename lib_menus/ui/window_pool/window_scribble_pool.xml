@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="230" Name="WindowScribblePool" Guid="6C 2A 89 84 32 A2 40 72 90 54 FB F8 85 E0 20 93" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="4F 03 73 31 14 D0 4B 01 82 10 98 72 E2 82 51 80" FileName="window_scribble_pool.uixml" PlaceHolder="UiScreen" WindowSettings="PoolSettings" WindowContext="ContextGenericPool" Toggle="No" />
+    </Menu>
+</GMA3>

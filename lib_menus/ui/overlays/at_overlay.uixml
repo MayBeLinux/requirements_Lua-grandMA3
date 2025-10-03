@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="AtOverlay" W="100%" H="150" AlignmentH="Left" AlignmentV="Bottom" WantsModal="0" ContentDriven="No" DefaultMargin="0" FocusSearchPolicy="Default">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="4" Name="Content"  Rows="2" Columns="9" Texture="frame15">
+            <DialogButton      Anchors="0,0" Clicked=":CommandLine" SignalValue="menu AtFilterOverlay" Text="At&#xD;Filter"  Texture="corner15" ToolTip="Open the At filter dialog." />
+            <IndicatorButton   Anchors="1,0" Clicked=":CommandLine" SignalValue="At Full"     Text="Full"  Texture="corner15"    CloseAction="Ok" ToolTip="Set selected fixtures to Full in the programmer." />
+
+
+            <IndicatorButton   Anchors="3,0" Clicked=":CommandLine" SignalValue="Cut Programmer"     Text="Cut&#xD;Programmer"    CloseAction="Ok" Texture="corner5" ToolTip="Cut selected fixtures in the programmer."/>
+            <IndicatorButton   Anchors="4,0" Clicked=":CommandLine" SignalValue="Copy Programmer"    Text="Copy&#xD;Programmer"   CloseAction="Ok" Texture="corner0" ToolTip="Copy selected fixtures in the programmer."/>
+            <IndicatorButton   Anchors="5,0" Clicked=":CommandLine" SignalValue="Paste Programmer"   Text="Paste&#xD;Programmer"  CloseAction="Ok" Texture="corner10" ToolTip="Paste fixtures that were previously copied or cut."/>
+
+            <IndicatorButton   Anchors="7,0" Clicked=":CommandLine" SignalValue="Delete Programmer"   Text="Delete&#xD;Steps" CloseAction="Ok" Texture="corner15" ToolTip="Delete current step in the programmer."/>
+
+            <IndicatorButton   Anchors="0,1" Clicked=":CommandLine" SignalValue="Clear"       Text="Clear"  Texture="corner5" ToolTip="Increasingly clear the programmer." />
+            <IndicatorButton   Anchors="1,1" Clicked=":CommandLine" SignalValue="At Zero"     Text="Zero"      CloseAction="Ok" ToolTip="Set selected fixtures to the Zero value in the programmer." />
+            <IndicatorButton   Anchors="2,1" Clicked=":CommandLine" SignalValue="At Default"  Text="Default"   CloseAction="Ok" ToolTip="Set selected fixtures to the Default value in the programmer." />
+            <IndicatorButton   Anchors="3,1" Clicked=":CommandLine" SignalValue="At Normal"   Text="Normal"    CloseAction="Ok" ToolTip="Set selected fixtures to the Normal value in the programmer." />
+            <IndicatorButton   Anchors="4,1" Clicked=":CommandLine" SignalValue="On Selection"  Text="On"  CloseAction="Ok" ToolTip="Knock in selected fixtures into the programmer." />
+            <IndicatorButton   Anchors="5,1" Clicked=":CommandLine" SignalValue="Off Selection" Text="Off" CloseAction="Ok" ToolTip="Knock out selected fixtures in the programmer." />
+            <IndicatorButton   Anchors="6,1" Clicked=":CommandLine" SignalValue="At Release"  Text="Release" CloseAction="Ok"  ToolTip="Set selected fixtures to Release value in the programmer."/>
+            <IndicatorButton   Anchors="7,1" Clicked=":CommandLine" SignalValue="At Remove"   Text="Remove" Texture="corner10" CloseAction="Ok"   ToolTip="Set selected fixtures to Remove value in the programmer."/>
+            <IndicatorControl  Anchors="8,1" Texture="corner15" Text="Edit&#xD;Recipe" Target="#.RecipeEditor" Property="RecipeEditing" DefaultAction="No" Clicked=":CommandLine" signalValue="EditRecipe Programmer"/>
+
+
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

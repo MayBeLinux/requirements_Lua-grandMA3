@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="147" Name="ReleaseNotesFullscreen" Guid="00 1B 21 63 BA 84 00 00 5D 53 36 54 02 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays" Placement="ForceMulti">
+        <ComponentXML Index="1" Guid="00 1B 21 63 10 A2 00 00 5C 53 36 54 02 82 55 B0" FileName="release_notes_fullscreen.uixml" PlaceHolder="FullScreen" BuddyGroupId="ReleaseNotesFull" DisplayTypePreference="BigOrSmall"/>
+        <ComponentLua Index="2" Guid="00 1B 21 63 AC B9 00 00 5F 53 36 54 02 82 55 B0" FileName="release_notes_fullscreen.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShadedOverlay Name="MenuBottom" BackColor="Global.Background" OnLoad=":EncoderMenuLoaded">
+        <!--<TitleBar Anchors="0,0" >
+      <ItemCollectRows>
+        <Item SizePolicy="Stretch" Size="1" />
+      </ItemCollectRows>
+      <ItemCollectColumns>
+        <Item SizePolicy="Stretch" Size="1" />
+        <Item SizePolicy="Fixed" Size="50" />
+      </ItemCollectColumns>
+
+      <TitleButton Texture="corner1" Anchors="0,0" Text="Menu Selector"/>
+      <CloseButton Texture="corner2" Anchors="1,0" />
+    </TitleBar>-->
+
+
+        <!--<DialogFrame Name="Frame">-->
+        <UILayoutGrid Texture="white">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <Button Anchors="0,0" Text="1"            Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="1,0" Text="2"             Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="2,0" Text="3"              Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="3,0" Text="4"             Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="4,0" Text="5"             Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+
+            <Button Anchors="0,1" Text="6"            Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="1,1" Text="7"             Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="2,1" Text="8"              Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="3,1" Text="9"             Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+            <Button Anchors="4,1" Text="10"             Clicked=":CommandLine" SignalValue="" CloseAction="Ok" />
+        </UILayoutGrid>
+        <!--</DialogFrame>-->
+    </ShadedOverlay>
+</GMA3>

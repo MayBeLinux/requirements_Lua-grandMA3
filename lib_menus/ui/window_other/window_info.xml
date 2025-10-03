@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="214" Name="WindowInfo" Guid="70 4D 7B 2D B4 26 00 00 62 58 86 BB 7C B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 09 35 00 00 61 58 86 BB 7C B1 01 1A" FileName="window_info.uixml" PlaceHolder="UiScreen" WindowSettings="WindowInfoSettings" WindowContext="ContextWindowInfo" Toggle="No" />
+        <ComponentLua FileName="../window_context/context_window_info_buttons.lua" />
+        <ComponentLua FileName="window_info.lua" />
+    </Menu>
+</GMA3>

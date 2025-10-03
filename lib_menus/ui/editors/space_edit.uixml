@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditor DefaultMargin="2" OnLoad=":OnLoaded" OnSetEditTarget=":OnSetEditTarget" ChangeDestination="1" SubDestination="1" >
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Space" Icon="settings"/>
+            <ScreenSelectorButton Anchors="1,0" />
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Ok"/>
+        </TitleBar>
+
+        <MainDialogContent Name="Content"   DefaultMargin="10" DefaultMarginOnBorders="10" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PropertyInput Texture="corner15"  Anchors="0,0" Property="Name" />
+            <ScribbleInput Texture="corner15" Anchors="0,1" Property="Scribble" />
+            <AppearanceInput Texture="corner15"  Anchors="0,2" Property="Appearance" />
+
+            <PropertyInput Texture="corner1"   Anchors="1,0" Property="MinX" />
+            <PropertyInput Texture="corner0"  Anchors="1,1" Property="MinY" />
+            <PropertyInput Texture="corner4"  Anchors="1,2" Property="MinZ" />
+
+            <PropertyInput Texture="corner2"   Anchors="2,0" Property="MaxX" />
+            <PropertyInput Texture="corner0"  Anchors="2,1" Property="MaxY" />
+            <PropertyInput Texture="corner8"  Anchors="2,2" Property="MaxZ" />
+
+            <TagButtonList Name="TagButtonList" Anchors="0,3,2,3" />
+            <DBObjectGrid Name="Grid" BackColor="UIGrid.Background" Anchors="0,4,2,4" Focus="InitialFocus" />
+        </MainDialogContent>
+    </GenericEditor>
+</GMA3>

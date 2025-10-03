@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+    <WindowTrackpad Name="WindowTrackpad" OnLoad=":OnLoad" HelpTopic="ws_ui_trackpad.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner0" Anchors="1,0" Text="Trackpad"/>
+            <AutoLayout Anchors="2,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <SwipeButton  Name="TrackpadMode" Margin="1,0,0,0" MinSize="100,0" W="100" Property="TrackpadMode" Texture="corner2" Text="Mode" TextAutoAdjust="No" ToolTip="Switch the Trackpad mode." BackColor="Button.Background" OnLoad=":SetTarget" />
+                <SwipeButton  Name="Resolution" Margin="1,0,0,0" MinSize="100,0" W="100" Property="Resolution" Texture="corner2" Text="Resolution" TextAutoAdjust="No" ToolTip="Switch the Trackpad mouse resolution." BackColor="Button.Background" OnLoad=":SetTarget"/>
+                <SwipeButton  Name="ResolutionPT" Margin="1,0,0,0" MinSize="100,0" W="100" Property="ResolutionPT" Texture="corner2" Text="Resolution" TextAutoAdjust="No" ToolTip="Switch the Trackpad P/T resolution." BackColor="Button.Background" OnLoad=":SetTarget"/>
+                <SwipeButton  Name="PanTiltInvertBtn" Margin="1,0,0,0" MinSize="100,0" W="100" Property="TrackpadPTInvertMode" Texture="corner2" Text="Invert Mode" TextAutoAdjust="Yes" ToolTip="Switch the Trackpad Pan/Tilt inversion." BackColor="Button.Background" OnLoad=":SetTarget"/>
+                <SwipeButton  Name="PanTiltModeBtn" Margin="1,0,0,0" MinSize="100,0" W="100" Property="TrackpadPTMode" Texture="corner2" Text="P/T Mode" TextAutoAdjust="Yes" ToolTip="Switch the Trackpad Pan/Tilt activation." BackColor="Button.Background" OnLoad=":SetTarget"/>
+                <PropertyInput  Name="TapForClickBtn" Margin="1,0,0,0" MinSize="100,0" W="100" Property="TrackpadTapForClick" Texture="corner2" Text="Tap for Click" TextAutoAdjust="Yes" ToolTip="Switch the Trackpad TapForClick mode." BackColor="Button.Background" OnLoad=":SetTarget"/>
+                <Button  Name="ResetVirtualMouseBtn" Margin="1,0,0,0" MinSize="100,0" W="100" Texture="corner2" Text="Reset Mouse" TextAutoAdjust="Yes" ToolTip="Set virtual mouse to Screen 1." BackColor="Button.Background" Clicked=":MB_ResetMouse"/>
+            </AutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_trackp"  ToolTip="Trackpad"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Rows="1" Columns="1" Focus="Never">
+            <DialogTrackpad Anchors="0,0" BackColor="Global.Background" SuppressOverlayAutoClose="Yes" FocusSearchPolicy="Suppress" Focus="Never">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+                <TrackpadPanTiltControl Name="PanTiltControl" Visible="0" Anchors="0,0" HasHover="0" BackColor="Global.Background" FocusSearchPolicy="Suppress" SuppressOverlayAutoClose="Yes" Focus="Never"/>
+                <UILayoutGrid Name="MouseControlLayout" Visible="0" Anchors="0,0" HasHover="0" FocusSearchPolicy="Suppress" SuppressOverlayAutoClose="Yes" Focus="Never">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="40"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Fixed" Size="40"/>
+                    </ItemCollectColumns>
+
+                    <TrackpadMouseControl Name="MouseControl" Anchors="0,0,6,8" HasHover="0" SuppressOverlayAutoClose="Yes" BackColor="Global.Background" FocusSearchPolicy="Suppress" Focus="Never"/>
+                    <MouseButton Anchors="1,7" Name="LBtn" Text="Left"   Texture="corner15" ToolTip="Left mouse button."  SuppressOverlayAutoClose="Yes" MouseButtonType="Left" FocusSearchPolicy="Suppress" Focus="Never"/>
+                    <MouseButton Anchors="3,7" Name="MBtn" Text="Middle" Visible="0" Texture="corner15" ToolTip="Middle mouse button."  SuppressOverlayAutoClose="Yes" MouseButtonType="Middle" FocusSearchPolicy="Suppress" Focus="Never"/>
+                    <MouseButton Anchors="5,7" Name="RBtn" Text="Right"  Texture="corner15" ToolTip="Right mouse button."  SuppressOverlayAutoClose="Yes" MouseButtonType="Right" FocusSearchPolicy="Suppress" Focus="Never"/>
+
+                </UILayoutGrid>
+            </DialogTrackpad>
+        </DialogFrame>
+    </WindowTrackpad>
+</GMA3>

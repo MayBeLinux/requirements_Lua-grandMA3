@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <DmxTesterBar OnLoad=":BarLoaded" LinkedObjectChanged=":BarLoaded" Texture="" Transparent="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <UILayoutGrid Name="Upper" Anchors="0,0" Columns="8" Rows="1" DefaultMargin="3" Margin="1,3,3,3">
+            <IndicatorControl Name="RetainMode" Anchors="0,0" Text="Retain" Property="DmxTesterRetainMode" Texture="corner15" Target="~" Undo="No"/>
+            <SwipeButton Name="DmxTesterMode" Anchors="1,0" ShowLabel="Yes" Text="DMX Channels" Texture="corner15" Target="~" Property="DmxTesterMode"/>
+            <Button Name="AllSelection" Anchors="2,0" Text="Select All" Texture="corner15" Clicked=":CallAllSelectionMethod"/>
+            <Button Name="ReleaseCurrent" Anchors="3,0" Text="Release Selected" Texture="corner5" Clicked=":CallReleaseCurrentMethod"/>
+            <Button Name="ReleaseOthers" Anchors="4,0" Text="Release Unselected" Texture="corner0" Clicked=":CallReleaseOthersMethod"/>
+            <Button Name="ReleaseAll" Anchors="5,0" Text="Release All" Texture="corner10" Clicked=":CallReleaseAllMethod"/>
+            <Button Name="ParkCurrent" Anchors="6,0" Text="Park Selected" Texture="corner5" Clicked=":CallParkCurrentMethod"/>
+            <Button Name="UnparkCurrent" Anchors="7,0" Text="Unpark Selected" Texture="corner10" Clicked=":CallUnparkCurrentMethod"/>
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Lower" Anchors="0,1" Columns="5" Rows="2" DefaultMargin="4,0,4,0" Margin="1,0,3,0">
+            <UILayoutGrid Name="DmxTesterEncoderUniverseGrid" Anchors="0,0,0,1" >
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="69" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectColumns>
+                <SwipeButton Name="AddressMode" Anchors="0,0" ShowLabel="No" Text="Address Mode" Target="~" Property="DmxTesterAddressMode"/>
+                <EncoderControl Name="DmxTesterEncoderUniverse" System="DmxTester" EncoderRing="Both" EncoderType="Inside1" Anchors="1,0" Texture="corner0" />
+            </UILayoutGrid>
+            <EncoderControl Name="DmxTesterEncoderAddress"      System="DmxTester" EncoderRing="Both" EncoderType="Inside2" Anchors="1,0,1,1" Texture="corner0" />
+            <EncoderControl Name="DmxTesterEncoderTestValue"    System="DmxTester" EncoderRing="Both" EncoderType="Inside3" Anchors="2,0,2,1" Texture="corner0" />
+            <EncoderControl Name="DmxTesterPatchTo"             System="DmxTester" EncoderRing="Both" EncoderType="Inside4" Anchors="3,0,3,1" Texture="corner0" />
+
+            <!--Screen encoder controls that are visible depending on the UserProfile setting in m_Data.m_Flags.m_Bits.m_ScreenEncoders-->
+            <ScreenEncoderControl Name="Encoder5aScr" System="Scroll"      EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" />
+            <ScreenEncoderControl Name="Encoder5bScr" System="Scroll"      EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" />
+        </UILayoutGrid>
+
+    </DmxTesterBar>
+</GMA3>

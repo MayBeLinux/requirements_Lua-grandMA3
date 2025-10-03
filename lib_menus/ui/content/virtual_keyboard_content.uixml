@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <VirtualKeyboard Name="VirtualKeyboard" Columns="30" Rows="5" >
+        <UILayoutGrid Name="ButtonsRow1" Anchors="0,0,26,0" Columns="14" Rows="1">
+            <VirtualKeyboardButton Name="Escape" Text="Esc" KeyCode="Escape" Anchors="0,0" Texture="corner1"/>
+            <VirtualKeyboardButton Text="`" KeyCode="GraveAccent" Anchors="1,0" />
+            <VirtualKeyboardButton Text="1" KeyCode="1" Anchors="2,0" />
+            <VirtualKeyboardButton Text="2" KeyCode="2" Anchors="3,0" />
+            <VirtualKeyboardButton Text="3" KeyCode="3" Anchors="4,0" />
+            <VirtualKeyboardButton Text="4" KeyCode="4" Anchors="5,0" />
+            <VirtualKeyboardButton Text="5" KeyCode="5" Anchors="6,0" />
+            <VirtualKeyboardButton Text="6" KeyCode="6" Anchors="7,0" />
+            <VirtualKeyboardButton Text="7" KeyCode="7" Anchors="8,0" />
+            <VirtualKeyboardButton Text="8" KeyCode="8" Anchors="9,0" />
+            <VirtualKeyboardButton Text="9" KeyCode="9" Anchors="10,0" />
+            <VirtualKeyboardButton Text="0" KeyCode="0" Anchors="11,0" />
+            <VirtualKeyboardButton Text="-" KeyCode="Minus" Anchors="12,0" />
+            <VirtualKeyboardButton Text="=" KeyCode="Equal" Anchors="13,0" />
+        </UILayoutGrid>
+        <UILayoutGrid Name="ButtonsRow2" Anchors="3,1,27,1" Columns="12" Rows="1">
+            <VirtualKeyboardButton Text="Q" KeyCode="Q" Anchors="0,0" />
+            <VirtualKeyboardButton Text="W" KeyCode="W" Anchors="1,0" />
+            <VirtualKeyboardButton Text="E" KeyCode="E" Anchors="2,0" />
+            <VirtualKeyboardButton Text="R" KeyCode="R" Anchors="3,0" />
+            <VirtualKeyboardButton Text="T" KeyCode="T" Anchors="4,0" />
+            <VirtualKeyboardButton Text="Y" KeyCode="Y" Anchors="5,0" />
+            <VirtualKeyboardButton Text="U" KeyCode="U" Anchors="6,0" />
+            <VirtualKeyboardButton Text="I" KeyCode="I" Anchors="7,0" />
+            <VirtualKeyboardButton Text="O" KeyCode="O" Anchors="8,0" />
+            <VirtualKeyboardButton Text="P" KeyCode="P" Anchors="9,0" />
+            <VirtualKeyboardButton Text="[" KeyCode="LeftBracket" Anchors="10,0" />
+            <VirtualKeyboardButton Text="]" KeyCode="RightBracket" Anchors="11,0" />
+        </UILayoutGrid>
+        <UILayoutGrid Name="ButtonsRow3" Anchors="4,2,27,2" Columns="12" Rows="1">
+            <VirtualKeyboardButton Text="A" KeyCode="A" Anchors="0,0" />
+            <VirtualKeyboardButton Text="S" KeyCode="S" Anchors="1,0" />
+            <VirtualKeyboardButton Text="D" KeyCode="D" Anchors="2,0" />
+            <VirtualKeyboardButton Text="F" KeyCode="F" Anchors="3,0" />
+            <VirtualKeyboardButton Text="G" KeyCode="G" Anchors="4,0" />
+            <VirtualKeyboardButton Text="H" KeyCode="H" Anchors="5,0" />
+            <VirtualKeyboardButton Text="J" KeyCode="J" Anchors="6,0" />
+            <VirtualKeyboardButton Text="K" KeyCode="K" Anchors="7,0" />
+            <VirtualKeyboardButton Text="L" KeyCode="L" Anchors="8,0" />
+            <VirtualKeyboardButton Text=";" KeyCode="Semicolon" Anchors="9,0" />
+            <VirtualKeyboardButton Text="'" KeyCode="Apostrophe" Anchors="10,0" />
+            <VirtualKeyboardButton Text="\" KeyCode="Backslash" Anchors="11,0" />
+        </UILayoutGrid>
+        <UILayoutGrid Name="ButtonsRow4" Anchors="3,3,24,3" Columns="11" Rows="1">
+            <VirtualKeyboardButton Text="\" KeyCode="World2" Anchors="0,0" />
+            <VirtualKeyboardButton Text="Z" KeyCode="Z" Anchors="1,0" />
+            <VirtualKeyboardButton Text="X" KeyCode="X" Anchors="2,0" />
+            <VirtualKeyboardButton Text="C" KeyCode="C" Anchors="3,0" />
+            <VirtualKeyboardButton Text="V" KeyCode="V" Anchors="4,0" />
+            <VirtualKeyboardButton Text="B" KeyCode="B" Anchors="5,0" />
+            <VirtualKeyboardButton Text="N" KeyCode="N" Anchors="6,0" />
+            <VirtualKeyboardButton Text="M" KeyCode="M" Anchors="7,0" />
+            <VirtualKeyboardButton Text="," KeyCode="Comma" Anchors="8,0" />
+            <VirtualKeyboardButton Text="." KeyCode="Period" Anchors="9,0" />
+            <VirtualKeyboardButton Text="/" KeyCode="Slash" Anchors="10,0" />
+        </UILayoutGrid>
+        <VirtualKeyboardButton Name="Enter" Text="Please" KeyCode="Enter" Anchors="28,1,29,2" />
+        <VirtualKeyboardButton Name="Tab" Text="Tab" KeyCode="Tab" Anchors="0,1,2,1" />
+        <VirtualKeyboardButton Name="CapsLock" Text="CapsLock" KeyCode="CapsLock" Anchors="0,2,3,2" />
+        <VirtualKeyboardButton Name="ShiftLeft" Text="Shift" KeyCode="LeftShift" Anchors="0,3,2,3" />
+        <VirtualKeyboardButton Name="ShiftRight" Text="Shift" KeyCode="RightShift" Anchors="25,3,29,3" />
+        <VirtualKeyboardButton Name="Backspace" Text="Backspace" KeyCode="Backspace" Anchors="27,0,29,0"  Texture="corner2"/>
+        <VirtualKeyboardButton Name="CtrlLeft" Text="Ctrl" KeyCode="LeftCtrl" Anchors="0,4,2,4"  Texture="corner4"/>
+        <VirtualKeyboardButton Name="AltLeft" Text="Alt" KeyCode="LeftAlt" Anchors="3,4,5,4" />
+        <IndicatorControl Name="Language" Text="Language" Clicked=":LanguageSwitch" Anchors="6,4,8,4" ContentAreaMargin="0,0,0,0" />
+        <VirtualKeyboardButton Name="Space" Text="Space" KeyCode="Space" Anchors="9,4,17,4" />
+        <VirtualKeyboardButton Name="Home" KeyCode="Home" Anchors="18,4,19,4" Icon="PlaybackJumpbackward"/>
+        <VirtualKeyboardButton Name="Left" KeyCode="Left" Anchors="20,4,21,4" Icon="PlaybackBackward"/>
+        <VirtualKeyboardButton Name="Left" KeyCode="Up" Anchors="22,4,23,4" Icon="triangle_up"/>
+        <VirtualKeyboardButton Name="Left" KeyCode="Down" Anchors="24,4,25,4" Icon="triangle_down"/>
+        <VirtualKeyboardButton Name="Right" KeyCode="Right" Anchors="26,4,27,4" Icon="PlaybackForward"/>
+        <VirtualKeyboardButton Name="End" KeyCode="End" Anchors="28,4,29,4" Icon="PlaybackJumpforward" Texture="corner8"/>
+    </VirtualKeyboard>
+</GMA3>

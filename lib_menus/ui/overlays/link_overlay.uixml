@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <BaseInput Name="LinkOverlay" H="190" W="230" AlignmentH="Left" AlignmentV="Top" WantsModal="0" DefaultMargin="0" FocusSearchPolicy="Default" AutoClose="Yes" ExclusivePropertyChange="Yes"  OnLoad=":AdjustSizes" PositionBeneathFinger="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="Title" Texture="corner1" Anchors="0,0" Text="Link Overlay" />
+            <CloseButton    Anchors="1,0" Texture="corner2"  CloseAction="Confirm" />
+        </TitleBar>
+        <DialogFrame Name ="Frame" Anchors="0,1" MixInBackColorFromParent="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content"/>
+            </ItemCollectColumns>
+            <PropertyRadioButtonList Name="LayerToolbar" Anchors="0,0" Focus="WantsFocus" Rounded="No" Margin="4,4,4,4" Target="~" SetType="Property" Type="Vertical" ItemType="BaseItemButton" AvoidScroll="Yes" OnLoad=":SetLinkProperty" IndicatorBarEnabled="No" CloseOnClick="Yes" />
+            <UILayoutGrid Name="Filters" Anchors="1,0" Rows="2" Margin="0,0,0,0" DefaultMargin="20" W="0">
+                <IndicatorControl Name="ActiveOnly" Anchors="0,0" Texture="Corner15" Target="~" Property="ActiveOnly" SuppressOverlayAutoClose="Yes" />
+                <IndicatorControl Name="MultistepOnly" Anchors="0,1" Texture="Corner15" Target="~" Property="MultistepOnly" SuppressOverlayAutoClose="Yes" />
+            </UILayoutGrid>
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

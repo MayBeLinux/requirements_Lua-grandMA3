@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes"  Name="AtFilterOverlay" Author="MA" Version="0.1.0.0" Path="/ui/overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" FileName="at_filter_overlay.uixml" PlaceHolder="ScreenOverlay" SearchFocusAllowed="No" BuddyGroupId="AtDialogs" BuddyGroupIdUnique="No" DisplayTypePreference="BigOrSmall" DefaultDisplay="1" />
+        <ComponentLua Index="2" FileName="at_filter_overlay.lua" />
+        <ComponentLua Index="3" FileName="../window_other/window_at_filter_basics.lua" />
+    </Menu>
+</GMA3>

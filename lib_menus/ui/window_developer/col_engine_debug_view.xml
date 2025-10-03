@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="16" Name="ColEngineDebugView" Guid="CC CB FB 92 66 57 44 C3 A2 86 8F E5 2E 1F 0A 72" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="BC 4D 75 BC AA 83 45 44 80 06 1E B2 D4 F4 66 EA" FileName="col_engine_debug_view.uixml" PlaceHolder="UiScreen" Toggle="No" />
+    </Menu>
+</GMA3>

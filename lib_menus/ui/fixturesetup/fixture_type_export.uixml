@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="FixtureTypeExport" WantsModal="Yes" OnLoad=":OnLoaded" W="60%" H="50%" AlignmentH="Center" AlignmentV="Center" DriveReset="true" HelpTopic="ft_export.html"  >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="Title">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Export Fixture Type" Icon="ImportExportIcon"/>
+            <DriveSelector Name="DriveSelector" Texture="corner0" Anchors="1,0" Target="Temp.DriveCollect" SelectionChanged=":DriveChange" ShowOldVersions="No"/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="4" Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+            </ItemCollectRows>
+            <RadioButtonList Name="LibraryType" Anchors="0,0" Type="Horizontal" AvoidScroll="Yes" ItemType="RadioItemButtonV2" OnSelectedItem=":OnLibraryTypeChanged" ItemSize="300"/>
+            <UILayoutGrid Name="FileContainer" H="50" Anchors="0,1" DefaultMargin="2">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Text="Name:" Anchors="0,0" ContentDriven="Yes" Texture="" />
+                <LineEdit Name="FileName" Anchors="1,0" Texture="corner15" Focus="InitialFocus" CharInput=":OnFilterChanged" KeyUp=":OnFilterChanged" Execute=":Export" />
+            </UILayoutGrid>
+            <FilebrowserView Name="FilesView" Anchors="0,2" OnSelectedRow=":OnFileSelected" BaseFilter="*.xml,*.gdtf" FuzzyFilterExcludeEnd=".xml,.gdtf" SelectionOnFocusOnly="Yes" CanProvideUiGridSelection="No" />
+            <AutoLayout Name="ActionButtons" H="60" Anchors="0,3" DefaultMargin="4" Direction="Horizontal" Texture="corner15">
+                <IndicatorButton Text="Export" Clicked=":Export" />
+                <IndicatorButton Text="Delete" Clicked=":Delete" />
+            </AutoLayout>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" AlignmentH="Right" AlignmentV="Bottom" />
+    </ShadedOverlay>
+</GMA3>

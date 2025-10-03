@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="CueInput" W="400" H="95%" MinSize="600,480" WantsModal="1" Rows="2" Columns="1" OnLoad=":OnLoaded">
+        <TitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="160" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Anchors="0,0" Name="Title" Texture="corner1" />
+            <IndicatorControl Anchors="1,0" Property="ShowAppearanceInCueInput" Text="Cue Appearance" TextAlignmentH="Center" Target="~"/>
+            <ScreenSelectorButton Anchors="2,0" Margin="1,0,0,0"/>
+            <CloseButton Anchors="3,0" Texture="corner2" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Anchors="0,0" Name="FilterBlock">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Anchors="0,0" Text="Filter:" W="60" BackColor="global.BackGround" HasHover="No" />
+                <LineEdit Anchors="1,0" Name="FilterEdit" Texture="corner5" OnLoad=":SetGridAsTarget" Property="Filter" Clear=":ClearFilters" Execute=":JumpToGrid" />
+                <IndicatorButton Anchors="2,0" Name="Clear" Text="Clear" Clicked=":ClearFilters" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" />
+            </UILayoutGrid>
+
+            <CueInputGrid Anchors="0,1" Name="CueGrid" OnSelectedItem=":OnCueSelected" Clicked=":OnCueSelected" AllowEdit="No" AllowAddContent="No" SelectionType="SingleRowGridSelection" AllowFilterContent="Yes" FilterBlockUIEnabled="No" WantsNumericRedirect="Yes" LevelLimit="1">
+                <GridSettings RowHeightFactor="1.5" AdjustColumns="Yes" NoFixedColumns="No" ContentFilterType="GridObjectContentFilter">
+                    <GridObjectContentFilter>
+                        <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                    </GridObjectContentFilter>
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="Yes">
+                            <GridColumn Name="No" Visible="Yes" />
+                            <GridColumn Name="Part" Visible="Yes" />
+                            <GridColumn Name="Name" Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </GridSettings>
+                <DBObjectGridData UseLocalExpandedState="Yes" HierarchyFilterMask="1" IgnoreCmdInput="Yes"/>
+            </CueInputGrid>
+        </DialogFrame>
+
+        <ResizeCorner/>
+    </BaseInput>
+</GMA3>

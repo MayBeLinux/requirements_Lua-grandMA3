@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog BackColor="MainDialog.Background" >
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="DMX Protocols Old" Icon="setup_protocols"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="1">
+            <DBObjectGrid Name="ObjectGrid" Anchors="0,0" TargetObject="DeviceConfigurations.DMXProtocols" />
+        </MainDialogContent>
+
+        <MainDialogSubMenu>
+            <UIObject Texture="corner0" Anchors="0,9" HasHover="No"  />
+        </MainDialogSubMenu>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportButton />
+                <MainDlgExportButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialog>
+</GMA3>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GraphicsEncoderBar OnLoad=":BarLoaded" LinkedObjectChanged=":BarLoaded" DefaultMargin="3">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+
+        <UILayoutGrid Name="Upper" Anchors="0,0" Rows="1" DefaultMargin="3" Margin="0,3,3,3">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content"  />
+            </ItemCollectColumns>
+            <UIObject Texture="corner15" HasHover="No" Anchors="0,0" />
+            <UILayoutGrid Name="StepControl" Anchors="1,0" Columns="4" W="196" >
+                <IndicatorControl Name="PrevStep" Texture="corner5" Anchors="0,0" Property="AllStepSelected" Target="#"  ShowValue="No" ShowLabel="No" DefaultAction="No"  Clicked=":CommandLine" SignalValue="Prev Step" MouseDownHold=":CommandLine" SignalValueHold="Step 1" Icon="arrow_left" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon" ToolTip="Select previous step" Margin="0,0,0,0" />
+                <PropertyInput  Anchors="1,0" ShowLabel="0" ShowValue="0" Property="MultiStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="PropertyInputIcon" IconInactive="PropertyInputIcon" ActiveIconColor="ContextButton.Icon" >
+                    <PropertyControl Name="FirstStep" ShowLabel="No"  Texture=""  Property="FirstStep" Target="#" TextAutoAdjust="No"  Margin="0,6,0,0" Icon="" />
+                </PropertyInput>
+                <IndicatorControl Name="NextStep" Texture="corner0" Anchors="2,0"  Property="AllStepSelected" Target="#"  ShowValue="0" ShowLabel="No" DefaultAction="No" Clicked=":CommandLine" SignalValue="Next Step"  ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon"  ToolTip="Select next step" Icon="arrow_right" Margin="0,0,0,0" />
+                <PropertyInput Anchors="3,0" ShowLabel="No" Texture="corner10" ShowValue="No" Clicked=":CommandLine" signalValue="Step Toggle" Property="AllStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" Icon="PhaserSelectReset" ToolTip="Select all steps" Margin="0,0,0,0" />
+            </UILayoutGrid>
+
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Lower" Anchors="0,1" Columns="5" Rows="2" DefaultMargin="4,0,4,0" Margin="0,0,3,0">
+
+            <EncoderControl System="EncoderSystemBitmap" Text="X" Property="ControlX"      EncoderRing="Inner" EncoderType="Inside1"  Anchors="0,0" Texture="corner0" />
+            <EncoderControl System="EncoderSystemBitmap" Text="Y" Property="ControlY"      EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" />
+
+            <EncoderControl System="EncoderSystemBitmap" Text="Zoom" Property="ControlZoom"   EncoderRing="Inner" EncoderType="Inside2"  Anchors="1,0" Texture="corner0" />
+            <EncoderControl System="EncoderSystemBitmap" Text="Aspect" Property="ControlAspect" EncoderRing="Outer" EncoderType="Outside2" Anchors="1,1" Texture="corner0" />
+
+            <EncoderControl System="EncoderSystemBitmap" Text="Rotate" Property="ControlRotate" EncoderRing="Inner" EncoderType="Inside3"  Anchors="2,0" Texture="corner0" />
+            <EncoderControl System="EncoderSystemBitmap" Text="R" Property="ColorR"        EncoderRing="Outer" EncoderType="Outside3"  Anchors="2,1" Texture="corner0" />
+
+            <EncoderControl System="EncoderSystemBitmap" Text="G"  Property="ColorG"        EncoderRing="Inner" EncoderType="Inside4"  Anchors="3,0" Texture="corner0"/>
+            <EncoderControl System="EncoderSystemBitmap" Text="B" Property="ColorB"        EncoderRing="Outer" EncoderType="Outside4" Anchors="3,1" Texture="corner0"/>
+
+            <!--Screen encoder controls that are visible depending on the UserProfile setting in m_Data.m_Flags.m_Bits.m_ScreenEncoders-->
+            <ScreenEncoderControl Name="Encoder5aScr" System="Scroll" Property="Y"  EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" />
+            <ScreenEncoderControl Name="Encoder5bScr" System="Scroll" Property="X"  EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" />
+
+        </UILayoutGrid>
+    </GraphicsEncoderBar>
+</GMA3>

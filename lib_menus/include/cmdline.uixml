@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UILayoutGrid UserRights="None"  H ="50" Name="CmdLineSection" Anchors="0,2,2,2" Transparent="true" Rows="1" DefaultMargin="1" >
+    <ItemCollectColumns>
+        <Item SizePolicy="Fixed" Size="50" />
+        <Item SizePolicy="Fixed" Size="67" />
+        <Item SizePolicy="Stretch" Size="1" MinSize="300" />
+        <Item SizePolicy="Content"/>
+
+        <Item SizePolicy="Content"/>
+        <Item SizePolicy="Fixed" Size="50" />
+    </ItemCollectColumns>
+
+    <Button Texture="corner4"  Icon="triangle_left" Anchors="0,0" Clicked=":ToggleMainMenu" ToolTip="Toggles the control bar." HotKey="Alt+B" HelpTopic="ws_ui_command_line.html"/>
+    <UILayoutGrid Anchors="1,0">
+        <LogoButton Name="CmdlineHistory" Texture="corner0" Clicked=":CommandLine" SignalValue="menu CommandLineHistory" LogoIconAlignmentH="Center" ToolTip="Toggles the command line history window." HelpTopic="ws_ui_command_line.html" />
+    </UILayoutGrid>
+    <CmdlineEdit Name="DisplayCommandLine" Texture="corner0" Anchors="2,0" Focus="InitialFocus" OpenVK=":OpenCmdlineVK" HelpTopic="ws_ui_command_line.html"/>
+    <PropertyControl Visible="false" BackColor="Button.Background" ShowLabel="false" Texture="corner0"  Name="LinkCmd" Icon="link" Font="Regular11" ValueAlignmentV="Bottom" Anchors="3,0" W="50" ShowValue="No" Property="LinkMainCmdline" Target="$" ToolTip="Links this command line to the host command line" Padding="0,0,0,3" HelpTopic="ws_ui_command_line.html"/>
+
+    <ScrollContainer Anchors="4,0"  Name="StatusScrollContainer" ContentDriven="Yes" Margin="0,0,0,0" >
+        <StatusScroller Name="StatusScrollBox" ContentDriven="Yes" >
+            <UILayoutGrid Name="StatusScrollContent">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50"/>
+                    <Item SizePolicy="Content" />
+                </ItemCollectColumns>
+
+                <StatusArea Name="Status" Anchors="0,0" Margin="0,0,-1,0" >
+                    <MemoryStatusIcon       Name="Memory"                   Category="Memory"               Icon="cpu"                       />
+                    <StatusIcon             Name="Highlight"                Category="Highlight"            Icon="status_highlight"             SignalValue="menu 'MasterControl'"/>
+                    <StatusIcon             Name="Lowlight"                 Category="Lowlight"             Icon="status_lowlight"              ActiveIconColor="StatusCenter.Lowlight" SignalValue="menu 'MasterControl'" />
+                    <StatusIcon             Name="Solo"                     Category="Solo"                 Icon="status_solo"                  SignalValue="menu 'MasterControl'"/>
+                    <StatusIcon             Name="Blind"                    Category="Blind"                Icon="status_blind"                 SignalValue="menu 'MasterControl'"/>
+                    <StatusIcon             Name="Preview"                  Category="Preview"              Icon="status_preview"               />
+                    <TimecodeRecStatusIcon  Name="Timecode Record"          Category="TimecodeRec"          Icon="status_timecode_record"       ActiveIcon="PlaybackRecord" SignalValue="menu 'RunningPlaybacksOverlay'"/>
+                    <StatusIcon             Name="Recipe Editing"           Category="RecipeEditing"        Icon="cooking"                      ActiveIconColor="StatusCenter.Cooking"/>
+                    <StatusIcon             Name="Filter"                   Category="Filter"               Icon="status_filter"                />
+                    <StatusIcon             Name="World"                    Category="World"                Icon="status_world_filter"          />
+                    <StatusIcon             Name="Parked"                   Category="Parked"               Icon="status_parked"                ActiveIconColor="StatusCenter.Parked" />
+                    <StatusIcon             Name="DMX Tester"               Category="Tester"               Icon="status_dmx_tester_output"     />
+                    <NEParamsStatusIcon     Name="Not Enough Parameters"    Category="NotEnoughParameters"  Icon="status_not_enough_parameters" />
+                    <StatusIcon             Name="World Server"             Category="Worldserver"          Icon="object_world_server"          ActiveIconColor="StatusCenter.Enabled" HelpTopic="ws_ui_command_line.html"/>
+                    <BatteryStatusIcon      Name="Battery"                  Category="Battery"              />
+                    <SensorStatusIcon       Name="Phasers"                  Category="Phasers"   />
+                    <SensorStatusIcon       Name="FlowControl"              Category="FlowControl"   />
+                </StatusArea>
+
+                <MessageCenterInfoButton Name="Message" Anchors="1,0" Icon="object_message" Clicked=":ToggleMainDialog" SignalValue="MessageCenter" ToolTip="Toggles the message center window." HotKey="Alt+M" HelpTopic="ws_ui_command_line.html#message_center"/>
+
+                <Button                  Name="Network" Anchors="2,0" Icon="network"        Clicked=":ToggleMainDialog" SignalValue="Network"       ToolTip="Toggles the network window."        HotKey="Alt+N" HelpTopic="ws_ui_command_line.html"/>
+
+                <StatusArea Name="StatusToggles" Anchors="3,0" Margin="0,0,-2,0">
+                    <KeyboardShortcutsToggleIcon Name="KeyboardShortcuts"   Category="KeyboardShortcuts"    Icon="keyboard" Property="KeyboardShortcutsActive" Target="~.KeyboardShortCuts" Text="ShCuts" ToolTip="Toggles the shortcuts." HelpTopic="do_shortcuts_keyboard.html" Undo="No"/>
+                </StatusArea>
+            </UILayoutGrid>
+        </StatusScroller>
+    </ScrollContainer>
+
+    <Button Name="RightTriangle" Texture="corner8"  Anchors="5,0" Clicked=":ToggleViewBar" ToolTip="Toggles the view bar." HotKey="Alt+V" HelpTopic="ws_ui_command_line.html"/>
+</UILayoutGrid>

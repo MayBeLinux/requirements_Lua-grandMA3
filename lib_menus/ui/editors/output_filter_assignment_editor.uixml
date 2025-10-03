@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericAssignmentInput  MinSize="800,480" WantsModal="1" Rows="2" Columns="1" OnLoad=":OnLoad" OnAssignTarget=":OnAssignTarget" FilterChanged=":AssignFilterChanged" RelativeToDisplay="Yes">
+        <TitleBar Name="Title" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Assignment Editor" Icon="logo_small" />
+            <ObjectSelector Name="DataPoolSelect" Text="DataPool" W="100" Anchors="1,0" SelectionChanged=":OnDataPoolChanged" ShowLabel="Yes" TextColor="Button.Text" />
+            <IndicatorControl  Anchors="2,0" ActiveIconColor="Filter.ActiveIcon" Visible="Yes" Name="ContentFilterEditor" MinSize="60,0" Text="Hide&#xD;Dynamic" W="100" Property="Enabled" HelpTopic="ws_ui_temporary_filtering.html"  DirectProperty="Yes"  />
+            <CloseButton Texture="corner2" Anchors="3,0" W="50" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1">
+            <GenericAssignmentSelector Name="Selector" Anchors="0,0" OnAssignTargetSelected=":OnAssignTarget">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="52" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <AssignmentUITab Anchors="0,0" Name="AssignmentUITab" TabChanged=":PageChanged"/>
+
+                <UILayoutGrid Name="GridArea" Anchors="0,1">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Content" Size="1" />
+                    </ItemCollectRows>
+
+                    <UILayoutGrid Anchors="0,0" Name="SearchBlock">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Content" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Content" Size="1" />
+                        </ItemCollectColumns>
+                        <UIObject Text="Search:" Anchors="0,0" HasHover="No" ContentDriven="Yes"/>
+                        <LineEdit Name="SearchEdit" Focus="InitialFocus" Anchors="1,0" Property="Filter" Target="../../AssignmentGrid/Internals/GridBase/GridSettings/GridObjectContentFilter/Filter" Clear=":ClearSearch" Execute=":SelectFirstEntry"/>
+                        <IndicatorButton Name="Clear" Text="Clear" Clicked=":ClearSearch" Anchors="2,0" W="80" WantsNumericRedirect="Yes" />
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="AssignmentGrid" Focus="WantsFocus" Anchors="0,1" OnSelectedItem=":OnDBObjectSelected" AllowEdit="No" AllowAddNewline="No" EditAllowedAdd="No" AllowAddContent="No" SelectionType="SingleRowGridSelection" AllowFilterContent="Yes" FilterBlockUIEnabled="No" ConvertCursorToTabAtBoundaries="Yes" GridVersion="1" DataType="OutputFilterAssignmentGridData">
+                        <GridSettings Name="GridSettings" ContentFilterType="GridObjectContentFilter">
+                            <GridObjectContentFilter >
+                                <GridObjectContentFilterItem Name="HasDynamicRule" Columns="Has Dynamic&#xD;Filter Rules" Filter="0" />
+                                <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                            </GridObjectContentFilter>
+                        </GridSettings>
+                    </DBObjectGrid>
+                </UILayoutGrid>
+
+            </GenericAssignmentSelector>
+
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </GenericAssignmentInput>
+
+
+</GMA3>

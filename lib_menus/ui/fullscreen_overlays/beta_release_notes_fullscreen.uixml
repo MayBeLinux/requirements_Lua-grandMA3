@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <RecurringOverlay Name="BetaReleaseNotesFullscreen" OnLoad=":BetaReleaseNotesFullscreenLoaded" CloseOnEscape="No" WantsModal="Yes" AutoClose="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="180" />
+                <Item SizePolicy="Fixed" Size="120" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Beta Release Notes" Icon=""/>
+            <Button Texture="corner0" Name="DontAgreeBtn" Text="I DO NOT agree" Anchors="1,0" Clicked=":DontAgree" />
+            <Button Texture="corner2" Name="AgreeBtn" Enabled="Yes" Text="I agree" Anchors="2,0" Clicked=":Agree" />
+        </TitleBar>
+        <PlaceHolder Name="BetaReleaseNotesPlace" Anchors="0,1" />
+    </RecurringOverlay>
+</GMA3>

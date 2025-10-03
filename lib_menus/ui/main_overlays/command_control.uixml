@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgCommandControl  Name="CommandControl" DefaultMargin="2" HardkeyMouseUp=":MainDlgCmdCtrlHKMouseUp" HardkeyMouseDown=":MainDlgCmdCtrlHKMouseDown" AutoCloseOnOverlay="Yes" HelpTopic="ws_command_area.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Command Section" Icon="button" />
+            <AutoLayout DefaultMargin="0" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" HelpTopic="ws_command_area.html"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" HelpTopic="ws_command_area.html"/>
+        </TitleBar>
+
+        <MainDialogContent>
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="12" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="18" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="20" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="0" />
+                <Item SizePolicy="Stretch" Size="18" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="20" />
+                <Item SizePolicy="Fixed" Size="0" />
+            </ItemCollectColumns>
+            <!--<Button Texture="corner0" Anchors="0,0,0,4" Text="&lt;" Clicked=":CommandLine" SignalValue="menu MasterControl"/>-->
+
+            <!-- Encoder Bar Section -->
+            <UILayoutGrid  Anchors="1,0,3,0" Transparent="true" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="18" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <!-- Left Buttons -->
+                <HardkeyButton Texture="corner1" Anchors="0,0" SignalValue="PREV" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner2" Anchors="1,0" SignalValue="NEXT" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                <HardkeyButton Texture="corner0" Anchors="0,1" SignalValue="SET" Toggle="Yes" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="1,1" SignalValue="UP" />
+
+                <HardkeyButton Texture="corner4" Anchors="0,2" SignalValue="SELFIX" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner8" Anchors="1,2" SignalValue="DOWN" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                <!-- EncoderBar -->
+
+
+                <!-- GrandMaster Section -->
+                <UILayoutGrid  Anchors="3,0" Transparent="true" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="40" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="40" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <HardwareMiniEncoder Anchors="1,1" Name="GrandMaster" H="1r" MaxSize="47,47" AlignmentH="Center" AlignmentV="Center" SpecialExecIndex="GrandKnob" HelpTopic="ws_command_area.html"/>
+
+                </UILayoutGrid>
+                <HardkeyButton Texture="corner15" Anchors="3,2" SignalValue="MENU" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_menu.html"/>
+            </UILayoutGrid>
+
+            <!-- Display Sides -->
+            <UILayoutGrid  Anchors="1,2" Transparent="true" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="8" />
+                </ItemCollectColumns>
+                <HardkeyButton Texture="corner3" Anchors="0,0" SignalValue="HIGHLIGHT" LedToken="Highlight" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_highlt.html"/>
+                <HardkeyButton Texture="corner0" Anchors="0,1" SignalValue="SOLO" LedToken="Solo" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_solo.html"/>
+                <HardkeyButton Texture="corner0" Anchors="0,2" SignalValue="FREEZE" LedToken="Freeze" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="0,3" SignalValue="PREVIEW" LedToken="Preview" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner12" Anchors="0,4" SignalValue="BLIND"  LedToken="Blind" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_blind.html"/>
+            </UILayoutGrid>
+
+            <UILayoutGrid  Anchors="3,2" Transparent="true" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="8" />
+                </ItemCollectColumns>
+                <HardkeyButton Texture="corner1" Anchors="0,0" SignalValue="ON" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner2" Anchors="1,0" SignalValue="OFF" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="0,1" SignalValue="MOVE" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="1,1" SignalValue="COPY" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="0,2" SignalValue="DELETE" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="1,2" SignalValue="ALIGN"  LedToken="Align" OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="0,3" SignalValue="STOMP" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="1,3" SignalValue="HELP" LedToken="Help" OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" DoubleClicked=":OpenHelpPopup" />
+                <HardkeyButton Texture="corner4" Anchors="0,4" SignalValue="SELECT" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner8" Anchors="1,4" SignalValue="GOTO" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+            </UILayoutGrid>
+
+            <UILayoutGrid  name="XKeySection" Anchors="1,4" Transparent="true">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="10" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="10" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="2" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <!-- Left Buttons -->
+                <HardkeyButton Texture="corner15" Anchors="0,0" SignalValue="XKEYS" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_xkeys.html"/>
+                <HardkeyButton Texture="corner3"  Anchors="0,1" SignalValue="PAGE_UP" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_page_p.html"/>
+                <HardkeyButton Texture="corner12" Anchors="0,2" SignalValue="PAGE_DOWN" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_page_m.html"/>
+                <HardkeyButton Texture="corner15" Anchors="0,4" SignalValue="LIST" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <!-- Bottom Buttons -->
+                <HardkeyButton Texture="corner5" Anchors="2,4" SignalValue="PAUSE" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_pause_l.html" />
+                />
+                <HardkeyButton Texture="corner0" Anchors="3,4" SignalValue="GOBACK" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_go_m_l.html" />
+                <HardkeyButton Texture="corner10" Anchors="4,4" SignalValue="GO" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_go_p_l.html" />
+
+                <HardkeyButton Texture="corner15" Anchors="5,4" SignalValue="MA1" Toggle="Yes" Icon="hardkey_ma_logo" Margin="20,0,20,0" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_ma.html" />
+
+                <HardkeyButton Texture="corner5" Anchors="6,4" SignalValue="LEARN" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner0" Anchors="7,4" SignalValue="GOBACKFAST" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner10" Anchors="8,4" SignalValue="GOFAST" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                <!-- XKeys as executor buttons -->
+                <UILayoutGrid  Name="XKeyExec" Anchors="2,0,8,2" Transparent="true" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="4" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="4" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <!-- X-Encoders -->
+                    <HardwareMiniEncoder Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="291"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardwareMiniEncoder Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="292"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardwareMiniEncoder Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="293"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardwareMiniEncoder Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="294"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardwareMiniEncoder Anchors="5,0" H="1r" AlignmentH="Center" ExecutorIndex="295"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardwareMiniEncoder Anchors="6,0" H="1r" AlignmentH="Center" ExecutorIndex="296"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardwareMiniEncoder Anchors="7,0" H="1r" AlignmentH="Center" ExecutorIndex="297"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardwareMiniEncoder Anchors="8,0" H="1r" AlignmentH="Center" ExecutorIndex="298"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+
+                    <!-- X-Keys -->
+                    <XKeysHardwareButton Texture="corner5"  Anchors="0,1" SignalValue="X1" ExecutorIndex="291"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="1,1" SignalValue="X2" ExecutorIndex="292"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="2,1" SignalValue="X3" ExecutorIndex="293"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner10" Anchors="3,1" SignalValue="X4" ExecutorIndex="294"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner5"  Anchors="5,1" SignalValue="X5" ExecutorIndex="295"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="6,1" SignalValue="X6" ExecutorIndex="296"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="7,1" SignalValue="X7" ExecutorIndex="297"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner10" Anchors="8,1" SignalValue="X8" ExecutorIndex="298"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+
+                    <XKeysHardwareButton Texture="corner5"  Anchors="0,3" SignalValue="X9" ExecutorIndex="191"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="1,3" SignalValue="X10" ExecutorIndex="192"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="2,3" SignalValue="X11" ExecutorIndex="193"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner10" Anchors="3,3" SignalValue="X12" ExecutorIndex="194"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner5"  Anchors="5,3" SignalValue="X13" ExecutorIndex="195"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="6,3" SignalValue="X14" ExecutorIndex="196"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <XKeysHardwareButton Texture="corner0"  Anchors="7,3" SignalValue="X15" ExecutorIndex="197" MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html" />
+                    <XKeysHardwareButton Texture="corner10" Anchors="8,3" SignalValue="X16" ExecutorIndex="198"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                </UILayoutGrid>
+
+                <!-- XKeys as MA-command buttons -->
+                <UILayoutGrid  Name="XKeyCommands" Anchors="2,0,8,2" Transparent="true" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="4" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="4" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <!-- X-Keys -->
+                    <HardkeyButton Texture="corner5"  Anchors="0,1" SignalValue="X1"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="1,1" SignalValue="X2"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="2,1" SignalValue="X3"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner10" Anchors="3,1" SignalValue="X4"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner5"  Anchors="5,1" SignalValue="X5"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="6,1" SignalValue="X6"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="7,1" SignalValue="X7"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner10" Anchors="8,1" SignalValue="X8" MouseUp=":MainDlgCmdCtrlHKMouseUp"  HelpTopic="ws_command_area.html"/>
+
+                    <HardkeyButton Texture="corner5"  Anchors="0,3" SignalValue="X9"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="1,3" SignalValue="X10"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="2,3" SignalValue="X11"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner10" Anchors="3,3" SignalValue="X12"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner5"  Anchors="5,3" SignalValue="X13"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="6,3" SignalValue="X14"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner0"  Anchors="7,3" SignalValue="X15"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                    <HardkeyButton Texture="corner10" Anchors="8,3" SignalValue="X16"  MouseUp=":MainDlgCmdCtrlHKMouseUp" HelpTopic="ws_command_area.html"/>
+                </UILayoutGrid>
+
+            </UILayoutGrid>
+
+            <!-- Right Display Section -->
+            <UILayoutGrid  Anchors="3,4,3,4" Transparent="true" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="14" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="4" />
+                </ItemCollectColumns>
+                <!-- Function Keys -->
+                <HardkeyButton Texture="corner15" Anchors="0,0" SignalValue="FIXTURE" LedToken="Fixture"   OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="2,0" SignalValue="CHANNEL" LedToken="Channel"   OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="4,0" SignalValue="GROUP"   LedToken="Group"     OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="0,2" SignalValue="PRESET"   MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="2,2" SignalValue="SEQUENCE" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="4,2" SignalValue="CUE"      MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="0,4" SignalValue="EDIT"     LedToken="Edit"   OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp"/>
+                <HardkeyButton Texture="corner15" Anchors="2,4" SignalValue="ASSIGN"   LedToken="Assign" OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="4,4" SignalValue="TIME" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="0,6" SignalValue="UPDATE"  LedToken="Update" OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                <!-- Store Button -->
+                <UILayoutGrid  Anchors="2,6,4,6" Transparent="true" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="3" />
+                    </ItemCollectColumns>
+                    <HardkeyButton Texture="corner15" Anchors="1,0" SignalValue="STORE" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                </UILayoutGrid>
+
+                <!-- Num-Block -->
+                <UILayoutGrid  Anchors="6,0,6,6" Transparent="true" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <HardkeyButton Texture="corner1" Anchors="0,0" SignalValue="NUM7" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="1,0" SignalValue="NUM8" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="2,0" SignalValue="NUM9" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner2" Anchors="3,0" SignalValue="PLUS" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_plus.html"/>
+
+                    <HardkeyButton Texture="corner0" Anchors="0,1" SignalValue="NUM4" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="1,1" SignalValue="NUM5" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="2,1" SignalValue="NUM6" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="3,1" SignalValue="THRU" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                    <HardkeyButton Texture="corner0" Anchors="0,2" SignalValue="NUM1" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="1,2" SignalValue="NUM2" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="2,2" SignalValue="NUM3" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="3,2" SignalValue="MINUS" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_minus.html"/>
+
+                    <HardkeyButton Texture="corner0" Anchors="0,3" SignalValue="NUM0" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_nummeric.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="1,3" SignalValue="DOT"  MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_dot.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="2,3" SignalValue="IF" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                    <HardkeyButton Texture="corner0" Anchors="3,3" SignalValue="AT" LedToken="At" OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                    <HardkeyButton Texture="corner4" Anchors="0,4" SignalValue="MA2" Toggle="Yes" Icon="hardkey_ma_logo" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_ma.html"/>
+                    <HardkeyButton Texture="corner0" Anchors="1,4" SignalValue="SLASH" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                    <UILayoutGrid  Anchors="2,4,3,4" Transparent="true" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="3" />
+                        </ItemCollectColumns>
+                        <HardkeyButton Texture="corner8" Anchors="1,0" SignalValue="PLEASE" MouseUp=":MainDlgCmdCtrlHKMouseUp" CanCoExistWithModal="Yes" ShowCSHelp="Yes" HelpTopic="key_please.html"/>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+
+                <HardkeyButton Texture="corner15" Anchors="8,0" SignalValue="UNDO" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+
+                <!-- Dimmer Wheel -->
+                <UILayoutGrid  Anchors="10,0,10,4" Transparent="true" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="30" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <DimmerWheelButton Texture="corner0" Anchors="1,1"/>
+                </UILayoutGrid>
+
+                <HardkeyButton Name="EscBtn" Texture="corner15" Anchors="8,4" SignalValue="ESC" LedToken="Escape" OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" MouseDown=":MainDlgCmdCtrlHKMouseDown" ShowCSHelp="Yes" HelpTopic="key_esc.html"/>
+
+                <HardkeyButton Texture="corner15" Anchors="8,6" SignalValue="CLEAR"  LedToken="Clear" OnOffTexture="led_rect" MouseUp=":MainDlgCmdCtrlHKMouseUp" />
+                <HardkeyButton Texture="corner15" Anchors="10,6" SignalValue="FULL" MouseUp=":MainDlgCmdCtrlHKMouseUp" ShowCSHelp="Yes" HelpTopic="key_full.html"/>
+            </UILayoutGrid>
+
+            <!--<Button Texture="corner0" Anchors="4,0,4,4" Text="&gt;" Clicked=":CommandLine" SignalValue="menu PlaybackControl1"/>-->
+        </MainDialogContent>
+    </MainDlgCommandControl>
+</GMA3>

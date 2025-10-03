@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="79" Name="ExecutorEditor" Guid="00 1A 7D DA 98 11 00 00 11 7F 27 00 FA 48 1E 07" Author="MA" Version="0.1.0.0" Path="/ui/editors/exec" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" Guid="00 1A 7D DA F1 42 00 00 10 7F 27 00 FA 48 1E 07" FileName="executor_editor.uixml" PlaceHolder="MainDialog" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="00 00 00 00 72 57 00 00 0A 7F 27 00 A9 93 1A 07" FileName="executor_editor.lua" />
+    </Menu>
+</GMA3>

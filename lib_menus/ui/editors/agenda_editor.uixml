@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay Name="AgendaEditor" W="800" H="350" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Agenda" OnLoad=":OnLoaded" HelpTopic="agenda_edit.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Agenda"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <!-- left -->
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <!-- center -->
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <!-- right -->
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="Left" Anchors="0,0" DefaultMargin="5" DefaultMarginOnBorders="1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <PropertyInput   Anchors="0,0" Texture="corner3"  Property="Name" ValueRole="Default" />
+                <AppearanceInput Anchors="0,1" Texture="corner0"  Property="Appearance"/>
+                <PropertyInput   Anchors="0,2" Texture="corner12" Property="Enabled"/>
+                <PropertyInput   Anchors="0,3" Texture="corner3" Property="Object" ValueRole="Display" />
+                <PropertyInput   Anchors="0,4" Texture="corner0" Property="Action" ValueRole="Default" />
+                <PropertyInput   Anchors="0,5" Texture="corner12" Property="Command" ValueRole="Display" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Center" Anchors="2,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <PropertyInput   Anchors="0,0" Texture="corner3"  Property="Mode"/>
+                <AutoLayout      Anchors="0,1" Name="StartDatum" Direction="Horizontal" Texture="corner0">
+                    <PropertyInput Texture="corner0"  Property="StartDate" ValueRole="Default" />
+                    <PropertyInput Texture="corner0"  Property="StartTime" ValueRole="Default" />
+                </AutoLayout>
+                <PropertyInput   Anchors="0,2" Texture="corner0"  Property="DaylightOffset"/>
+                <PropertyInput   Anchors="0,3" Texture="corner12" Property="ValidDuration"/>
+                <IndicatorButton Anchors="0,5" Texture="corner15" Text="Test" Clicked=":Fire"/>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Right" Anchors="4,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <PropertyInput   Anchors="0,0" Texture="corner3"  Property="Repeat" ValueRole="Default" />
+                <PropertyInput   Anchors="0,1" Texture="corner0"  Property="RepeatCountDays" ValueRole="Default" />
+                <PropertyInput   Anchors="0,2" Texture="corner12" Property="RepeatCountTotal" ValueRole="Default" />
+                <PropertyInput   Anchors="0,3" Texture="corner3"  Property="Countdown" ValueRole="Default" />
+                <PropertyInput   Anchors="0,4" Texture="corner0"  Property="PlannedDate" ValueRole="Default" />
+                <PropertyInput   Anchors="0,5" Texture="corner12" Property="PlannedTime" ValueRole="Default" />
+            </UILayoutGrid>
+        </DialogFrame>
+    </GenericEditorOverlay>
+
+</GMA3>

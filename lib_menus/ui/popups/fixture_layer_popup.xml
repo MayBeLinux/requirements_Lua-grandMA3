@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="89" Name="FixtureLayerPopup" Guid="00 1B 21 63 1E E8 00 00 B8 52 36 54 08 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="00 1B 21 63 19 D0 00 00 BB 52 36 54 08 82 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="generic_popup.lua" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 71 AF 00 00 BA 52 36 54 08 82 55 B0" FileName="fixture_layer_popup.lua" />
+    </Menu>
+</GMA3>

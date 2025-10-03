@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DialogFrame Name="Frame" Anchors="0,1" MixInBackColorFromParent="Yes" Font="Regular18" LowDpiFont="Regular14">
+    <ItemCollectColumns>
+        <Item SizePolicy="Content"/>
+        <Item SizePolicy="Stretch" Size="1"/>
+    </ItemCollectColumns>
+
+    <ItemCollectRows>
+        <Item SizePolicy="Stretch"/>
+        <Item SizePolicy="Content"/>
+    </ItemCollectRows>
+
+
+    <!-- ToolBar-->
+    <Toolbar Anchors="0,0,0,1" Name="ToolBar" BackColor="UIGrid.Background" MinSize="60,120" Direction="Vertical" HelpTopic="selection-grid-tool-bar.html">
+        <!-- <Button UiGroupId="1" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Linearize' 'SelectionOrder'"  Icon="Linearize"   ToolTip="Linearize Grid by Selection Order" Padding="10,10,10,10" Text="Order" TextAlignmentH="Center" TextAlignmentV="Bottom" Font="Regular11"/> -->
+        <Button UiGroupId="1" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Linearize' 'Numerical'"       Icon="Linearize"   ToolTip="Linearize Grid Numerical"          Padding="10,10,10,10" Text="FID"   TextAlignmentH="Center" TextAlignmentV="Bottom" Font="Regular11"/>
+        <Button UiGroupId="1" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Linearize' 'LeftToRight'"     Icon="LeftToRight" ToolTip="Linearize Grid Left To Right, then Top To Bottom"  />
+        <Button UiGroupId="1" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Linearize' 'TopToBottom'"     Icon="TopToBottom" ToolTip="Linearize Grid Top To Bottom, then Left To Right"  />
+
+        <Button UiGroupId="2" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'RemoveGaps'"                  Icon="RemoveGaps"              ToolTip="Remove Gaps"  />
+        <Button UiGroupId="2" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'RemoveOffset'"                Icon="RemoveOffset"            ToolTip="Remove Offset"  />
+
+        <Button UiGroupId="3" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Align' 'Left'"                Icon="AlignLeft"               ToolTip="Apply Left Alignment to Grid"  />
+        <Button UiGroupId="3" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Align' 'Center'"              Icon="AlignCenter"             ToolTip="Apply Center Alignment to Grid"  />
+        <Button UiGroupId="3" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Align' 'Right'"               Icon="AlignRight"              ToolTip="Apply Right Alignment to Grid"  />
+
+        <Button UiGroupId="4" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Transpose'"                   Icon="PhaserSwap"              ToolTip="Transpose Grid"  />
+        <Button UiGroupId="4" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Rotate'    'Right'"           Icon="PhaserRotatingClockwise" ToolTip="Rotate Grid by 90 Degrees to the right"  />
+        <Button UiGroupId="4" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Rotate'    'Left'"            Icon="PhaserRotating"          ToolTip="Rotate Grid by 90 Degrees to the left"  />
+        <Button UiGroupId="4" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Flip'      'X'"               Icon="PhaserMirrorX"           ToolTip="Mirror Grid at X-axis"  />
+        <Button UiGroupId="4" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Flip'      'Y'"               Icon="PhaserMirrorY"           ToolTip="Mirror Grid at Y-axis"  />
+
+        <Button UiGroupId="5" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Multiply' 2"          Text="*2" ToolTip="Multiply grid coordinates by 2"  />
+        <!-- <Button UiGroupId="5"  H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Multiply'"            Text="*x" ToolTip="Multiply grid coordinates by x"  /> -->
+        <Button UiGroupId="5" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Divide'  2"           Text="/2" ToolTip="Divide grid coordinates by 2"  />
+        <!-- <Button UiGroupId="5" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Divide' "             Text="/x" ToolTip="Divide grid coordinates by x"  /> -->
+        <Button UiGroupId="5" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'MakeSymmetrical'"         Icon="grid_symmetrical" ToolTip="Make grid symmetrical"  />
+
+        <Button UiGroupId="6" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'UseMatricksPositions'"    Icon="object_matricks" ToolTip="Use matricks positions and reset matricks"  />
+
+        <!-- <Button UiGroupId="6" H="60"  W="60" Clicked=":CommandLine" SignalValue="Grid 'Newline'"                 Icon="newline"                 ToolTip="Move Grid Cursor to New Line"  /> -->
+    </Toolbar>
+
+    <SelectionView Anchors="1,0" Name="SelView" Focus="CanHaveFocus" />
+
+    <AutoLayout Name="AlignBar" Anchors="1,1" Margin="3,8,3,3" Direction="Horizontal" Content="Yes" ContentDriven="Yes" ModifyTextureLayout="No" ChildrenFillPolicy="RowFirst">
+        <UILayoutGrid Anchors="0,0" Name="Aligns" Columns="6" W="600" H="50">
+            <ValueControl Anchors="0,0" Text="Off"      Texture="corner5"  Target="#" Property="AlignMode"         Value="Off"       Undo="No" ToolTip="Set align mode to 'off'" />
+            <ValueControl Anchors="1,0" Text="/"        Texture="corner0"  Target="#" Property="AlignMode"         Value="/"         Undo="No" ToolTip="Set align mode to '/'" />
+            <ValueControl Anchors="2,0" Text="&lt;"     Texture="corner0"  Target="#" Property="AlignMode"         Value="&lt;"      Undo="No" ToolTip="Set align mode to '&lt;'" />
+            <ValueControl Anchors="3,0" Text="&gt;"     Texture="corner0"  Target="#" Property="AlignMode"         Value="&gt;"      Undo="No" ToolTip="Set align mode to '&gt;'" />
+            <ValueControl Anchors="4,0" Text="&gt;&lt;" Texture="corner0"  Target="#" Property="AlignMode"         Value="&gt;&lt;"  Undo="No" ToolTip="Set align mode to '&gt;&lt;'" />
+            <ValueControl Anchors="5,0" Text="&lt;&gt;" Texture="corner10" Target="#" Property="AlignMode"         Value="&lt;&gt;"  Undo="No" ToolTip="Set align mode to '&lt;&gt;'" />
+        </UILayoutGrid>
+
+        <UILayoutGrid Anchors="1,0" H="50" W="600" Columns="6">
+            <PropertyControl Anchors="0,0" Target="#" Property="AlignRotXY" ToolTip="Set align direction in XY plane" Texture="corner5"  Margin="1,0,0,0" Text="XY Rotation" DefaultAction="No" Clicked=":CommandLine" SignalValue="Menu 'AlignmentRotationOverlay'"/>
+            <RotationButton  Anchors="1,0" Target="#" Property="AlignRotXY" ToolTip="Set align direction in XY plane" Texture="corner10" Margin="0,0,1,0" ShowLabel="No" ShowValue="No" SmallMode="Yes"/>
+
+            <ValueControl Anchors="2,0" Texture="corner5"  Text="Lin"       Target="#" Property="AlignTransition"   Value="Linear"    Undo="No" ToolTip="Set align transition to 'linear'" Margin="1,0,0,0"/>
+            <ValueControl Anchors="3,0" Texture="corner0"  Text="Sin"       Target="#" Property="AlignTransition"   Value="Sinus"     Undo="No" ToolTip="Set align transition to 'sinus'" />
+            <ValueControl Anchors="4,0" Texture="corner0"  Text="Slow"      Target="#" Property="AlignTransition"   Value="Slow"      Undo="No" ToolTip="Set align transition to 'slow'" />
+            <ValueControl Anchors="5,0" Texture="corner10" Text="Fast"      Target="#" Property="AlignTransition"   Value="Fast"      Undo="No" ToolTip="Set align transition to 'fast'" />
+        </UILayoutGrid>
+    </AutoLayout>
+</DialogFrame>

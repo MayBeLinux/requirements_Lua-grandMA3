@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+    <GenericEditor Name="UserAttributesEditor" FocusSearchPolicy="Default" OnLoad=":UserAttributesEditorLoaded" HelpTopic="operate_encoder_resolution_multiplier.html">
+        <TitleBar Anchors="0,0,2,0" Name="TitleBar">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Anchors="0,0" Text="User Attributes Editor" Texture="corner1" />
+            <CloseButton Anchors="1,0" Texture="corner2" />
+        </TitleBar>
+
+
+        <MainDialogContent Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed"  Size="150"/>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <DBObjectGrid Name="UserAttributesGrid" Anchors="0,1" AllowAddContent="No" Focus="InitialFocus"/>
+            <UILayoutGrid Name="DualButtons" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes" Anchors="0,0" Columns="5">
+                <SwipeButton Anchors="0,0" Name="TimeLayerRes" Property="TimeLayerResolution" Texture="corner15" />
+                <SwipeButton Anchors="1,0" Name="PhaserLayerRes" Property="PhaserLayerResolution" Texture="corner15" />
+                <SwipeButton Anchors="2,0" Name="DualEncoderFactor" Property="DualEncoderFactor" Texture="corner15" />
+                <SwipeButton Anchors="3,0" Name="DualEncoderPressFactor" Property="DualEncoderPressFactor" Texture="corner15" />
+                <SwipeButton Anchors="4,0" Name="LinkResolution" Text="Link Resolution" Property="LinkResolution" Texture="corner15" />
+            </UILayoutGrid>
+        </MainDialogContent>
+
+
+    </GenericEditor>
+
+</GMA3>

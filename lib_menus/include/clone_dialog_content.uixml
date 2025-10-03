@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CloningDialog Name="CloningDialog" Anchors="0,0" OnLoad=":OnLoad">
+
+    <UILayoutGrid Anchors="0,0" Name="DialogFrame"  Columns="1" >
+
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch"/>
+            <Item SizePolicy="Fixed" Size="60" />
+        </ItemCollectRows>
+
+        <UILayoutGrid Anchors="0,0" Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <!-- TOOLBAR -->
+
+            <UILayoutGrid Anchors="0,0" Name="LeftSide">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <!-- FIXTURE AREA LEFT -->
+                <Toolbar Name="MainToolBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,0" Direction="Vertical" FocusSearchPolicy="Suppress">
+                    <Button UiGroupId="1" Name="Copy"       H="60" W="60" Texture="corner1" Icon="PhaserCopy" Clicked=":OnCopy" Focus="Never" ToolTip="Copy selected fixtures from section with focus." />
+                    <Button UiGroupId="1" Name="Paste"      H="60" W="60" Texture="corner2" Icon="PhaserPaste" Clicked=":OnPaste" Focus="Never" ToolTip="Paste selected fixtures to section with focus." />
+                    <Button UiGroupId="1" Name="Cut"        H="60" W="60" Icon="PhaserCut" Clicked=":OnCut" Focus="Never" ToolTip="Cut out selected fixtures in section with focus." />
+                    <Button UiGroupId="2" Name="Add"        H="60" W="60" Icon="plus" Clicked=":OnAdd" Focus="Never" ToolTip="Add fixtures or group objects from the pop-up list to section with focus." />
+                    <Button UiGroupId="2" Name="Delete"     H="60" W="60" Icon="minus" Clicked=":OnDelete" Focus="Never" ToolTip="Delete selected fixtures in section with focus." />
+                    <Button UiGroupId="3" Name="MoveUp"     H="60" W="60" Texture="corner4" Icon="arrow_up" Clicked=":OnMoveUp" Focus="Never" ToolTip="Move selected fixtures upward in section with focus." />
+                    <Button UiGroupId="3" Name="MoveDown"   H="60" W="60" Texture="corner8" Icon="arrow_down" Clicked=":OnMoveDown" Focus="Never" ToolTip="Move selected fixtures downward in section with focus." />
+                    <Button UiGroupId="4" Name="FlipLeftRight"  H="60" W="60" Texture="corner15" Icon="FlipLeftRight" Clicked=":OnFlipLeftRight" Focus="Never" ToolTip="Swap fixture lists in both sections." />
+                </Toolbar>
+
+                <UILayoutGrid Anchors="1,0" Name="FixtureAreaLeft" DefaultMargin="0" Texture="corner15" Transparent="No" BackColor="ShowCreator.Section">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+
+                    <UIObject Anchors="0,0" Name="CloneSource" Texture="corner3" Text="Clone Source" ToolTip="Section of the Clone Source" Focus="Never" Transparent="No" BackColor="Global.Transparent75"/>
+
+                    <CloneGrid Anchors="0,1" Name="FixtureGridLeft" BackColor="Global.Transparent" FilterBlockUIEnabled="No" AllowFilterContent="No" AllowEdit="No" CanProvideUiGridSelection="No" OnSelectedRow=":OnFixtureSelected" Focus="InitialFocus" FocusGet=":OnFocusSourceGrid" />
+
+                    <UILayoutGrid Anchors="0,2" Texture="corner12" Name="LeftBottomToolbar" Columns="5" Rows="1" BackColor="ShowCreator.Section" Transparent="No" >
+                        <Button Anchors="0,0" Name="AddSelectionLeft" Text="Add&#xD;Selection" Texture="corner4" Clicked=":OnAddSelection" ToolTip="Add fixture selection from programmer." Focus="Never"/>
+                        <Button Anchors="1,0" Name="ClearListLeft" Text="Clear&#xD;List" Texture="corner0" Clicked=":OnClearList" ToolTip="Clear fixture selection in section with focus." Focus="Never"/>
+                        <!--<Button Anchors="2,0" Name="UnifyLeft" Text="Unify" Texture="corner0" Clicked=":OnUnify" ToolTip="Unify Source List" Focus="Never" Enabled="false"/>-->
+                        <!--<Button Anchors="3,0" Name="FillUpLeft" Text="Fill Up" Texture="corner0" Clicked=":OnFillUp" ToolTip="Fill Source List" Focus="Never" Enabled="false"/>-->
+                    </UILayoutGrid>
+
+                </UILayoutGrid>
+
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="1,0" Name="RightSide">
+
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="100" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <!-- FIXTURE AREA RIGHT -->
+
+                <UILayoutGrid Anchors="0,0" Name="Toolbar" Columns="1" Rows="7" >
+
+                    <CloneFilterButton Anchors="0,0" Name="AtFilter" Text="Filters" Texture="corner15" Clicked=":OnAtFilter" ToolTip="Open At Filter overlay." Focus="Never" Margin="1,0,1,2" Icon="object_filter" IconAlignmentV="Top" IconAlignmentH="Right" />
+                    <IndicatorControl Anchors="0,1" Icon="object_sequence" IconAlignmentV="Top" IconAlignmentH="Right" ContentAreaMargin="0,0,0,0" IndicatorIcon="DialogButtonIcon" Name="Sequences" Text="Sequences" Texture="corner3" Clicked=":OnSequenceFilter" ToolTip="Tap to open list of sequences." Focus="Never" Margin="1,2,1,0"/>
+                    <IndicatorControl Anchors="0,2" Icon="object_group1" IconAlignmentV="Top" IconAlignmentH="Right" ContentAreaMargin="0,0,0,0" IndicatorIcon="DialogButtonIcon" Name="Groups" Text="Groups" Texture="corner0" Margin="1,0,1,0" Clicked=":OnGroupFilter" ToolTip="Tap to open list of groups." Focus="Never"/>
+                    <IndicatorControl Anchors="0,3" Icon="object_preset" IconAlignmentV="Top" IconAlignmentH="Right" ContentAreaMargin="0,0,0,0" IndicatorIcon="DialogButtonIcon" Name="Presets" Text="Presets" Texture="corner0" Margin="1,0,1,0" Clicked=":OnPresetFilter" ToolTip="Tap to open list of presets." Focus="Never"/>
+                    <IndicatorControl Anchors="0,4" Icon="object_world1" IconAlignmentV="Top" IconAlignmentH="Right" ContentAreaMargin="0,0,0,0" IndicatorIcon="DialogButtonIcon" Name="Worlds" Text="Worlds" Texture="corner0" Margin="1,0,1,0" Clicked=":OnWorldFilter" ToolTip="Tap to open list of worlds." Focus="Never"/>
+                    <IndicatorControl Anchors="0,5" Icon="object_layout" IconAlignmentV="Top" IconAlignmentH="Right" ContentAreaMargin="0,0,0,0" IndicatorIcon="DialogButtonIcon" Name="Layouts" Text="Layouts" Texture="corner12" Margin="1,0,1,2" Clicked=":OnLayoutFilter" ToolTip="Tap to open list of layouts." Focus="Never"/>
+                    <UILayoutGrid Anchors="0,6" Columns="1" Rows="2" >
+                        <Button Anchors="0,0" Name="AllItemsToAll" Text="All Items&#xD;To All" Texture="corner3" Margin="1,2,1,0" Clicked=":OnAllItemsToAll" ToolTip="Select all items in all objects." Focus="Never"/>
+                        <Button Anchors="0,1" Name="AllItemsToNone" Text="All Items&#xD;To None" Texture="corner12" Margin="1,0,1,0" Clicked=":OnAllItemsToNone" ToolTip="Deselect all items in all objects." Focus="Never"/>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+
+                <UILayoutGrid Anchors="1,0" Name="FixtureAreaRight" DefaultMargin="0" Texture="corner15" Transparent="No" BackColor="ShowCreator.Section">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+
+                    <UIObject Anchors="0,0" Name="CloneDestination" Texture="corner3" Text="Clone Destination" ToolTip="Section of the Clone Destination" Focus="Never" Transparent="No" BackColor="Global.Transparent75"/>
+
+                    <CloneGrid Anchors="0,1" Name="FixtureGridRight" BackColor="Global.Transparent" FilterBlockUIEnabled="No" AllowFilterContent="No" AllowEdit="No" CanProvideUiGridSelection="No" OnSelectedRow=":OnFixtureSelected" IsCloneDestination="1" FocusGet=":OnFocusDestGrid"/>
+
+                    <UILayoutGrid Anchors="0,2" Texture="corner12" Name="RightBottomToolbar" Columns="5" Rows="1" BackColor="ShowCreator.Section" Transparent="No" >
+                        <Button Anchors="0,0" Name="AddSelectionRight" Text="Add&#xD;Selection" Texture="corner4" Clicked=":OnAddSelection" ToolTip="Add fixture selection from programmer." Focus="Never"/>
+                        <Button Anchors="1,0" Name="ClearListRight" Text="Clear&#xD;List" Texture="corner0" Clicked=":OnClearList" ToolTip="Clear fixture selection in section with focus." Focus="Never"/>
+                        <!--<Button Anchors="2,0" Name="UnifyRight" Text="Unify" Texture="corner0" Clicked=":OnUnify" ToolTip="Unify Destination List" Focus="Never" Enabled="false"/>-->
+                        <!--<Button Anchors="3,0" Name="FillUpRight" Text="Fill Up" Texture="corner0" Clicked=":OnFillUp" ToolTip="Fill Destination List" Focus="Never" Enabled="false"/>-->
+                    </UILayoutGrid>
+
+                </UILayoutGrid>
+
+            </UILayoutGrid>
+        </UILayoutGrid>
+
+        <MainDialogFunctionButtons Anchors="0,1"  Name="Bottom" H="60">
+            <CmdDlgFunctionButtonsLeft Rows="1">
+                <UIObject Anchors="0,0,3,0" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight Rows="1" Name="Right">
+                <UIObject Anchors="0,0,2,0" Texture="corner0" HasHover="0"/>
+                <IndicatorControl Anchors="3,0" Name="Clone" Text="Clone" ContentAreaMargin="0,0,0,0" Texture="corner8" Clicked=":OnClone" ToolTip="Tap to execute clone." Focus="Never" Enabled="false" />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+    </UILayoutGrid>
+</CloningDialog>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="9" Name="SelectUpdate" Guid="00 1B 21 63 D6 D5 00 00 FA 52 36 54 14 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Index="1" Guid="" FileName="select_update.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="" FileName="select_update.lua" />
+    </Menu>
+</GMA3>

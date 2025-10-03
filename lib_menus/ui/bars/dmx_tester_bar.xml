@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="64" Name="DmxTesterBar" Guid="00 00 00 00 72 57 00 00 2C 52 36 54 32 AD 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/bars" DisplayFrom="Intern1" DisplayTo="Intern1">
+        <ComponentXML Index="1" Guid="00 00 00 00 9D 13 00 00 2F 52 36 54 32 AD 55 B0" FileName="dmx_tester_bar.uixml" PlaceHolder="EncoderBar" Toggle="No" SearchFocusAllowed="No" />
+        <ComponentLua Index="2" Guid="00 00 00 00 49 70 00 00 2E 52 36 54 32 AD 55 B0" FileName="dmx_tester_bar.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <FixtureEditor Name="FixtureEditor" DefaultMargin="2" ChangeDestination="1" OnLoad=":FixtureEditorLoaded">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Generic Editor" Icon="object_fixture"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" />
+                <SwipeButton  Name="ColumnsFilters" W="130" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" Property="SelectedFilter" DirectProperty="Yes" ValueRole="Default" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Ok" />
+        </TitleBar>
+
+        <MainDialogContent Columns="1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <DBObjectGrid Name="GenericEditorGrid" BackColor="UIGrid.Background" UseUserProfileSettings="Yes" SettingsType="FixtureEditorSettings" Anchors="0,0" Focus="InitialFocus" AddTargets="Yes" MinSize="0,200" OnSelectedRow=":OnRowSelected" />
+            <DBObjectGrid Name="RTChannelsGrid" BackColor="UIGrid.Background" Anchors="0,2" MinSize="0,100" AddTargets="Yes" />
+            <SplitterV    Name="Resizer"      Anchors="0,1" Property="SplitSize" OnLoad=":SetSplitterSettings" />
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <UIObject Anchors="2,1,3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,2,0" Texture="corner0" HasHover="0"/>
+                <MainDlgEditButton />
+                <UIObject Anchors="0,1,2,1" Texture="corner0" HasHover="0"/>
+                <MainDlgNewLineToggleButton />
+                <MainDlgMergeToggleButton />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+
+        <MainDialogPlaceHolder Name="EditSubmenu" />
+        <MainDialogPlaceHolder Name="MainDialog" />
+
+    </FixtureEditor>
+</GMA3>

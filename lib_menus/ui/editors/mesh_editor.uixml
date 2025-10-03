@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+    <MeshSettings Name="Overlay" W="1024" H="820" WantsModal="1" OnSetEditTarget=":OnSetEditTarget">
+        <TitleBar Name="Titlebar" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="Title" Texture="corner1" Anchors="0,0" Text="Edit mesh"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+        <DialogFrame Name="Frame" Columns="4" Rows="12"  DefaultMargin="10">
+            <PropertyInput Name="_Name" Texture="corner15" Anchors="0,0" Property="Name" ValueRole="Default" />
+            <PropertyInput Name="_Note" Texture="corner15" Anchors="0,1" Property="Note" ValueRole="Default" />
+            <PropertyInput Name="_FileName" Texture="corner15" Anchors="0,2" Property="FileName"  />
+            <PropertyInput Name="_FilePath" Texture="corner15" Anchors="0,3" Property="FilePath" />
+            <PropertyInput Name="_Culling"  Texture="corner15" Property="Culling" Anchors="0,4" />
+            <IndicatorButton Texture="corner15" Anchors ="0,6,0,6" Text="Import" Clicked=":ImportMesh" />
+            <Button        Name="ResetPropertiesClicked" Text="Update Thumbnail" Anchors="1,6,1,6"  Texture="corner15"  Clicked=":ResetPropertiesClicked"/>
+
+            <PropertyInput Name="_VerticesCount" Property="VerticesCount" Anchors="1,0" Texture="corner15"/>
+
+            <UILayoutGrid Name="OrgButtons" Anchors="1,1" Transparent="true" Rows="1" Texture="corner2" >
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+                <PropertyInput Name="_OrgVerticesCount" Property="OrgVerticesCount"   Anchors="0,0" Texture="corner5" />
+                <PropertyInput Name="_OrgMeshCount" Property="OrgMeshCount"   Anchors="1,0" Texture="corner10" />
+            </UILayoutGrid>
+
+            <PropertyInput Name="_TriangleCount" Property="TriangleCount"   Anchors="1,2" Texture="corner15" />
+            <PropertyInput Name="_Ratio"     Property="Ratio"     Anchors="1,3" Texture="corner15"/>
+            <PropertyInput Name="_MeshCount" Property="MeshCount" Anchors="1,4" Texture="corner15"/>
+
+            <PropertyInput Name="_ContentSize" Property="ContentSize" Anchors="0,5" Texture="corner15"/>
+            <PropertyInput Name="_Dimension" Property="Dimension" Anchors="1,5" Texture="corner15"/>
+
+            <!-- <PropertyInput Name="Content Type"  Property="ContentType" Anchors="0,5" /> -->
+            <MeshPreview Name="Preview" Texture="checkboard" Anchors="2,0,3,6" Focus="InitialFocus" HideFocusFrame="Yes" KeyDown=":OnKeyDown" />
+            <Button  Anchors ="0,7,3,7" Text="Materials" HasHover="0" H="35" Texture="corner3"/>
+            <MeshMaterialGrid Name="MaterialGrid" LevelLimit="0" Anchors="0,8,3,9" SelectionType="SingleRowGridSelection" AllowAddNewline="No" AllowEdit="Yes" AllowMergeChildren="No" />
+            <!--TargetObject="#.Programmer"  -->
+
+            <Button  Anchors ="0,10,3,10" Text="Info" HasHover="0" H="35" Texture="corner3"/>
+            <!-- <Button  Anchors ="0,11,3,12" Text="Notes Content" HasHover="0"/> -->
+            <MeshLineEdit Name="MessagesLineEdit"   ReadOnly="1" Anchors ="0,11,3,11" Texture="corner5"  Focus="WantsFocus"/>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </MeshSettings>
+</GMA3>
+
+

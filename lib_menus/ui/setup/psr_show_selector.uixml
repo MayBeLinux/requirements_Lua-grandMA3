@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <BackupMenu Name="PsrShow" OnLoad=":PsrShowLoaded" OverrideKeybSC="Yes" DefaultMargin="0" Margin="1,0,0,0" HelpTopic="sc_psr.html">
+        <TitleBar Name="Title" Anchors="0,0,2,0" SearchFocusTestParent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="160" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton        Anchors="0,0,4,0" Name="TitleBtn"        Texture="corner1" Margin="1,0,0,0" Text="Select PSR Show File" Icon="folder_open" HasPressedAnimation="No"/>
+            <SwipeButton        Anchors="2,0"     Name="Filter"          Texture="corner0" Margin="1,0,0,0" Visible="true" Target="~" SelectionChanged=":SetFilter" Undo="No" />
+            <DriveSelector      Anchors="3,0"     Name="DriveSelector"   Texture="corner0" Margin="1,0,0,0" Visible="true" Target="Temp.DriveCollect" ShowOldVersions="No"/>
+            <EjectButton        Anchors="4,0"     Name="EjectBtn"        Texture="corner0" Margin="1,0,1,0" />
+
+            <CloseButton        Anchors="5,0"                            Texture="corner2" Margin="0,0,0,0" />
+            <WarningInfoButton  Anchors="0,0,5,0" Name="WarningButton" Font="Regular32" H="45"/>
+        </TitleBar>
+
+        <!INCLUDE ../../include/show_selector_content.uixml >
+
+        <UIObject Name="NetworkEnabledMsg" Anchors="2,1,2,2" Text="To use Partial Show Read make sure that the station is not GlobalMaster or Connected." HasHover="No" BackColor="Global.Transparent50" />
+
+        <PlaceHolderBase Name="KeyboardPlaceholder" AllowedInvisible="Yes" />
+    </BackupMenu>
+</GMA3>

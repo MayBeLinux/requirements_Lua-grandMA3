@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="108" Name="LedDetailsEditor" Guid="1F 5B 9D C1 10 E1 4B 01 8A 3B EF 4A AA 97 6E 43" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays/desklights">
+        <ComponentXML Index="1" Guid="B4 4F 42 3F 20 DA 42 6A BE 8E 2E 30 EB 73 4A 31" FileName="led_details_editor.uixml" PlaceHolder="DesklightsSubMenu" />
+    </Menu>
+</GMA3>

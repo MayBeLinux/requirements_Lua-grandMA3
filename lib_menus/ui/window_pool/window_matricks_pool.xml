@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="217" Name="WindowMatricksPool" Guid="00 1B 21 63 6B C0 00 00 0D 53 36 54 00 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="00 1B 21 63 A4 8D 00 00 0C 53 36 54 00 82 55 B0" FileName="window_matricks_pool.uixml" PlaceHolder="UiScreen" WindowSettings="MatricksPoolSettings" WindowContext="ContextMatricksPool" Toggle="No" />
+    </Menu>
+</GMA3>

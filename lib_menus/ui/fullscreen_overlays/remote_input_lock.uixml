@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <RemoteInputLock Texture="corner15" BackColor="RemoteInputLock.Background" TextColor="RemoteInputLock.Text" Text="Remote HID Active&#xD;&#xD;Escape with&#xD;&#xD;[shift]+[ctrl]+[alt]+[e]&#xD;&#xD;or with&#xD;&#xD; [MA]+[MA]+[Off]" Font="Medium20" HasHover="0" Transparent="0" Focus="InitialFocus" WantsModal="0" CloseOnEscape="0" Columns="3" Rows="4" >
+    </RemoteInputLock>
+</GMA3>

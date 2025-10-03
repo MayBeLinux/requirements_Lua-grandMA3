@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Popup MinSize="0,0" MaxSize="0,0">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+        <DialogFrame Name="Frame" Anchors="0,0" Texture="frame0" Padding="1,1,1,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <ScrollableItemList Anchors="0,0" Name="Popup" ContentDriven="Yes" ItemType="PopupItemButton" Rounded="No" />
+            <ScrollBarV Name="ScrollV" W="20" ScrollTarget="../Popup" ScrollOpposite="No" Visible="No" AlignmentH="Right" />
+        </DialogFrame>
+    </Popup>
+</GMA3>

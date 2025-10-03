@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="7" Name="AttributeDefinitions" Guid="00 1B 21 70 37 AB 00 00 C4 52 36 54 4C A8 53 F4" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML Index="1" Guid="00 1B 21 70 65 C9 00 00 C7 52 36 54 4C A8 53 F4" FileName="attribute_definitions.uixml" PlaceHolder="MainDialog" />
+        <ComponentLua FileName="attribute_definitions.lua" />
+    </Menu>
+</GMA3>

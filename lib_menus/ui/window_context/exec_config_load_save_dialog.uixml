@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="1200" H="800" AlignmentH="Center" AlignmentV="Center" WantsModal="1" OnLoad=":OnLoad" MinSize="600,400">
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Context Window Manager" Icon=""/>
+            <ObjectSelector Anchors="1,0" Name="ConfigDatapool" Text="DataPool" W="100" ShowLabel="Yes" BackColor="TitleButton.Background" OnLoad=":OnConfigDatapoolLoad" Target="ShowData.Datapools" TextColor="Button.Text" SelectionChanged=":OnDataPoolChanged"/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="DialogFrame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <DBObjectGrid Name="ObjectGrid" BackColor="UIGrid.Background" LevelLimit="0" AutoNextCell="0"  Focus="InitialFocus" Anchors="0,0,5,0" DoubleClicked=":OnSelectedPreference" AllowAddNewLine="Yes"/>
+            <MainDlgInsertButton Name="InsertBtn" AutoEnabled="No" Texture="corner4" Anchors="0,1" />
+            <MainDlgDelButton    Name="DeleteBtn" AutoEnabled="No" Texture="corner0" Anchors="1,1" />
+            <IndicatorControl Anchors="2,1" Texture="corner0" Text="List&#xD;References" IndicatorIcon="DialogButtonIcon" Clicked=":OnListReference" />
+            <IndicatorControl Anchors="3,1" Texture="corner0"  Text="Recast&#xD;Config" Clicked=":OnRecast" />
+            <IndicatorButton Name="LoadBtn" Text="Load" Texture="corner0" Anchors="4,1" Clicked=":OnSelectedPreference" SignalValue="Load"/>
+            <IndicatorButton Name="SaveBtn" Text="Save" Texture="corner8" Anchors="5,1" Clicked=":OnSelectedPreference" SignalValue="Save"/>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

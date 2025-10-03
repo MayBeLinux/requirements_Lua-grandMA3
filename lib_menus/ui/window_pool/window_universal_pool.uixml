@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <AllPoolWindow HelpTopic="" Name="AllPool">
+        <AllPoolLayoutGrid  Text="All&#xD;Pool" TitleButtonIcon="" ToolTip="PoolWindow one to bind them all" >
+            <AllPoolTitleButton />
+        </AllPoolLayoutGrid>
+    </AllPoolWindow>
+</GMA3>

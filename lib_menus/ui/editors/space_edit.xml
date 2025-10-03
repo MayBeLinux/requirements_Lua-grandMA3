@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="SpaceEdit" Author="MA" Version="0.1.0.0" Path="/ui/editors" DisplayIndexConfigurable="Yes">
+        <ComponentXML FileName="space_edit.uixml" PlaceHolder="MainDialog" Toggle="No"/>
+        <ComponentLua FileName="space_edit.lua" />
+    </Menu>
+</GMA3>

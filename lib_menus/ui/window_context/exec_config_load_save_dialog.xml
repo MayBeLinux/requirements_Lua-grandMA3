@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ExecConfigLoadSaveDialog" Author="MA" Version="0.1.0.0" Path="/ui/window_context">
+        <ComponentXML FileName="exec_config_load_save_dialog.uixml" PlaceHolder="ModalOverlay" Toggle="No" />
+        <ComponentLua FileName="exec_config_load_save_dialog.lua" />
+    </Menu>
+</GMA3>

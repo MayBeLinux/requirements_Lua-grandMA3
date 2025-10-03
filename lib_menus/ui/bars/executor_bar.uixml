@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ExecutorBar Name="ExecutorBar" OnTitleClick=":TitleClicked" OnLoad=":BarLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="350"/>
+            <Item SizePolicy="Fixed"   Size="5" />
+            <Item SizePolicy="Stretch" Size="350"/>
+            <Item SizePolicy="Fixed"   Size="5" />
+            <Item SizePolicy="Stretch" Size="350"/>
+            <Item SizePolicy="Fixed"   Size="5" />
+            <Item SizePolicy="Fixed"   Size="80"/>
+            <Item SizePolicy="Fixed"   Size="80"/>
+            <Item SizePolicy="Fixed"   Size="5" />
+            <Item SizePolicy="Fixed"   Size="50"/>
+        </ItemCollectColumns>
+
+        <ExecutorSection Name="Section1" Anchors="0,0" Rows="4" Columns="5" />
+        <ExecutorSection Name="Section2" Anchors="2,0" Rows="4" Columns="5" />
+        <ExecutorSection Name="Section3" Anchors="4,0" Rows="4" Columns="5" />
+
+        <SpecialExecSection Anchors="6,0,7,0" Rows="4" Columns="2" />
+
+        <UILayoutGrid Name="Menu" Anchors="9,0" Rows="4" Columns="1" >
+            <Button Name="NextPage"      Anchors="0,0" Texture="corner3" Clicked=":CommandLine" SignalValue="Next Page" ToolTip="Select next page." Icon="arrow_up" />
+            <DialogButton Anchors="0,1,0,2" Clicked=":TitleClicked" Name="Title" Font="Regular9" Texture="corner0"  TextAutoAdjust="Yes" />
+            <Button Name="PrevPage"      Anchors="0,3" Texture="corner12" Clicked=":CommandLine" SignalValue="Prev Page" ToolTip="Select previous page " Icon="arrow_down" MouseDownHold=":CommandLine" SignalValueHold="Page 1" />
+        </UILayoutGrid>
+
+
+    </ExecutorBar>
+</GMA3>

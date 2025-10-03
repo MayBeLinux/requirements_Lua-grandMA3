@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <TextInput OnLoad=":OnLoaded" OnUserProfileChanged=":OnUserProfileChanged" MinSize="800,0" Visible="No" ContentDriven="Yes" ContentHeight="Yes" ContentWidth="No" AdjustInitialPosition="No" AlignmentH="Center" AlignmentV="Center">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectRows>
+        <TitleBar Anchors="0,0" Name="TitleBar" HelpTopic="wvm_pool_label.html" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <Button Name="VK" W="50" Texture="corner1" Anchors="0,0" Visible="Yes" Clicked=":ToggleVirtualKeyboard" Icon="keyboard" Focus="Never" />
+            <Button Name="SE" W="50" Texture="corner0" Anchors="1,0" Visible="No"  Clicked=":ToggleScribbleEditor" Icon="object_scribbles" Focus="Never" />
+            <Button Name="AE" W="50" Texture="corner0" Anchors="2,0" Visible="No"  Clicked=":ToggleAppearanceEditor" Icon="object_appear" Focus="Never" />
+            <Button Name="TE" W="50" Texture="corner0" Anchors="3,0" Visible="No"  Clicked=":ToggleTagsEditor" Icon="object_tags" Focus="Never" />
+            <TitleButton Texture="corner0" Anchors="4,0" Text="Text input" Icon="" OnLoad=":OnLoadedTitle"/>
+            <ScribbleInput   W="120" Name="Scribble"   Anchors="5,0" Visible="No"  Text="Scribble"   EditNewObject="No" ScribbleTargetChanged=":OnScribbleTargetChanged" />
+            <AppearanceInput W="120" Name="Appearance" Anchors="6,0" Visible="No"  Text="Appearance" EditNewObject="No" AppearanceTargetChanged=":OnAppearanceTargetChanged"/>
+            <CloseButton Texture="corner2" Anchors="7,0" Focus="Never" />
+
+            <WarningInfoButton Name="WarningButton" Anchors="0,0,7,0" Font="Regular32"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Padding="4,4,4,4">
+            <ItemCollectRows Name="ItemCollectRows">
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="NameNoteEdit" Anchors="0,0" Margin="0,0,0,2" HelpTopic="wvm_pool_label.html">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Content"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <Button   Name="IFBtn"      Anchors="0,0"   H="40" W="70" Texture="corner1" Focus="Never"         Clicked=":OnFocusInputField" FocusGet=":OnFocusInputField"   HasHover="No" Padding="5,5,5,5" Text="Name" TextAlignmentH="Left"/>
+                <LineEdit Name="InputField" Anchors="1,0"   H="40" Texture="corner2" Focus="WantsFocus"  Clicked=":OnFocusInputField" FocusGet=":OnFocusInputField"  Execute=":CloseOK" ShowKeyboardButton="No" OnWrongChar=":ShowWarning" WantsNumericRedirect="Yes" MouseDownHold=":OnMouseHoldDown" LongPressVK="No"/>
+
+                <Button   Name="NFBtn"      Anchors="0,1"   H="88" W="70" Texture="corner4" Focus="Never"         Clicked=":OnFocusNoteField"  FocusGet=":OnFocusNoteField"   HasHover="No" Padding="5,5,5,5" Text="Note" TextAlignmentH="Left"/>
+                <TextEdit Name="NoteField"  Anchors="1,1"   H="88" Texture="corner8" Focus="WantsFocus"  Clicked=":OnFocusNoteField"  FocusGet=":OnFocusNoteField"   BackColor="UIGrid.FixedBackground" Execute=":CloseOK" EnterToExecute="Yes" Undo=":UndoTextEdit" Redo=":RedoTextEdit" UndoRedoChanged=":UndoRedoChanged" HasHover="No" WantsNumericRedirect="Yes" TextAutoAdjust="Yes"/>
+            </UILayoutGrid>
+
+            <PlaceHolderBase Name="VirtualKeyboardPlaceholder"  Visible="No"    Anchors="0,1"   Margin="0,0,0,2" H="250"/>
+
+            <PlaceHolderBase Name="ScribbleEditPlaceholder"     Visible="No"    Anchors="0,2"   Margin="0,0,0,2" H="0.5r"/>
+
+            <PlaceHolderBase Name="AppearanceEditPlaceholder"   Visible="No"    Anchors="0,3"   Margin="0,2,0,2" H="0.5r"/>
+
+            <PlaceHolderBase Name="TagsEditPlaceholder"         Visible="No"    Anchors="0,4"   Margin="0,2,0,2" H="0.5r"/>
+
+        </DialogFrame>
+
+        <PlaceHolder Name="ModalOverlay" />
+
+    </TextInput>
+</GMA3>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="NewExecutorEditorConcept">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Executor Configutarion Editor Concept" Icon="logo_small" />
+
+            <PropertyInput Name="EditSizePosition" Anchors="1,0" Text="Edit Size/Position" W="160" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+
+            <PropertyInput Name="LockBtn" W="80" Anchors="2,0" Text="Lock&#xD;Exec"/>
+
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="3,0" Name="ConfigButtons" Direction="Horizontal" Texture="corner0" Content="Yes" Visible="1">
+                <ObjectSelector Name="ConfigDatapool" Text="DataPool" W="100" ShowLabel="Yes" BackColor="TitleButton.Background" Target="ShowData.Datapools" TextColor="Button.Text"/>
+                <SwipeButton    Name="ConfigControl"  Text="Executor Config." W="160" IndirectEdit="1" BackColor="TitleButton.Background" TextColor="Button.Text" />
+                <Button Name="ConfigLoad" W="80" Text="Load" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+                <Button Name="ConfigSave" W="80" Text="Save" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+            </AutoLayout>
+
+            <ScreenSelectorButton Anchors="4,0"/>
+            <CloseButton Texture="corner2" Anchors="6,0" />
+        </TitleBar>
+
+        <MainDialogPrimaryMenu Name="PrimaryMenu">
+            <MainDialogMainTabs Name="MainTabs" ItemSize="75" TabChanged="">
+                <ItemStr Title="Object"             Value="" />
+                <ItemStr Title="Handle"             Value="" />
+                <ItemStr Title="Edit&#xD;Setting"   Value="" />
+                <ItemStr Title="Edit"               Value="" />
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+
+        <MainDialogContent Name="Content">
+            <DialogContainer Name="Dialogs" ChangeActive=":ContentChange">
+                <UILayoutGrid Name="ExecutorConfigurationEditor">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch"/>
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1.15"/>
+                        <Item SizePolicy="Stretch" Size="34"/>
+                        <Item SizePolicy="Stretch" Size="2"/>
+                        <Item SizePolicy="Stretch" Size="21"/>
+                    </ItemCollectColumns>
+
+                    <UILayoutGrid Name="RowIndcation" Anchors="0,0" Rows="7" Columns="1">
+                        <Button Anchors="0,0" Text=""    Icon="encoder_sym"             IconOffsetV="30"  Interactive="No" BackColor="Global.Transparent"/>
+                        <Button Anchors="0,1" Text="400" Icon="exec_button_400_24px"    IconOffsetV="-30" Interactive="No" BackColor="Global.Transparent"/>
+                        <Button Anchors="0,2" Text=""    Icon="encoder_sym"             IconOffsetV="30"  Interactive="No" BackColor="Global.Transparent"/>
+                        <Button Anchors="0,3" Text="300" Icon="exec_button_300_24px"    IconOffsetV="-30" Interactive="No" BackColor="Global.Transparent"/>
+                        <Button Anchors="0,4" Text=""    Icon="fader"                   IconOffsetV="30"  Interactive="No" BackColor="Global.Transparent"/>
+                        <Button Anchors="0,5" Text="200" Icon="exec_button_200_24px"    IconOffsetV="-30" Interactive="No" BackColor="Global.Transparent"/>
+                        <Button Anchors="0,6" Text="100" Icon="exec_button_100_24px"    TextOffsetV="48"  Interactive="No" BackColor="Global.Transparent"/>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Anchors="1,0" Name="Overview">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+
+                        <!--left-->
+
+                        <UILayoutGrid Name="Exec401" Anchors="0,0" Rows="2" Columns="1" Margin="0,0,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3" Clicked=":EncoderInputClicked" SignalValue="401"
+                                IconsGrid="2,3"
+                                Icons="encoder_left,encoder_left_right,encoder_right,ma_key,encoder_left,ma_key,encoder_left_right,ma_key,encoder_right"
+                                IconsGridAnchors="{0/0},{0/1},{0/2},{1/0},{1/0},{1/1},{1/1},{1/2},{1/2}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="0.8"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12" Clicked=":KeyInputClicked" SignalValue="401"
+                                IconsGrid="2,2"
+                                Icons="button_press,button_release,ma_key,button_press,ma_key,button_release"
+                                IconsGridAnchors="{0/0},{0/1},{1/0},{1/0},{1/1},{1/1}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="0.8"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="Exec301" Anchors="0,1" Rows="2" Columns="1" Margin="0,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3" Clicked=":EncoderInputClicked" SignalValue="301"
+                                IconsGrid="2,3"
+                                Icons="encoder_left,encoder_left_right,encoder_right,ma_key,encoder_left,ma_key,encoder_left_right,ma_key,encoder_right"
+                                IconsGridAnchors="{0/0},{0/1},{0/2},{1/0},{1/0},{1/1},{1/1},{1/2},{1/2}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="0.8"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12" Clicked=":KeyInputClicked" SignalValue="301"
+                                IconsGrid="2,2"
+                                Icons="button_press,button_release,ma_key,button_press,ma_key,button_release"
+                                IconsGridAnchors="{0/0},{0/1},{1/0},{1/0},{1/1},{1/1}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="0.8"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="Exec201" Anchors="0,2" Rows="2" Columns="1" Margin="0,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3" Clicked=":FaderInputClicked" SignalValue="201"
+                                IconsGrid="2,1"
+                                Icons="single_fader,ma_key,single_fader"
+                                IconsGridAnchors="{0/0},{1/0},{1/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="0.8"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12" Clicked=":KeyInputClicked" SignalValue="201"
+                                IconsGrid="2,2"
+                                Icons="button_press,button_release,ma_key,button_press,ma_key,button_release"
+                                IconsGridAnchors="{0/0},{0/1},{1/0},{1/0},{1/1},{1/1}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="0.8"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="Exec101" Anchors="0,3" Rows="1" Columns="1" Margin="0,1,3,0">
+                            <ExecConfigInput Anchors="0,0" Texture="corner15" Clicked=":KeyInputClicked" SignalValue="101"
+                                IconsGrid="2,2"
+                                Icons="button_press,button_release,ma_key,button_press,ma_key,button_release"
+                                IconsGridAnchors="{0/0},{0/1},{1/0},{1/0},{1/1},{1/1}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="0.8"/>
+                        </UILayoutGrid>
+
+                        <!--left-1-->
+
+                        <UILayoutGrid Name="Exec402" Anchors="1,0" Rows="2" Columns="1" Margin="3,0,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3" Clicked=":EncoderInputClicked" SignalValue="402"
+                                IconsGrid="1,1"
+                                Icons="encoder_left_right"
+                                IconsGridAnchors="{0/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12" Clicked=":KeyInputClicked" SignalValue="402"
+                                IconsGrid="1,1"
+                                Icons="button_press"
+                                IconsGridAnchors="{0/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="Exec302" Anchors="1,1" Rows="2" Columns="1" Margin="3,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3" Clicked=":EncoderInputClicked" SignalValue="302"
+                                IconsGrid="1,1"
+                                Icons="encoder_left_right"
+                                IconsGridAnchors="{0/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12" Clicked=":KeyInputClicked" SignalValue="302"
+                                IconsGrid="1,1"
+                                Icons="button_press"
+                                IconsGridAnchors="{0/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="Exec202" Anchors="1,2" Rows="2" Columns="1" Margin="3,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3" Clicked=":FaderInputClicked" SignalValue="202"
+                                IconsGrid="1,1"
+                                Icons="single_fader"
+                                IconsGridAnchors="{0/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12" Clicked=":KeyInputClicked" SignalValue="202"
+                                IconsGrid="1,1"
+                                Icons="button_press"
+                                IconsGridAnchors="{0/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="Exec102" Anchors="1,3" Rows="1" Columns="1" Margin="3,1,3,0">
+                            <ExecConfigInput Anchors="0,0" Texture="corner15" Clicked=":KeyInputClicked" SignalValue="102"
+                                IconsGrid="1,1"
+                                Icons="button_press"
+                                IconsGridAnchors="{0/0}"
+                                IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                        </UILayoutGrid>
+
+                        <!--middle-->
+
+                        <UILayoutGrid Anchors="2,0" Rows="2" Columns="1" Margin="3,0,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="2,1" Rows="2" Columns="1" Margin="3,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="2,2" Rows="2" Columns="1" Margin="3,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="2,3" Rows="1" Columns="1" Margin="3,1,3,0">
+                            <ExecConfigInput Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+
+                        <!--right-1-->
+
+                        <UILayoutGrid Anchors="3,0" Rows="2" Columns="1" Margin="3,0,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="3,1" Rows="2" Columns="1" Margin="3,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="3,2" Rows="2" Columns="1" Margin="3,1,3,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="3,3" Rows="1" Columns="1" Margin="3,1,3,0">
+                            <ExecConfigInput Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+
+                        <!--right-->
+
+                        <UILayoutGrid Anchors="4,0" Rows="2" Columns="1" Margin="3,0,0,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="4,1" Rows="2" Columns="1" Margin="3,1,0,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="4,2" Rows="2" Columns="1" Margin="3,1,0,1">
+                            <ExecConfigInput Anchors="0,0" Texture="corner3"/>
+                            <ExecConfigInput Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="4,3" Rows="1" Columns="1" Margin="3,1,0,0">
+                            <ExecConfigInput Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+                    </UILayoutGrid>
+
+                    <Button Icon="arrow_triangle" Anchors="2,0"  Interactive="No" BackColor="Global.Transparent" IconColor="ShowCreator.DirectionIcon"/>
+
+                    <UILayoutGrid Name="KeyEditor" Anchors="3,0">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="34"/>
+                            <Item SIzePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="46"/>
+                            <Item SizePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="8"/>
+                        </ItemCollectRows>
+
+                        <UILayoutGrid Name="ExecFunctionSelect" Anchors="0,0">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectColumns>
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SIzePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+
+                            <Button Name="ExecLabel" Anchors="0,0,0,1" Text="101" TextOffsetV="72" Icon="exec_button_100_64px" IconScale="1.5"  Interactive="No" IconOffsetH="-6" BackColor="Global.Transparent"/>
+
+                            <ExecConfigInput Anchors="1,0" Icons="exec_button_100_24px,button_press" IconsGrid="1,1" Texture="corner1" IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1"/>
+                            <ExecConfigInput Anchors="1,1" Icons="ma_key,exec_button_100_24px,button_press" Texture="corner4" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="2,0" Icons="exec_button_100_24px,button_release" Texture="corner2" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="2,1" Icons="ma_key,exec_button_100_24px,button_release" Texture="corner8" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                        </UILayoutGrid>
+
+                        <Button Name="CmdLabel" Anchors="0,3" Text="Custom Command" Texture="corner3" Interactive="No"/>
+                        <LineEdit Name="Custom Command" Anchors="0,4" Texture="corner12"/>
+
+                        <Button Name="TokenLabel" Anchors="0,1" Text="Select Function" Texture="corner3" Interactive="No"/>
+                        <ScrollableItemList Anchors="0,2" ItemType="PopupItemButtonExt" AllowBlocks="Yes"/>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="EncoderEditor" Anchors="3,0" Visible="No">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="34"/>
+                            <Item SIzePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="34"/>
+                            <Item SizePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="8"/>
+                            <Item SizePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="8"/>
+                        </ItemCollectRows>
+
+                        <UILayoutGrid Name="ExecFunctionSelect" Anchors="0,0">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                            </ItemCollectColumns>
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SIzePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+
+                            <Button Name="ExecLabel" Anchors="0,0,0,1" Text="301" TextOffsetV="72" Icon="encoder_sym" IconScale="1.5"  Interactive="No" IconOffsetH="-6" BackColor="Global.Transparent"/>
+
+                            <ExecConfigInput Anchors="1,0" Icons="encoder_left" Texture="corner1" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="1,1" Icons="ma_key,encoder_left" Texture="corner4" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="2,0" Icons="encoder_left_right"             IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="2,1" Icons="ma_key,encoder_left_right"             IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="3,0" Icons="encoder_right" Texture="corner2" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="3,1" Icons="ma_key,encoder_right" Texture="corner8" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                        </UILayoutGrid>
+
+                        <Button Name="CmdLabel" Anchors="0,3" Text="Custom Command" Texture="corner3" Interactive="No"/>
+                        <LineEdit Name="Custom Command" Anchors="0,4" Texture="corner12"/>
+
+                        <Button Name="TokenLabel" Anchors="0,1" Text="Select Function" Texture="corner3" Interactive="No"/>
+                        <ScrollableItemList Anchors="0,2" ItemType="PopupItemButtonExt" AllowBlocks="Yes"/>
+
+                        <Button Name="RangeResolutionLabel" Anchors="0,5" Text="Edit Range/Resolution" Texture="corner3" Interactive="No"/>
+                        <UILayoutGrid Name="RangeResolution" Anchors="0,6" Rows="1" Columns="2">
+                            <Button Anchors="0,0" Text="Range" Texture="corner4"/>
+                            <Button Anchors="1,0" Text="Resolution" Texture="corner8"/>
+                        </UILayoutGrid>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="FaderEditor" Anchors="3,0" Visible="No">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="34"/>
+                            <Item SIzePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="34"/>
+                            <Item SizePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="8"/>
+                            <Item SizePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="8"/>
+                        </ItemCollectRows>
+
+                        <UILayoutGrid Name="FaderFunctionSelect" Anchors="0,0">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                            </ItemCollectColumns>
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SIzePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+
+                            <Button Name="FaderLabel" Anchors="0,0,0,1" Text="201" TextOffsetV="72" Icon="single_fader" IconScale="1.5"  Interactive="No" IconOffsetH="-6" BackColor="Global.Transparent"/>
+
+                            <ExecConfigInput Anchors="1,0" Icons="single_fader" Texture="corner3" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                            <ExecConfigInput Anchors="1,1" Icons="ma_key,single_fader" Texture="corner12" IconAlignmentH="Left" IconAlignmentV="Top"/>
+                        </UILayoutGrid>
+
+                        <Button Name="CmdLabel" Anchors="0,3" Text="Custom Command" Texture="corner3" Interactive="No"/>
+                        <LineEdit Name="Custom Command" Anchors="0,4" Texture="corner12"/>
+
+                        <Button Name="TokenLabel" Anchors="0,1" Text="Select Function" Texture="corner3" Interactive="No"/>
+                        <ScrollableItemList Anchors="0,2" ItemType="PopupItemButtonExt" AllowBlocks="Yes"/>
+
+                        <Button Name="RangeResolutionLabel" Anchors="0,5" Text="Edit Range/Resolution" Texture="corner3" Interactive="No"/>
+                        <UILayoutGrid Name="RangeResolution" Anchors="0,6" Rows="1" Columns="2">
+                            <Button Anchors="0,0" Text="Range" Texture="corner4"/>
+                            <Button Anchors="1,0" Text="Resolution" Texture="corner8"/>
+                        </UILayoutGrid>
+                    </UILayoutGrid>
+
+                </UILayoutGrid>
+            </DialogContainer>
+        </MainDialogContent>
+    </MainDialog>
+</GMA3>

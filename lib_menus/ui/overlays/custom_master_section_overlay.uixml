@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+	<MainDialog Name="CustomMasterSectionOverlay" OnLoad=":OnLoad" WantsModal="0" FocusSearchPolicy="Default" AutoClose="0" AutoCloseOnOverlay="1" HelpTopic="executor_special.html">
+		<ItemCollectRows>
+			<Item SizePolicy="Content" />
+			<Item SizePolicy="Stretch" />
+		</ItemCollectRows>
+		<ItemCollectColumns>
+			<Item SizePolicy="Stretch" Size="1" />
+		</ItemCollectColumns>
+
+		<TitleBar Anchors="0,0,2,0" Name="Title">
+			<ItemCollectColumns>
+				<Item SizePolicy="Stretch" Size="1" MinSize="50" />
+				<Item SizePolicy="Content" />
+				<Item SizePolicy="Fixed" Size="50" />
+			</ItemCollectColumns>
+			<TitleButton Anchors="0,0" Texture="corner1" Icon="special_master" Text="Custom Master Section"/>
+			<AutoLayout Anchors="1,0" DefaultMargin="0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+				<ScreenSelectorButton MinSize="50,0" HelpTopic="executor_special.html"/>
+			</AutoLayout>
+			<CloseButton Anchors="2,0" Texture="corner2"  CloseAction="Confirm" />
+		</TitleBar>
+		<MainDialogContent>
+			<CustomMasterLayoutGrid Anchors="0,0" OnTitleClick=":TitleClicked"  Font="Regular14" LowDpiFont="Regular9">
+				<!INCLUDE ../../include/custom_master_content.uixml >
+			</CustomMasterLayoutGrid>
+		</MainDialogContent>
+	</MainDialog>
+
+</GMA3>

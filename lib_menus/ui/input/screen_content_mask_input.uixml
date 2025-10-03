@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="400" H="280" WantsModal="1" OnLoad=":OnLoaded">
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Edit Screen Content Mask"/>
+            <CloseButton Texture="corner2" Anchors="1,0" Focus="InitialFocus"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <UILayoutGrid Name="Displays" Anchors="0,0" Rows="3" Columns="3" DefaultMargin="4">
+                <IndicatorControl  Anchors="2,0"  Name="E4" Text="External 4" Texture="corner2" Property="ScreenContentDisplay4" />
+                <IndicatorControl  Anchors="0,0"  Name="E5" Text="External 5" Texture="corner1" Property="ScreenContentDisplay5" />
+                <IndicatorControl  Anchors="2,1"  Name="I1" Text="Internal 1"                   Property="ScreenContentDisplay1" />
+                <IndicatorControl  Anchors="1,1"  Name="I2" Text="Internal 2"                   Property="ScreenContentDisplay2" />
+                <IndicatorControl  Anchors="0,1"  Name="I3" Text="Internal 3"                   Property="ScreenContentDisplay3" />
+                <IndicatorControl  Anchors="2,2"  Name="S6" Text="Small 6"    Texture="corner8" Property="ScreenContentDisplay6" />
+                <IndicatorControl  Anchors="0,2"  Name="S7" Text="Small 7"    Texture="corner4" Property="ScreenContentDisplay7" />
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="231" Name="WindowSelectionView" Guid="97 1C 7C EE 40 09 44 C5 B6 8A 7E E1 4B 9F A2 DB" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="7F ED 69 B8 F1 77 43 7B B7 AA CA D0 43 EF 38 5B" FileName="window_selection_view.uixml" PlaceHolder="UiScreen" WindowSettings="SelectionViewSettings" WindowContext="ContextSelectionViewWindow" Toggle="No" />
+        <ComponentLua Index="2" Guid="E7 B4 28 5E 21 F1 4D 19 8D 3E 75 C8 05 F8 81 86" FileName="window_selection_view.lua" />
+    </Menu>
+</GMA3>

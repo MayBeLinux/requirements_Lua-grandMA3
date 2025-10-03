@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window OnLoad=":OnLoad" Name="WindowDiligentTest2">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <NormedTitleBar Anchors="0,0" Name="Title">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton    Texture="corner2" Anchors="1,0" Text="Diligent Test 2"/>
+            <ContextButton  Texture="corner1" Anchors="0,0" ToolTip="Show Diligent Test 2"/>
+        </NormedTitleBar>
+        <DialogFrame Anchors="0,1" Name="Frame">
+            <WindowDiligentTest2 Anchors="0,0" OnLoad=":OnLoad" Name="WindowDiligentTest2">
+            </WindowDiligentTest2>
+        </DialogFrame>
+    </Window>
+</GMA3>

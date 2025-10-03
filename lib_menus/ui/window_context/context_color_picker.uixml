@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="wvm_settings.html" >
+
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+				<Item SizePolicy="Fixed" Size="100" />
+				<Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Color Picker Window Settings" Icon=""/>
+            <EditTitlebarButton Anchors="1,0"  />
+			<Button   Anchors="2,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="ColorPicker" />
+			<Button   Anchors="3,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="ColorPicker" />
+            <DeleteWindowButton   Anchors="4,0"  />
+            <CloseButton Texture="corner2" Anchors="5,0" />
+        </TitleBar>
+
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged"  >
+
+                <UILayoutGrid Name="Display" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10" >
+                    <!-- Row 1 -->
+                    <SwipeButton      Anchors="0,0" Text="Mode" Name="Mode" Property="Mode" Texture="corner15" Enabled="true" TextAutoAdjust="Yes" ReferencedTitleButton="Mode"/>
+                    <TitlebuttonControl Anchors="1,0" Texture="corner15"  Visible="No" Text="CIE" ReferencedTitleButton="CIE"/>
+                    <TitlebuttonControl Anchors="2,0" Texture="corner15"  Visible="No" Text="HSBField" ReferencedTitleButton="HSBField"/>
+                    <TitlebuttonControl Anchors="3,0" Texture="corner15"  Visible="No" Text="Fader" ReferencedTitleButton="Fader"/>
+                    <TitlebuttonControl Anchors="4,0" Texture="corner15"  Visible="No" Text="Book" ReferencedTitleButton="Book"/>
+                    <!-- Row 2 -->
+                    <IndicatorControl   Anchors="0,1" Text="Constant&#xD;Brightness" Name="OverdriveMode"  Texture="corner15" Property="BrightnessOverdriveMode" Enabled="true" ReferencedTitleButton="OverdriveMode"/>
+                    <SwipeButton        Anchors="1,1" Text="Color Space" Name="ColorMixMode" Property="ColorMixMode"  Texture="corner15" Enabled="true" TextAutoAdjust="Yes" ReferencedTitleButton="ColorMixMode"/>
+                    <TitlebuttonControl Anchors="2,1" Texture="corner15"  Visible="No" Text="Spacer" ReferencedTitleButton="Spacer"/>
+                    <!-- Row 3 -->
+                    <SwipeButton      Anchors="0,2" Text="Wheel Mix Mode" Name="ColorWheelMode" Property="ColorWheelMode"  Texture="corner15" Enabled="true" TextAutoAdjust="Yes" ReferencedTitleButton="ColorWheelMode"/>
+                </UILayoutGrid>
+
+                <!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

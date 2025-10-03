@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SettingsBox DefaultMargin="10" Margin ="10,10,10,10" OnLoad=":OnSettingsLoaded">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <EditorPropertyButtons Anchors="0,0" BigModeColumns="2" BigModeRows="7" BigMode="Yes">
+            <EditorCategoryButton Text="Label"/>
+            <EditorNameButton />
+            <EditorScribbleButton />
+            <EditorAppearanceButton />
+            <EditorTagButton />
+            <EditorNoteButton />
+            <EditorCategoryButton Text="Settings"/>
+            <EditorPropertyButton Property="Password" Focus="InitialFocus"/>
+            <EditorPropertyButton Property="Profile" ValueRole="DisplayShort"/>
+            <EditorPropertyButton Property="ScreenConfig" ValueRole="DisplayShort" IndirectEdit="1"/>
+            <EditorPropertyButton Property="Rights"/>
+            <!-- <EditorPropertyButton Property="Language"/> -->
+            <EditorPropertyButton Property="Keyboard" ValueRole="DisplayShort" IndirectEdit="1"/>
+        </EditorPropertyButtons>
+
+        <AppearancePreview Name="Preview" Texture="corner0" Anchors="1,0"/>
+    </SettingsBox>
+</GMA3>

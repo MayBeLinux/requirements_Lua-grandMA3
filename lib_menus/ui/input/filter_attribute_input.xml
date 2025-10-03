@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="FilterAttributeInput" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" FileName="filter_attribute_input.uixml" PlaceHolder="ScreenOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="../window_other/window_at_filter_basics.lua" />
+        <ComponentLua Index="2" FileName="filter_attribute_input.lua" />
+    </Menu>
+</GMA3>

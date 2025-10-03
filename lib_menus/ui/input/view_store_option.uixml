@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ViewInput W="400" H="500" WantsModal="1" OnLoad=":OnLoaded">
+
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Store View Options" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Columns="1"  DefaultMargin="10" DefaultMarginOnBorders="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="2" />
+                <Item SizePolicy="Stretch" Size="9" />
+                <Item SizePolicy="Stretch" Size="2" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Anchors="0,0" Name="Container" Rows="1" Columns="5" DefaultMargin="4">
+                <IndicatorControl  Name="Screenshot" Anchors="0,0"  Text=" " Texture="corner15" Icon="icon_screenshot"  Property="ScreenshotEnabled" Target="~" />
+                <UIObject Text="Label:" Anchors="1,0" BackColor="global.BackGround" HasHover="No"/>
+                <LineEdit Name="InputField" Anchors="2,0,4,0" Texture="corner15" Execute=":OnPleaseClicked" Property="NewName" Target="%.TempStoreSettings" OnLoad=":SelectAllText"/>
+
+            </UILayoutGrid>
+            <UILayoutGrid Name="Displays" Anchors="0,1" Rows="3" Columns="3" DefaultMargin="4">
+                <IndicatorControl  Anchors="2,0"  Text="External 4" Texture="corner2" Property="ScreenContentDisplay4" OnLoad=":OnSetTarget" Clicked=":OnDisplayClicked"/>
+                <IndicatorControl  Anchors="0,0"  Text="External 5" Texture="corner1" Property="ScreenContentDisplay5" OnLoad=":OnSetTarget" Clicked=":OnDisplayClicked"/>
+                <IndicatorControl  Anchors="2,1"  Text="Internal 1"                   Property="ScreenContentDisplay1" OnLoad=":OnSetTarget" Clicked=":OnDisplayClicked"/>
+                <IndicatorControl  Anchors="1,1"  Text="Internal 2"                   Property="ScreenContentDisplay2" OnLoad=":OnSetTarget" Clicked=":OnDisplayClicked"/>
+                <IndicatorControl  Anchors="0,1"  Text="Internal 3"                   Property="ScreenContentDisplay3" OnLoad=":OnSetTarget" Clicked=":OnDisplayClicked"/>
+                <IndicatorControl  Anchors="2,2"  Text="Small 6"    Texture="corner8" Property="ScreenContentDisplay6" OnLoad=":OnSetTarget" Clicked=":OnDisplayClicked"/>
+                <IndicatorControl  Anchors="0,2"  Text="Small 7"    Texture="corner4" Property="ScreenContentDisplay7" OnLoad=":OnSetTarget" Clicked=":OnDisplayClicked"/>
+            </UILayoutGrid>
+            <UILayoutGrid Name="Buttons" Anchors="0,2" Rows="1" Columns="3" DefaultMargin="4">
+                <IndicatorButton  Anchors="0,0"  Text="All"    Clicked=":OnAllClicked" Texture="corner5"/>
+                <IndicatorButton  Anchors="1,0"  Text="None"   Clicked=":OnNoneClicked" Texture="corner0"/>
+                <IndicatorButton  Anchors="2,0"  Text="OK"     Clicked=":OnPleaseClicked" Texture="corner10"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </ViewInput>
+</GMA3>

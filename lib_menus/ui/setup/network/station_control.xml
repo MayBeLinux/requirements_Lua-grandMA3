@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="106" Name="StationControl" Guid="" Author="MA" Version="0.1.0.0" Path="/ui/setup/network">
+        <ComponentXML Index="1" Guid="" FileName="station_control.uixml" PlaceHolder="MainDialog" />
+        <ComponentLua Index="2" Guid="" FileName="station_control.lua" />
+    </Menu>
+</GMA3>

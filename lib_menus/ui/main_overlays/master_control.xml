@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="111" Name="MasterControl" Guid="00 1B 21 70 72 C9 00 00 2B 52 36 54 89 D8 B2 AD" Author="MA" Version="0.1.0.0" Path="/ui/main_overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" Guid="00 1B 21 70 E9 F6 00 00 2A 52 36 54 89 D8 B2 AD" FileName="master_control.uixml" PlaceHolder="MainOverlay" />
+    </Menu>
+</GMA3>

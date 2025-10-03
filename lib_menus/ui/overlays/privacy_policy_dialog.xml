@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="73" Name="PrivacyPolicyDialog" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Index="1" FileName="privacy_policy_dialog.uixml" PlaceHolder="PrivacyPolicyPlace" />
+        <ComponentLua Index="2" FileName="privacy_policy_dialog.lua" />
+    </Menu>
+</GMA3>

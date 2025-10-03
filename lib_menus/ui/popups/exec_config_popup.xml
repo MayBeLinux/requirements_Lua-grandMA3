@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ExecConfigPopup" Guid="00 00 00 00 EA 33 00 00 38 52 36 54 19 8E 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Guid="00 00 00 00 C9 23 00 00 3B 52 36 54 19 8E 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="generic_popup.lua" />
+        <ComponentLua Guid="00 00 00 00 CC 48 00 00 3A 52 36 54 19 8E 55 B0" FileName="exec_config_popup.lua" />
+    </Menu>
+</GMA3>

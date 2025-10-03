@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <EditorPropertyButtons Anchors="0,0">
+        <EditorNameButton       Texture="corner15"/>
+        <EditorScribbleButton   Texture="corner5"/>
+        <EditorAppearanceButton Texture="corner0"  Text="Pool&#xD;Appearance"   Property="Appearance"/>
+        <EditorAppearanceButton Texture="corner0"  Text="Canvas&#xD;Appearance" Property="CanvasAppearance"/>
+        <EditorTagButton        Texture="corner10"  Text="Tags"         />
+
+        <EditorNoteButton       Texture="corner15"/>
+        <EditorPropertyButton   Texture="corner15" Property="Markers"/>
+        <EditorPropertyButton   Texture="corner15" Property="ValueColors"/>
+
+        <EditorPropertyButton   Texture="corner5"  Property="PositionX" />
+        <EditorPropertyButton   Texture="corner0"  Property="PositionY" />
+        <EditorPropertyButton   Texture="corner0"  Property="DimensionW"/>
+        <EditorPropertyButton   Texture="corner10" Property="DimensionH"/>
+
+        <EditorPropertyButton   Texture="corner5"  Property="ViewPosActive"/>
+        <EditorPropertyButton   Texture="corner0"  Property="ViewPosX"     />
+        <EditorPropertyButton   Texture="corner0"  Property="ViewPosY"     />
+        <EditorPropertyButton   Texture="corner10" Property="ViewPosScale" />
+
+        <EditorPropertyButton   Texture="corner5"  Property="UsedX"/>
+        <EditorPropertyButton   Texture="corner0"  Property="UsedY"/>
+        <EditorPropertyButton   Texture="corner0"  Property="UsedW"/>
+        <EditorPropertyButton   Texture="corner10" Property="UsedH"/>
+
+        <EditorPropertyButton   Texture="corner15" Property="ExecutorStyle"/>
+    </EditorPropertyButtons>
+</GMA3>

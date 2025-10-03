@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="236" Name="WindowSystemMonitor" Guid="C6 9F 0F 45 78 DC 47 8F B4 8E BF 4F 96 41 47 06" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="AC 5A 12 D5 08 36 44 3E AB AA FA A4 FC 3F DC 4F" FileName="window_system_monitor.uixml" PlaceHolder="UiScreen" WindowSettings="SysmonWindowSettings" WindowContext="ContextSysmonWindow" Toggle="No" />
+    </Menu>
+</GMA3>

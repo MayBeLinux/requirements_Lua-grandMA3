@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollContainerPage UserRights="None"  W="50" Name="MainMenuCnt" Anchors="0,0,0,1" OnLoad=":MainMenuLoaded">
+    <ScrollBox Name="SB" ResetChildrenSize="Yes">
+        <UILayoutGrid Name="MainMenu" Transparent="true" Columns="1" HelpTopic ="ws_ui_control_bar.html">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="25" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="25" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="25" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+            </ItemCollectRows>
+
+            <Button   Anchors="0,0" Texture="corner3" Clicked=":CommandLine" Name="Shutdown" SignalValue="menu 'ShutdownMenuOverlay'" ToolTip="Opens the Shutdown menu." Icon="power" HotKey="Alt+X" />
+            <PropertyControl Interactive="No" Margin="0,2,2,0" Visible="true" BackColor="Global.Transparent" ActiveBackColor="Global.AlertText" ShowLabel="false" ShowValue="No" Texture="led_rect" AlignmentV="Top" AlignmentH="Right" W="10" H="5" Property="haveUpdate" Target="Temp.ReleaseFile" />
+            <UIObject Anchors="0,1" Texture="corner0" HasHover="0" />
+            <Button   Anchors="0,2" Name="OpenMenuSelector" HotKey="F2" DoubleClicked=":SaveShow" Clicked=":CommandLine" SignalValue="menu MenuSelector" ToolTip="Opens selector menu." Icon="setup" />
+            <UIObject Anchors="0,3" Texture="corner0" HasHover="0" />
+            <Button   Anchors="0,4" Name="OpenCommand" HotKey="F3" MouseDown=":ToggleMainDialog" MouseUp=":CloseMainDialog" SignalValue="CommandControl" ToolTip="Opens the command section menu." Icon="button" HelpTopic="ws_command_area.html"/>
+            <Button   Anchors="0,5" Name="OpenMaster" HotKey="F4" MouseDown=":ToggleMainDialog" MouseUp=":CloseMainDialog" SignalValue="MasterControl" ToolTip="Opens the master controls menu." Icon="fader" HelpTopic="ws_master_controls.html"/>
+            <Button   Anchors="0,6" Name="OpenCustomMaster" HotKey="F7" MouseDown=":ToggleMainDialog" MouseUp=":CloseMainDialog" SignalValue="CustomMasterSectionOverlay" ToolTip="Opens the custom master section menu." Icon="special_master" HelpTopic="executor_special.html"/>
+            <Button   Anchors="0,7" Name="OpenPlayback" HotKey="F5" MouseDown=":ToggleMainDialog" MouseUp=":CloseMainDialog" SignalValue="PlaybackControl" ToolTip="Opens the playback controls menu." Icon="master" HelpTopic="ws_playback_controls.html"/>
+            <Button   Anchors="0,8" Name="OpenEncoderBar" HotKey="F8"  MouseDown=":ToggleMainDialog" MouseUp=":CloseMainDialog" SignalValue="EncoderBarControl" ToolTip="Opens the encoder bar menu." Icon="object_encbar"  HelpTopic="ws_encoder_bar.html"/>
+            <UIObject Name="FillerDispSelector" Anchors="0,9" Texture="corner0" HasHover="0" />
+            <Button   Name="DisplaySelectorBtn" Anchors="0,10" Clicked=":CommandLine" SignalValue="menu DisplaySelectOverlay" ToolTip="Opens the display select menu." Icon="display"  />
+            <HardkeyButton Texture="corner0" Anchors="0,11" SignalValue="HELP" LedToken="Help" OnOffTexture="led_rect" ColorIndicatorHeight="0" Icon="QuestionMarkIcon" SuppressOverlayAutoClose="Yes" DrawShortcutInfo="No" HelpTopic="about_the_manual.html" DoubleClicked=":OpenHelpPopup"/>
+            <UIObject Anchors="0,12" Texture="corner0" HasHover="0" />
+            <PropertyControl Name="CommandWingBarButton" Anchors="0,13" Icon="commandWingBar" H="50" Property="ShowCommandWingBar"  HotKey="Alt+W" OnLoad=":SetCommandWingBarButton" ToolTip="Toggles the command wing bar." ShowValue="No" ShowLabel="No" BackColor="Button.Background" />
+            <UIObject Anchors="0,14" Texture="corner0" HasHover="0"  H="25" OnLoad=":ShowOnlyOnPcDisplay1" />
+            <PropertyControl Anchors="0,15" HotKey="F1" DefaultAction="0" Target="#.AtFilter" Padding="0,25,0,0" Icon="object_filter" ShowValue="No" Property="Active" SuppressOverlayAutoClose="Yes" Clicked=":CommandLine" SignalValue="menu AtOverlay" MouseDownHold=":ToggleMainDialog" SignalValueHold="AtFilterOverlay" ToolTip="Tap to open the quick command overlay. Tap and hold to open the At Filter overlay."  BackColor="Button.Background" Text="At" TextAlignmentV="Top" />
+        </UILayoutGrid>
+    </ScrollBox>
+</ScrollContainerPage>

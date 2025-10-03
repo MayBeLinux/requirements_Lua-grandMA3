@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="141" Name="PresetBar" Guid="4B DA AD 0E DB 54 46 7F B4 87 25 A5 B8 79 18 CB" Author="MA" Version="0.1.0.0" Path="/ui/bars" DisplayFrom="Intern1" DisplayTo="Intern1" Core="Yes">
+        <ComponentXML Index="1" Guid="76 58 7B 54 0C 05 47 8F 9A 72 FB 94 00 26 2E 37" FileName="preset_bar.uixml" PlaceHolder="EncoderBar" Toggle="No" SearchFocusAllowed="No" />
+        <ComponentLua Index="2" Guid="33 99 B7 A5 C7 70 49 8A 82 F9 C2 78 74 A8 7D A0" FileName="preset_bar.lua" />
+    </Menu>
+</GMA3>

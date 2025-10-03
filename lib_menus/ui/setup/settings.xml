@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="159" Name="Settings" Guid="00 1B 21 70 95 E7 00 00 33 52 36 54 89 D8 B2 AD" Author="MA" Version="0.1.0.0" Path="/ui/setup">
+        <ComponentXML Index="1" Guid="00 1B 21 70 2E E9 00 00 32 52 36 54 89 D8 B2 AD" FileName="settings.uixml" PlaceHolder="MainDialog" Toggle="No" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="TagsInput" W="800" H="480" EscModalResult="Ok" OnLoad=":OnLoaded" ExclusivePropertyChange="Yes">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton  Texture="corner1" Anchors="0,0" Text="Set Tags"/>
+            <CloseButton  Texture="corner2" Anchors="1,0" CloseAction="Ok"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame" DefaultMargin="10">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PlaceHolder Name="TagsEditPlaceholder" Anchors="0,0"/>
+
+        </DialogFrame>
+    </BaseInput>
+
+</GMA3>

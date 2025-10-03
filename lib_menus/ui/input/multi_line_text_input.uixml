@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MultiLineTextInput AutoClose="No" AlignmentH="Center" AlignmentV="Center" OnLoad=":MultiLineTextInputLoaded" Visible="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <TitleBar Name="TitleBar" Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <Button Name="VK" Texture="corner1" Anchors="0,0" Clicked=":ToggleVirtualKeyboard" Icon="keyboard" />
+            <TitleButton Name="Title" Texture="corner0" Anchors="1,0" Text="Text input" Icon=""/>
+            <Button Name="Undo" Icon="undo" ActiveBackColor="Button.Background" ToolTip="Undo last change" HotKey="Ctrl+Z" Texture="corner0" Anchors="2,0" Clicked=":UndoTextEdit" />
+            <Button Name="Redo" Icon="redo" ActiveBackColor="Button.Background" ToolTip="Redo last undo" HotKey="Ctrl+Y" Texture="corner0" Anchors="3,0" Clicked=":RedoTextEdit" />
+            <Button Name="Save" Text="Save" ToolTip="Save changes and close input dialog" HotKey="Alt+Enter" Texture="corner0" Anchors="4,0" Clicked=":CloseOK" />
+            <CloseButton Texture="corner2" Anchors="5,0" CloseAction="Confirm" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50"/>
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <TextEdit Name="InputField" Anchors="0,0" Margin="4,4,4,2" Focus="InitialFocus" Execute=":CloseOK" EnterToExecute="Yes" Undo=":UndoTextEdit" Redo=":RedoTextEdit" UndoRedoChanged=":UndoRedoChanged" HasHover="No" WantsNumericRedirect="Yes" TextAutoAdjust="Yes" />
+
+            <PlaceHolder Name="VirtualKeyboardPlaceholder" Anchors="0,1" Margin="4,2,4,2" H="250"/>
+        </DialogFrame>
+    </MultiLineTextInput>
+</GMA3>

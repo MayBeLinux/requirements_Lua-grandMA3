@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Display UserRights="None" X="0" Y="0" W="1280" H="240" BackColor="Global.Background" OnVisible=":DisplayVisible" OnLoad=":DisplayLoaded" FocusSearchPolicy="Suppress">
+
+        <UILayoutGrid Name="EncoderBarContainer" Anchors="0,0" H="240">
+            <UILayoutGrid Name="EncoderBarGrid">
+
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="100" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Fixed" Size="100" />
+                </ItemCollectColumns>
+                <PlaceHolder Name="EncoderBarBase" Anchors="0,0,2,1" BlockLevel="Little" />
+                <PlaceHolder Name="EncoderBar" Anchors="1,1" BlockLevel="Little" />
+            </UILayoutGrid>
+            <PlaceHolder Name="EncoderBarOverlay" />
+
+
+        </UILayoutGrid>
+
+
+
+
+
+
+        <!-- Modal overlay occupies the whole display area -->
+        <PlaceHolder Name="ModalOverlay" />
+        <PlaceHolder Name="FullScreen" />
+    </Display>
+</GMA3>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Display  UserRights="None" X="100" Y="100" W="1920" H="1080" BackColor="Global.Background" OnVisible=":DisplayVisible" OnLoad=":DisplayLoaded" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content"  />            
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Content"/>
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content"/>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+        <!-- cmdline.uixml has to be included before all other because of keyboard shortcut handling -->
+        <!INCLUDE ../include/cmdline.uixml >
+
+        <!INCLUDE ../include/main_menu.uixml >
+
+        <UILayoutGrid Name="ScreenContainer" Anchors="1,0,2,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Content"  />            
+                <Item SizePolicy="Stretch" Size="3" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+
+            <UIObject Name="ScrollIndicatorBox" Anchors="0,1,0,1" Texture="small_frame0" BackColor="Screen.ExtendedActive" Transparent="No" HasHover="No">
+                <ScrollContainer Name="ScreenScroll">
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes" PanScroll="No">
+                        <UiScreen Name="UiScreen" DelimiterTexture="tiny_cross" ToolTip="Click here to create a new window" MouseUpLeft=":CommandLineEmpty" SignalValue="menu AddWindow" TextAlignmentH="Left" TextAlignmentV="Bottom" TextColor="Global.AlertText" />
+                    </ScrollBox>
+                </ScrollContainer>
+            </UIObject>
+            
+            <ViewBar Name="ViewBar" W="100" Anchors="1,0,1,1" BackColor="Global.Default" ToolTip="Here you will find action keys to call stored views." HelpTopic="ws_ui_view_bar_and_buttons.html" SetToTop=":ViewBarButtonLink" ScrollPageDown=":ViewBarPageLink"/>
+            <Button Name="GoToFirst" W="50" H="50" Anchors="1,0,1,1" Icon="triangle_up" Texture="Corner15" AlignmentH="Right" Clicked=":ViewBarButtonLink" BackColor="Global.Hover" />
+			<Button Name="ViewBarNextPage" W="50" H="50" Anchors="1,0,1,1" Icon="triangle_down" Texture="Corner15" AlignmentH="Right" AlignmentV="Bottom" Clicked=":ViewBarPageLink" BackColor="Global.Hover" />
+        </UILayoutGrid>
+	
+        <!-- Placeholders -->
+		<CommandWingBarContainer Name="EncoderBarContainer" Anchors="0,3,2,3" H="240" Margin="0,3,0,0">
+			<ItemCollectColumns>
+				<Item SizePolicy="Stretch" Size="6" MinSize="100"  />
+				<Item SizePolicy="Stretch" Size="1" MinSize="50"  />
+				<Item SizePolicy="Stretch" Size="8" MinSize="200"  />
+			</ItemCollectColumns>
+			<!-- Executors -->
+			<PlaybackControlContent Name="ExecutorSection" Anchors="0,0" Margin="0,0,3,0" FixedExecutorBlockCount="2" Font="Regular14" LowDpiFont="Regular9" ShowLabelsByDefault="Yes" ShowExecutorsByDefault="No" >
+				<!INCLUDE ../include/playback_control_content.uixml >
+			</PlaybackControlContent>
+			<!-- Custom Masters -->
+			<UILayoutGrid Anchors="1,0" Name="MasterSection" Transparent="Yes" Texture="Corner15" BackColor="CustomMasters.Section" Margin="3,0,3,0" DefaultMarginOnBorders="No" Font="Regular14" LowDpiFont="Regular9">
+				<ItemCollectRows>
+					<Item SizePolicy="Stretch" Size="1" />
+					<Item SizePolicy="Stretch" Size="3" />
+				</ItemCollectRows>
+				<UILayoutGrid Anchors="0,0" Name="MasterXfadeArea"   Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+					<SpecialExecSection Anchors="0,0,1,0" Name="MasterXfadeLabel" Rows="1" Columns="2" ExecBarToDraw="1" Texture="Corner3" FirstRow="1" LastRow="1" />
+				</UILayoutGrid>
+
+				<UILayoutGrid Anchors="0,1" Name="LastSelectedArea"  Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+					<SpecialExecSection Anchors="0,0,1,0" Name="LastSelectedLabel" Rows="1" Columns="2" ExecBarToDraw="1" Texture="Corner3" FirstRow="2" LastRow="3" />
+				</UILayoutGrid>
+			</UILayoutGrid>
+            <UILayoutGrid Name="EncoderBarGrid" Anchors="2,0">
+
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="100" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Fixed" Size="100" />
+                </ItemCollectColumns>
+                <PlaceHolder Name="EncoderBarBase" Anchors="0,0,2,1" BlockLevel="Little" />
+		        <PlaceHolder Name="EncoderBar" Anchors="1,1" BlockLevel="Little" />
+            </UILayoutGrid>
+            <PlaceHolder Name="EncoderBarOverlay" />
+
+        </CommandWingBarContainer>
+
+        <PlaceHolder Name="MainDialog"  DisplayLevel="Yes" Anchors="1,0,2,1" />
+        <PlaceHolder Name="MainOverlay"   Anchors="1,0,2,1" />
+        <PlaceHolder Name="HelpOverlay" DisplayLevel="Yes" />
+        <PlaceHolder Name="FullScreen"   DisplayLevel="Yes" Anchors="0,0,2,3" />
+        <PlaceHolder Name="ScreenOverlay" DisplayLevel="Yes" Anchors="1,0,1,1" />
+        <PlaceHolder Name="NotificationOverlay" DisplayLevel="Yes"/>
+        <PlaceHolder Name="ModalOverlay" DisplayLevel="Yes" />
+    </Display>
+</GMA3>

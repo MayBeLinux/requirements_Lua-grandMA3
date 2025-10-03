@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="EncoderOverlayH" Author="MA" Version="0.1.0.0" Path="/ui/overlays" Placement="Single">
+        <ComponentXML FileName="encoder_overlay_h.uixml" PlaceHolder="ModalOverlay"  DefaultDisplay="1" SearchFocusAllowed="No"  />
+        <ComponentLua FileName="encoder_overlay.lua" />
+    </Menu>
+</GMA3>

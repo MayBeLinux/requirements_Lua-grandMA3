@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow Name="BitmapPool" HelpTopic="bitmap.html" >
+        <GeneratorBitmapPoolLayoutGrid Text="Bitmaps" TitleButtonIcon="object_bitmaps" ReactToRecipeEdit="Yes"/>
+    </PoolWindow>
+</GMA3>

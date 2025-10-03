@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ColorInput Name="ColorInput" W="600" H="600" OnLoad=":ColorInputLoaded">
+        <TitleBar Anchors="0,0" Name="TitleBar" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Text input" Icon=""/>
+            <IndicatorButton Anchors="1,0" Text="Ok" CloseAction="Ok" />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="5" />
+                <Item SizePolicy="Stretch" Size="3" />
+                <Item SizePolicy="Fixed" Size="5" />
+                <Item SizePolicy="Stretch" Size="3" />
+                <Item SizePolicy="Fixed" Size="5" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="TopRow" Anchors="0,1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="5" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="5" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="5" />
+                </ItemCollectColumns>
+
+                <ColorPickHSCircle Anchors="1,0" Name="ColorPicker01" System="RGB" />
+
+                <UILayoutGrid Name="TopRowRight" Anchors="3,0" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="40" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <ColorView Anchors="0,0" Name="ColorView" System="RGB" />
+                    <LineEdit Anchors="0,1" Name="LineEdit" MinSize="100,0" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="BottomRow" Anchors="0,3" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                </ItemCollectColumns>
+
+                <ColorPickHSRect Anchors="1,0" Name="ColorPicker02" System="RGB" />
+
+                <UILayoutGrid Name="Faders" Anchors="3,0" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <ColorInterfaceFader Anchors="0,0" Name="R" Property="R" System="RGB" HeadLineDimension="20" ButtonDimension="20" DrawGradient="1" UseDynamicIndicatorColor="Yes" Texture="corner1" HeadLineTexture="corner1" />
+                    <ColorInterfaceFader Anchors="1,0" Name="G" Property="G" System="RGB" HeadLineDimension="20" ButtonDimension="20" DrawGradient="1" UseDynamicIndicatorColor="Yes" Texture="corner0" HeadLineTexture="corner0" />
+                    <ColorInterfaceFader Anchors="2,0" Name="B" Property="B" System="RGB" HeadLineDimension="20" ButtonDimension="20" DrawGradient="1" UseDynamicIndicatorColor="Yes" Texture="corner0" HeadLineTexture="corner0" />
+                    <ColorInterfaceFader Anchors="3,0" Name="A" Property="Alpha" System="RGB" HeadLineDimension="20" ButtonDimension="20" Texture="corner2" HeadLineTexture="corner2" />
+                    <ColorInterfaceFader Anchors="0,1" Name="Hue" Property="H" System="HSB" HeadLineDimension="20" ButtonDimension="20" Texture="corner1" UseDynamicIndicatorColor="Yes" HeadLineTexture="corner1" UpperTexture="FaderGrad1" LowerTexture="FaderGrad1" />
+                    <ColorInterfaceFader Anchors="1,1" Name="Sat" Property="S" System="HSB" HeadLineDimension="20" ButtonDimension="20" DrawGradient="1" UseDynamicIndicatorColor="Yes" Texture="corner0" HeadLineTexture="corner0" />
+                    <ColorInterfaceFader Anchors="2,1" Name="Br" Property="B" System="HSB" HeadLineDimension="20" ButtonDimension="20" DrawGradient="1" UseDynamicIndicatorColor="Yes" Texture="corner2" HeadLineTexture="corner2" />
+
+                </UILayoutGrid>
+
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </ColorInput>
+</GMA3>

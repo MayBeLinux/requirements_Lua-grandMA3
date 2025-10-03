@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="206" Name="WindowDmxSheet" Guid="7B B8 2A 45 95 F2 4B 78 9C 89 A6 B8 28 FC E0 4E" Author="MA" Version="0.1.0.0" Path="/ui/window_sheet">
+        <ComponentXML Index="1" Guid="4B F6 02 44 16 D2 42 46 90 9F A7 32 E0 D4 6F 1F" FileName="window_dmx_sheet.uixml" PlaceHolder="UiScreen" WindowSettings="DMXSheetSettings" WindowContext="ContextDmxSheet" Toggle="No" />
+        <ComponentLua Index="2" Guid="" FileName="window_dmx_sheet.lua" />
+    </Menu>
+</GMA3>

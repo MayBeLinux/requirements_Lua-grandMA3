@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PlaybackViewWindow OnLoad=":PlaybackViewLoaded" ReactToPreview="Yes" HelpTopic="executor.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50"  />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0,2,0" Text="Playbacks" />
+            <TitleAutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <SwipeButton   Name="Wing"      W="100" MinSize="50,0" Property="WingID" HelpTopic="ws_playback_controls.html"/>
+                <SwipeButton   Name="Page"      W="100" MinSize="50,0" Property="Page"   Text="Page" TextAutoAdjust="Yes" />
+                <PropertyInput Name="Row400"    W="100" MinSize="50,0" Property="Row400" Text="Row 400" AutoHide="Yes" />
+                <PropertyInput Name="Row300"    W="100" MinSize="50,0" Property="Row300" Text="Row 300" AutoHide="Yes" />
+                <PropertyInput Name="Row200"    W="100" MinSize="50,0" Property="Row200" Text="Row 200" AutoHide="Yes" />
+                <PropertyInput Name="Row100"    W="100" MinSize="50,0" Property="Row100" Text="Row 100" AutoHide="Yes" />
+                <PropertyInput Name="Labels"    W="100" MinSize="50,0" Property="Labels"                AutoHide="Yes" />
+                <PropertyInput Name="Executors" W="100" MinSize="50,0" Property="Executors"             AutoHide="Yes" />
+            </TitleAutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_playback" ToolTip="configures playback view"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Frame" MixInBackColorFromParent="Yes" >
+            <PlaybackControlContent Font="Regular14" LowDpiFont="Regular9">
+                <!INCLUDE ../../include/playback_control_content.uixml >
+            </PlaybackControlContent>
+        </DialogFrame>
+
+    </PlaybackViewWindow>
+</GMA3>

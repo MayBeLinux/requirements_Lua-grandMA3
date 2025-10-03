@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ScribbleEditContent Name="ScribbleEditContent" OnLoad=":OnLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <ScribbleEditView Anchors="0,0" Name="ScribbleEdit" OnCreateNewScribble=":OnCreateNewScribble" OnApplyScribble=":ApplyScribble"  />
+        <UILayoutGrid Name="EditorGrid2" Anchors="1,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="9" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <UILayoutGrid Name="ColorGridEditor" Anchors="0,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="90" />
+                    <Item SizePolicy="Fixed" Size="90" />
+                </ItemCollectColumns>
+
+                <UILayoutGrid Name="NameScribbleWrapper" Anchors="0,0,2,0" Columns="2">
+                    <PropertyInput Name="LabelScribble" Property="Name" ValueRole="Default" Anchors="0,0" Texture="corner1" />
+                    <PropertyInput Name="NoteScribble" Property="Note" Anchors="1,0" Texture="corner2" />
+                </UILayoutGrid>
+
+                <ColorPickHSRect Anchors="0,1" Name="ColorPicker" System="RGB" />
+
+                <UILayoutGrid Name="ColorOptions" Anchors="0,2" Columns="2">
+                    <IndicatorButton Anchors="0,0" Text="Set Scribble&#xD;to Color" Clicked=":OnApplyColorToCurves" SignalValue="hard" />
+                    <IndicatorButton Anchors="1,0" Text="Use Color&#xD;as Filter" Clicked=":OnApplyColorToCurves" SignalValue="filter" />
+                </UILayoutGrid>
+
+                <ColorInterfaceFader Anchors="1,1,1,2" Name="B" Property="B" System="HSB" Texture="corner0" HeadLineTexture="corner0" DrawGradient="1" UseDynamicIndicatorColor="Yes" />
+                <UiFader Anchors="2,1,2,2" Name="Thickness" Text="Thickness" Property="ScribbleWidthScale" Texture="corner0" HeadLineTexture="corner0" />
+            </UILayoutGrid>
+            <UILayoutGrid Name="OperationsGrid" Anchors="0,1" Columns="3" >
+                <IndicatorButton Anchors="0,0" Text="Oops" Clicked=":ScribbleUndo" />
+                <IndicatorButton Anchors="1,0" Text="Clear" Clicked=":SE_ClearScribble"/>
+                <IndicatorButton Anchors="2,0" Text="Revert" Clicked=":RevertScribble"/>
+                <!-- <IndicatorButton Name="Apply" Anchors="3,0" Text="Apply" Clicked=":ApplyScribble" />
+                <IndicatorButton Anchors="4,0" Text="Save" Clicked=":CloseOK" Texture="corner8" /> -->
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </ScribbleEditContent>
+</GMA3>

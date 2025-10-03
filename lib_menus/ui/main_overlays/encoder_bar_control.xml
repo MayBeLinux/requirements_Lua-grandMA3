@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes"  Name="EncoderBarControl"  Author="MA" Version="0.1.0.0" Path="/ui/main_overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML FileName="encoder_bar_control.uixml" PlaceHolder="MainOverlay" />
+        <ComponentLua FileName="encoder_bar_control.lua" />
+
+    </Menu>
+</GMA3>

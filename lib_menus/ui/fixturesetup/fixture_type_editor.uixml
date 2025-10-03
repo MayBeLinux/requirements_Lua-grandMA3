@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgFixtureTypeEditor Name="FixtureTypeEditor" OnLoad=":OnFixtureTypeEditorLoaded" OverrideKeybSC="Yes">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Fixture Type" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <UITab Name="TopLevelTab" AvoidScroll="Yes" Anchors="0,0" TabChanged=":OnTopLevelTabChanged" />
+            <TagButtonList Name="TagButtonList" Anchors="0,1" />
+
+            <UILayoutGrid Name="MiddleContent" Anchors="0,2" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch"  />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectColumns>
+                <DBObjectGrid Anchors="0,0" Name="TopLevelGrid" LevelLimit="0" MinSize="200,0" BackColor="UIGrid.Background"  ChangeTarget=":TopLevelTabChanged" Focus="InitialFocus"/>
+               
+                <!INCLUDE ../window_other/window_fixturetype_visualizer.uixml>
+
+                <SplitterH Name="Resizer" Anchors="1,0" UIToControl="Right" />
+
+            </UILayoutGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons Name="Functions">
+            <CmdDlgFunctionButtonsLeft Name="Left" >
+                <MainDlgBlindButton Anchors="2,1,3,1"/>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+            </CmdDlgFunctionButtonsLeft>
+
+            <CmdDlgFunctionButtonsRight Name="Right">
+                <SwipeButton Anchors="0,0" Name="DMXReadout" Text="DMXReadout" Property="DMXReadout" DirectCommand="Yes" DirectPrefix="DMXReadout" DirectQuotation="Yes" />
+                <MainDlgBlindButton Anchors="1,1" Name="Blindbutton"/>
+                <Button   Anchors="1,1" Name="Conflicts" Text="Show Conflicts" Clicked=":ShowConflicts" HelpTopic="ft_conflicts_in_fixture_types.html"/>
+                <MainDlgEditButton Name="Edit"/>
+                <MainDlgBlindButton Anchors="0,1" Name="EditBlind"/>
+                <MainDlgGridSelectUp />
+                <MainDlgGridSelectDown />
+                <MainDlgNewLineToggleButton />
+                <MainDlgMergeToggleButton />
+                <MainDlgBlindButton Anchors="1,0" />
+            </CmdDlgFunctionButtonsRight>
+
+        </MainDialogFunctionButtons>
+
+        <MainDialogPlaceHolder Name="MainDialog" />
+
+    </MainDlgFixtureTypeEditor>
+</GMA3>

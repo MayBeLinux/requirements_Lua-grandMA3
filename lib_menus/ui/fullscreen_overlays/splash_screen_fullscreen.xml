@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="11" Name="SplashScreenFullscreen" Guid="00 1B 21 63 C8 C2 00 00 80 52 36 54 14 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays" Placement="ForceMulti">
+        <ComponentXML Index="1" Guid="00 1B 21 63 13 C3 00 00 83 52 36 54 14 82 55 B0" FileName="splash_screen_fullscreen.uixml" PlaceHolder="FullScreen" BuddyGroupId="SplashScreenFull" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 1F 92 00 00 82 52 36 54 14 82 55 B0" FileName="splash_screen_fullscreen.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Popup OnLoad=":OnLoaded" AlignmentH="Center" AlignmentV="Center">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Name="TitleBar" Anchors="0,0" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="0" />
+                <Item SizePolicy="Fixed" Size="0"/>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Popup input" ContentDriven="Yes" ContentHeight="No" ForceContentMin="Yes" Icon="" Padding="4,0,4,0"/>
+            <PropertyControl Name="FilterCtrl" Visible="No" Texture="corner0" Anchors="1,0" Property="Visible" Icon="object_filter" ShowLabel="No" ShowValue="No" Focus="CanHaveFocus"/>
+            <ObjectSelector Name="DataPoolSelect" Visible="No" Text="DataPool" Anchors="2,0" SelectionChanged=":OnDataPoolChanged" OnLoad=":EnableDataPoolSelector" ShowLabel="Yes" TextColor="Button.Text" />
+            <CloseButton Texture="corner2" Anchors="3,0" Focus="Never" />
+        </TitleBar>
+        <DialogFrame Name="Frame" Anchors="0,1" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <LineEdit H="50" Name="ItemFilterField" Anchors="0,0" Property="ItemFilter" Target="../Popup" Visible="No" Focus="InitialFocus" Execute=":SelectFirstItem" />
+            <ScrollableItemList Anchors="0,1" Name="Popup" ContentDriven="Yes" ForceContentMin="Yes" ItemType="PopupItemButtonExt" AllowBlocks="Yes" SelectFirst=":SelectFirstItem" />
+            <ScrollBarV Name="ScrollV" W="20" ScrollTarget="../Popup" ScrollOpposite="No" Visible="No" AlignmentH="Right" />
+            <ScrollBarH Name="ScrollH" H="20" ScrollTarget="../Popup" ScrollOpposite="No" Visible="No" AlignmentV="Bottom" />
+        </DialogFrame>
+    </Popup>
+</GMA3>

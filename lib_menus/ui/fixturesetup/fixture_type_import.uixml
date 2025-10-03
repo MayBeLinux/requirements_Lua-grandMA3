@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <FixtureTypeImport Name="FixtureTypeImport" MinSize="550,500" WantsModal="1" OnLoad=":FTImportLoaded" FilterChanged=":FTFilterChanged" DriveReset="true" HelpTopic="ft_import.html" >
+        <TitleBar Anchors="0,0" Name="TitleBar" SearchFocusTestParent="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select fixture type to import" />
+            <AutoLayout Name="AdditionalStuff" Direction="Horizontal" Anchors="1,0" Content="Yes" Visible="No">
+                <PropertyControl Name="CountBtn" Property="VisibleFixturesCount" MinSize="200,0"/>
+            </AutoLayout>
+            <CloseButton Name="CloseBtn" W="60" Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame" SearchFocusTestParent="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="120"/>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+
+            <!-- HEAD CONTAINER -->
+            <UILayoutGrid Anchors="0,0" Name="HeadContainer">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <UILayoutGrid Anchors="0,0" Name="Row1" Margin="0,10,0,0">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed"   Size="25" />
+                        <Item SizePolicy="Stretch" Size="2" />
+                        <Item SizePolicy="Content" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Content" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="25" />
+                        <Item SizePolicy="Content" Size="1" />
+                        <Item SizePolicy="Fixed"   Size="42" />
+                    </ItemCollectColumns>
+
+                    <LineEdit        Anchors="1,0" Name="FilterEdit"              Margin="0,0,0,1" MinSize="100,0" Focus="WantsFocus"  Icon="zoom" IconAlignmentH="Left" IconAlignmentV="Center" KeyboardIconAlignmentH="Right" Property="Filter" Clear=":ClearFilters" Execute=":JumpToSelectButton" Texture="corner5" TextChanged=":UpdateClearFilterButton" Message="Type to search..."/>
+                    <Button          Anchors="2,0" Name="Clear"      Text="Clear" Margin="0,0,0,1"  Clicked=":ClearFilters" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" Enabled="No" />
+
+                    <UILayoutGrid    Anchors="4,0" Name="LibraryButtons">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Content"/>
+                            <Item SizePolicy="Content"/>
+                            <Item SizePolicy="Content"/>
+                            <Item SizePolicy="Content"/>
+                        </ItemCollectColumns>
+
+                        <!-- Visible when drive is usb and oldVersion: -->
+                        <IndicatorButton Anchors="0,0" W="60" MinSize="40,0" Name="fake_libr" HasHover="No" Icon="hardkey_ma_logo" Focus="Never" Enabled="No" Texture="corner5"/>
+                        <IndicatorButton Anchors="1,0" W="60" MinSize="40,0" Name="fake_user" HasHover="No" Icon="object_user"     Focus="Never" Enabled="No" />
+                        <IndicatorButton Anchors="2,0" W="60" MinSize="40,0" Name="fake_shar" HasHover="No" Icon="object_world_server"           Focus="Never" Enabled="No" />
+
+                        <!-- Visible when drive is internal:  -->
+                        <IndicatorControl Anchors="0,0" W="60" MinSize="40,0" Name="libr" HasHover="No" ShowLabel="No" ShowValue="No" Icon="hardkey_ma_logo"     Focus="Never" Target="~" Property="LoadFixtureLibraryMA" Texture="corner5"/>
+                        <IndicatorControl Anchors="1,0" W="60" MinSize="40,0" Name="user" HasHover="No" ShowLabel="No" ShowValue="No" Icon="object_user"         Focus="Never" Target="~" Property="LoadFixtureLibraryUser" />
+                        <IndicatorControl Anchors="2,0" W="60" MinSize="40,0" Name="shar" HasHover="No" ShowLabel="No" ShowValue="No" Icon="object_world_server" Focus="Never" Target="~" Property="LoadFixtureLibraryShare" HelpTopic="ft_import_gdtf.html"/>
+
+                        <DriveSelector   Anchors="3,0" W="130" Name="DriveSelector" Target="Temp.DriveCollect" SelectionChanged=":DriveChange" ShowOldVersions="Yes" Focus="Never" Texture="corner10"/>
+                    </UILayoutGrid>
+
+                    <IndicatorControl Anchors="6,0" Name="FilterUsed" Text="Used&#xD;only" Texture="corner15" ShowValue="No" Property="FilterByUsedOnly" MinSize="50,0" W="130" Focus="Never" ShowLabel="Yes" TextAutoAdjust="No"/>
+                </UILayoutGrid>
+
+                <UILayoutGrid Anchors="0,1" Name="Row2" Margin="0,10,0,0">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="3" />
+                    </ItemCollectColumns>
+                    <Button Name="FromShw" Anchors="0,0" MinSize="150,0" Text="Show"    Clicked=":GotoShowClicked" Focus="Never" BackColor="FixtureTypeImport.TabInactive" ActiveBackColor="FixtureTypeImport.TabActive"/>
+                    <Button Name="FromLib" Anchors="1,0" MinSize="150,0" Text="Library" Clicked=":GotoLibClicked"  Focus="Never" BackColor="FixtureTypeImport.TabInactive" ActiveBackColor="FixtureTypeImport.TabActive"/>
+                </UILayoutGrid>
+            </UILayoutGrid>
+            <!-- MAIN CONTAINER -->
+            <UILayoutGrid Anchors="0,1" Name="GridContainer" Margin="0,1,0,0" DefaultMargin="3">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Content" Size="1"/>
+                    <Item SizePolicy="Content" Size="1"/>
+                </ItemCollectRows>
+
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Content"/>
+                </ItemCollectColumns>
+
+                <!-- FixtureType 3 Column Grid -->
+                <UIObject Anchors="0,0" Text="Manufacturer" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <UIObject Anchors="1,0" Text="Fixture"      HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <UIObject Anchors="2,0" Text="Mode"         HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+
+                <FixturetypeItemList Anchors="0,1" Name="Manufacturer" KeyUp=":NavigateBetweenItemLists" ScrollChangesSelection="Yes"/>
+                <FixturetypeItemList Anchors="1,1" Name="Fixture"      KeyUp=":NavigateBetweenItemLists" ScrollChangesSelection="Yes" ItemType="FixtureTypeItemButton" ShowLeftIcon="Yes"/>
+                <FixturetypeItemList Anchors="2,1" Name="Mode"         KeyUp=":NavigateBetweenItemLists" DoubleClicked=":DoImportFT"/>
+
+                <ScrollBarV Anchors="0,1" Name="ScrollV" W="20" ScrollTarget="../Manufacturer"  ScrollOpposite="No" Visible="Yes" AlignmentH="Right"/>
+                <ScrollBarV Anchors="1,1" Name="ScrollV" W="20" ScrollTarget="../Fixture"       ScrollOpposite="No" Visible="Yes" AlignmentH="Right"/>
+                <ScrollBarV Anchors="2,1" Name="ScrollV" W="20" ScrollTarget="../Mode"          ScrollOpposite="No" Visible="Yes" AlignmentH="Right"/>
+
+                <!-- Description -->
+                <SplitterV Anchors="0,2,2,2" Margin="0,5,0,5"/>
+                <UILayoutGrid Name="DescContainer" Anchors="0,3,2,3" Visible="No" MinSize="0,240" MaxSize="0,400">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="40"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Fixed" Size="40"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                    </ItemCollectRows>
+
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="2"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                    </ItemCollectColumns>
+
+                    <UIObject Anchors="0,0,4,3" HasHover="No" BackColor="Overlay.FrameColor"/>
+
+                    <UIObject Anchors="0,0"     HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineDescription" Text="Description" TextAlignmentH="Center" />
+                    <TextEdit Anchors="0,1,0,3" HasHover="No" Margin="10,1,10,10" BackColor="UIGrid.FixedBackground"  Name="Description" Padding="5,5,5,5"/>
+
+                    <UIObject Anchors="1,0,2,0" HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineFName"     Text="File Name"     TextAlignmentH="Center" />
+                    <TextEdit Anchors="1,1,2,1" HasHover="No" Margin="10,1,10,10" BackColor="UIGrid.FixedBackground"  Name="FName" Padding="5,5,5,5"/>
+
+                    <UIObject Anchors="1,2"     HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineSource"     Text="Source"     TextAlignmentH="Center" />
+                    <UIObject Anchors="1,3"     HasHover="No" Margin="10,1,10,10" BackColor="UIGrid.FixedBackground"  Name="Source" TextAlignmentH="Left" TextAlignmentV="Top" Padding="5,5,5,5"/>
+
+                    <UIObject Anchors="2,2"     HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineCreator"     Text="Creator"     TextAlignmentH="Center" />
+                    <UIObject Anchors="2,3"     HasHover="No" Margin="10,1,10,10" BackColor="UIGrid.FixedBackground"  Name="Creator" TextAlignmentH="Left" TextAlignmentV="Top" Padding="5,5,5,5"/>
+
+                    <UIObject Anchors="3,0"     HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineFSize"     Text="File Size"     TextAlignmentH="Center" />
+                    <UIObject Anchors="3,1"     HasHover="No" Margin="10,1,10,10" BackColor="UIGrid.FixedBackground"  Name="FSize" TextAlignmentH="Left" TextAlignmentV="Top" Padding="5,5,5,5"/>
+
+                    <UIObject Anchors="3,2"     HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineUploader"    Text="Uploader"    TextAlignmentH="Center" />
+                    <UIObject Anchors="3,3"     HasHover="No" Margin="10,1,10,10" BackColor="UIGrid.FixedBackground"  Name="Uploader" TextAlignmentH="Left" TextAlignmentV="Top" Padding="5,5,5,5"/>
+
+                    <UIObject Anchors="4,0"     HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineVersion"     Text="Version"     TextAlignmentH="Center" />
+                    <UIObject Anchors="4,1"     HasHover="No" Margin="10,1,10,10" BackColor="UIGrid.FixedBackground"  Name="Version" TextAlignmentH="Left" TextAlignmentV="Top" Padding="5,5,5,5"/>
+
+                    <UIObject Anchors="4,2"     HasHover="No" Margin="10,10,10,0" BackColor="UIGrid.HeaderBackground" Name="HeadlineRating"      Text="Rating"      TextAlignmentH="Center" />
+                    <UILayoutGrid Anchors="4,3" Name="Rating" Margin="10,1,10,10">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="5"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <UIObject Name="RatingText"  Anchors="0,0,2,1" HasHover="No" BackColor="UIGrid.FixedBackground" TextAlignmentV="Bottom" Padding="10,10,10,10"/>
+                        <AutoLayout Name="RatingStars" Anchors="1,0" Direction="Horizontal">
+                            <Button Name="Rating1" HasHover="No" BackColor="Global.Transparent" Icon="star"/>
+                            <Button Name="Rating2" HasHover="No" BackColor="Global.Transparent" Icon="star"/>
+                            <Button Name="Rating3" HasHover="No" BackColor="Global.Transparent" Icon="star"/>
+                            <Button Name="Rating4" HasHover="No" BackColor="Global.Transparent" Icon="star"/>
+                            <Button Name="Rating5" HasHover="No" BackColor="Global.Transparent" Icon="star"/>
+                        </AutoLayout>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+                <!-- ChannelMap -->
+                <UIObject Anchors="3,0,3,3" HasHover="No" BackColor="Overlay.FrameColor"/>
+                <UILayoutGrid Name="SideContainer" Anchors="3,0,3,3" Visible="No" W="550" Padding="10,10,10,10">
+                    <GenericSheet Name="ChannelSheet" DataType="FTInfoGridData"/>
+                </UILayoutGrid>
+            </UILayoutGrid>
+            <!-- BOTTOM CONTAINER -->
+            <UILayoutGrid Anchors="0,2" Name="BottomContainer" DefaultMargin="1" AlignmentH="Right" Margin="0,1,0,0">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="30"/>
+                    <Item SizePolicy="Fixed" Size="150"/>
+                    <Item SizePolicy="Fixed" Size="30"/>
+                    <Item SizePolicy="Fixed" Size="150"/>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="150"/>
+                    <Item SizePolicy="Fixed" Size="30"/>
+                </ItemCollectColumns>
+                <IndicatorControl Anchors="1,0" Name="BottomCtrBtn" Text="Description" Property="Visible" Margin="0,5,0,5" Padding="10,0,10,0" Texture="corner15" WantsNumericRedirect="Yes" />
+                <!-- Channels not supported yet!!! -->
+                <IndicatorControl Anchors="3,0" Name="SideCtrBtn"   Text="Channels"    Property="Visible" Margin="0,5,0,5" Padding="10,0,10,0" Texture="corner15" WantsNumericRedirect="Yes" Visible="No"/>
+                <!-- Channels not supported yet!!! -->
+                <IndicatorButton         Anchors="5,0" Name="ImportBtn"    Text="Import"      Margin="0,5,0,5" Padding="10,0,10,0" WantsNumericRedirect="Yes" Texture="corner15" Clicked=":DoImportFT"  ColorIndicator="Button.BackgroundPlease" Focus="WantsFocus"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </FixtureTypeImport>
+</GMA3>

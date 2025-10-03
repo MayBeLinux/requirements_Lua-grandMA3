@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog HelpTopic="rdm.html" OverrideKeybSC="Yes">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="RDM Fixtures" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="1" >
+            <DBObjectGrid Name="RDMFixturesGrid" BackColor="UIGrid.Background" Anchors="0,0" Focus="InitialFocus" AllowAddNewline="No" TargetObject="ShowData.RDMData.RDMPorts" />
+        </MainDialogContent>
+
+        <!--
+        <MainDialogSubMenu>
+            <UIObject Texture="corner0" Anchors="0,9" HasHover="No"  />
+        </MainDialogSubMenu>
+-->
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <IndicatorButton Anchors="0,0" Text="Match" Enabled="Yes"  Clicked=":CommandLine" SignalValue="Edit UiGridSelection Property 'Fixture'" />
+                <IndicatorButton Anchors="0,1" Text="Unmatch" Enabled="Yes"  Clicked=":CommandLine" SignalValue="Set UiGridSelection Property 'Fixture' ''" />
+                <UIObject Anchors="1,0,3,1" Texture="corner0" HasHover="0"/>
+
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+                <IndicatorControl Anchors="2,1" Text="RDM" Property="Enable" Target="ShowData.RDMData"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialog>
+</GMA3>

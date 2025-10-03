@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="209" Name="WindowGoboPool" Guid="70 4D 7B 2D 2B 53 00 00 6C 58 86 BB 7C B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 97 40 00 00 63 58 86 BB 7C B1 01 1A" FileName="window_gobo_pool.uixml" PlaceHolder="UiScreen" WindowSettings="PoolSettings" WindowContext="ContextGenericPool" Toggle="No" />
+    </Menu>
+</GMA3>

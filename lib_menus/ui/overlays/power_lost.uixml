@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="PowerLost" W="700" H="250" AlignmentH="Center" AlignmentV="Center" WantsModal="1" DefaultMargin="0" AutoClose="0" RelativeToDisplay="Yes" OnLoad=":OnLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <TitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner3" Anchors="0,0" Text="Power Loss" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="4" Columns="3" Name="Content" >
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+
+            <ProgressBar Anchors="0,0,2,0" Name="Progress" ProgressColor="MessageBox.Progress" Visible="No" H="40"/>
+
+            <UIObject    Anchors="0,1,2,1" Texture="corner0" Text="The console is now running on battery power.&#xD;Ensure power supply." BackColor="Global.Background" HasHover="No" OnLoad=":ChangeMessage" />
+
+            <Button Anchors="0,2" Texture="corner4" Text="Save and Shut Down" Clicked=":SaveAndShutdown" />
+            <Button Anchors="1,2" Texture="corner0" Text="Shut Down"          Clicked=":CommandLine"    SignalValue="Shutdown /noconfirm /nosave" />
+            <Button Anchors="2,2" Texture="corner8" Text="Continue"           CloseAction="Confirm" />
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

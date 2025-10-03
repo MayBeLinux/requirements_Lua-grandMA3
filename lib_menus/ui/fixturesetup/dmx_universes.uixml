@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgFixtureSetup Name="DmxUniversesDlg" Destination="DmxUniverses" OverrideKeybSC="Yes" HelpTopic="patch_dmx_universe.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="DMX Universes" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="1">
+            <DBObjectGrid Name="DmxUniversesSetupGrid" BackColor="UIGrid.Background" Anchors="0,0" LevelLimit="0" Focus="InitialFocus" />
+        </MainDialogContent>
+
+    </MainDlgFixtureSetup>
+</GMA3>

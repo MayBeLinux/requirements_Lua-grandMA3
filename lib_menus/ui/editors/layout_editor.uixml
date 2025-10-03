@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <LayoutEditor AlignmentV="Center" OnSetEditTarget=":OnSetEditTarget" OnLoad=":OnLoaded" OverrideKeybSC="Yes" UpdateSettingsVisibility="Yes" HelpTopic="layout_edit.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBtn" Texture="corner1" Anchors="0,0" Text="Edit Layout" TrackWorld="Yes"/>
+
+
+            <AutoLayout Margin="1,0,1,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <ScreenSelectorButton MinSize="50,0" />
+                <IndicatorControl Texture="corner0" Text="Settings" Property="ShowSettingsInEditors" Target="~" W="100" MinSize="50,0"/>
+                <Button MinSize="60,0" W="100" Text="List&#xD;References" Clicked=":OnListReference" />
+                <IndicatorControl ActiveIconColor="Filter.ActiveIcon" Visible="Yes" Name="ContentFilterEditor" MinSize="50,0" ShowValue="No" ShowLabel="No" Text=" " Icon="object_filter" W="60" Property="AllowFilterContent" HelpTopic="ws_ui_temporary_filtering.html"/>
+                <IndicatorButton Visible="Yes" Name="ClearContentFilter" MinSize="50,0" Text=" " Icon="clear_filter" W="60" Clicked=":ClearContentFilter" Padding="0,10,0,0" HelpTopic="ws_ui_temporary_filtering.html"/>
+                <IndicatorControl W="60"  MinSize="50,0" Name="LockBtn" Icon="locked" Property="Lock"   ShowLabel="No" ToolTip="Fix the Layout"/>
+            </AutoLayout>
+
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" >
+            <UILayoutGrid Name="LayoutContent" Anchors="0,0" DefaultMargin="6" DefaultMarginOnBorders="1">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <PlaceHolderBase Anchors="0,0" Name="ObjectSettings" OnLoad=":LoadObjectSettings"/>
+                <TagButtonList Name="TagButtonList" Anchors="0,1" />
+
+                <LayoutEditorGrid Name="ObjGrid" Anchors="0,2" TargetObject="" LevelLimit="0" Focus="InitialFocus" OnLoad=":OnElementGridLoaded" ClearFilter=":ClearContentFilter" AllowFilterContent="Yes"  FixedColumns="6" DataType="LayoutGridData">
+                    <GridSettings  ContentFilterType="GridObjectContentFilter">
+                        <GridObjectContentFilter>
+                            <GridObjectContentFilterItem Name="IsInWorld" Columns="IsInWorld" Filter="1" />
+                        </GridObjectContentFilter>
+                    </GridSettings>
+                </LayoutEditorGrid>
+                <Button Name="lockBtn" Anchors="0,0,0,1" Enabled="No" Icon="Locked" Texture="Corner15" IconColor="Global.Selected" BackColor="Global.Transparent75" IconAlignmentV="Top" Visible="No"/>
+            </UILayoutGrid>
+            <DBObjectGrid Name="LayoutElementDefaults" BackColor="UIGrid.Background" Anchors="0,0" LevelLimit="0" Visible ="false" Focus="InitialFocus" AllowAddNewline="Yes" AllowAddContent="Yes"/>
+        </MainDialogContent>
+
+        <MainDialogSubMenu>
+            <IndicatorButton Name="LayoutBtn" Texture="corner0" H="100" Anchors="0,0" Text="Layout" Clicked=":OnClickLayout" State="1" />
+            <IndicatorButton Name="LedBtn" Texture="corner0" H="100" Anchors="0,1" Text="Layout&#xD;Element&#xD;Defaults" Clicked=":OnClickLayoutElementDefaults" />
+            <UIObject Texture="corner0" Anchors="0,2,0,9" HasHover="No" />
+        </MainDialogSubMenu>
+
+        <MainDialogFunctionButtons Name="MainDlgButtons">
+            <CmdDlgFunctionButtonsLeft Name="Left">
+                <MainDlgInsertButton Name="InsertBtn" AutoEnabled="false" Enabled="true"/>
+                <MainDlgDelButton    Name="DeleteBtn" AutoEnabled="true"  Enabled="true"/>
+                <MainDlgCutButton    Name="CutBtn"    AutoEnabled="false" Enabled="true"/>
+                <MainDlgCopyButton   Name="CopyBtn"   AutoEnabled="false" Enabled="true"/>
+                <MainDlgPasteButton  Name="PasteBtn"  AutoEnabled="false" Enabled="true"/>
+                <MainDlgUndoButton/>
+                <MainDlgImportEditorButton/>
+                <MainDlgExportEditorButton/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight Name="Right">
+                <MainDlgEditButton   Name="EditBtn"   AutoEnabled="false" Enabled="true"/>
+                <IndicatorButton Anchors="1,1" Name="LoadBtn" Text="Load from&#xD;Default" Clicked=":LoadFromDefault"/>
+                <IndicatorButton Anchors="2,1" Name="SaveBtn" Text="Save as&#xD;Default"   Clicked=":SaveAsDefault"/>
+                <UIObject Anchors="0,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="3,1" Name="Spare" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+        <MainDialogPlaceHolder Name="LayoutElementDefaultsSubmenu" />
+    </LayoutEditor>
+
+</GMA3>

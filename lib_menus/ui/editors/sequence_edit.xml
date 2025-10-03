@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="154" Name="SequenceEdit" Guid="70 4D 7B 2D C1 78 00 00 45 58 86 BB 7F B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/editors" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 5C 2F 00 00 44 58 86 BB 7F B1 01 1A" FileName="sequence_edit.uixml" PlaceHolder="MainDialog" DisplayTypePreference="BigOrSmall" DefaultDisplay="1" WindowSettings="SequenceSheetSettings" WindowContext="ContextSequenceSheet" />
+        <ComponentLua Index="2" FileName="generic_edit.lua" />
+        <ComponentLua Index="3" FileName="sequence_edit.lua" />
+    </Menu>
+</GMA3>

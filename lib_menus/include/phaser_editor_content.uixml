@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<PhaserLayoutGrid Name="PhaserLayoutGrid" Anchors="0,1" MixInBackColorFromParent="Yes" >
+    <DialogFrame Name="Frame" MixInBackColorFromParent="Yes" Anchors="0,0">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Stretch"  />
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+
+        <UILayoutGrid Anchors="1,0" Margin="0,2,0,2" Name="AtFilterGrid" Transparent="No">
+        </UILayoutGrid>
+
+        <Toolbar Name="MainToolBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,0,0,1" Direction="Vertical" >
+
+            <!-- <AutoLayout Name="MainToolBar" Anchors="0,0,0,1" Texture="corner15" Transparent="0" BackColor="Global.Transparent50" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" OnLoad=":OnLoadMainToolBar" > -->
+            <ValueControl Name="MoveCanvas"     H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserMoveCanvase" Property="EditTools" Value="MoveArea"    Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Move working area" />
+            <ValueControl Name="Select"         H="60" W="60" ShowLabel="No" ShowValue="No" Icon="select"            Property="EditTools" Value="Select"      Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Select steps" HotKey="Alt+S" />
+            <ValueControl Name="AddAbsolute"    H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserAddAbsolute" Property="EditTools" Value="AddAbsolute" Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Add step and set absolute values" HotKey="Insert" />
+            <ValueControl Name="AddRelative"    H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserAddRelative" Property="EditTools" Value="AddRelative" Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Add step and add relative values" />
+            <ValueControl Name="MovePoints"     H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserMovePoint"   Property="EditTools" Value="MovePoint"   Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Move steps" HotKey="Alt+M" />
+            <ValueControl Name="MoveHandles"    H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserMoveHandle"  Property="EditTools" Value="MoveSpline"  Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Move handles" HotKey="Alt+H" />
+            <ValueControl Name="ChangeSize"     H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserSizing"      Property="EditTools" Value="ChangeSize"  Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Change size" HotKey="Ctrl+S" />
+            <ValueControl Name="ChangeRotation" H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserRotating"    Property="EditTools" Value="ChangeRotation"  Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Change rotation" HotKey="Alt+R" />
+            <ValueControl Name="ChangePhase"    H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserPhase"       Property="EditTools" Value="ChangePhase"  Undo="No" OnLoad=":SetTarget" ToolTip="Mode : Change phase" HotKey="Alt+P" />
+            <ValueControl Name="PhaserWidth"    H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserWidth"       Property="EditTools" Value="ChangeWidth"  Undo="No" OnLoad=":SetTarget" ToolTip="Mode : Change width" HotKey="Alt+W" />
+            <ValueControl Name="SelectForm"     H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserFormSaw"     Property="EditTools" Value="SelectForm"   Undo="No" OnLoad=":SetTarget" ToolTip="Change form" HotKey="Alt+F" />
+            <ValueControl Name="ChangeSpeed"    H="60" W="60" ShowLabel="No" ShowValue="No" Icon="Time"             Property="EditTools" Value="ChangeSpeed"  Undo="No" OnLoad=":SetTarget" ToolTip="Change speed" HotKey="Alt+D" />
+            <PropertyInput Name="SelectAll"     H="60" W="60" Icon="PhaserSelectReset"   Clicked=":CommandLine" signalValue="Step Toggle" ToolTip="Select all steps" HotKey="Ctrl+A" ShowLabel="No" ShowValue="No" Property="AllStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="ProgLayer.Speed" ColorIndicator="IndicatorControl.Background" IconActive="" IconInactive="" />
+            <!-- </AutoLayout> -->
+        </Toolbar>
+
+        <PhaserUICenter Name="Center" Anchors="1,1">
+            <UILayoutGrid Name="Step">
+                <PhaserStepSheet Anchors="0,0" Name="PhaserStepGrid" DataType="PhaserStepGridData">
+                    <GridSettings ContentFilterType="PhaserSheetRowFilter" >
+                        <PhaserSheetRowFilter>
+                            <GridContentFilterItem />
+                        </PhaserSheetRowFilter>
+                    </GridSettings>
+                </PhaserStepSheet>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Layer" DefaultMargin="4">
+                <PhaserStepSheet    Anchors="0,0" Name="PhaserSheetExpanded"  DataType="PhaserLayerGridDataExpanded">
+                    <GridSettings ContentFilterType="PhaserSheetRowFilter" >
+                        <PhaserSheetRowFilter>
+                            <GridContentFilterItem />
+                        </PhaserSheetRowFilter>
+                    </GridSettings>
+                </PhaserStepSheet>
+
+                <PhaserStepSheet    Anchors="0,0" Name="PhaserSheet"  DataType="PhaserLayerGridData" Visible="No">
+                    <GridSettings ContentFilterType="PhaserSheetRowFilter" >
+                        <PhaserSheetRowFilter>
+                            <GridContentFilterItem />
+                        </PhaserSheetRowFilter>
+                    </GridSettings>
+                </PhaserStepSheet>
+
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Square" Anchors="0,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectColumns>
+                <PhaserPathEditor Name="PhaserPathEditor"   Focus="CanHaveFocus" />
+                <PhaserPhaseEditor Name="PhaserPhaseEditor" Focus="CanHaveFocus" />
+                <PhaserWidthEditor Name="PhaserWidthEditor" Focus="CanHaveFocus" Transparent="1" />
+                <PhaserSpeedEditor Name="PhaserSpeedEditor" Focus="CanHaveFocus" Transparent="1" />
+                <ScrollBarV Anchors="1,0" ScrollTarget="../PhaserPathEditor" />
+                <ScrollBarH Anchors="0,1" ScrollTarget="../PhaserPathEditor" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Remain">
+                <ScrollContainer>
+                    <ScrollBox>
+                        <UIPhaserTimeLineGrid>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Fixed" Size="50"/>
+                                <Item SizePolicy="Stretch" Size="1" />
+                            </ItemCollectColumns>
+                        </UIPhaserTimeLineGrid>
+                    </ScrollBox>
+                </ScrollContainer>
+            </UILayoutGrid>
+        </PhaserUICenter>
+
+        <Toolbar Name="MainFunctionBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="2,0,2,1" Direction="Vertical" >
+
+            <!--    <AutoLayout Name="MainFunctionBar" Anchors="2,0,2,1" Texture="corner15" Transparent="0" Direction="Vertical" Content="Yes" ContentDriven="Yes" ChildrenFillPolicy="RowFirst" Inverted="No" OnLoad=":OnLoadMainFunctionBar"> -->
+            <Button Name="Reset"    H="60" W="60" Icon="PhaserReset"   Clicked=":OnFormFunction" signalValue="reset" ToolTip="Reset handles of selected point(s)"/>
+            <Button Name="Del"      H="60" W="60" Icon="minus"         Clicked=":CommandLine" signalValue="Delete Programmer" ToolTip="Delete selected steps"  HotKey="Delete" />
+            <Button Name="Cut"      H="60" W="60" Icon="PhaserCut"     Clicked=":CommandLine" signalValue="Cut Programmer" ToolTip="Cut Programmer"  HotKey="Ctrl+X" />
+            <Button Name="Copy"     H="60" W="60" Icon="PhaserCopy"    Clicked=":CommandLine" signalValue="Copy Programmer" ToolTip="Copy Programmer" HotKey="Ctrl+C" />
+            <Button Name="Paste"    H="60" W="60" Icon="PhaserPaste"   Clicked=":CommandLine" signalValue="Paste Programmer" ToolTip="Paste Programmer" HotKey="Ctrl+V" />
+            <Button Name="MirrorX"  H="60" W="60" Icon="PhaserMirrorX" Clicked=":OnFormFunction" signalValue="mirror_x" ToolTip="Mirror at X-axis"/>
+            <Button Name="MirrorY"  H="60" W="60" Icon="PhaserMirrorY" Clicked=":OnFormFunction" signalValue="mirror_y" ToolTip="Mirror at Y-axis"/>
+            <Button Name="MirrorT"  H="60" W="60" Icon="PhaserMirrorT" Clicked=":OnFormFunction" signalValue="mirror_t" ToolTip="Mirror time"/>
+            <Button Name="Swap"     H="60" W="60" Icon="PhaserSwap"    Clicked=":OnFormFunction" signalValue="swap_x_y" ToolTip="Swap X-Y"/>
+            <Button Name="Flip"     H="60" W="60" Icon="PhaserFlip"    Clicked=":CommandLine"  signalValue="Flip" ToolTip="Flip selection"/>
+            <Button Name="Fit"      H="60" W="60" Icon="fit"           Clicked=":OnFormFunction" signalValue="reset_zoom" ToolTip="Reset view port of editor"/>
+            <!--    </AutoLayout> -->
+        </Toolbar>
+
+
+        <Toolbar Name="PhaseFunctionBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="2,0,2,1" Direction="Vertical" >
+            <Button H="60" W="60" Text="Reset"   Clicked=":OnPhaseFunction" signalValue="reset"    ToolTip="Resets all phases"/>
+            <Button H="60" W="60" Text="45"  Clicked=":OnPhaseFunction" signalValue="phase360 45" ToolTip="Distributes phase evenly across selection"/>
+            <Button H="60" W="60" Text="90"  Clicked=":OnPhaseFunction" signalValue="phase360 90" ToolTip="Distributes phase evenly across selection"/>
+            <Button H="60" W="60" Text="180" Clicked=":OnPhaseFunction" signalValue="phase360 180" ToolTip="Distributes phase evenly across selection"/>
+            <Button H="60" W="60" Text="270" Clicked=":OnPhaseFunction" signalValue="phase360 270" ToolTip="Distributes phase evenly across selection"/>
+            <Button H="60" W="60" Text="360" Clicked=":OnPhaseFunction" signalValue="phase360" ToolTip="Distributes phase evenly across selection"/>
+            <Button H="60" W="60" Text="Invert" Clicked=":OnPhaseFunction" signalValue="invert"   ToolTip="Invert phase of current selection"/>
+        </Toolbar>
+
+        <Toolbar Name="WidthFunctionBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="2,0,2,1" Direction="Vertical" >
+            <Button H="60" W="60"  Text="Reset" Clicked=":OnWidthFunction" signalValue="reset"    ToolTip="Resets step width information"/>
+            <Button H="60" W="60"  Text="25%" Clicked=":OnWidthFunction" signalValue="norm 25"  ToolTip="Normes the total width of all steps to 25%."/>
+            <Button H="60" W="60"  Text="33%" Clicked=":OnWidthFunction" signalValue="norm 33.33333"  ToolTip="Normes the total width of all steps to 33%."/>
+            <Button H="60" W="60"  Text="50%" Clicked=":OnWidthFunction" signalValue="norm 50"  ToolTip="Normes the total width of all steps to 50%."/>
+            <Button H="60" W="60"  Text="100%" Clicked=":OnWidthFunction" signalValue="norm 100"  ToolTip="Normes the total width of all steps to 100%."/>
+            <Button H="60" W="60"  Text="200%" Clicked=":OnWidthFunction" signalValue="norm 200"  ToolTip="Normes the total width of all steps to 200%."/>
+            <Button H="60" W="60"  Text="300%" Clicked=":OnWidthFunction" signalValue="norm 300"  ToolTip="Normes the total width of all steps to 300%."/>
+            <Button H="60" W="60"  Text="400%" Clicked=":OnWidthFunction" signalValue="norm 400"  ToolTip="Normes the total width of all steps to 400%."/>
+            <Button H="60" W="60"  Text="Speed" Clicked=":OnWidthFunction" signalValue="equal"    ToolTip="Equalizes the travelling speed of all steps."/>
+        </Toolbar>
+
+        <Toolbar Name="FormFunctionBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="2,0,2,1" Direction="Vertical" >
+            <Button Name="Rect"     H="60" W="60" Icon="PhaserFormRect"  Clicked=":OnFormFunction" signalValue="form_rect"     ToolTip="Set to rectangle form"/>
+            <Button Name="Sawtooth" H="60" W="60" Icon="PhaserFormSaw"   Clicked=":OnFormFunction" signalValue="form_sawtooth" ToolTip="Set to sawtooth form"/>
+            <Button Name="Sine"     H="60" W="60" Icon="PhaserFormSin"   Clicked=":OnFormFunction" signalValue="form_sine"     ToolTip="Set to sine form"/>
+            <Button Name="Circle"   H="60" W="60" Icon="ring"            Clicked=":OnFormFunction" signalValue="circle"        ToolTip="Make Circle"/>
+        </Toolbar>
+
+        <Toolbar Name="SpeedFunctionBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="2,0,2,1" Direction="Vertical" >
+            <Button H="60" W="60" Text="Loop"    Clicked=":OnSpeedFunction"  signalValue="PerLoop"     ToolTip="Multiply speed by the StepCount"/>
+            <Button H="60" W="60" Text="Fixture" Clicked=":OnSpeedFunction"  signalValue="PerFixture"  ToolTip="Divide speed by the FixtureCount"/>
+            <Button H="60" W="60" Text="x2"      Clicked=":OnSpeedFunction"  signalValue="multiply 2"  ToolTip="Multiply speed by 2"/>
+            <Button H="60" W="60" Text="x4"      Clicked=":OnSpeedFunction"  signalValue="multiply 4"  ToolTip="Multiply speed by 4"/>
+            <Button H="60" W="60" Text="x8"      Clicked=":OnSpeedFunction"  signalValue="multiply 8"  ToolTip="Multiply speed by 8"/>
+            <Button H="60" W="60" Text="x16"     Clicked=":OnSpeedFunction"  signalValue="multiply 16" ToolTip="Multiply speed by 16"/>
+            <Button H="60" W="60" Text="x32"     Clicked=":OnSpeedFunction"  signalValue="multiply 32" ToolTip="Multiply speed by 32"/>
+            <Button H="60" W="60" Text="/2"      Clicked=":OnSpeedFunction"  signalValue="divide 2"    ToolTip="Divide speed by 2"/>
+            <Button H="60" W="60" Text="/4"      Clicked=":OnSpeedFunction"  signalValue="divide 4"    ToolTip="Divide speed by 4"/>
+            <Button H="60" W="60" Text="/8"      Clicked=":OnSpeedFunction"  signalValue="divide 8"    ToolTip="Divide speed by 8"/>
+            <Button H="60" W="60" Text="/16"     Clicked=":OnSpeedFunction"  signalValue="divide 16"   ToolTip="Divide speed by 16"/>
+            <Button H="60" W="60" Text="/32"     Clicked=":OnSpeedFunction"  signalValue="divide 32"   ToolTip="Divide speed by 32"/>
+        </Toolbar >
+
+        <UILayoutGrid Name="LayerBar" Anchors="0,2,2,2" H="50" Texture="corner15" Margin="2,2,2,2" OnLoad=":ToggleLayerBar">
+            <PropertyRadioButtonList Name="LayerToolbar" Target="~" Property="ProgrammingLayer" SetType="Property" Type="Horizontal" ItemType="RadioItemButtonV2" ItemSize="99" />
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="StepBar" Anchors="0,3,2,3" Texture="corner15" Margin="2,0,2,2" H="50" OnLoad=":ToggleStepBar">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="75" />
+                <Item SizePolicy="Fixed"   Size="75" />
+                <Item SizePolicy="Fixed"   Size="75" />
+                <Item SizePolicy="Fixed"   Size="75" />
+                <Item SizePolicy="Fixed"   Size="225" />
+            </ItemCollectColumns>
+            <ScrollBox Name="StepScroll" Anchors="1,0" ResetChildrenSize="Yes" >
+                <StepControl Name="Steps" Texture="corner5" Direction="Horizontal" ChildrenFillPolicy="RowFirst" MinCellSize="50" SideSize="50" GroupedCellsCount="SizeDriven" />
+            </ScrollBox>
+            <IndicatorControl Name="PrevStep" Texture="corner0" Anchors="2,0" Property="AllStepSelected" Target="#"  ShowValue="No" ShowLabel="No" DefaultAction="No"  Clicked=":CommandLine" SignalValue="Prev Step" MouseDownHold=":CommandLine" SignalValueHold="Step 1" Icon="arrow_left" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon" ToolTip="Select previous step" Margin="1,0,0,0" />
+            <PropertyInput Anchors="3,0" ShowLabel="0" ShowValue="0" Property="MultiStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="PropertyInputIcon" IconInactive="PropertyInputIcon" ActiveIconColor="ContextButton.Icon" >
+                <PropertyControl Name="FirstStep" ShowLabel="No"  Texture=""  Property="FirstStep" Target="#" TextAutoAdjust="No"  Margin="0,5,5,0" Icon="" />
+            </PropertyInput>
+            <IndicatorControl Name="NextStep" Texture="corner0" Anchors="4,0"  Property="AllStepSelected" Target="#"  ShowValue="0" ShowLabel="No" DefaultAction="No" Clicked=":CommandLine" SignalValue="Next Step"  ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon"  ToolTip="Select next step" Icon="arrow_right" Margin="1,0,0,0" />
+            <PropertyInput Anchors="5,0" ShowLabel="No" Texture="corner10" ShowValue="No" Clicked=":CommandLine" signalValue="Step Toggle" Property="AllStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" Icon="PhaserSelectReset" ToolTip="Select all steps" Margin="1,0,0,0" />
+            <UILayoutGrid Anchors="6,0" Columns="3" Margin="4,0,0,0">
+                <ValueRadioControl Anchors="0,0"  Name="Bar2DBtn" Texture="corner5"  Property="EncoderBar" OnLoad=":SetTarget" Value="2DBar"     Text="2D&#xD;Bar"     ToolTip="Set PhaserEditor bar to 2D-Bar"  />
+                <ValueRadioControl Anchors="1,0"  Name="PhaserBarBtn" Texture="corner0"  Property="EncoderBar" OnLoad=":SetTarget" Value="PhaserBar" Text="Phaser&#xD;Bar" ToolTip="Set PhaserEditor bar to PhaserBar"  />
+                <ValueRadioControl Anchors="2,0"  Name="PresetBarBtn" Texture="corner10" Property="EncoderBar" OnLoad=":SetTarget" Value="PresetBar" Text="Preset&#xD;Bar" ToolTip="Set PhaserEditor bar to PresetBar"  />
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </DialogFrame>
+</PhaserLayoutGrid>

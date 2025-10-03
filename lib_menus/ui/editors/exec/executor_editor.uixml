@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <AllExecEditor Name="ExecutorEditor" DefaultMargin="2" OnObjectSelected=":ObjectSelected" OnSetEditTarget=":OnExecutorChanged" OnLoad=":ExecEditorLoaded" HelpTopic="executor_assign.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Executor Assignment" Icon="logo_small" />
+
+            <PropertyInput Name="LockBtn" W="100" Anchors="1,0" Text="Lock&#xD;Executor" Property="Lock"/>
+
+            <PropertyInput Name="EditSizeBtn" W="100" Anchors="2,0" Text="Edit Size" Visible="No" Property="EditExecSize" OnLoad=":SetEditorAsTarget"/>
+
+            <PropertyInput Name="ShowAppearancesBtn" W="140" Anchors="2,0" Property="ShowAppearances" OnLoad=":SetEditorAsTarget"/>
+
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Name="ObjPools" Anchors="2,0" Direction="Horizontal" Content="Yes" Visible="0">
+                <ObjectSelector Name="StageSelect"  Text="Stage"    W="100" SelectionChanged=":OnStageChanged"    ShowLabel="Yes"/>
+                <ObjectSelector Name="DataPoolSelect"     Text="DataPool" W="100" SelectionChanged=":OnDataPoolChanged" ShowLabel="Yes"/>
+            </AutoLayout>
+
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="4,0" Name="ConfigButtons" Direction="Horizontal" Texture="corner0" Content="Yes" Visible="0">
+                <PropertyControl Name="ConfigControl" W="200" Property="ExecutorConfiguration" Clicked=":OnConfigSelect"  Interactive="Yes" ValueRole="DisplayShort" Text="Executor Config." ValueAutoAdjust="Yes" ShowObjectAppearance="Yes" TextShadow="Yes" ValueTextShadow="Yes" DefaultAction="No"/>
+                <!--<Button Name="ConfigLoad" Clicked=":OnConfigQuickLoad" W="80" Text="Load" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+                <Button Name="ConfigSave" Clicked=":OnConfigQuickSave" W="80" Text="Save" BackColor="TitleButton.Background" TextColor="Button.Text"/>-->
+            </AutoLayout>
+
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="4,0" Name="SettingsButtons" Direction="Horizontal" Texture="corner0" Content="Yes" Visible="0">
+                <Button Name="LoadFromDefault" Clicked=":OnLoadFromDefault" W="130" Text="Load from&#xD;Default" BackColor="TitleButton.Background" TextColor="Button.Text" ToolTip="Load sequence settings from defaults" />
+                <Button Name="SaveToDefault" Clicked=":OnSaveToDefault" W="130" Text="Save as&#xD;Default" BackColor="TitleButton.Background" TextColor="Button.Text" ToolTip="Save sequence settings to defaults" />
+            </AutoLayout>
+
+            <ScreenSelectorButton Anchors="5,0"/>
+            <CloseButton Texture="corner2" Anchors="6,0" />
+        </TitleBar>
+
+        <MainDialogPrimaryMenu Name="PrimaryMenu">
+            <MainDialogMainTabs Name="MainTabs" ItemSize="75" TabChanged=":ContentChange">
+                <ItemStr Title="Object"             Value="Object" />
+                <ItemStr Title="Handle"             Value="Handle" />
+                <ItemStr Title="Edit&#xD;Setting"   Value="Settings" />
+                <ItemStr Title="Edit"               Value="" />
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+
+        <MainDialogContent Name="Content">
+            <DialogContainer Name="Dialogs" ChangeActive=":ContentChange">
+                <UILayoutGrid Name="OverviewAndEditor" OnVisible=":OnHandleVisibilityChanged">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch"/>
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Content"/>
+                        <Item SizePolicy="Stretch" Size="34"/>
+                        <Item SizePolicy="Stretch" Size="2"/>
+                        <Item SizePolicy="Stretch" Size="21"/>
+                    </ItemCollectColumns>
+
+                    <UILayoutGrid Name="ExecRowLabel" Anchors="0,0" Visible="Yes" W="40">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2.5"/>
+                            <Item SizePolicy="Stretch" Size="2.5"/>
+                            <Item SizePolicy="Stretch" Size="1.5"/>
+                            <Item SizePolicy="Stretch" Size="1.5"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+
+                        <Button Anchors="0,0"            Icon="encoder_sym_24px"     IconOffsetV="30"    Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,1" Text="400" Icon="exec_button_400_24px" IconOffsetV="-30"   Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,2"            Icon="encoder_sym_24px"     IconOffsetV="30"    Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,3" Text="300" Icon="exec_button_300_24px" IconOffsetV="-30"   Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,4"            Icon="fader"           IconOffsetV="30"    Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,5" Text="200" Icon="exec_button_200_24px" IconOffsetV="-30"   Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,6,0,7" Text="100" Icon="exec_button_100_24px" TextOffsetV="62"    Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="SpecialExecRowLabel" Anchors="0,0" Visible="No" W="0">
+                        <!--TO-DO-->
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="XKeyRowLabel" Anchors="0,0" Rows="7" Columns="1" Visible="No" W="40">
+                        <Button Anchors="0,2"            Icon="encoder_sym_24px"     IconOffsetV="-30"    Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,3" Text="290" Icon="exec_button_X_24px"   IconOffsetV="-30"   Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                        <Button Anchors="0,4" Text="190" Icon="exec_button_X_24px"   TextOffsetV="48"    Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="HandleSpecialExec" Anchors="1,0" DefaultMargin="4" Visible="Yes">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item Sizepolicy="Stretch" Size="2"/>
+                            <Item Sizepolicy="Stretch" Size="2"/>
+                            <Item Sizepolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+
+                        <UILayoutGrid Anchors="0,0">
+                            <UILayoutGrid Anchors="0,0" Rows="2" Columns="1">
+                                <SpecialExecAppearanceButton Anchors="0,0,0,1" SpecialExecIndex="ProgEncoder"/>
+                                <UILayoutGrid Anchors="0,0">
+                                    <ItemCollectRows>
+                                        <Item SizePolicy="Stretch" Size="1"/>
+                                    </ItemCollectRows>
+                                    <ItemCollectColumns>
+                                        <Item SizePolicy="Stretch" Size="3"/>
+                                        <Item SizePolicy="Stretch" Size="4"/>
+                                        <Item SizePolicy="Stretch" Size="4"/>
+                                        <Item SizePolicy="Stretch" Size="3"/>
+                                    </ItemCollectColumns>
+                                    <ExecTitleButton     Anchors="1,0,2,0" Name="ProgTitle" SpecialExecIndex="ProgEncoder" Texture="corner3" MaxSize="-1,27" Interactive="No" Font="Regular11"/>
+                                    <ExecSelectorEncoder Anchors="1,0" Name="ProgEncoder" SpecialExecIndex="ProgEncoder" Margin="0,27,0,0" TitleButtonOffset="27"/>
+                                    <ExecSelectorKey     Anchors="2,0" Name="ProgKey"     SpecialExecIndex="ProgEncoder" Margin="0,27,0,0" TitleButtonOffset="27"/>
+                                </UILayoutGrid>
+                                <UILayoutGrid Anchors="0,1" Rows="1" Columns="3">
+                                    <ExecSelectorKey Anchors="0,0" Name="ProgBtn1" SpecialExecIndex="ProgBtn1" Texture="corner5"/>
+                                    <ExecSelectorKey Anchors="1,0" Name="ProgBtn2" SpecialExecIndex="ProgBtn2" Texture="corner0"/>
+                                    <ExecSelectorKey Anchors="2,0" Name="ProgBtn3" SpecialExecindex="ProgBtn3" Texture="corner10"/>
+                                </UILayoutGrid>
+                            </UILayoutGrid>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="0,1">
+                            <UILayoutGrid Anchors="0,0" Rows="2" Columns="1">
+                                <SpecialExecAppearanceButton Anchors="0,0,0,1" SpecialExecIndex="ExecEncoder"/>
+                                <UILayoutGrid Anchors="0,0">
+                                    <ItemCollectRows>
+                                        <Item SizePolicy="Stretch" Size="1"/>
+                                    </ItemCollectRows>
+                                    <ItemCollectColumns>
+                                        <Item SizePolicy="Stretch" Size="3"/>
+                                        <Item SizePolicy="Stretch" Size="4"/>
+                                        <Item SizePolicy="Stretch" Size="4"/>
+                                        <Item SizePolicy="Stretch" Size="3"/>
+                                    </ItemCollectColumns>
+                                    <ExecTitleButton     Anchors="1,0,2,0" Name="ExecTitle" SpecialExecIndex="ExecEncoder" Texture="corner3" MaxSize="-1,27" Interactive="No" Font="Regular11"/>
+                                    <ExecSelectorEncoder Anchors="1,0" Name="ExecEncoder" SpecialExecIndex="ExecEncoder" Margin="0,27,0,0" TitleButtonOffset="27"/>
+                                    <ExecSelectorKey     Anchors="2,0" Name="ExecKey"     SpecialExecIndex="ExecEncoder" Margin="0,27,0,0" TitleButtonOffset="27"/>
+                                </UILayoutGrid>
+                                <UILayoutGrid Anchors="0,1" Rows="1" Columns="3">
+                                    <ExecSelectorKey Anchors="0,0" Name="ExecBtn1" SpecialExecIndex="ExecBtn1" Texture="corner5"/>
+                                    <ExecSelectorKey Anchors="1,0" Name="ExecBtn2" SpecialExecIndex="ExecBtn2" Texture="corner0"/>
+                                    <ExecSelectorKey Anchors="2,0" Name="ExecBtn3" SpecialExecIndex="ExecBtn3" Texture="corner10"/>
+                                </UILayoutGrid>
+                            </UILayoutGrid>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="0,2" Rows="2" Columns="2">
+                            <SpecialExecAppearanceButton Anchors="0,0,0,1"                  SpecialExecIndex="RateBtn2" Margin="0,0,4,0"/>
+                            <ExecTitleButton        Anchors="0,0" Name="Rate2Title"         SpecialExecIndex="RateBtn2" Texture="corner3" MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="0,0,4,0"/>
+                            <ExecSelectorEncoder    Anchors="0,0" Name="RateBtn2Encoder"    SpecialExecIndex="RateBtn2"  Margin="0,27,4,0" TitleButtonOffset="27"/>
+                            <ExecSelectorKey        Anchors="0,1" Name="RateBtn2Key"        SpecialExecIndex="RateBtn2"  Texture="corner12"  Margin="0,0,4,0"/>
+                            <SpecialExecAppearanceButton Anchors="1,0,1,1"                  SpecialExecIndex="SpeedBtn2" Margin="4,0,0,0"/>
+                            <ExecTitleButton        Anchors="1,0" Name="Speed2Title"        SpecialExecIndex="SpeedBtn2" Texture="corner3" MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="4,0,0,0"/>
+                            <ExecSelectorEncoder    Anchors="1,0" Name="SpeedBtn2Encoder"   SpecialExecIndex="SpeedBtn2" Margin="4,27,0,0" TitleButtonOffset="27"/>
+                            <ExecSelectorKey        Anchors="1,1" Name="SeedBtn2Key"        SpecialExecIndex="SpeedBtn2" Texture="corner12"  Margin="4,0,0,0"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="0,3" Rows="1" Columns="2">
+                            <SpecialExecAppearanceButton Anchors="0,0"        SpecialExecIndex="RateBtn1"  Margin="0,0,4,0"/>
+                            <ExecTitleButton Anchors="0,0" Name="Rate1Title"  SpecialExecIndex="RateBtn1"  Texture="corner3"  MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="0,0,4,0"/>
+                            <ExecSelectorKey Anchors="0,0" Name="RateBtn1"    SpecialExecindex="RateBtn1"  Texture="corner12" Margin="0,27,4,0" TitleButtonOffset="27"/>
+                            <SpecialExecAppearanceButton Anchors="1,0"        SpecialExecIndex="SpeedBtn1" Margin="4,0,0,0"/>
+                            <ExecTitleButton Anchors="1,0" Name="Speed1Title" SpecialExecIndex="SpeedBtn1" Texture="corner3"  MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="4,0,0,0"/>
+                            <ExecSelectorKey Anchors="1,0" Name="SpeedBtn1"   SpecialExecIndex="SpeedBtn1" Texture="corner12" Margin="4,27,0,0" TitleButtonOffset="27"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="1,0" Rows="2" Columns="2" Margin="4,0,0,0">
+                            <SpecialExecAppearanceButton Anchors="0,0,0,1"                  SpecialExecIndex="XFade1Btn" Margin="0,0,4,0"/>
+                            <ExecTitleButton        Anchors="0,0" Name="XFade1BtnTitle"     SpecialExecIndex="XFade1Btn" Texture="corner3" MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="0,0,4,0"/>
+                            <ExecSelectorEncoder    Anchors="0,0" Name="XFade1BtnEncoder"   SpecialExecIndex="XFade1Btn" Margin="0,27,4,0" TitleButtonOffset="27"/>
+                            <ExecSelectorKey        Anchors="0,1" Name="XFade1BtnKey"       SpecialExecIndex="XFade1Btn" Texture="corner12"  Margin="0,0,4,0"/>
+                            <SpecialExecAppearanceButton Anchors="1,0,1,1"                  SpecialExecIndex="XFade2Btn" Margin="4,0,0,0"/>
+                            <ExecTitleButton        Anchors="1,0" Name="XFade2BtnTitle"     SpecialExecIndex="XFade2Btn" Texture="corner3" MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="4,0,0,0"/>
+                            <ExecSelectorEncoder    Anchors="1,0" Name="XFade2BtnEncoder"   SpecialExecIndex="XFade2Btn" Margin="4,27,0,0" TitleButtonOffset="27"/>
+                            <ExecSelectorKey        Anchors="1,1" Name="XFade2BtnKey"       SpecialExecIndex="XFade2Btn" Texture="corner12"  Margin="4,0,0,0"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="1,1" Margin="4,0,0,0" Columns="2">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="21"/>
+                                <Item SizePolicy="Stretch" Size="13"/>
+                            </ItemCollectRows>
+                            <SpecialExecAppearanceButton Anchors="0,0"          SpecialExecIndex="XFade1" Margin="0,0,4,0"/>
+                            <ExecTitleButton   Anchors="0,0" Name="XFade1Title" SpecialExecIndex="XFade1" Texture="corner3"  MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="0,0,4,0"/>
+                            <ExecSelectorFader Anchors="0,0" Name="XFade1"      SpecialExecIndex="XFade1" TExture="corner12" Margin="0,27,4,0" TitleButtonOffset="27"/>
+                            <SpecialExecAppearanceButton Anchors="1,0"          SpecialExecIndex="XFade2" Margin="4,0,0,0"/>
+                            <ExecTitleButton   Anchors="1,0" Name="XFade2Title" SpecialExecIndex="XFade2" Texture="corner3"  MaxSize="-1,27" Interactive="No" Font="Regular11" Margin="4,0,0,0"/>
+                            <ExecSelectorFader Anchors="1,0" Name="XFade2"      SpecialExecIndex="XFade2" Texture="corner12" Margin="4,27,0,0" TitleButtonOffset="27"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Anchors="1,2,1,3">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="13"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="6"/>
+                            </ItemCollectColumns>
+                            <SpecialExecAppearanceButton Anchors="1,1,2,1"               SpecialExecIndex="GrandKnob"/>
+                            <ExecTitleButton     Anchors="1,1,2,1" Name="GrandKnobTitle" SpecialExecIndex="GrandKnob" Texture="corner3" MaxSize="-1,27" Interactive="No" Font="Regular11"/>
+                            <ExecSelectorEncoder Anchors="1,1" Name="GrandKnob"      SpecialExecIndex="GrandKnob" Margin="0,27,0,0" TitleButtonOffset="27" Texture="corner4" />
+                            <ExecSelectorKey     Anchors="2,1" Name="GrandKnobKey"   SpecialExecIndex="GrandKnob" Margin="0,27,0,0" TitleButtonOffset="27" Texture="corner8"/>
+                        </UILayoutGrid>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="HandleXKeysContainer" Anchors="1,0" Visible="Yes">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+
+                        <UILayoutGrid Name="HandleXKeyAppearanceLayer" Anchors="0,1,3,2" DefaultMargin="8" Visible="No">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectColumns>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="HandleXKeys" Anchors="0,1,3,2" DefaultMargin="8" Visible="No">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectColumns>
+                            <!-- 291/5 -->
+
+                            <UILayoutGrid Name="291" Anchors="0,0" Rows="2" Columns="1">
+                                <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                                <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Name="191" Anchors="0,1" Rows="1" Columns="1" >
+                                <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                            </UILayoutGrid>
+
+                            <!-- 292/6 -->
+
+                            <UILayoutGrid Name="292" Anchors="1,0" Rows="2" Columns="1">
+                                <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                                <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Name="192" Anchors="1,1" Rows="1" Columns="1" >
+                                <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                            </UILayoutGrid>
+
+                            <!-- 293/7 -->
+
+                            <UILayoutGrid Name="293" Anchors="2,0" Rows="2" Columns="1">
+                                <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                                <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Name="197" Anchors="2,1" Rows="1" Columns="1" >
+                                <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                            </UILayoutGrid>
+
+                            <!-- 294/8 -->
+
+                            <UILayoutGrid Name="294" Anchors="3,0" Rows="2" Columns="1">
+                                <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                                <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Name="198" Anchors="3,1" Rows="1" Columns="1" >
+                                <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                            </UILayoutGrid>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="HandleXKeyTitleLayer" Anchors="0,1,3,2" DefaultMargin="8" Visible="No">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectColumns>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="HandleXKeyLabelLayer" Anchors="0,1,3,2" DefaultMargin="8" Visible="No">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectColumns>
+                            <!-- 291/5 -->
+
+                            <UILayoutGrid Name="291" Anchors="0,0" Rows="2" Columns="1"/>
+                            <UILayoutGrid Name="191" Anchors="0,1" Rows="1" Columns="1"/>
+
+                            <!-- 292/6 -->
+
+                            <UILayoutGrid Name="292" Anchors="1,0" Rows="2" Columns="1"/>
+                            <UILayoutGrid Name="192" Anchors="1,1" Rows="1" Columns="1"/>
+
+                            <!-- 293/7 -->
+
+                            <UILayoutGrid Name="293" Anchors="2,0" Rows="2" Columns="1"/>
+
+                            <UILayoutGrid Name="197" Anchors="2,1" Rows="1" Columns="1"/>
+
+                            <!-- 294/8 -->
+
+                            <UILayoutGrid Name="294" Anchors="3,0" Rows="2" Columns="1"/>
+
+                            <UILayoutGrid Name="198" Anchors="3,1" Rows="1" Columns="1"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="HandleXKeySizeFrameLayer" Anchors="0,1,3,2" DefaultMargin="7" Visible="No">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectColumns>
+
+                            <ExecSizeFrame Name="XKeySizeEdit" Anchors="-1,-1,-1,-1" Texture="exec_size_frame15_no_corners" Interactive="No" FrameColor="ExecConfigEdit.ExecSizeFrame"  ResizeStart=":XKeyResizeStart" ResizeMove=":XKeyResizeMove" ResizeEnd=":XKeyResizeEnd" MoveStart=":XKeyMoveStart" MoveMove=":XKeyMoveMove" MoveEnd=":XKeyMoveEnd">
+                                <ItemCollectColumns>
+                                    <Item SizePolicy="Fixed" Size="50"/>
+                                    <Item SizePolicy="Stretch" Size="1"/>
+                                    <Item SizePolicy="Fixed" Size="50"/>
+                                </ItemCollectColumns>
+                                <ItemCollectRows>
+                                    <Item SizePolicy="Fixed" Size="50"/>
+                                    <Item SizePolicy="Stretch" Size="1"/>
+                                    <Item SizePolicy="Fixed" Size="50"/>
+                                </ItemCollectRows>
+                                <ExecResizer Corner="1" Anchors="0,0" BlitFlags="2" ResizeStart=":XKeyResizeStart" ResizeMove=":XKeyResizeMove" ResizeEnd=":XKeyResizeEnd"/>
+                                <ExecResizer Corner="2" Anchors="2,0" BlitFlags="8" ResizeStart=":XKeyResizeStart" ResizeMove=":XKeyResizeMove" ResizeEnd=":XKeyResizeEnd"/>
+                                <ExecResizer Corner="4" Anchors="0,2" BlitFlags="4" ResizeStart=":XKeyResizeStart" ResizeMove=":XKeyResizeMove" ResizeEnd=":XKeyResizeEnd"/>
+                                <ExecResizer Corner="8" Anchors="2,2"               ResizeStart=":XKeyResizeStart" ResizeMove=":XKeyResizeMove" ResizeEnd=":XKeyResizeEnd"/>
+                                <ExecMover Anchors="1,0" MoveStart=":XKeyMoveStart" MoveMove=":XKeyMoveMove" MoveEnd=":XKeyMoveEnd" BackColor="Global.Transparent"/>
+                            </ExecSizeFrame>
+                        </UILayoutGrid>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="HandleAppearanceLayer" Anchors="1,0" DefaultMargin="8" Visible="No">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2.5"/>
+                            <Item SizePolicy="Stretch" Size="1.5"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="Handle" Anchors="1,0" DefaultMargin="8" Visible="No">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2.5"/>
+                            <Item SizePolicy="Stretch" Size="1.5"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+
+                        <!-- 001/6 -->
+
+                        <UILayoutGrid Name="401" Anchors="0,0" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="301" Anchors="0,1" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="201" Anchors="0,2" Rows="2" Columns="1">
+                            <ExecSelectorFader Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="101" Anchors="0,3" Rows="1" Columns="1">
+                            <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+
+                        <!-- 002/7 -->
+
+                        <UILayoutGrid Name="402" Anchors="1,0" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="302" Anchors="1,1" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="202" Anchors="1,2" Rows="2" Columns="1">
+                            <ExecSelectorFader Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="102" Anchors="1,3" Rows="1" Columns="1">
+                            <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+
+                        <!-- 003/8 -->
+
+                        <UILayoutGrid Name="403" Anchors="2,0" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="303" Anchors="2,1" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="203" Anchors="2,2" Rows="2" Columns="1">
+                            <ExecSelectorFader Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="103" Anchors="2,3" Rows="1" Columns="1">
+                            <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+
+                        <!-- 004/9 -->
+
+                        <UILayoutGrid Name="404" Anchors="3,0" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="304" Anchors="3,1" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="204" Anchors="3,2" Rows="2" Columns="1">
+                            <ExecSelectorFader Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="104" Anchors="3,3" Rows="1" Columns="1">
+                            <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+
+                        <!-- 005/0 -->
+
+                        <UILayoutGrid Name="405" Anchors="4,0" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="305" Anchors="4,1" Rows="2" Columns="1">
+                            <ExecSelectorEncoder Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="205" Anchors="4,2" Rows="2" Columns="1">
+                            <ExecSelectorFader Anchors="0,0" Texture="corner3"/>
+                            <ExecSelectorKey Anchors="0,1" Texture="corner12"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="105" Anchors="4,3" Rows="1" Columns="1">
+                            <ExecSelectorKey Anchors="0,0" Texture="corner15"/>
+                        </UILayoutGrid>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="HandleTitleLayer" Anchors="1,0" DefaultMargin="8" Visible="No">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2.5"/>
+                            <Item SizePolicy="Stretch" Size="1.5"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="HandleLabelLayer" Anchors="1,0" DefaultMargin="8" Visible="No">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2.5"/>
+                            <Item SizePolicy="Stretch" Size="1.5"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+
+                        <!-- 001/6 -->
+                        <UILayoutGrid Name="401" Anchors="0,0" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="301" Anchors="0,1" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="201" Anchors="0,2" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="101" Anchors="0,3" Rows="1" Columns="1"/>
+
+                        <!-- 002/7 -->
+                        <UILayoutGrid Name="402" Anchors="1,0" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="302" Anchors="1,1" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="202" Anchors="1,2" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="102" Anchors="1,3" Rows="1" Columns="1"/>
+
+                        <!-- 003/8 -->
+                        <UILayoutGrid Name="403" Anchors="2,0" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="303" Anchors="2,1" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="203" Anchors="2,2" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="103" Anchors="2,3" Rows="1" Columns="1"/>
+
+                        <!-- 004/9 -->
+                        <UILayoutGrid Name="404" Anchors="3,0" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="304" Anchors="3,1" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="204" Anchors="3,2" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="104" Anchors="3,3" Rows="1" Columns="1"/>
+
+                        <!-- 005/0 -->
+                        <UILayoutGrid Name="405" Anchors="4,0" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="305" Anchors="4,1" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="205" Anchors="4,2" Rows="2" Columns="1"/>
+                        <UILayoutGrid Name="105" Anchors="4,3" Rows="1" Columns="1"/>
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="HandleSizeFrameLayer" Anchors="1,0" DefaultMargin="7" Visible="No">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2"/>
+                            <Item SizePolicy="Stretch" Size="2.5"/>
+                            <Item SizePolicy="Stretch" Size="1.5"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ExecSizeFrame Name="ExecSizeEdit" Anchors="-1,-1,-1,-1" Texture="exec_size_frame15_no_corners" Interactive="No" FrameColor="ExecConfigEdit.ExecSizeFrame">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Fixed" Size="50"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Fixed" Size="50"/>
+                            </ItemCollectColumns>
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="50"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Fixed" Size="50"/>
+                            </ItemCollectRows>
+                            <ExecResizer Corner="1" Anchors="0,0" BlitFlags="2"/>
+                            <ExecResizer Corner="2" Anchors="2,0" BlitFlags="8" Name="Resizer2"/>
+                            <ExecResizer Corner="4" Anchors="0,2" BlitFlags="4"/>
+                            <ExecResizer Corner="8" Anchors="2,2" />
+                            <ExecMover Anchors="1,0" BackColor="Global.Transparent" BlitFlags="0"/>
+                        </ExecSizeFrame>
+                    </UILayoutGrid>
+
+                    <Button Icon="arrow_triangle" Anchors="2,0"  Interactive="No" BackColor="Global.Transparent" IconColor="ShowCreator.DirectionIcon" Focus="Never"/>
+
+                    <UILayoutGrid Name="Editor" Anchors="3,0" Visible="Yes">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="34"/>
+                            <Item SIzePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="46"/>
+                            <Item SizePolicy="Stretch" Size="4"/>
+                            <Item SizePolicy="Stretch" Size="8"/>
+                        </ItemCollectRows>
+
+
+                        <UILayoutGrid Name="KeyEventSelector" Anchors="0,0">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="2"/>
+                            </ItemCollectColumns>
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SIzePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+
+                            <Button Name="ExecNumberLabelKey" Anchors="0,0,0,1" Text="000" TextOffsetV="92" Icon="exec_button_100_64px" IconScale="1"  Interactive="No" BackColor="Global.Transparent" Focus="Never" TextAlignmentH="Center"/>
+
+                            <ExecSelectorEvent Name="Press" Anchors="1,0" Icons="button_press" ExecEvent="Key" ChangeMask="1" Texture="corner1" IconAlignmentH="Left" IconAlignmentV="Top" IconScale="1" ToolTip="Select to edit Button Press"/>
+                            <ExecSelectorEvent Name="MAPress" Anchors="1,1" Icons="ma_key,button_press" ExecEvent="MAKey" ChangeMask="1" Texture="corner4" IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit MA + Button Press"/>
+                            <ExecSelectorEvent Name="Unpress" Anchors="2,0" Icons="button_release" ExecEvent="KeyUnpress" ChangeMask="2" Texture="corner2" IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit Button Unpress"/>
+                            <ExecSelectorEvent Name="MAUnpress" Anchors="2,1" Icons="ma_key,button_release" ExecEvent="MAKeyUnpress" ChangeMask="2" Texture="corner8" IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit MA + Button Unpress"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="FaderEventSelector" Anchors="0,0">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                            </ItemCollectColumns>
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SIzePolicy="Stretch" Size="1.5"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+
+                            <Button Name="ExecNumberLabelFader" Anchors="0,0,0,2" Text="201" TextOffsetV="124" Icon="single_fader_big" IconScale="1"  Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+
+                            <ExecSelectorEvent Anchors="1,1" Icons="single_fader" ExecEvent="Fader" ChangeMask="32" Texture="corner15" IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit Fader"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="EncoderEventSelector" Anchors="0,0">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="5"/>
+                                <Item SizePolicy="Stretch" Size="1.5"/>
+                            </ItemCollectColumns>
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SIzePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+
+                            <Button Name="ExecNumberLabelEncoder" Anchors="0,0,0,1" Text="301" TextOffsetV="92" Icon="encoder_sym_64px" IconScale="0.7"  Interactive="No" BackColor="Global.Transparent" Focus="Never"/>
+
+                            <ExecSelectorEvent Anchors="1,0" Icons="encoder_left"               ExecEvent="EncoderLeft"     ChangeMask="16" Texture="corner1"   IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit Encoder Left"/>
+                            <ExecSelectorEvent Anchors="1,1" Icons="ma_key,encoder_left"        ExecEvent="MAEncoderLeft"   ChangeMask="16" Texture="corner4"   IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit MA + Encoder Left"/>
+                            <ExecSelectorEvent Anchors="2,0" Icons="encoder_left_right"         ExecEvent="Encoder"         ChangeMask="1568"                   IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit Encoder"/>
+                            <ExecSelectorEvent Anchors="2,1" Icons="ma_key,encoder_left_right"  ExecEvent="MAEncoder"       ChangeMask="1568"                   IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit MA + Encoder"/>
+                            <ExecSelectorEvent Anchors="3,0" Icons="encoder_right"              ExecEvent="EncoderRight"    ChangeMask="8"  Texture="corner2"   IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit Encoder Right"/>
+                            <ExecSelectorEvent Anchors="3,1" Icons="ma_key,encoder_right"       ExecEvent="MAEncoderRight"   ChangeMask="8" Texture="corner8"   IconAlignmentH="Left" IconAlignmentV="Top" ToolTip="Select to edit MA + Encoder Right"/>
+                        </UILayoutGrid>
+
+                        <Button Name="TokenLabel" Anchors="0,1" Text="Select Function" Texture="corner3" Interactive="No" Margin="0,5,0,0" BackColor="Global.Transparent" Focus="Never"/>
+                        <ExecActionGrid Name="ActionGrid" Anchors="0,2" Focus="CanHaveFocus" HideFocusFrame="Yes"/>
+                        <!--<PropertyRadioButtonList Anchors="0,2" ItemType="RadioItemButtonV2" AllowBlocks="Yes" Rounded="No" Name="FunctionList" Property="Key" SetType="Property" Type="Vertical" ItemSize="0" ContentDriven="Yes" ForceContentMin="Yes"/>-->
+
+                        <Button Name="CmdLabel" Anchors="0,3" Text="Custom Command" Texture="corner3" Interactive="No" Margin="0,5,0,0" BackColor="Global.Transparent" Focus="Never"/>
+                        <CommandPreviewButton Name="CustomCommand"    Anchors="0,4" Texture="corner0"  Margin="121,0,121,0" Property="KeyCommand" ShowLabel="No" ValueAutoAdjust="Yes" Icon="keyboard" IconAlignmentH="Left" IconOffsetH="15" ToolTip="Set Custom Command for Executor" Focus="InitialFocus" ValueAreaMargins="50,2,50,2"/>
+                        <IndicatorControl Name="CustomCommandAddExec" Anchors="0,4" Texture="corner10" W="120" AlignmentH="Right" Text="Add&#xD;Executor"/>
+                        <IndicatorControl Name="UseCustomCommand"     Anchors="0,4" Texture="corner5" W="120" AlignmentH="Left" Text="Use Custom&#xD;Command"/>
+
+                        <Button Name="RangeResolutionLabel" Anchors="0,3" Text="Edit Range/Resolution" Texture="corner3" Interactive="No" Margin="0,5,0,0" BackColor="Global.Transparent" Focus="Never"/>
+                        <UILayoutGrid Name="Resolution" Anchors="0,4" Rows="1" Columns="5">
+                            <ValueFadeControl Name="ResolutionNormal" Anchors="1,0,2,0" Text="Step Size" Property="EncoderResolutionNormal" Texture="corner5" UseDefaultValue="Yes"/>
+                            <IndicatorControl Name="InvertEncoder" Anchors="3,0" Property="EncoderInvert" Texture="corner10" Text="Invert&#xD;Encoder"/>
+                        </UILayoutGrid>
+
+                        <UILayoutGrid Name="Range" Anchors="0,4" Rows="1" Columns="2">
+                            <PropertyControl Name="Low" Anchors="0,0" Text="Lower Range Limit" Property="FaderRangeLow" Texture="corner5"/>
+                            <PropertyControl Name="High" Anchors="1,0" Text="Upper Range Limit" Property="FaderRangeHigh" Texture="corner10"/>
+                        </UILayoutGrid>
+
+                    </UILayoutGrid>
+
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Object" Visible="No" OnVisible=":OnObjectTabVisibilityChanged" Focus="InitialFocus">
+                    <GenericAssignmentSelector Name="Selector" Anchors="0,0" OnAssignTargetSelected=":ObjectSelected">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="50" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+
+                        <AssignmentUITab Anchors="0,0" />
+                        <DBObjectGrid Name="AssignmentGrid" Anchors="0,1" AllowEdit="No" OnSelectedItem=":OnDBObjectSelected" AllowAddContent="No" SelectionType="SingleRowGridSelection" AllowFilterContent="Yes" />
+                    </GenericAssignmentSelector>
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Settings" Visible="No" OnVisible=":OnObjectSettingsVisibilityChanged">
+                    <PlaceHolder Name="ObjectSettings" />
+                </UILayoutGrid>
+
+            </DialogContainer>
+        </MainDialogContent>
+
+        <MainDialogPlaceHolder Name="MainDialog" BlockLevel="Little" />
+        <MainDialogPlaceHolder Name="ExecConfigSubmenu" />
+        <MainDialogPlaceHolder Name="ModalOverlay" />
+    </AllExecEditor>
+</GMA3>

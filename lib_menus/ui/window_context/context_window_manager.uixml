@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="600" H="400" AlignmentH="Center" AlignmentV="Center" WantsModal="1" OnLoad=":OnWindowManagerLoad" MinSize="600,400">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Context Window Manager" Icon=""/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="DialogFrame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <DBObjectGrid Name="ObjectGrid" BackColor="UIGrid.Background" LevelLimit="0" AutoNextCell="0"  Focus="InitialFocus" Anchors="0,0,2,0" DoubleClicked=":OnSelectedPreference"/>
+            <MainDlgInsertButton Name="InsertBtn" AutoEnabled="No" Texture="corner4" Anchors="0,1" />
+            <MainDlgDelButton    Name="DeleteBtn" AutoEnabled="No" Texture="corner0" Anchors="1,1" />
+            <Button Name="LoadSaveBtn" Text="OK" Texture="corner8" Anchors="2,1" Clicked=":OnSelectedPreference"/>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

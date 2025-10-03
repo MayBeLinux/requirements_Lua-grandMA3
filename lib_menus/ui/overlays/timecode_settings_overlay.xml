@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="TimecodeSettingsOverlay" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML FileName="timecode_settings_overlay.uixml" PlaceHolder="ModalOverlay" Toggle="No" />
+        <ComponentLua FileName="timecode_settings_overlay.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="ColorRefPopup" MinSize="550,550" WantsModal="1" >
+
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select Library" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="40" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Anchors="0,0">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Text="Color reference filter:" HasHover="No" ContentDriven="Yes" Anchors="0,0" Texture="corner1" />
+                <LineEdit Name="ColorRefFilter" Target="../../ColorGrid/Internals/GridBase/GridSettings/GridContentFilter/Name" Property="Filter" Anchors="1,0" Clear=":ClearColorRefFilter" Focus="InitialFocus" />
+                <Button Text="Clear Filter" Clicked=":ClearColorRefFilter" Anchors="2,0" ContentDriven="Yes" />
+            </UILayoutGrid>
+            <DBObjectGrid Name="ColorGrid" AllowFilterContent="Yes" Texture="" Anchors="0,1" SelectionType="SingleRowGridSelection" AllowAddNewline="No" AllowEdit="No" OnSelectedItem=":OnSelected" OnLoad=":OnGridLoaded">
+                <GridContentFilter>
+                    <GridContentFilterItem Name="Name" Columns="Name" />
+                </GridContentFilter>
+            </DBObjectGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

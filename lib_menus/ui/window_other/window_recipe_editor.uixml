@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <RecipeWindow HelpTopic="recipes.html" OnLoad=":OnLoad" ReactToPreview="Yes" ReactToEdit="Yes" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton         Anchors="1,0" Texture="corner0"  Text="Recipe Editor" TrackEdit="Yes"/>
+            <Button Anchors="2,0" Texture="corner0"  W="90" Text="CleanUp" Clicked=":CommandLine" SignalValue="Cleanup Programmer Thru /Type='Recipe' /Recipe='NoOutput' /NC" Name="CleanupButton"/>
+            <IndicatorControl    Anchors="3,0" Texture="corner2"  W="100" Text="Edit&#xD;Recipe" Target="#.RecipeEditor" UseTargetList="No" Property="RecipeEditing" DefaultAction="No" Clicked=":CommandLine" signalValue="EditRecipe Programmer" />
+            <ContextButton       Anchors="0,0" Texture="corner1"  Icon="cooking" ToolTip="Configures Recipe Editor window" ReactToRecipeEdit="Yes"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" OnLoad=":SetRecipeSettings" MixInBackColorFromParent="Yes" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="40" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <!-- Filter -->
+            <AutoLayout  Name="RecipeFilter" DefaultMargin="1" Anchors="0,0,1,0" Direction="Horizontal" >
+                <IndicatorControl Text="References" Property="Bits" ArrayIndex="3" DirectProperty="Yes" />
+                <IndicatorControl Text="Grid"       Property="Bits" ArrayIndex="5" DirectProperty="Yes" />
+                <IndicatorControl Text="Layers"     Property="Bits" ArrayIndex="4" DirectProperty="Yes" />
+                <IndicatorControl Text="Shuffle"    Property="Bits" ArrayIndex="10" DirectProperty="Yes" />
+                <IndicatorControl Text="X"          Property="Bits" ArrayIndex="7" DirectProperty="Yes" />
+                <IndicatorControl Text="Y"          Property="Bits" ArrayIndex="8" DirectProperty="Yes" />
+                <IndicatorControl Text="Z"          Property="Bits" ArrayIndex="9" DirectProperty="Yes" />
+            </AutoLayout>
+
+            <!-- Toolbar -->
+            <Toolbar Name="MainToolBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,1" Direction="Vertical" >
+                <Button H="60" W="60" Icon="plus"  Clicked=":OnAdd" ToolTip="Add a new programmer part or recipe." />
+                <Button H="60" W="60" Icon="minus" Clicked=":OnDel" ToolTip="Delete a programmer part or recipe."  />
+            </Toolbar>
+
+            <!-- Content -->
+            <ProgrammerGrid Name="Grid" Anchors="1,1"  TargetObject="#.Programmer"  OnSelectedRow=":OnPartSelected"  SelectionType="ColumnGridSelection" DataType="RecipeGridData"/>
+        </DialogFrame>
+    </RecipeWindow>
+</GMA3>

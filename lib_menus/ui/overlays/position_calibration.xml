@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="PositionCalibration" Guid="8F 75 BA 4C DE 63 40 EB BE A3 42 EC D2 97 BE AA" Author="MA" Version="0.1.0.0" Path="/ui/overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" Guid="B6 B4 E3 2F D4 FF 46 CC 85 D7 35 8B D0 0A 1D 1A" FileName="position_calibration.uixml" PlaceHolder="MainDialog" DisplayTypePreference="BigOrSmall" SingletonDialogGroup="PositionCalibration" />
+        <ComponentLua Index="2" Guid="E0 BB 15 17 D0 50 4F 67 B7 D4 F6 4F 88 23 85 5B" FileName="position_calibration.lua" />
+    </Menu>
+</GMA3>

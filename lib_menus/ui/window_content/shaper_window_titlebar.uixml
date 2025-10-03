@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UILayoutGrid Name="TitlebarContent" OnLoad=":OnShaperTitlebarLoaded">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+            <Item SizePolicy="Content"/>
+        </ItemCollectColumns>
+        <!-- <TitleButton Texture="corner2" Anchors="0,0,1,0" Text="Color Picker" Name="TitleButton" /> -->
+
+        <TitleAutoLayout Name="Titlebuttons" Anchors="1,0" DefaultMargin="0" Direction="Horizontal" Content="Yes" Texture="corner2" Inverted="Yes">
+            <SwipeButton Name="ViewMode" W="100" MinSize="50,0" Text="View" Property="ViewMode" ToolTip="Toggle between Graphical or Faders"/>
+            <SwipeButton Name="ControlMode" W="100" MinSize="50,0" Text="Control" Property="ControlMode" ToolTip="Toggle between control type for the selected fixture"/>
+            <SwipeButton Name="LinkMode" W="100" MinSize="50,0" Text="Link" Property="LinkMode" ToolTip="Toggle between move blades independently or together"/>
+            <SwipeButton Name="MiniFadersMode" W="100" MinSize="50,0" Text="Mini Faders" Property="MiniFadersMode" ToolTip="Show the mini faders on Graphical view"/>
+
+            <IndicatorControl Name="ShowPov" W="120" MinSize="50,0" Property="ShowPov" Text="Show POV" ToolTip="Show or hide the POV fader"/>
+            <!--<IndicatorControl Name="AutoPov" W="100" MinSize="50,0" Property="AutoPov" Text="Auto POV" ToolTip="Toggle auto Pov based on the default 3D view"/>-->
+            <IndicatorControl Name="ShowResetBar" W="100" MinSize="50,0" Property="ShowResetBar" Text="Reset Bar" ToolTip="Show or hide the Reset Bar"/>
+        </TitleAutoLayout>
+    </UILayoutGrid>
+</GMA3>

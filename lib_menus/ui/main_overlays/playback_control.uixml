@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PlaybackControls Name="PlaybackControl" DefaultMargin="2" OnLoad=":PlaybackViewLoaded" AutoCloseOnOverlay="Yes" HelpTopic="ws_playback_controls.html" >
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Playbacks" Icon="master" HelpTopic="ws_playback_controls.html"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" HelpTopic="ws_playback_controls.html"/>
+                <SwipeButton W="100" MinSize="50,0" Name="Wing" Property="WingID" HelpTopic="ws_playback_controls.html"/>
+                <SwipeButton  W="100" MinSize="50,0" Text="Page" Name="Page" Property="Page" TextAutoAdjust="Yes" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" HelpTopic="ws_playback_controls.html"/>
+        </TitleBar>
+
+        <MainDialogContent >
+			<PlaybackControlContent Font="Regular14" LowDpiFont="Regular9">
+                <!INCLUDE ../../include/playback_control_content.uixml >
+			</PlaybackControlContent>
+        </MainDialogContent>
+    </PlaybackControls>
+</GMA3>

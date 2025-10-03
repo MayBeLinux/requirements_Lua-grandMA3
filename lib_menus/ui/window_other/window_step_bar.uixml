@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window OnLoad=":StepControlLoad" ReactToPreview="Yes">
+        <AppearanceTitleBar Name="Title" Transparent="false" Texture="corner15" BackColor="TitleButton.Background" HasHover="false" HelpTopic="phaser_step_bar.html" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="Context" Anchors="0,0" Texture="corner15" Transparent="No" W="100" BackColor="TitleButton.Background" >
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+                <ItemCollectRows>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+                <!-- MA + Title -->
+                <TitleButton   Name="TitleBtn"   Anchors="0,1" Text="Step Bar" TextAlignmentH="Left" TextAlignmentV="Top" Icon=""/>
+                <ContextButton Name="ContextBtn" Anchors="0,0" Icon="object_stepbar" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Content" Anchors="1,0">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="51" />
+                    <Item SizePolicy="Fixed"   Size="51" />
+                    <Item SizePolicy="Fixed"   Size="51" />
+                    <Item SizePolicy="Fixed"   Size="51" />
+                </ItemCollectColumns>
+
+                <ScrollBox Name="StepScroll" Anchors="0,0" ResetChildrenSize="Yes" >
+                    <StepControl Name="Steps" Texture="corner0" Direction="Vertical" ChildrenFillPolicy="RowFirst" MinCellSize="50" SideSize="52" GroupedCellsCount="SizeDriven" />
+                </ScrollBox>
+                <IndicatorControl Name="PrevStep" Texture="corner0" Anchors="1,0" Property="AllStepSelected" Target="#" ShowValue="No" ShowLabel="No" DefaultAction="No"   Clicked=":CommandLine" SignalValue="Prev Step" MouseDownHold=":CommandLine" SignalValueHold="Step 1"  ToolTip="Select previous step" Icon="arrow_left" ActiveColorIndicator="EncoderBar.MultiStep" ColorIndicator="IndicatorControl.Background" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon"   Margin="1,0,0,0" />
+                <PropertyInput Anchors="2,0" ShowLabel="0" ShowValue="0" Property="MultiStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" ColorIndicator="IndicatorControl.Background" IconActive="PropertyInputIcon" IconInactive="PropertyInputIcon" ActiveIconColor="ContextButton.Icon" Margin="1,0,0,0" >
+                    <PropertyControl Name="FirstStep" ShowLabel="No"  Texture=""  Property="FirstStep" Target="#" TextAutoAdjust="No"  Margin="0,5,5,0" Icon="" />
+                </PropertyInput>
+                <IndicatorControl Name="NextStep" Texture="corner0" Anchors="3,0"   Property="AllStepSelected" Target="#"  ShowValue="0" ShowLabel="No" DefaultAction="No" Clicked=":CommandLine" SignalValue="Next Step"   ActiveColorIndicator="EncoderBar.MultiStep" ColorIndicator="IndicatorControl.Background" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon"  ToolTip="Select next step" Icon="arrow_right" Margin="1,0,0,0" />
+                <PropertyInput Name="SelectAll" Texture="corner10" Anchors="4,0" Icon="PhaserSelectReset" ShowLabel="No" ShowValue="No"   Clicked=":CommandLine" signalValue="Step Toggle" Property="AllStepSelected" Target="#" DefaultAction="No"  ActiveColorIndicator="EncoderBar.MultiStep" ColorIndicator="IndicatorControl.Background" IconActive="" IconInactive="" ToolTip="Select all steps" Margin="1,0,0,0" />
+            </UILayoutGrid>
+
+        </AppearanceTitleBar>
+    </Window>
+</GMA3>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1"  OnLoad=":OnContextLoaded">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+				<Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Running Playbacks Window Settings" Icon=""/>
+			<EditTitlebarButton Anchors="1,0"/>
+            <Button   Anchors="2,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="RunningPlaybacks" />
+            <Button   Anchors="3,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="RunningPlaybacks" />
+            <DeleteWindowButton   Anchors="4,0"  />
+            <CloseButton Texture="corner2" Anchors="5,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+            </UITab>
+
+            <DialogContainer Name="Container" Anchors="0,1" ChangeActive=":MyTabChanged" >
+                <UILayoutGrid Name="Display" DefaultMargin="10" Margin="10,10,10,10" Rows="4" Columns="4" >
+                    <SwipeButton    Anchors="0,0" Texture="corner15" Property="PlaybacksToShow" IndirectEdit="1" ShowLabel="No"/>
+                    <PropertyInput  Anchors="1,0" Texture="corner15" Property="OffMode"     IndirectEdit="1"        ReferencedTitleButton="OffModeControl"/>
+                    <PropertyInput  Anchors="1,1" Texture="corner15" Property="SheetStyle"  IndirectEdit="1"        ReferencedTitleButton="SheetStyleControl"/>
+					<PropertyInput  Anchors="1,2" Texture="corner15" Property="HoldList"    IndirectEdit="1"        ReferencedTitleButton="LockListControl"/>
+                    <PropertyInput  Anchors="2,0" Texture="corner3" Property="MyPlaybacksOnly" IndirectEdit="1"    ReferencedTitleButton="MyPlaybacksOnlyControl" Clicked=":MyPlaybacksOnlyClick" OnLoad=":MyPlaybacksOnlyLoad"/>
+                    <SwipeButton    Anchors="2,1" Texture="corner12" Property="User"        IndirectEdit="1"        ReferencedTitleButton="UserControl" Name="ContextUserControl" Text="Started by"/>
+					<SwipeButton    Anchors="2,3" Texture="corner15" Property="SelectedDataPool"  IndirectEdit="1"  ReferencedTitleButton="DataPoolControl"/>
+                    <SwipeButton    Anchors="3,0" Texture="corner15" Property="FontSize"     Text="Font Size" />
+                </UILayoutGrid>
+
+
+                <UILayoutGrid Name="Tools"  Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="TitleButtons"  Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Mask" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+				
+				<!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+				<UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShaperEditBar OnLoad=":BarLoaded" LinkedObjectChanged=":BarLoaded" Texture="" Transparent="Yes">
+
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <UILayoutGrid Name="Upper" Anchors="0,0" Rows="1" DefaultMargin="3" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="198" />
+            </ItemCollectColumns>
+
+            <SwipeButton Name="View" Anchors="0,0" ShowLabel="Yes" Text="View" Texture="corner1" Margin="0,3,0,0" Property="BarMode"/>
+            <SwipeButton Name="Mode" Anchors="1,0" ShowLabel="Yes" Text="Control" Texture="corner0" Margin="0,3,0,0" Property="ControlMode"/>
+            <SwipeButton Name="Zelda" Anchors="2,0" ShowLabel="Yes" Text="Link" Texture="corner2" Margin="0,3,0,0" Property="LinkMode"/>
+
+            <UILayoutGrid Anchors="3,0,4,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <IndicatorButton Anchors="0,0" Text="Reset 1" Clicked=":OnResetBlade1" Texture="corner5" Margin="0,3,0,3"/>
+                <IndicatorButton Anchors="1,0" Text="Reset 2" Clicked=":OnResetBlade2" Texture="corner0" Margin="0,3,0,3"/>
+                <IndicatorButton Anchors="2,0" Text="Reset 3" Clicked=":OnResetBlade3" Texture="corner0" Margin="0,3,0,3"/>
+                <IndicatorButton Anchors="3,0" Text="Reset 4" Clicked=":OnResetBlade4" Texture="corner10" Margin="0,3,0,3"/>
+
+            </UILayoutGrid>
+
+            <IndicatorButton Anchors="5,0" Margin="0,3,0,3" Text="Reset Rotation" Clicked=":OnResetRotation" Texture="corner5"/>
+            <IndicatorButton Anchors="6,0" Margin="0,3,0,3" Text="Reset Shaper" Clicked=":OnResetShaper" Texture="corner10"/>
+
+            <UILayoutGrid Name="StepControl" Anchors="7,0" Columns="4" Margin="0,3,3,3">
+                <IndicatorControl Name="PrevStep" Texture="corner5" Anchors="0,0" Property="AllStepSelected" Target="#"  ShowValue="No" ShowLabel="No" DefaultAction="No"  Clicked=":CommandLine" SignalValue="Prev Step" MouseDownHold=":CommandLine" SignalValueHold="Step 1" Icon="arrow_left" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon" ToolTip="Select previous step" Margin="0,0,0,0" />
+                <PropertyInput  Anchors="1,0" ShowLabel="0" ShowValue="0" Property="MultiStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="PropertyInputIcon" IconInactive="PropertyInputIcon" ActiveIconColor="ContextButton.Icon" >
+                    <PropertyControl Name="FirstStep" ShowLabel="No"  Texture=""  Property="FirstStep" Target="#" TextAutoAdjust="No"  Margin="0,6,0,0" Icon="" />
+                </PropertyInput>
+                <IndicatorControl Name="NextStep" Texture="corner0" Anchors="2,0"  Property="AllStepSelected" Target="#"  ShowValue="0" ShowLabel="No" DefaultAction="No" Clicked=":CommandLine" SignalValue="Next Step"  ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" ActiveIconColor="ContextButton.Icon"  ToolTip="Select next step" Icon="arrow_right" Margin="0,0,0,0" />
+                <PropertyInput Anchors="3,0" ShowLabel="No" Texture="corner10" ShowValue="No" Clicked=":CommandLine" signalValue="Step Toggle" Property="AllStepSelected" Target="#" DefaultAction="No" ActiveColorIndicator="EncoderBar.MultiStep" IconActive="" IconInactive="" Icon="PhaserSelectReset" ToolTip="Select all steps" Margin="0,0,0,0" />
+            </UILayoutGrid>
+
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Lower" Anchors="0,1" Columns="5" Rows="2" DefaultMargin="4,0,4,0">
+
+            <!-- Encoders for the Insert/Rotate mode -->
+            <ShaperEncoderControl Name="ShaperEncoder1Ins"  System="Shaper" Property="1Ins" EncoderRing="Inner" EncoderType="Inside1"  Visible="1" Anchors="0,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder1Rot"  System="Shaper" Property="1Rot" EncoderRing="Outer" EncoderType="Outside1" Visible="1" Anchors="0,1" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder2Ins"  System="Shaper" Property="2Ins" EncoderRing="Inner" EncoderType="Inside2"  Visible="1" Anchors="1,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder2Rot"  System="Shaper" Property="2Rot" EncoderRing="Outer" EncoderType="Outside2" Visible="1" Anchors="1,1" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder3Ins"  System="Shaper" Property="3Ins" EncoderRing="Inner" EncoderType="Inside3"  Visible="1" Anchors="2,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder3Rot"  System="Shaper" Property="3Rot" EncoderRing="Outer" EncoderType="Outside3" Visible="1" Anchors="2,1" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder4Ins"  System="Shaper" Property="4Ins" EncoderRing="Inner" EncoderType="Inside4"  Visible="1" Anchors="3,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder4Rot"  System="Shaper" Property="4Rot" EncoderRing="Outer" EncoderType="Outside4" Visible="1" Anchors="3,1" Texture="corner0" />
+
+            <!-- Encoders for the A+B mode -->
+            <ShaperEncoderControl Name="ShaperEncoder1A"    System="Shaper" Property="1A"   EncoderRing="Inner" EncoderType="Inside1"  Visible="0" Anchors="0,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder1B"    System="Shaper" Property="1B"   EncoderRing="Outer" EncoderType="Outside1" Visible="0" Anchors="0,1" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder2A"    System="Shaper" Property="2A"   EncoderRing="Inner" EncoderType="Inside2"  Visible="0" Anchors="1,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder2B"    System="Shaper" Property="2B"   EncoderRing="Outer" EncoderType="Outside2" Visible="0" Anchors="1,1" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder3A"    System="Shaper" Property="3A"   EncoderRing="Inner" EncoderType="Inside3"  Visible="0" Anchors="2,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder3B"    System="Shaper" Property="3B"   EncoderRing="Outer" EncoderType="Outside3" Visible="0" Anchors="2,1" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder4A"    System="Shaper" Property="4A"   EncoderRing="Inner" EncoderType="Inside4"  Visible="0" Anchors="3,0" Texture="corner0" />
+            <ShaperEncoderControl Name="ShaperEncoder4B"    System="Shaper" Property="4B"   EncoderRing="Outer" EncoderType="Outside4" Visible="0" Anchors="3,1" Texture="corner0" />
+
+            <!-- Encoders for rotation -->
+            <ShaperEncoderControl Name="ShaperEncoderR"     System="Shaper" Property="Rotation"    EncoderRing="Both" Texture="corner0" />
+
+            <!--Screen encoder controls that are visible depending on the UserProfile setting in m_Data.m_Flags.m_Bits.m_ScreenEncoders-->
+            <ScreenEncoderControl Name="Encoder5aScr"       System="Scroll" EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" />
+            <ScreenEncoderControl Name="Encoder5bScr"       System="Scroll" EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" />
+        </UILayoutGrid>
+
+    </ShaperEditBar>
+</GMA3>

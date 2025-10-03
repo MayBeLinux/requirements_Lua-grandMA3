@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgFixtureSetup Name="FixturePatch" SetupType="Edit" Destination="Stages" EscModalResult="Confirm" HelpTopic="patch_add_fixtures.html" OnLoad=":FixturePatchLoaded" OverrideKeybSC="Yes">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" MinSize="750,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Patch" Icon="setup_patch"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons3D" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <!-- 3D Buttons Start-->
+                <SwipeButton      Name="Camera"  W="100" Text="Camera" Property="Camera"/>
+                <Button           Name="Show3dSettings"  Text="3D Positions&#xD;Settings" signalValue="Show3dSettings" Clicked=":Show3dSettings" W="140"/>
+            </AutoLayout>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <SwipeButton Name="StageControl" MinSize="50,0" W="100" ShowLabel="Yes" Text="Stage" TextAutoAdjust="No" Property="SelectedStage" DirectProperty="Yes" />
+                <IndicatorControl Name="ShowSplit" ShowValue="No" Text="Split&#xD;View" W="80" Property="ShowSplitView" />
+                <SwipeButton      Name="ColumnsFilters" W="130" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" Property="SelectedFilter" DirectProperty="Yes" ValueRole="Default" />
+                <IndicatorControl Name="ShowFilter"  ActiveIconColor="Filter.ActiveIcon" ShowValue="No" ShowLabel="No" Text=" " Icon="object_filter" W="60" Property="ShowFilterToolbar" />
+                <PropertyInput    Name="FilterBtn"   W="130" Property="Filter" IndirectEdit="1" />
+                <IndicatorControl Name="DMXFullOnly"  ShowValue="No" Text="Hide&#xD;Environmental" W="140" Property="FilterOutDMXLess" />
+                <IndicatorControl Name="Show3DPositions"   ShowValue="No" Text="Show 3D&#xD;Positions" W="90" Property="Show3DPositions" Clicked=":OnShow3D"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="3,0" CloseAction="Confirm" />
+        </TitleBar>
+
+
+        <MainDialogPrimaryMenu Name="MainTabsCont">
+            <MainDialogMainTabs Name="MainTabs" ItemSize="75">
+                <ItemLua Title="Patch" Value="ShowSplitView" HelpTopic="patch_add_fixtures.html"/>
+                <ItemLua Title="Fixture&#xD;Types" Value="MenuFixtureTypes" HelpTopic="ft_insert_fixture_types.html"/>
+                <ItemStr Title="Attribute&#xD;Definitions" Value="AttributeDefinitions" HelpTopic="patch_attribute_definitions.html"/>
+                <ItemStr Title="Parameter&#xD;List" Value="ParameterList" HelpTopic="patch_parameter_list.html"/>
+                <ItemStr Title="DMX&#xD;Universes" Value="DmxUniverses" HelpTopic="patch_dmx_universe.html"/>
+                <ItemStr Title="Stages" Value="StageDefinitions" HelpTopic="patch_stage.html"/>
+                <ItemStr Title="DMX&#xD;Curves" Value="DmxCurves" HelpTopic="patch_dmx_curves.html"/>
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+
+        <MainDialogSecondaryMenu Name="PatchModesCont" Visible="No" Local="Yes">
+            <MainDialogSubTabs Name="PatchModes" Property="SelectedSplitView" OnLoad=":SetPatchEditorSettingsAsTarget" FocusSearchPolicy="Suppress">
+                <ItemLua Title="Fixture Types" Value="SplitViewFixtureTypes" />
+                <ItemLua Title="DMX Universes" Value="SplitViewDMXUniverses" />
+                <ItemLua Title="Filters" Value="SplitViewFilters" />
+                <ItemLua Title="Hierarchy" Value="SplitViewExplorer" />
+                <ItemLua Title="ID Types" Value="SplitViewIDTypes" />
+                <ItemLua Title="Layers" Value="SplitViewLayers" />
+                <ItemLua Title="Classes" Value="SplitViewClasses" />
+            </MainDialogSubTabs>
+        </MainDialogSecondaryMenu>
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <!--<MainDlgUndoButton />-->
+                <UIObject Anchors="2,1" Texture="corner0" HasHover="0"/>
+                <!--<MainDlgImportButton />-->
+                <MainDlgEditButton Name="Edit" Text="Edit DMX Mode" Anchors="3,0" Clicked=":OnEditMode"/>
+                <MainDlgExportButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <MainDlgButtonBase Anchors="0,0" Text="Patch"          Clicked=":CommandLine" SignalValue="Set UIGridSelection 'Patch'"/>
+                <!--<IndicatorButton Anchors="0,1" Text="Error Report"   Clicked=":CommandLine" SignalValue="menu ErrorReport"/>-->
+                <!--<UIObject Anchors="0,1" Texture="corner0" HasHover="0"/>-->
+                <IndicatorButton Anchors="0,1" Name="MPCreate" Text="Create Multipatch" Clicked=":CreateMultiPatch" />
+                <IndicatorButton Anchors="1,0"  Text="Import MVR" Clicked=":CommandLine" SignalValue="menu 'MvrImport'" HelpTopic="patch_mvr.html"/>
+                <IndicatorButton Anchors="1,1"  Text="Export MVR" Clicked=":CommandLine" SignalValue="menu 'MvrExport'" HelpTopic="patch_mvr.html"/>
+                <MainDlgGridSelectUp />
+                <MainDlgGridSelectDown />
+                <UIObject Anchors="3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+        <MainDialogContent>
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <DialogContainer Name="SplitFrame" Anchors="0,0" Visible="No"  MinSize="100,0" >
+                <DBObjectGrid Name="Explorer" BackColor="UIGrid.Background" Focus="CanHaveFocus" LevelLimit="0" ObserveSelectionChange="No">
+                    <GridSettings  AdjustColumns="Yes" NoFixedColumns="Yes">
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Name="Default" />
+                            <GridColumnNamesFilter Name="NameAndId" Inclusive="Yes">
+                                <GridColumn Name="Name"   Visible="Yes" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                    <DBObjectGridData UseLocalExpandedState="Yes" HierarchyFilterMask="1" />
+                </DBObjectGrid>
+                <UILayoutGrid Name="FilterBy">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <DBObjectGrid Name="ObjGrid" Anchors="0,1" Focus="CanHaveFocus" ScrollCellAutomatic="No" BackColor="UIGrid.Background" LevelLimit="0" FilterBlockUIEnabled="No" VScrollOnHeader="No" AutoFitColumn="1">
+                        <GridSettings  ContentFilterType="GridObjectContentFilter" AdjustColumns="Yes" NoFixedColumns="Yes" >
+                            <GridColumnFilterCollect>
+                                <GridColumnNamesFilter Name="Default" />
+                                <GridColumnNamesFilter Name="NameOnly" Inclusive="Yes">
+                                    <GridColumn Name="No"   Visible="Yes" />
+                                    <GridColumn Name="Name"   Visible="Yes" />
+                                </GridColumnNamesFilter>
+                                <GridColumnNamesFilter Name="NameWithUsed" Inclusive="Yes">
+                                    <GridColumn Name="No"   Visible="Yes" />
+                                    <GridColumn Name="Name"   Visible="Yes" />
+                                    <GridColumn Name="Used"   Visible="Yes" />
+                                </GridColumnNamesFilter>
+                            </GridColumnFilterCollect>
+                        </GridSettings>
+                        <DBObjectGridData DefaultRole="ObjectNoOnly" />
+                    </DBObjectGrid>
+                </UILayoutGrid>
+            </DialogContainer>
+
+            <UILayoutGrid Name="MainFixturesGridContainer" Anchors="2,0">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectColumns>
+                <!-- .................................................. -->
+                <!-- Grid -->
+                <!-- .................................................. -->
+                <PatchFixtureGrid Name="FixturesSetupGrid" MinSize="400,0" BackColor="UIGrid.Background" Anchors="0,0" StealFocusAfterSelect="Yes" Focus="InitialFocus" ClearFilter=":ClearContentFilter" FixedColumns="6" SettingsType="PatchEditorSettings" UseUserProfileSettings="Yes" FilterBlockUIEnabled="Yes" AllowFilterContent="No" OnSelectionAfterCmd=":SelectedFixturesAfterCmd" SelectionType="ColumnGridSelection3d"/>
+                <UILayoutGrid Name="View3DArea" Anchors="2,0" MinSize="100,0" Visible="Yes" W="800" HelpTopic="patch_3d_viewer.html">
+                    <UILayoutGrid Name="LayoutGrid" BackColor="Global.AlertText" Anchors="0,0" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Content" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectColumns>
+                        <!-- .................................................. -->
+                        <!-- Buttons Left Top -->
+                        <!-- .................................................. -->
+                        <AutoLayout Name="ToolbarLeftTop" Texture="corner15" Anchors="0,0" Transparent="0" BackColor="Global.Transparent50" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" TryFitMainIfContentDriven="No">
+                            <ValueControl   H="60" W="60" Name="Select"                 ShowLabel="No" ShowValue="No"  signalValue="select"        Texture="corner3" Icon="select"     Property="InputControl3d" Value="Select"            Undo="No" HotKey="Alt+S" Tooltip="Set Touchmode to 'Select'"/>
+                            <ValueControl   H="60" W="60" Name="Move"                   ShowLabel="No" ShowValue="No"  signalValue="move"          Texture="corner0" Icon="move"       Property="InputControl3d" Value="Camera Move"       Undo="No" HotKey="Alt+M" Tooltip="Set Touchmode to 'Move'"/>
+                            <ValueControl   H="60" W="60" Name="Orbit"                  ShowLabel="No" ShowValue="No"  signalValue="orbit"         Texture="corner0" Icon="rotate"     Property="InputControl3d" Value="Camera Orbit"      Undo="No" HotKey="Alt+O" Tooltip="Set Touchmode to 'Orbit'"/>
+                            <ValueControl   H="60" W="60" Name="Zoom"                   ShowLabel="No" ShowValue="No"  signalValue="zoom"          Texture="corner0" Icon="zoom"       Property="InputControl3d" Value="Camera Zoom"       Undo="No" HotKey="Alt+Z" Tooltip="Set Touchmode to 'Zoom'"/>
+                            <ValueControl   H="60" W="60" Name="Pivot"                  ShowLabel="No" ShowValue="No"  signalValue="pivot"         Texture="corner0" Icon="pivot"      Property="InputControl3d" Value="Camera Pivot"      Undo="No" HotKey="Alt+P" Tooltip="Set Touchmode to 'Pivot'"/>
+                            <ValueControl   H="60" W="60" Name="SetPivot"               ShowLabel="No" ShowValue="No"  signalValue="setpivot"      Texture="corner0" Icon="setpivot"   Property="InputControl3d" Value="Camera Set Pivot"  Undo="No" HotKey="Alt+Q" Tooltip="Set Touchmode to 'Set Pivot'"/>
+                            <ValueControl   H="60" W="60" Name="FocusControl"           ShowLabel="No" ShowValue="No"  signalValue="Focus"         Texture="corner0" Icon="suspension" Property="InputControl3d" Value="Focus"             Undo="No" HotKey="Alt+X" Tooltip="Set Touchmode to 'Focus'"/>
+                        </AutoLayout>
+                        <!-- .................................................. -->
+                        <!-- Buttons Left Bottom -->
+                        <!-- .................................................. -->
+                        <AutoLayout Name="ToolbarLeftBottom" Texture="corner15" Anchors="0,1" Transparent="0" BackColor="Global.Transparent50" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" TryFitMainIfContentDriven="No">
+                            <Button         H="60" W="60" Name="ResetCamera"                                           signalValue="ResetCamera"   Texture="corner3" Clicked=":ResetCamera"     Icon="fit"                Tooltip="Camera zoom to fit"/>
+                            <Button         H="60" W="60" Name="ResetCameraToSelection"                                signalValue="ResetCamera"   Texture="corner0" Clicked=":ResetCamera"     Icon="fit_selected"       Tooltip="Camera zoom to selection"/>
+                            <Button         H="60" W="60" Name="ReloadCamera"                                          signalValue="ReloadCamera"  Texture="corner0" Clicked=":ReloadCamera"    Icon="camera"             Tooltip="Reload Camera"/>
+                        </AutoLayout>
+                        <!-- .................................................. -->
+                        <!-- 3D Window Placeholder -->
+                        <!-- .................................................. -->
+                        <UIObject Name="PatchView3DPlaceHolder" Anchors="1,0,1,1" Visible="Yes"/>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+                <SplitterH     Name="Resizer3D"  UIToControl="Right"  Anchors="1,0" ResizeEnd=":Patch3DViewResizeEnd" ResizeStart=":Patch3DViewResizeStart" ResizeMove=":Patch3DViewResizeMove" Property="SplitFrameSize3d" OnLoad=":SetPatchEditorSettingsAsTarget"/>
+            </UILayoutGrid>
+
+            <SplitterH     Name="Resizer"  UIToControl="Left" Property="SplitFrameSize" OnLoad=":SetPatchEditorSettingsAsTarget"   Anchors="1,0" />
+        </MainDialogContent>
+
+        <MainDialogPlaceHolder Name="MainDialog" />
+
+    </MainDlgFixtureSetup>
+</GMA3>

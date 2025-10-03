@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgFixtureSetup Destination="AttributeDefinitions.DeactivationGroups" HelpTopic="patch_attribute_deactivation_group.html" OverrideKeybSC="Yes">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Deactivation Groups" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <!--
+        <MainDialogSubMenu>
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,0" Text="Activation&#xD;Groups"  Clicked=":CommandLine" SignalValue="menu ActivationGroups"  State="1"  />
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,1" Text="Feature&#xD;Groups" Clicked=":CommandLine" SignalValue="menu FeatureGroups"/>
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,2" Text="Attribute&#xD;Definitions" Clicked=":CommandLine" SignalValue="menu AttributeDefinitions"/>
+            <UIObject Texture="corner0" Anchors="0,9" HasHover="No"  />
+        </MainDialogSubMenu>
+        -->
+
+        <MainDialogContent Rows="1" Columns="1" >
+            <DBObjectGrid Name="DeactivationGroupsSetupGrid" BackColor="UIGrid.Background" Anchors="0,0" Focus="InitialFocus" />
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <UIObject Anchors="2,1,3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="0,1,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDlgFixtureSetup>
+</GMA3>

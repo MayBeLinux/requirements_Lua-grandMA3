@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<UILayoutGrid Name="EncoderBarContainer" Texture="" Transparent="Yes" Anchors="0,0"  DefaultMargin="3" Font="Regular18" LowDpiFont="Regular11" EncoderUseDisplay="Yes" OnLoad=":WindowEncoderBarContentLoaded">
+
+    <ItemCollectColumns>
+        <Item SizePolicy="Content" />
+        <Item SizePolicy="Stretch" />
+        <Item SizePolicy="Content" />
+    </ItemCollectColumns>
+
+    <AutoLayout Name="ButtonsLeft" Anchors="0,0" W="100" Texture="corner15" FocusSearchPolicy="Suppress">
+        <IndicatorControl Property="Sync" Undo="No" Target="#" ToolTip="Synchronizes the Programmer" Margin="0,3,0,0"/>
+        <IndicatorControl Property="SingleStep" Undo="No" Target="#" ToolTip="Controls single step mode" />
+        <SwipeButton Text="Align" Undo="No" Target="#" Property="AlignMode" HelpTopic="operate_align.html"/>
+        <SwipeButton Text="Readout"  Undo="No" Target="~" Property="ValueReadout" />
+    </AutoLayout>
+
+    <UILayoutGrid Anchors="1,0" Name="Middle">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+
+        <UILayoutGrid Anchors="0,0" Name="Top" H="60">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <EncoderBankSelector Anchors="0,0" Name="EncoderBankSelector" AvoidScroll="Yes" ForceEncoderBar="Yes" Margin="0,3,1,0" EditEncoderBar="PresetBar"/>
+
+            <SelectionIndicatorButton Padding="-7,0,0,0" W="85" Anchors="1,0" Texture="corner15" Name="SelectionOverlay" Text="Selection" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu SelectionOverlay" IndicatorIconColor="Button.Icon" Margin="0,3,1,0" ToolTip="Opens the Selection dialog" Target="#.$CurrentSelectionRef$"/>
+            <IndicatorButton Anchors="2,0" Texture="corner15" W="85" Name="PhaserOverlay" Text="Phaser" Clicked=":CommandLine" IndicatorIcon="DialogButtonIcon" SignalValue="menu PhaserEditorOverlay"  Margin="0,3,1,0" ToolTip="Opens the Phaser Editor dialog" />
+            <MatricksIndicatorButton Name="MatricksMenu" Anchors="3,0" W="85" Property="Active" ShowLabel="No" Target="#.$CurrentSelectionRef$" Clicked=":CommandLine" DefaultAction="0" SignalValue="menu MatricksOverlay" ActiveColorIndicator="PoolWindow.Matricks" IconActive="DialogButtonIcon" IconInactive="DialogButtonIcon" Texture="corner15" Margin="0,3,1,0" ToolTip="Opens the MA Tricks dialog" SuppressOverlayAutoClose="Yes">
+                <PropertyControl Name="MatricksText" Text="MAtricks" LabelAreaMargins="0,0,0,0" ValueAreaMargins="0,2,0,0" Property="InitialName" Target="#.$CurrentSelectionRef$" ShowLabel="Yes" Interactive="No"  Texture="" ValueTextColor="Global.Text" ValueAutoAdjust="Yes"  Margin="0,5,5,5" ToolTip="Opens the MA Tricks dialog" OnLoad=":MatricksLoaded"/>
+            </MatricksIndicatorButton>
+            <BlinkingFadeButton Name="ProgFader" Anchors="4,0" W="98" Texture="corner5" Text="ProgFade" Mode="Prog" Clicked=":CommandLine" SignalValue="menu ProgFaderOverlay"  Margin="0,3,0,0" ToolTip="" SuppressOverlayAutoClose="Yes"/>
+            <BlinkingFadeButton Name="ExecFader" Anchors="5,0" W="100" Texture="corner10" Text="ExecFade" Mode="Exec" Clicked=":CommandLine" SignalValue="menu ExecFaderOverlay"  Margin="0,3,3,0" ToolTip="" SuppressOverlayAutoClose="Yes"/>
+        </UILayoutGrid>
+
+        <EncoderBarSlot Name="EncoderBarSlot" Anchors="0,1" Transparent="Yes" HelpTopic="ws_eb_encoder_toolbar.html"/>
+    </UILayoutGrid>
+
+
+
+    <UILayoutGrid Name="GrandMasterGrid" Anchors="2,0" Rows="4" W="100" >
+        <GrandMasterFader Name="MasterFader" Text="Grand&#xD;Master" Target="ShowData.Masters.Grand.Master" Anchors="0,0" ToolTip="GrandMaster" Focus="Never" HeadLineDimension="45" OnOffTexture="led_rect" Margin="0,3,0,0" HelpTopic="do_control_grand.html"/>
+        <SpecialExecSection Anchors="0,3" Name="GrandMasterLabel" Rows="1" Columns="2" ExecBarToDraw="0" Texture="Corner3" OnLoad=":SpecialGrandMasterLoaded" />
+    </UILayoutGrid>
+</UILayoutGrid>

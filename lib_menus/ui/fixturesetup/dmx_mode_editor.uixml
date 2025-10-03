@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgDmxModeEditor OnLoad=":OnDmxModeEditorLoaded" OverrideKeybSC="Yes">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="DMX Mode" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <UITab Name="TopLevelTab" AvoidScroll="Yes" Anchors="0,0" TabChanged=":TopLevelTabChanged" />
+            <DBObjectGrid Name="TopLevelGrid" BackColor="UIGrid.Background" Anchors="0,1" ChangeTarget=":TopLevelTabChanged" Focus="InitialFocus" />
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons Name="Functions">
+            <CmdDlgFunctionButtonsLeft Name="Left" >
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgBlindButton Anchors="2,1,3,1"/>
+            </CmdDlgFunctionButtonsLeft>
+
+            <CmdDlgFunctionButtonsRight Name="Right">
+                <SwipeButton Anchors="0,0" Name="DMXReadout" Text="DMXReadout" Property="DMXReadout" DirectCommand="Yes" DirectPrefix="DMXReadout" DirectQuotation="Yes" />
+                <MainDlgBlindButton Anchors="1,1" Name="Blindbutton"/>
+                <Button   Anchors="1,1" Name="Conflicts" Text="Show Conflicts" Clicked=":ShowConflicts" HelpTopic="ft_conflicts_in_fixture_types.html"/>
+                <MainDlgBlindButton Anchors="0,1"/>
+                <MainDlgBlindButton Anchors="1,0"/>
+                <MainDlgGridSelectUp />
+                <MainDlgGridSelectDown />
+                <MainDlgNewLineToggleButton />
+                <MainDlgMergeToggleButton />
+            </CmdDlgFunctionButtonsRight>
+
+        </MainDialogFunctionButtons>
+
+        <MainDialogPlaceHolder Name="MainDialog" />
+
+    </MainDlgDmxModeEditor>
+</GMA3>

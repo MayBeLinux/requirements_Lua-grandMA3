@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="group.html" >
+        <GroupPoolLayoutGrid  Text="Groups" SwipeMenu="PoolSwipeEditSetting" TitleButtonIcon="object_group1" ToolTip="Group pool window" ReactToRecipeEdit="Yes" >
+            <Button Texture="corner10" />
+            <PoolTitleButton />
+        </GroupPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GeneratorBitmapEditor Name="GeneratorBitmapEditor"  OnLoad=":OnGenericEditLoaded" EditEncoderBar="GeneratorBitmapEditBar" OnSetEditTarget=":OnSetEditTarget" UpdateSettingsVisibility="Yes" InitialSaveEditTarget="true" >
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Bitmap Editor" Icon="object_bitmaps"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="60,0" />
+                <RevertButton Texture="corner0" MinSize="100,0"/>
+                <IndicatorControl Texture="corner0" Name="Settings" Text="Settings" Property="ShowSettingsInEditors" Target="~" MinSize="100,0"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Ok" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" DefaultMargin="4" DefaultMarginOnBorders="1">
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="350" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <PlaceHolderBase Anchors="0,0" Name="ObjectSettings" OnLoad=":LoadObjectSettings"/>
+            <TagButtonList Name="TagButtonList" Anchors="0,1" />
+
+            <UILayoutGrid Anchors="0,2" Name="TabGrid" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section" >
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="100" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="150" />
+                </ItemCollectColumns>
+                <UITab Name="Tabs" Anchors="0,0" AvoidScroll="Yes" TabChanged=":TabChanged" UseTabRegistry="Yes" Type="Vertical" H="200">
+                    <ItemStr Title="Config" Value="Config" />
+                    <ItemStr Title="Channel" Value="Channel" />
+                </UITab>
+                <DialogContainer Name="TabData" Anchors="1,0" ChangeActive=":TabChanged">
+                    <UILayoutGrid Name="Config" >
+                        <SelectedGrid Anchors="0,0" Name="ConfigGrid"  BackColor="UIGrid.Background" Focus="InitialFocus" OnSelectedRow=":OnConfigSelected" />
+                    </UILayoutGrid>
+                    <UILayoutGrid Name="Channel" >
+                        <DBObjectGrid Anchors="0,0" Name="ChannelGrid" BackColor="UIGrid.Background"/>
+                    </UILayoutGrid>
+                </DialogContainer>
+                <UILayoutGrid Anchors="2,0" Name="Settings" Transparent="Yes"  Columns="1" DefaultMargin="4" DefaultMarginOnBorders="1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content" MinSize="50" />
+                        <Item SizePolicy="Content" MinSize="50" />
+                        <Item SizePolicy="Content" MinSize="50" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <IndicatorControl Name="Link" Anchors="0,0" Texture="corner3" Property="HasActiveBMC" Text="Link&#xD;Control Fixture" ShowLabel="1" H="60" Clicked=":ToggleBMC" />
+                    <PropertyInput Name="BMC" Anchors="0,1" Texture="corner12" Text="Control Fixture" Property="BMC" ShowLabel="1" ShowValue="1" H="60" />
+                    <PropertyInput Name="SpeedMaster" Anchors="0,2" Texture="corner15" Property="SpeedMaster"  H="60" Margin="0,15,0,0" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="0,3" Name="Control" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section"  DefaultMargin="4" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="63" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="150" />
+                </ItemCollectColumns>
+                <UiFader Name="XOffset" Text="X"      Target="" System ="EncoderSystemBitmap" Property ="ControlX"      Anchors="0,0" />
+                <UiFader Name="YOffset" Text="Y"      Target="" System ="EncoderSystemBitmap" Property ="ControlY"      Anchors="1,0" />
+                <UiFader Name="Zoom"    Text="Zoom"   Target="" System ="EncoderSystemBitmap" Property ="ControlZoom"   Anchors="2,0" />
+                <UiFader Name="Aspect"  Text="Aspect" Target="" System ="EncoderSystemBitmap" Property ="ControlAspect" Anchors="3,0" />
+                <UiFader Name="Rotate"  Text="Rotate" Target="" System ="EncoderSystemBitmap" Property ="ControlRotate" Anchors="4,0" />
+
+                <UiFader Name="ColorR"  Text="R" Target="" System ="EncoderSystemBitmap" Property ="ColorR" Anchors="5,0" />
+                <UiFader Name="ColorG"  Text="G" Target="" System ="EncoderSystemBitmap" Property ="ColorG" Anchors="6,0" />
+                <UiFader Name="ColorB"  Text="B" Target="" System ="EncoderSystemBitmap" Property ="ColorB" Anchors="7,0" />
+
+                <IndicatorButton Anchors="0,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="X" />
+                <IndicatorButton Anchors="1,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="Y" />
+                <IndicatorButton Anchors="2,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="Zoom" />
+                <IndicatorButton Anchors="3,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="Aspect" />
+                <IndicatorButton Anchors="4,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="Rotate" />
+                <IndicatorButton Anchors="5,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="R" />
+                <IndicatorButton Anchors="6,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="G" />
+                <IndicatorButton Anchors="7,1" Text="Reset" Texture="corner12" Margin="0,1,0,0" Clicked=":OnClickedResetChannel" SignalValue="B" />
+
+
+                <UILayoutGrid Anchors="8,0,8,1" Name="ControlSettings" Transparent="Yes"  Columns="1" DefaultMargin="4" DefaultMarginOnBorders="1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content" MinSize="50" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <IndicatorButton  Anchors="0,0" Text="Reset&#xD;All" Texture="corner15" Clicked=":OnClickedReset" H="60" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons Name="FunctionButtons">
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportEditorButton WorkWithGrid="No" />
+                <MainDlgExportEditorButton WorkWithGrid="No" />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight  Name="FunctionButtonsRight">
+                <UIObject Anchors="0,1" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="2,1" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="2,0" Texture="corner0" HasHover="0"/>
+                <MainDlgSelectButton Text="Select&#xD;BitmapConfig"/>
+                <IndicatorControl Name="AutoFormat" Text="Auto&#xD;Format" Anchors="0,0" Property="AutoFormat" />
+                <MainDlgButtonBase  Name="FormatSel" Text="Format&#xD;Selection" Anchors="1,0" Clicked=":OnClickedFormatSelection" />
+                <MainDlgButtonBase  Name="AutoDim"   Text="Dimensions&#xD;From&#xD;Selection" Anchors="1,1" Clicked=":OnClickedAutoDimension" />
+                <MainDlgButtonBase  Name="At" Text="At" Anchors="3,1" Clicked=":OnClickedAt" ColorIndicator="Button.BackgroundPlease" />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+
+        <MainDialogPlaceHolder Name="EditSubmenu" />
+
+    </GeneratorBitmapEditor>
+</GMA3>

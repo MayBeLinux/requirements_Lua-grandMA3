@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="MessageCenterMain" DefaultMargin="2" OnLoad=":OnLoaded" HelpTopic="ws_ui_command_line.html#message_center">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Message Center" Icon="object_message"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" />
+                <IndicatorControl   W="150" MinSize="100,0" Name="NotificationsEnabled" Text="Notifications" Target="~" Property="NotificationEnabled"/>
+                <SwipeButton        W="150" MinSize="100,0" Name="NotificationMode" Text="Notification Mode" ShowLabel="Yes" Target="~"  Property="NotificationMode" />
+                <Button             W="180" MinSize="50,0" Texture="corner0" Text="Confirm Messages" Clicked=":CommandLine" SignalValue="Call MessageCenter" ToolTip="Confirm messages so they do not appear anymore as new ones."/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PlaceHolder Name="MessageCenterPlaceholder" Anchors="0,0" BlockLevel="Little"/>
+        </MainDialogContent>
+
+    </MainDialog>
+</GMA3>

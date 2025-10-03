@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="300" H="400">
+        <TitleBar Name="Title" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Alignment Rotation"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed"  Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+
+            <AutoCloseValueFadeControl Anchors="0,1" Texture="corner15" Margin="2,4,2,2" Property="AlignRotXY" Target="#" UseDefaultValue="Yes" IncrementFactor="5"/>
+            <RotationButton   Anchors="0,0" Texture="corner15" Margin="2,2,2,4" Property="AlignRotXY" Target="#" ShowLabel="No" W="300" H="300" />
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

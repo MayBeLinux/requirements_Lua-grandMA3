@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="18" Name="ColorInputCIE" Guid="00 1A 7D DA F1 42 00 00 10 7F 27 00 81 DD 38 07" Author="MA" Version="0.1.0.0" Path="/ui/input" >
+        <ComponentXML Index="1" Guid="00 1A 7D DA C3 5F 00 00 1F 7F 27 00 81 DD 38 07" FileName="color_input_cie.uixml" PlaceHolder="ModalOverlay" BuddyGroupId="InputLine" DisplayTypePreference="BigOrSmall" DefaultDisplay="1" />
+        <ComponentLua Index="2" Guid="00 1A 7D DA 9B 31 00 00 1E 7F 27 00 81 DD 38 07" FileName="color_input_cie.lua" />
+    </Menu>
+</GMA3>

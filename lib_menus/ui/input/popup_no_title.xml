@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="140" Name="PopupNoTitle" Guid="E9 5C 08 0D D2 C1 46 F1 B0 F6 B6 4D C9 1B F3 63" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" Guid="48 EF C7 8D 4D E2 47 D0 BA 6E 6D 0C B7 77 3A 65" FileName="popup_no_title.uixml" PlaceHolder="PopupOverlay"  CanProvideUiGridSelection="No" />
+    </Menu>
+</GMA3>

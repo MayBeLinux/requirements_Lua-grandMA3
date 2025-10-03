@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="98" Name="GeometryPopup" Guid="70 8B CD 59 A1 5B 00 00 36 52 36 54 AE 92 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="70 8B CD 59 93 46 00 00 39 52 36 54 AE 92 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="70 8B CD 59 CB 28 00 00 38 52 36 54 AE 92 55 B0" FileName="geometry_popup.lua" />
+    </Menu>
+</GMA3>

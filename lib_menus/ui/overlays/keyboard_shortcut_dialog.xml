@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="KeyboardShortcutDialog" Guid="58 AC 11 5A 02 2C 42 E1 92 68 BA 9F 60 03 7A E2" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Index="1" Guid="84 7C 91 E8 BB 5E 42 1B A4 AE 27 C7 90 0F 1D 89" FileName="keyboard_shortcut_dialog.uixml" PlaceHolder="KeyboardShortcutPlace"/>
+        <ComponentLua Index="2" Guid="94 79 94 7D F1 56 49 01 BA 2F E3 47 AB D3 9C A8" FileName="keyboard_shortcut_dialog.lua" />
+    </Menu>
+</GMA3>

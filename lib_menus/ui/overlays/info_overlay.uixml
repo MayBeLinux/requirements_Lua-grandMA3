@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="ObjectReferences" W="50%" H="70%" AlignmentH="Center" AlignmentV="Center" WantsModal="Yes" MinSize="600,300">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="References viewer" Icon=""/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="DialogFrame" Anchors="0,1" >
+            <ReferencesContainer Name="RefContainer">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UITab TextAutoAdjust="Yes" Texture="corner3" Name="ReferencesTab" AvoidScroll="Yes" Anchors="0,0" TabChanged=":TabChanged" >
+                    <ItemStr Title="Referenced by" Value="ReferencesGrid" />
+                    <ItemStr Title="Depends on" Value="DependenciesGrid" />
+                    <ItemStr Title="Note" Value="NotesGrid" Name="NoteTitle"   />
+                </UITab>
+                <TagButtonList Name="TagButtonList" Anchors="0,1" OnLoad=":CreateTagButtons" />
+                <DialogContainer Anchors="0,2" ChangeActive=":TabChanged">
+                    <ReferencesGrid Name="ReferencesGrid" />
+                    <ReferencesGrid Name="DependenciesGrid" />
+                    <UILayoutGrid Name="NotesGrid">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+
+                        <ScrollContainer Name="NotesViewScroll" Anchors="0,0" >
+                            <InfoNotesGridScroller Name="NotesGridScroller" BackColor="Global.Background"/>
+                        </ScrollContainer>
+                        <!-- <NoteTextEdit Name="NotesEdit" Enabled="false" Anchors="0,0,1,1" HasHover="No" Focus="WantsFocus"/> -->
+                    </UILayoutGrid>
+                </DialogContainer>
+            </ReferencesContainer>
+        </DialogFrame>
+        <ResizeCorner />
+    </ShadedOverlay>
+</GMA3>

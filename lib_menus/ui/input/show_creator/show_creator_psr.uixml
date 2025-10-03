@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="ShowCreatorPSR" OnLoad=":OnLoad" HelpTopic="sc_psr.html">
+
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Anchors="0,0" Texture="corner1" Text="Partial Show Read" />
+            <CloseButton Anchors="1,0" Texture="corner2" />
+        </TitleBar>
+
+        <MainDialogSecondaryMenu Name="PsrMenu">
+            <PSRTabs Name="SubTabs" TabChanged=":TabChanged"/>
+        </MainDialogSecondaryMenu>
+
+        <!-- body -->
+        <MainDialogContent Name="Content" DefaultMargin="300" DefaultMarginOnBorders="Yes" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons H="60">
+            <CmdDlgFunctionButtonsLeft>
+                <ItemCollectRows>
+                    <!-- Hide First Row as its empty -->
+                    <Item SizePolicy="Fixed" Size="0"/>
+                    <Item SizePolicy="Stretch" Size="0.5" />
+                </ItemCollectRows>
+                <UIObject Anchors="0,1,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <ItemCollectRows>
+                    <!-- Hide First Row as its empty -->
+                    <Item SizePolicy="Fixed" Size="0"/>
+                    <Item SizePolicy="Stretch" Size="0.5" />
+                </ItemCollectRows>
+                <UIObject Anchors="0,1,3,1" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+        <MainDialogPlaceHolder Name="MainDialogPSR" />
+    </MainDialog>
+</GMA3>

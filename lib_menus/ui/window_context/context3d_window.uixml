@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Settings3dContext Name="GC" W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" OnLoad=":Context3dLoaded">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="3D Viewer Settings" Icon=""/>
+            <EditTitlebarButton Anchors="1,0"  />
+            <Button   Anchors="2,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="Window3D" />
+            <Button   Anchors="3,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="Window3D" />
+            <DeleteWindowButton   Anchors="4,0"  />
+            <CloseButton Texture="corner2" Anchors="5,0" />
+        </TitleBar>
+        <DialogFrame Name="DialogFrame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="3D Settings" Value="DLG3D" />
+            </UITab>
+
+            <DialogContainer Name="MainDialogContainer" Anchors="0,1" ChangeActive=":MyTabChanged">
+
+                <UILayoutGrid Name="DLG3D">
+                    <!--..................................................-->
+                    <!--3D Window Grid-->
+                    <!--..................................................-->
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content"/>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <!--..................................................-->
+                    <!--Tab Control-->
+                    <!--..................................................-->
+                    <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":My3dTabChanged" OnLoad=":OnTabLoadDev">
+                        <ItemStr Title="Rendering" Value="Rendering"/>
+                        <ItemStr Title="Misc"      Value="Misc" />
+                        <ItemStr Title="Label"     Value="Label" />
+                    </UITab>
+                    <DialogContainer Name="DialogContainer3D" Anchors="0,1" ChangeActive=":My3dTabChanged" >
+                        <!--..................................................-->
+                        <!-- Rendering Tab Page-->
+                        <!--..................................................-->
+                        <UILayoutGrid Name="Rendering">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="48"/>
+                                <Item SizePolicy="Stretch" />
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" />
+                            </ItemCollectColumns>
+                            <UILayoutGrid Name="Buttons" Anchors="0,0" >
+                                <AutoLayout Name="AutoLayout" Direction="Horizontal" Anchors="0,0" Texture="corner15" ModifyTextureLayout="No" OnlyVisible="No">
+                                    <PropertyInput Name="" Visible="No"/>
+									<PropertyInput Name="Spare1" Visible="No"/>
+									<ColorPropertyInput Name="AmbientLightColor" Text="AmbientLightColor" Property="AmbientLightColor" AutoHide="Yes" DrawContent="false" BackgroundButtonStyle="true" Texture="corner3" Margin="0,0,0,0"/>
+									<ColorPropertyInput Name="PointLightColor"   Text="PointLightColor"   Property="PointLightColor"   AutoHide="Yes" DrawContent="false" BackgroundButtonStyle="true" Texture="corner3" Margin="0,0,0,0"/>
+									<PropertyInput Name="Spare2" Visible="No"/>
+									<ColorPropertyInput Name="BackgroundColor"   Text="BackgroundColor"   Property="BackgroundColor"   AutoHide="Yes" DrawContent="false" BackgroundButtonStyle="true" Texture="corner3"/>
+									<PropertyInput Name="Spare2" Visible="No"/>
+								</AutoLayout>
+                            </UILayoutGrid>
+                            <UILayoutGrid Name="Fader" Anchors="0,1" >
+                                <AutoLayout Name="AutoLayout" Direction="Horizontal" Anchors="0,0" Texture="corner15" ModifyTextureLayout="No" OnlyVisible="No">
+                                    <UiFader Name="BeamIntensity" Text="Beam" Property="BeamIntensity" Texture="corner3" HeadLineTexture="corner3" Margin="0,0,0,0"/>
+                                    <UiFader Name="SpotIntensity" Text="Spot" Property="SpotIntensity" Texture="corner3" HeadLineTexture="corner3" Margin="0,0,0,0"/>
+                                    <UiFader Name="AmbientIntensity" Text="Ambient" Property="AmbientIntensity" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0"/>
+                                    <UiFader Name="PointLightIntensity" Text="Point Light" Property="PointLightIntensity" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0"/>
+									<UiFader Name="LuminousIntensitySpread" Text="Lum.Spread" Property="LuminousIntensitySpread" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0"/>
+                                    <UILayoutGrid Name="RenderSettings">
+                                        <ItemCollectRows>
+                                            <Item SizePolicy="Fixed" Size="50" />
+                                            <Item SizePolicy="Stretch"/>
+                                            <Item SizePolicy="Stretch"/>
+                                            <Item SizePolicy="Stretch"/>
+                                        </ItemCollectRows>
+                                        <Button Name="BackgroundText" Text="Background" Anchors="0,0" Texture="corner12" HasHover="No" Interactive="No"/>
+                                        <!-- <SwipeButton Name="SpotQuality3d" Text="Spot Quality" Anchors="0,2" Texture="corner15" AutoHide="Yes" Property="SpotQuality3d"/> -->
+                                        <PropertyInput OnLoad=":SetTarget" Anchors="0,1" Name="Dyn Gobo Res" Text="Dyn. Gobo Res." AutoHide="Yes" Texture="corner15" Property="DynamicGoboResolution" />
+                                        <SwipeButton Name="BloomIntensity" Text="Bloom Intensity" Anchors="0,2" Texture="corner15" AutoHide="Yes" Property="BloomIntensity" ReferencedTitleButton="BloomIntensity"/>
+                                        <IndicatorControl OnLoad=":SetTarget" Anchors="0,3" Text="Setup" Name="Setup"        Property="Setup"  Texture="corner15" TextAutoAdjust="Yes" BackColor="global.Default" ReferencedTitleButton="Setup"/>
+                                    </UILayoutGrid>
+                                    <UILayoutGrid Name="RenderSettings">
+                                        <ItemCollectRows>
+                                            <Item SizePolicy="Fixed" Size="50" />
+                                            <Item SizePolicy="Stretch"/>
+                                            <Item SizePolicy="Stretch"/>
+                                            <Item SizePolicy="Stretch"/>
+                                        </ItemCollectRows>
+                                        <SwipeButton OnLoad=":SetTarget" Anchors="0,1" Text="Camera"     Name="Camera"       Property="Camera" Texture="corner15" TextAutoAdjust="Yes" BackColor="global.Default" IndirectEdit="1" ReferencedTitleButton="Camera"/>
+                                        <SwipeButton OnLoad=":SetTarget" Anchors="0,2" Text="Stage"      Name="Stage"        Property="Stage"  Texture="corner15" TextAutoAdjust="Yes" BackColor="global.Default" IndirectEdit="1" ReferencedTitleButton="Stage"/>
+                                        <SwipeButton OnLoad=":SetTarget" Anchors="0,3" Text="Render Quality" Name="RenderQuality"    Property="RenderQuality" Texture="corner15" TextAutoAdjust="Yes" BackColor="global.Default" IndirectEdit="1" ReferencedTitleButton="RenderQuality"/>
+                                    </UILayoutGrid>
+                                </AutoLayout>
+                            </UILayoutGrid>
+                        </UILayoutGrid>
+                        <!--..................................................-->
+                        <!--Misc Tab-->
+                        <!--..................................................-->
+                        <UILayoutGrid Name="Misc">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="150" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="150" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="150" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="150" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                            </ItemCollectColumns>
+                            <!-- Col 1 -->
+                            <IndicatorControl Name="Show Fps"         Text="Show fps"             Anchors="1,1"   Texture="corner15" Property="ShowFPS"          TextAutoAdjust="Yes" ReferencedTitleButton="ShowFps"/>
+                            <IndicatorControl Name="Wireframed"       Text="Wireframe"            Anchors="1,3"   Texture="corner15" Property="Wireframed"       TextAutoAdjust="Yes" ReferencedTitleButton="Wireframed"/>
+                            <IndicatorControl Name="Priority"         Text="Priority"             Anchors="1,5"   Texture="corner15" Property="Priority"         TextAutoAdjust="Yes" Clicked=":ActionSetPriority"/>
+                            <IndicatorControl Name="MarkFaultyMeshes" Text="Mark Faulty Meshes"   Anchors="1,7"   Texture="corner15" Property="MarkFaultyMeshes" TextAutoAdjust="Yes" ReferencedTitleButton="MarkFaultyMeshes"/>
+                            <IndicatorControl Name="Show Selection"   Text="Show Selection"       Anchors="1,9"   Texture="corner15" Property="ShowSelection"    TextAutoAdjust="Yes" ReferencedTitleButton="ShowSelection"/>
+                            <IndicatorControl Name="LensShading"      Text="Lens Shading"         Anchors="1,11"  Texture="corner15" Property="LensShading"      TextAutoAdjust="Yes" ReferencedTitleButton="LensShading"/>
+                            <!-- Col 2 -->
+                            <SwipeButton Name="InputControl3d"        Text="Touch Mode"           Anchors="3,1"   Texture="corner15" Property="InputControl3d" ReferencedTitleButton="TouchMode"/>
+                            <SwipeButton Name="SelectionMode"         Text="Selection Mode"       Anchors="3,3"   Texture="corner15" Property="SelectionMode" ReferencedTitleButton="SelectionMode"/>
+                            <IndicatorControl Name="MarkUnpatched"    Text="Mark Unpatched"       Anchors="3,5"   Texture="corner15" Property="MarkUnpatched"    TextAutoAdjust="Yes" ReferencedTitleButton="MarkUnpatched"/>
+                            <IndicatorControl Name="PrismLines"       Text="Prism Lines"          Anchors="3,7"   Texture="corner15" Property="PrismLines"       TextAutoAdjust="Yes" ReferencedTitleButton="PrismLines"/>
+                            <IndicatorControl Name="Point of Origin"  Text="Point of Origin"      Anchors="3,9"   Texture="corner15" Property="PointOfOrigin"    TextAutoAdjust="Yes" ReferencedTitleButton="PointOfOrigin"/>
+							<IndicatorControl Name="ShowPigtails"     Text="Show Pigtails"        Anchors="3,11"  Texture="corner15" Property="ShowPigtails"    TextAutoAdjust="Yes" ReferencedTitleButton="ShowPigtails"/>
+
+							<!-- Col 3 -->
+                            <UILayoutGrid Name="FaderGrid" Anchors="5,1,5,11" >
+                                <ItemCollectRows>
+                                    <Item SizePolicy="Fixed"   Size="50" />
+                                    <Item SizePolicy="Fixed"   Size="50" />
+                                    <Item SizePolicy="Fixed"   Size="50" />
+                                    <Item SizePolicy="Stretch"/>
+                                </ItemCollectRows>
+                                <Button        Name="Arrangement"       Text="Arrangement"                                 Anchors="0,0,0,0" Texture="corner3" TextAutoAdjust="Yes" HasHover="No" Interactive="No"/>
+                                <SwipeButton   Name="Mark Type"         Text="Mark Type"    Property="ArrangementMarcType" Anchors="0,1,0,1" Texture="corner0" TextAutoAdjust="Yes" ReferencedTitleButton="MarkType"/>
+                                <PropertyInput Name="ArrangementDepth"  Text="Depth"        Property="ArrangementDepth"    Anchors="0,2,0,2" Texture="corner0" ReferencedTitleButton="ArrangementDepth"/>
+                                <UiFader       Name="Alpha"             Text="Alpha"        Property="ArrangementAlpha"    Anchors="0,3,0,3" Texture="corner0" HeadLineTexture="corner0" MaxValue="255"/>
+                            </UILayoutGrid>
+                            <!-- Col 4 -->
+							<SwipeButton Name="LinesOverlay" Text="Show Lines" Anchors="7,1"   Texture="corner15" Property="LinesOverlay"    TextAutoAdjust="Yes" ReferencedTitleButton="LinesOverlay"/>
+							<IndicatorControl Name="Render Environmental" Text="Render Environmental" Anchors="7,3"   Texture="corner15" Property="RenderEnvironment"    TextAutoAdjust="Yes" ReferencedTitleButton="Render Environmental"/>
+							<IndicatorControl  Name="Draw Spaces"       Text="Draw Target Spaces"                          Anchors="7,5"     Texture="corner15" Property="DrawMArkerBoundaries" TextAutoAdjust="Yes" ReferencedTitleButton="DrawSpaces"/>
+                            <IndicatorControl Anchors="7,7" Property="ShowTitleBar"  Texture="corner15" TextAutoAdjust="Yes" Text="Show Title Bar" />
+							<IndicatorControl Anchors="7,9" Property="ShowToolBar"  Texture="corner15" TextAutoAdjust="Yes" Text="Show Tool Bar" ReferencedTitleButton="ShowToolBar"/>
+						</UILayoutGrid>
+                        <!--..................................................-->
+                        <!--Label Tab-->
+                        <!--..................................................-->
+                        <UILayoutGrid Name="Label">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="100" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="100" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="100" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="100" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="100" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="100" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                            </ItemCollectColumns>
+                            <!-- Col 1 -->
+                            <UILayoutGrid Name="CheckmarksGrid" Anchors="0,0,3,10" DefaultMargin="0" Margin="10,10,0,10">
+                                <ItemCollectRows>
+                                    <Item SizePolicy="Stretch" Size="45"/>
+                                    <Item SizePolicy="Stretch" Size="45"/>
+                                    <Item SizePolicy="Stretch" Size="45"/>
+                                    <Item SizePolicy="Fixed" Size="8"/>
+                                    <Item SizePolicy="Stretch" Size="45" />
+                                    <Item SizePolicy="Stretch" Size="45" />
+                                    <Item SizePolicy="Stretch" Size="45" />
+                                    <Item SizePolicy="Stretch" Size="45" />
+                                    <Item SizePolicy="Fixed" Size="8" />
+                                </ItemCollectRows>
+                                <IndicatorControl   Name="Enable Label"         Text="Show Label on Body" Anchors="0,0,0,0"   AutoHide="Yes" Texture="corner3"  TextAutoAdjust="Yes" Property="ShowLabel" ReferencedTitleButton="ShowLabel" />
+                                <IndicatorControl   Name="Show Label on Spot"   Text="Show Label on Spot" Anchors="0,1,0,1"   AutoHide="Yes" Texture="corner0"  TextAutoAdjust="Yes" Property="ShowLabOnEnd" ReferencedTitleButton="ShowLabOnEnd"/>
+                                <IndicatorControl   Name="SelectByLabel"        Text="Select by Label"    Anchors="0,2,0,2"   AutoHide="Yes" Texture="corner12" TextAutoAdjust="Yes" Property="SelectFixtureBySpotLabel" ReferencedTitleButton="SelectByLabel"/>
+                                <IndicatorControl   Name="ShowLabelFixtureId"   Text="Add Fixture ID"     Anchors="0,4,0,4"   AutoHide="Yes" Texture="corner3"  TextAutoAdjust="Yes" Property="ShowLabFixtureId" ReferencedTitleButton="ShowLabelFixtureId" />
+                                <IndicatorControl   Name="ShowLabelCID"         Text="Add CID"            Anchors="0,5,0,5"   AutoHide="Yes" Texture="corner0"  TextAutoAdjust="Yes" Property="ShowLabCIE"       ReferencedTitleButton="ShowLabelCID" />
+                                <IndicatorControl   Name="ShowLabelPatch"       Text="Add Patch"          Anchors="0,6,0,6"   AutoHide="Yes" Texture="corner0"  TextAutoAdjust="Yes" Property="ShowLabPatch"     ReferencedTitleButton="ShowLabelPatch" />
+                                <IndicatorControl   Name="ShowLabelName"        Text="Add Name"           Anchors="0,7,0,7"   AutoHide="Yes" Texture="corner12" TextAutoAdjust="Yes" Property="ShowLabName"      ReferencedTitleButton="ShowLabelName" />
+                            </UILayoutGrid>
+                            <!-- Col 2 -->
+                            <!-- Label Background Color -->
+                            <UILayoutGrid Name="FaderGrid" Anchors="5,0,7,10" >
+                                <ItemCollectColumns>
+                                    <Item SizePolicy="Stretch" Size="100" />
+                                    <Item SizePolicy="Stretch" Size="100" />
+                                </ItemCollectColumns>
+                                <UiFader Text="Backgr. Alpha" Property="LabelBackgroundTransparency" Texture="corner0" HeadLineTexture="corner0" Anchors="0,0,0,0" MaxValue="255"/>
+                                <UiFader Text="Text Alpha" Property="LabelTextTransparency" Texture="corner0" HeadLineTexture="corner0" Anchors="1,0,1,0" MaxValue="255"/>
+                            </UILayoutGrid>
+
+                            <!-- Col 3 -->
+                            <UILayoutGrid Name="FaderGrid" Anchors="9,1,11,10" >
+                                <ItemCollectRows>
+                                    <Item SizePolicy="Fixed" Size="45" />
+                                    <Item SizePolicy="Fixed" Size="45" />
+                                    <Item SizePolicy="Fixed" Size="45" />
+                                    <Item SizePolicy="Fixed" Size="45" />
+                                    <Item SizePolicy="Fixed" Size="45" />
+                                    <Item SizePolicy="Fixed" Size="45" />
+                                </ItemCollectRows>
+                                <SwipeButton        Name="LabelFontSize"             Text="Font Size"          Anchors="0,0,0,0"  Texture="corner15"  Property="LabelFontSize"/>
+                                <PropertyInput      Name="LabelMaxCount"             Text="Max Label Count"    Anchors="0,1,0,1"  Texture="corner15"  Property="LabMaxCount"/>
+								<IndicatorControl   Name="LabOnlySelection"          Text="Selection Only"     Anchors="0,2,0,2"  Texture="corner15"  Property="LabOnlySelection" ReferencedTitleButton="LabOnlySelection"/>
+								<IndicatorControl   Name="LabSelectionPrio"          Text="Selection Priority" Anchors="0,3,0,3"  Texture="corner15"  Property="LabSelectionPrio" ReferencedTitleButton="LabSelectionPrio"/>
+								<IndicatorControl   Name="ShowSpotLabelSubFixtureId" Text="Spot Subfixture ID" Anchors="0,4,0,4"  Texture="corner15"  Property="ShowSpotLabelSubFixtureId" ReferencedTitleButton="ShowSpotLabelSFID"/>
+                                <Button             Name="ResetProperties"           Text="Reset Properties"   Anchors="0,5,0,5"  Texture="corner15"  Clicked=":ResetPropertiesClicked"/>
+                            </UILayoutGrid>
+                        </UILayoutGrid>
+                        <!--..................................................-->
+                        <!--Developer Tab-->
+                        <!--..................................................-->
+                        <UILayoutGrid Name="Developer">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Stretch" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                                <Item SizePolicy="Stretch" Size="71" />
+                                <Item SizePolicy="Fixed" Size="12"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Fixed" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="90" />
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="70" />
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="70" />
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="70" />
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="70" />
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="70" />
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="70" />
+                                <Item SizePolicy="Stretch" Size="6"/>
+                                <Item SizePolicy="Stretch" Size="90" />
+                                <Item SizePolicy="Fixed" Size="6"/>
+                            </ItemCollectColumns>
+                            <!-- Col 1 -->
+                            <IndicatorControl Name="Native Colors"              Text="Native Colors"            Anchors="1,1"   Texture="corner15" Property="NativeColors"         TextAutoAdjust="Yes"/>
+                            <IndicatorControl Name="Deferred Dev"               Text="Deferred Dev"             Anchors="1,3"   Texture="corner15" Property="DeferredDevMode"      TextAutoAdjust="Yes"/>
+                            <IndicatorControl Name="Statistics"                 Text="Statistics"               Anchors="1,5"   Texture="corner15" Property="Statistics"           TextAutoAdjust="Yes"/>
+                            <IndicatorControl Name="Timing"                     Text="Timing"                   Anchors="1,7"   Texture="corner15" Property="Timing"               TextAutoAdjust="Yes"/>
+							<IndicatorControl Name="Render GBuffer Textures"    Text="Render GBuffer Textures"  Anchors="1,9"   Texture="corner15" Property="RenderGBufferTextures" TextAutoAdjust="Yes"/>
+							<IndicatorControl Name="DisableCalibFrameLock"      Text="Disable Calib and FrameLock" Anchors="1,11" Texture="corner15" Property="DisableCalibration"  TextAutoAdjust="Yes"/>
+							<!-- Col 2 -->
+							<IndicatorControl Name="ShowUniformBufferStatistics"    Text="Uniform Statistics"  Anchors="3,9"   Texture="corner15" Property="ShowUniformBufferStatistics" TextAutoAdjust="Yes"/>
+							<IndicatorControl Name="DgBufferOptimization"    Text="DgBuffer Optimization"  Anchors="3,11"   Texture="corner15" Property="DgBufferOptimization" TextAutoAdjust="Yes"/>
+
+							<!-- <IndicatorControl Name="MarkUnpatched"         Text="Mark Unpatched"           Anchors="3,1"   Texture="corner15" Property="MarkUnpatched"    TextAutoAdjust="Yes"/> -->
+                            <!-- Col 3 -->
+                            <!-- <IndicatorControl Name="MarkUnpatched"         Text="Mark Unpatched"           Anchors="5,1"   Texture="corner15" Property="MarkUnpatched"    TextAutoAdjust="Yes"/> -->
+                            <!-- Col 4 -->
+                            <IndicatorControl Name="BVH Debugging"              Text="BVH Debugging"            Anchors="15,1"   Texture="corner15" Property="EnableBVHDebugging"   TextAutoAdjust="Yes"/>
+                            <IndicatorControl Name="SelBoundBoxes"              Text="SelBoundBoxes"            Anchors="15,3"   Texture="corner15" Property="BoundingBoxes"       TextAutoAdjust="Yes"/>
+							<IndicatorControl Name="Model Group Statistics"     Text="Model Group Statistics"   Anchors="15,5"   Texture="corner15" Property="ModelGroupStatistics" TextAutoAdjust="Yes"/>
+							<IndicatorControl Name="Show Pick Points"           Text="Show Pick Points"         Anchors="15,7"   Texture="corner15" Property="ShowPickPoints"       TextAutoAdjust="Yes"/>
+							<IndicatorControl Name="Force Iterative Rendering"  Text="Force Iterative Rendering" Anchors="15,9"   Texture="corner15" Property="ForceIterativeRendering" TextAutoAdjust="Yes"/>
+							<IndicatorControl Name="RenderEnvironment"          Text="Render Environment"       Anchors="15,11"  Texture="corner15" Property="RenderEnvironment"  TextAutoAdjust="Yes"/>
+
+							<TitlebuttonControl Name="AnalyzeMeshPool"          Text="Analyze&#xD;Meshpool"     Anchors="15,9,15,11" Texture="corner15" ReferencedTitleButton="AnalyzeMeshPool" />
+
+                            <UiFader Name="IgnoreNormals" Text="Ignore&#xD;Normals" Property="IgnoreNormals" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0" Anchors="3,1,3,7"/>
+                            <UiFader Name="Haze Beam" Text="Gray&#xD;Haze" Property="GrayHaze" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0" Anchors="5,1,5,7" MaxValue="100"/>
+
+                            <!--..................................................-->
+                            <!-- DEVELOPER SECTION -->
+                            <!--..................................................-->
+
+                            <UiFader Visible="Yes" Name="Dev1" Text="Radius"      Property="Dev1" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0" Anchors="7,1,7,7" MaxValue="100"/>
+                            <UiFader Visible="Yes" Name="Dev2" Text="Power"       Property="Dev2" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0" Anchors="9,1,9,7" MaxValue="100"/>
+                            <UiFader Visible="Yes" Name="Dev3" Text=""            Property="Dev3" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0" Anchors="11,1,11,7" MaxValue="100"/>
+                            <UiFader Visible="Yes" Name="Dev4" Text="Min Inty"    Property="Dev4" Texture="corner0" HeadLineTexture="corner0" Margin="0,0,0,0" Anchors="13,1,13,7" MaxValue="100"/>
+
+                            <IndicatorControl Visible="No"     Text=""          Name="DevFlag1" Anchors="7,9" Texture="corner15" Property="DevFlag1" TextAutoAdjust="Yes"/>
+                            <IndicatorControl Visible="No"     Text=""          Name="DevFlag2" Anchors="9,9" Texture="corner15" Property="DevFlag2" TextAutoAdjust="Yes"/>
+                            <IndicatorControl Visible="No"     Text=""          Name="DevFlag3" Anchors="11,9" Texture="corner15" Property="DevFlag3" TextAutoAdjust="Yes"/>
+                            <IndicatorControl Visible="No"     Text=""          Name="DevFlag4" Anchors="13,9" Texture="corner15" Property="DevFlag4" TextAutoAdjust="Yes"/>
+
+                            <!--..................................................-->
+
+                        </UILayoutGrid>
+
+                        <!--..................................................-->
+                        <!--Title Buttons Tab-->
+                        <!--..................................................-->
+                        <!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+                        <!--..................................................-->
+                    </DialogContainer>
+                </UILayoutGrid>
+                
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ScrollContainer Name="Enums" Visible="Yes">
+                        <ScrollBox>
+                            <ObjectProperties Name="SettingsTabContent" />
+                        </ScrollBox>
+                    </ScrollContainer>
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </Settings3dContext>
+</GMA3>

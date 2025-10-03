@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="InsertFixturesWizard" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML FileName="insert_fixtures_wizard.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="insert_fixtures_wizard.lua" />
+    </Menu>
+</GMA3>

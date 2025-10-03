@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window Name="Test" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="WebViewDev" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip="Configures help viewer"/>
+
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Rows="1" Columns="1">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="40"/>
+                <Item SizePolicy="Fixed" Size="40"/>
+                <Item SizePolicy="Fixed" Size="40"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+            </ItemCollectColumns>
+
+            <Button Name="Backward" Text="" Clicked=":WV_GoBackward" Icon="UrlBack" Anchors="0,0" />
+            <Button Name="Forward" Text="" Clicked=":WV_GoForward" Icon="UrlFwd" Anchors="1,0" />
+            <Button Name="Reload" Text="" Clicked=":WV_Reload" Icon="UrlRel" Anchors="2,0" />
+            <LineEditExt Name="UrlField" Content="http://html5test.com" Anchors="3,0" ContentDriven="Yes" Execute=":WV_SetUrl" SetText=":WV_UrlChanged" ProgressChanged=":WV_ProgressChanged" />
+            <WebView Anchors="0,1,3,1" Focus="InitialFocus" />
+        </DialogFrame>
+    </Window>
+</GMA3>

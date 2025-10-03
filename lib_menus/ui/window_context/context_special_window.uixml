@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SpecialWindowContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="operate_special.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+				<Item SizePolicy="Fixed" Size="100" />
+				<Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Special Dialog Window Settings" Icon=""/>
+            <EditTitlebarButton Anchors="1,0"  />
+			<Button   Anchors="2,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="SpecialWindow" />
+			<Button   Anchors="3,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="SpecialWindow" />
+            <DeleteWindowButton   Anchors="4,0"  />
+            <CloseButton Texture="corner2" Anchors="5,0" />
+        </TitleBar>
+
+        <DialogFrame Name="DialogFrame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoadSpecial">
+                <ItemStr Title="Display" Value="Display" />
+                <ItemStr Title="Color" Value="Color" />
+                <ItemStr Title="Shapers" Value="Shapers" />
+            </UITab>
+
+            <DialogContainer Name="DialogContainer" Anchors="0,1" ChangeActive=":MyTabChanged"  >
+
+                <UILayoutGrid Name="Display" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10" >
+                    <!-- SpecialWindowSettings -->
+
+                    <!-- Row 1 -->
+                    <IndicatorControl Anchors="0,0" Texture="corner15" Property="ShowTabs"          Text="Tabs"/>
+                    <SwipeButton      Anchors="1,0" Texture="corner15" Property="RememberedTab"     Text="Tab"/>
+
+                    <!-- Row 2 -->
+                    <IndicatorControl Anchors="0,1" Texture="corner15" Property="LinkToEncoderBank"  Text="Link Encoder&#xD;Bank"/>
+
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Color" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10" >
+                    <!-- ColorPickerSettings -->
+                    <!-- Row 1 -->
+                    <SwipeButton      Anchors="0,0" Text="Mode" Name="Mode" Property="Mode" Texture="corner15" Enabled="true" TextAutoAdjust="Yes" ReferencedTitleButton="Mode"/>
+                    <TitlebuttonControl Anchors="1,0" Texture="corner15"  Visible="No" Text="CIE" ReferencedTitleButton="CIE"/>
+                    <TitlebuttonControl Anchors="2,0" Texture="corner15"  Visible="No" Text="HSBField" ReferencedTitleButton="HSBField"/>
+                    <TitlebuttonControl Anchors="3,0" Texture="corner15"  Visible="No" Text="Fader" ReferencedTitleButton="Fader"/>
+                    <TitlebuttonControl Anchors="4,0" Texture="corner15"  Visible="No" Text="Book" ReferencedTitleButton="Book"/>
+                    <!-- Row 2 -->
+                    <IndicatorControl   Anchors="0,1" Text="Constant&#xD;Brightness" Name="OverdriveMode"  Texture="corner15" Property="BrightnessOverdriveMode" Enabled="true" ReferencedTitleButton="OverdriveMode"/>
+                    <SwipeButton        Anchors="1,1" Text="Color Space" Name="ColorMixMode" Property="ColorMixMode"  Texture="corner15" Enabled="true" TextAutoAdjust="Yes" ReferencedTitleButton="ColorMixMode"/>
+                    <TitlebuttonControl Anchors="2,1" Texture="corner15"  Visible="No" Text="Spacer" ReferencedTitleButton="Spacer"/>
+                    <!-- Row 3 -->
+                    <SwipeButton        Anchors="0,2" Text="Wheel Mix Mode" Name="ColorWheelMode" Property="ColorWheelMode"  Texture="corner15" Enabled="true" TextAutoAdjust="Yes" ReferencedTitleButton="ColorWheelMode"/>
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Shapers" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10" >
+                    <!-- ShaperSettings -->
+                    <!-- Row 1 -->
+                    <SwipeButton        Anchors="0,0" Texture="corner15" Text="View"        Property="ViewMode"         Name="ViewMode" ReferencedTitleButton="ViewMode" ToolTip="Toggle between Graphical or Faders"/>
+                    <SwipeButton        Anchors="1,0" Texture="corner15" Text="Control"     Property="ControlMode"      Name="ControlMode" ReferencedTitleButton="ControlMode" ToolTip="Toggle between control type for the selected fixture"/>
+                    <SwipeButton        Anchors="2,0" Texture="corner15" Text="Link"        Property="LinkMode"         Name="LinkMode" ReferencedTitleButton="LinkMode" ToolTip="Toggle between move blades independently or together"/>
+                    <SwipeButton        Anchors="3,0" Texture="corner15" Text="Mini Faders" Property="MiniFadersMode"   Name="MiniFadersMode" ReferencedTitleButton="MiniFadersMode" ToolTip="Show or hide the mini faders on Graphical view"/>
+
+                    <!-- Row 2 -->
+                    <IndicatorControl   Anchors="0,1" Texture="corner15" Text="POV"         Property="ShowPov"          Name="ShowPov" ReferencedTitleButton="ShowPov" ToolTip="TShow or hide the POV fader"/>
+                    <IndicatorControl   Anchors="2,1" Texture="corner15" Text="Reset Bar"   Property="ShowResetBar"     Name="ShowResetBar" ReferencedTitleButton="ShowResetBar" ToolTip="Show or hide the Reset Bar"/>
+                </UILayoutGrid>
+
+                <!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </SpecialWindowContext>
+</GMA3>

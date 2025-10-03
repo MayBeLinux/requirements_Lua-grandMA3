@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ImagePopup OnLoad=":OnLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Anchors="0,0" Texture="corner1" Text="Popup input" ContentDriven="Yes" ContentHeight="No" ForceContentMin="Yes" Icon=""/>
+            <SwipeButton Anchors="1,0" Name="SwipeSource" Property="ImageSource" OnLoad=":SetSourceTarget" SelectionChanged=":ImagePoolChanged" />
+            <CloseButton Anchors="2,0" Texture="corner2" />
+        </TitleBar>
+        <DialogFrame Name="Frame" Anchors="0,1" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <ScrollableItemList Anchors="0,0" Name="Popup" ContentDriven="Yes" ForceContentMin="Yes" ItemType="PopupItemButton" AllowBlocks="Yes" />
+            <ScrollBarV Name="ScrollV" W="20" ScrollTarget="../Popup" ScrollOpposite="No" Visible="No" AlignmentH="Right" />
+            <ScrollBarH Name="ScrollH" H="20" ScrollTarget="../Popup" ScrollOpposite="No" Visible="No" AlignmentV="Bottom" />
+        </DialogFrame>
+    </ImagePopup>
+</GMA3>

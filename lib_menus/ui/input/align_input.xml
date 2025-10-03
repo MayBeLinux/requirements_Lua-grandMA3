@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="AlignInput" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" FileName="align_input.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" FileName="align_input.lua" />
+    </Menu>
+</GMA3>

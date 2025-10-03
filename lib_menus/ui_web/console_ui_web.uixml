@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Display UserRights="None" X="0" Y="0" W="1920" H="1080" BackColor="global.Background" OnVisible=":DisplayVisible" OnLoad=":DisplayLoaded" >
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+      <!-- cmdline.uixml has to be included before all other because of keyboard shortcut handling -->
+      <!INCLUDE ../include/cmdline.uixml >
+      
+      <!INCLUDE ../include/main_menu_web.uixml >
+
+        <UILayoutGrid Name="ScreenContainer" Anchors="1,0,2,1">
+        <ItemCollectRows>
+            <Item SizePolicy="Content"  />            
+            <Item SizePolicy="Stretch" Size="3" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+            <UIObject Name="ScrollIndicatorBox" Anchors="0,1,0,1" Texture="small_frame0" BackColor="Screen.ExtendedActive" Transparent="No" HasHover="No">
+                <ScrollContainer Name="ScreenScroll">
+                    <ScrollBox Name="ScrollBox" PanScrollArea="Yes" PanScroll="No">
+                        <UiScreen Name="UiScreen" DelimiterTexture="tiny_cross" ToolTip="Click here to create a new window" MouseUpLeft=":CommandLineEmpty" SignalValue="menu AddWindow" TextAlignmentH="Left" TextAlignmentV="Bottom" TextColor="Global.AlertText" />
+                    </ScrollBox>
+                </ScrollContainer>
+            </UIObject>
+            
+            <ViewBar Name="ViewBar" W="100" Anchors="1,0,1,1" BackColor="Global.Default" ToolTip="Here you will find action keys to call stored views." HelpTopic="ws_ui_view_bar_and_buttons.html" SetToTop=":ViewBarButtonLink"/>
+            <Button Name="GoToFirst" W="50" H="50"  Anchors="1,0,1,1" Icon="triangle_up" Texture="Corner15" AlignmentH="Right" Clicked=":ViewBarButtonLink" BackColor="Global.Hover" />
+			<Button Name="ViewBarNextPage" W="50" H="50" Anchors="1,0,1,1" Icon="triangle_down" Texture="Corner15" AlignmentH="Right" AlignmentV="Bottom" Clicked=":ViewBarPageLink" BackColor="Global.Hover" />
+		</UILayoutGrid>
+
+
+        <UILayoutGrid Name="EncoderBarContainer" Anchors="0,3,2,3" Margin="0,2,0,1" H="240">
+            <UILayoutGrid Name="EncoderBarGrid">
+
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="100" />
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Fixed" Size="100" />
+                </ItemCollectColumns>
+                <PlaceHolder Name="EncoderBarBase" Anchors="0,0,2,1" BlockLevel="Little" />
+                <PlaceHolder Name="EncoderBar" Anchors="1,1" BlockLevel="Little" />
+            </UILayoutGrid>
+            <PlaceHolder Name="EncoderBarOverlay" />
+
+
+        </UILayoutGrid>
+
+	
+
+        <PlaceHolder Name="MainDialog"  DisplayLevel="Yes" Anchors="1,0,2,1" />
+        <PlaceHolder Name="MainOverlay"   Anchors="1,0,2,1" />
+        <PlaceHolder Name="FullScreen"   DisplayLevel="Yes" Anchors="0,0,2,3" />
+        <PlaceHolder Name="ScreenOverlay" DisplayLevel="Yes" Anchors="1,0,1,1" />
+        <PlaceHolder Name="ModalOverlay" DisplayLevel="Yes" />
+    </Display>
+</GMA3>

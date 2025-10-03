@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="58" Name="DisplayConfig" Guid="70 4D 7B 2D 96 57 00 00 34 58 86 BB 7A B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 97 60 00 00 2B 58 86 BB 7A B1 01 1A" FileName="display_config.uixml" PlaceHolder="FullScreen" Toggle="No" />
+        <ComponentLua Index="2" Guid="70 4D 7B 2D DC 50 00 00 2A 58 86 BB 7A B1 01 1A" FileName="display_config.lua" />
+    </Menu>
+</GMA3>

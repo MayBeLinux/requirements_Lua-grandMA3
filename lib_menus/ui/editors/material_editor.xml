@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="12" Name="MaterialEditor" Guid="B3 42 55 89 74 32 4C EF B4 D6 39 7A B2 69 CD E3" Author="MA" Version="0.1.0.0" Path="/ui/editors">
+        <ComponentXML Index="1" Guid="EE 3F F1 4D 57 90 40 EB A2 82 31 B1 E0 94 8D 0D" FileName="material_editor.uixml" PlaceHolder="ScreenOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="76 9E 9A FF 44 6C 46 B6 9D 87 A5 A9 91 85 38 2E" FileName="material_editor.lua" />
+    </Menu>
+</GMA3>

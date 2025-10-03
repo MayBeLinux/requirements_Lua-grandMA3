@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <TimerEditor W="800" H="400" WantsModal="1" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Timer" OnLoad=":OnLoaded" AdjustInitialPosition="Yes" HelpTopic="timers.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Timer"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Texture="corner0" Content="Yes" >
+                <Button Name="LoadFromDefault" Clicked=":LoadFromDefault" W="130" Text="Load from&#xD;Default" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+                <Button Name="SaveToDefault" Clicked=":SaveToDefault" W="130" Text="Save as&#xD;Default" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <EditorPropertyButtons Anchors="0,0" BigModeColumns="6" BigModeRows="6" BigMode="Yes">
+                <EditorCategoryButton Text="Label"/>
+                <EditorNameButton />
+                <EditorScribbleButton />
+                <EditorAppearanceButton />
+                <EditorTagButton />
+                <EditorNoteButton />
+                <EditorCategoryButton Text="Settings"/>
+                <EditorSwipeButton Property="TimerMode" Text="Timer Mode"/>
+                <EditorSwipeButton Property="TimerLinkType" Text="Timer&#xD;Link Type"/>
+                <EditorSwipeButton Property="TimerTriggerToken" Text="Timer&#xD;Trigger"/>
+                <EditorSwipeButton Property="RestartOption" Text="Restart Option"/>
+                <EditorCategoryButton Text="Countdown"/>
+                <EditorPropertyButton Property="CountdownDuration" Text="Countdown&#xD;Time"/>
+                <EditorSwipeButton Property="CountdownAlertType" Text="Countdown&#xD;Alert Type"/>
+                <EditorCategoryButton Text="Alert"/>
+                <EditorPropertyButton Property="AlertDuration" Text="Alert Duration"/>
+                <EditorSwipeButton Property="CountdownAlertRange" Text="Alert Range"/>
+                <EditorPropertyButton Property="AlertCommand" Text="Alert Command"/>
+                <EditorPropertyButton Property="AlertText" Text="Alert Text"/>
+                <EditorCategoryButton Text="Colors" />
+                <EditorPropertyButton Property="StopwatchColor" Text="Stopwatch&#xD;Color"/>
+                <EditorPropertyButton Property="CountdownColor" Text="Countdown&#xD;Color"/>
+                <EditorPropertyButton Property="ConfirmedColor" Text="Countdown&#xD;Confirmed Color"/>
+                <EditorCategoryButton Text="Format"/>
+                <EditorSwipeButton Property="FrameFormat" Text="Frame Format"/>
+                <EditorSwipeButton Property="TimeReadout" Text="Time Readout"/>
+            </EditorPropertyButtons>
+        </DialogFrame>
+    </TimerEditor>
+
+</GMA3>

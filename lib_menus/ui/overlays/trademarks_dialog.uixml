@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <UILayoutGrid Name="TrademarksDialog" OnLoad=":TrademarksDialogLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <DialogTrademarks Name="TrademarksHelp" Anchors="0,0" Focus="InitialFocus" />
+    </UILayoutGrid>
+</GMA3>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <OffMenuOverlay Name="RunningPlaybacksOverlay" HelpTopic="executor_running_playbacks.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Fixed" Size="50"/>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <!-- Title -->
+        <TitleBar Anchors="0,0" Name="Title">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="100"/>
+                <Item SizePolicy="Fixed"   Size="100"/>
+                <Item SizePolicy="Fixed"   Size="150"/>
+                <Item SizePolicy="Fixed"   Size="150"/>
+                <Item SizePolicy="Fixed"   Size="150"/>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed"   Size="50" />
+            </ItemCollectColumns>
+            <TitleButton    Anchors="0,0" Texture="corner1" Text="Off Menu"/>
+            <IndicatorControl  Anchors="1,0" Name="LockListControl"           Property="HoldList"      Focus="Never" />
+            <IndicatorControl  Anchors="2,0" Name="SheetStyleControl"         Property="SheetStyle"    Focus="Never" />
+            <SwipeButton       Anchors="3,0" Name="UserControl"               MinSize="50,0" W="150"   Property="User"          Text="Started by"   TextAutoAdjust="No" BackColor="global.Default"  IndirectEdit="1" />
+            <SwipeButton       Anchors="4,0" Name="DataPoolControl"           MinSize="50,0" W="150"   Property="SelectedDataPool"      Text="DataPool"     TextAutoAdjust="Yes" BackColor="global.Default"  IndirectEdit="Yes"/>
+            <IndicatorControl  Anchors="5,0" Name="MyPlaybacksOnlyControl"    MinSize="50,0" W="150"   Property="MyPlaybacksOnly" Focus="Never" Clicked=":MyPlaybacksOnlyClick"/>
+            <ScreenSelectorButton Anchors="6,0" MinSize="50,0" />
+            <CloseButton    Anchors="7,0" Texture="corner2" Focus="Never"/>
+        </TitleBar>
+
+        <UITab Anchors="0,1" Name="PagesTab" Property="PlaybacksToShow" H="50" AvoidScroll="Yes" TabChanged=":MyTabChanged" Rounded="No" Margin="0,0,0,0" ShowAdditionalInfo="Yes">
+            <ItemStr Title="Sequences"  Value="Sequences"   NumberValue="0"/>
+            <ItemStr Title="Macros"     Value="Macros"      NumberValue="1"/>
+            <ItemStr Title="Timecodes"  Value="Timecodes"   NumberValue="2"/>
+            <ItemStr Title="Presets"    Value="Presets"     NumberValue="3"/>
+            <ItemStr Title="Timers"     Value="Timers"      NumberValue="4"/>
+            <ItemStr Title="Sounds"     Value="SoundFiles"  NumberValue="5"/>
+            <ItemStr Title="All"        Value="AllPlaybacks" NumberValue="6"/>
+        </UITab>
+
+        <UILayoutGrid Anchors="0,2" Name="WindowArea" HelpTopic="executor_running_playbacks.html" CellWidth="50" CellHeight="50" BlockHeight="2" BlockWidth="2">
+
+            <RunningPlaybacksWindow Anchors="0,1" Name="WindowRunningPlaybacks" OnLoad=":OnLoad" Margin="0,0,0,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+                <!-- Pool -->
+                <RunningPlaybacksPoolLayoutGrid Anchors="0,0" Name="Pool" PoolColor="PoolWindow.Sequences" OnLoad=":PoolLoaded" HelpTopic="executor_running_playbacks.html"/>
+                <!-- Grid -->
+                <DBObjectGrid DataType="RunningPlaybacksDBObjectGridData" Anchors="0,0" Name="Grid" LevelLimit="0" OnLoad=":SetGridTarget" OnSelectedItem=":CommandLine"  AllowAddContent="No" SignalValue="UiGrid" AllowEdit="No">
+                    <RunningPlaybacksDBObjectGridData Name="GridData" DefaultToken="Off"/>
+                </DBObjectGrid>
+            </RunningPlaybacksWindow>
+        </UILayoutGrid>
+
+        <MainDialogFunctionButtons Anchors="0,3" Name="FunctionButtons" H="60">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+            </ItemCollectColumns>
+
+            <IndicatorButton Name ="ButtonOffSequences"     Anchors="0,0"   Text="All Sequences Off"    ColorIndicator="PoolWindow.Sequences"   Clicked=":OnPlaybackOffClick"  WantsNumericRedirect="Yes" SignalValue="Off RunningSequence;" Texture="corner4"/>
+            <IndicatorButton Name ="ButtonOffMacros"        Anchors="1,0"   Text="All Macros Off"       ColorIndicator="PoolWindow.Macros"      Clicked=":OnPlaybackOffClick"  WantsNumericRedirect="Yes" SignalValue="Off RunningMacro;"    Texture="corner0"/>
+            <IndicatorButton Name ="ButtonOffTimecodes"     Anchors="2,0"   Text="All Timecodes Off"    ColorIndicator="PoolWindow.Timecodes"   Clicked=":OnPlaybackOffClick"  WantsNumericRedirect="Yes" SignalValue="Off RunningTimecode;" Texture="corner0"/>
+            <IndicatorButton Name ="ButtonOffPresets"       Anchors="3,0"   Text="All Presets Off"      ColorIndicator="PoolWindow.Presets"     Clicked=":OnPlaybackOffClick"  WantsNumericRedirect="Yes" SignalValue="Off RunningPreset;"   Texture="corner0"/>
+            <IndicatorButton Name ="ButtonOffTimers"        Anchors="4,0"   Text="All Timers Off"       ColorIndicator="PoolWindow.Timers"      Clicked=":OnPlaybackOffClick"  WantsNumericRedirect="Yes" SignalValue="Off RunningTimer;"    Texture="corner0"/>
+            <IndicatorButton Name ="ButtonOffSoundFiles"    Anchors="5,0"   Text="All Sounds Off"       ColorIndicator="PoolWindow.Sounds"      Clicked=":OnPlaybackOffClick"  WantsNumericRedirect="Yes" SignalValue="Off RunningSoundFile;" Texture="corner0"/>
+            <IndicatorButton Name ="ButtonOffEverything"    Anchors="6,0"   Text="Everything Off"       Focus ="InitialFocus"                   Clicked=":OnEverythingOffClick"  WantsNumericRedirect="Yes" SignalValue="Off RunningSequence; Off RunningMacro; Off RunningPreset; Off RunningTimecode; Off RunningTimer; Off RunningSoundFile; Off RunningGernerator;" Texture="corner8"/>
+        </MainDialogFunctionButtons>
+    </OffMenuOverlay>
+</GMA3>

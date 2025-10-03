@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="148" Name="RemoteInputs" Guid="B0 AC A9 FF 01 9F 4C E6 8D 40 B4 CE 05 F4 68 13" Author="MA" Version="0.1.0.0" Path="/ui/setup/inout_config">
+        <ComponentXML Index="1" Guid="0D 1A 03 A0 45 17 4E 71 8A DA B7 AC B8 D3 E2 F3" FileName="remote_inputs.uixml" PlaceHolder="MainDialog" />
+        <ComponentLua Index="2" Guid="14 F6 3D 32 ED 8F 4E E4 A2 45 EA E4 C8 76 27 21" FileName="remote_inputs.lua" />
+    </Menu>
+</GMA3>

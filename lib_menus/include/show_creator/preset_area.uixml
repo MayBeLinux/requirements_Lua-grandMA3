@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+
+<UILayoutGrid Anchors="0,1" Name="LocalArea">
+    <ItemCollectRows>
+        <Item SizePolicy="Fixed" Size="50" />
+        <Item SizePolicy="Stretch" Size="1" />
+    </ItemCollectRows>
+    <UILayoutGrid Anchors="0,0" Name="LocalSubTitle">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="100" />
+            <Item SizePolicy="Fixed" Size="100" />
+            <Item SizePolicy="Fixed" Size="100" />
+        </ItemCollectColumns>
+        <TitleButton Anchors="0,0" Texture="corner1" Text="Presets" />
+        <ObjectSelector Anchors="1,0" Name="DataPoolSelector" Text="DataPool" SelectionChanged=":OnDataPoolChanged" ShowLabel="Yes" TextColor="Button.Text" OnLoad=":OnDataPoolLoaded" ColorIndicatorHeight="0" />
+        <IndicatorControl Anchors="2,0" Name="SheetStyleBtn" Texture="corner0" OnLoad=":UseSettingsTarget" Property="SheetStyle" ColorIndicatorHeight="0" />
+        <Button Anchors="3,0" Name="ClearCollection" Text="Clear&#xD;Collection" Texture="corner2" Clicked=":ClearCollection"/>
+    </UILayoutGrid>
+    <UILayoutGrid Name="Frame" Anchors="0,1" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+        <UILayoutGrid Anchors="0,0" Name="PoolWindowPlace" CellWidth="50" CellHeight="50" BlockHeight="2" BlockWidth="2">
+            <PoolWindow Anchors="0,0" Name="PoolWindow" Margin="0,0,0,0" OnLoad=":PoolWindowLoaded">
+                <ShowCreatorPoolGrid  />
+            </PoolWindow>
+        </UILayoutGrid>
+        <DBObjectGrid Anchors="0,0" Name="LocalGrid" BackColor="Global.Transparent" AllowEdit="Yes" CanProvideUiGridSelection="No" OnLoad=":OnLocalGridLoaded" OnSelectedItem=":OnLocalGridSelected" LevelLimit="0" />
+    </UILayoutGrid>
+</UILayoutGrid>
+

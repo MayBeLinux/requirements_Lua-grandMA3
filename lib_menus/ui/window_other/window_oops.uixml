@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window Name="Oops" OnLoad=":OnLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="130" />
+            </ItemCollectColumns>
+            <TitleButton                        Anchors="1,0" Text="Oops"/>
+            <SwipeButton    Texture="corner2"   Anchors="2,0" Text="Columns" Name="ColumnsFilters" ShowLabel="Yes"  TextAutoAdjust="No" SelectionChanged=":ColumnsFilterSelected" />
+            <ContextButton  Texture="corner1"   Anchors="0,0" ToolTip="Opens 3D Viewer Settings"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PlaceHolder Name="OopsPlaceholder" Anchors="0,0" Margin="0,0,0,0"/>
+        </DialogFrame>
+
+    </Window>
+</GMA3>
+
+

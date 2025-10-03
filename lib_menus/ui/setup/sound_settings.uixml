@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <EditorPropertyButtons Anchors="0,0" BigModeColumns="4" BigModeRows="6" BigMode="Yes">
+        <EditorCategoryButton Text="Label"/>
+        <EditorNameButton />
+        <EditorScribbleButton />
+        <EditorAppearanceButton />
+        <EditorTagButton />
+        <EditorPropertyButton Property="Note"/>
+        <EditorCategoryButton Text="Settings"/>
+        <EditorPropertyButton Property="FileName"/>
+        <EditorPropertyButton Property="FilePath"/>
+        <EditorPropertyButton Property="FileSize"/>
+        <EditorPropertyButton Property="Installed"/>
+        <EditorPropertyButton Property="Duration"/>
+        <EditorPropertyButton Property="dB"/>
+        <EditorCategoryButton Text=""/>
+        <EditorPropertyButton Property="AutoStart"/>
+        <EditorPropertyButton Property="AutoStop"/>
+    </EditorPropertyButtons>
+</GMA3>

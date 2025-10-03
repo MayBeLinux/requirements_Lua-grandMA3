@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="wvm_settings.html" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Window Settings" Icon=""/>
+            <DeleteWindowButton   Anchors="1,0"  />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+                <!-- <ItemStr Title="Mask" Value="Mask" /> -->
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged" >
+
+                <UILayoutGrid Name="Display">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Fixed" Size="24"/>
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="26"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="24"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Fixed" Size="26"/>
+                    </ItemCollectColumns>
+                    <SwipeButton Name="Layer" Text="Layer" Anchors="1,1" Texture="corner15" AutoHide="Yes" Property="Layer" DataAsIs="Yes"/>
+                    <PropertyInput Name="Step" Text="Step" Anchors="3,1" Texture="corner15" AutoHide="Yes" Property="Step" />
+                    <SwipeButton Name="Readout" Text="Readout" Anchors="5,1" Texture="corner15" AutoHide="Yes" Property="Readout" DataAsIs="Yes"/>
+                    <SwipeButton Name="Speed" Text="Speed" Anchors="7,1" Texture="corner15" AutoHide="Yes" Property="Speed" />
+                    <PropertyControl Name="AutoScroll" Text="Auto Scroll" Anchors="9,1" Texture="corner15" TextAutoAdjust="Yes" AutoHide="Yes" Property="AutoScroll" />
+                    <PropertyControl Name="LinkSelected" Text="Link Selected" Anchors="11,1" Texture="corner15" TextAutoAdjust="Yes" AutoHide="Yes" Property="LinkSelected" />
+
+
+                    <PropertyInput Name="Target" Text="Target" Anchors="3,3" Texture="corner15" AutoHide="Yes" Property="Target" />
+                    <PropertyInput Name="ColumnsCount" Text="#Columns" Anchors="5,3" Texture="corner15" AutoHide="Yes" Property="ColumnsCount" />
+                    <PropertyControl Name="AdjustColumns" Text="Adjust Columns" Anchors="7,3" Texture="corner15" TextAutoAdjust="Yes" AutoHide="Yes" Property="AdjustColumns" />
+                    <PropertyControl Name="Transposed" Text="Transpose" Anchors="9,3" Texture="corner15" TextAutoAdjust="No" AutoHide="Yes" Property="Transposed" />
+
+                    <PropertyInput Name="Universe" Text="Universe" Anchors="1,5" Texture="corner15" AutoHide="Yes" Property="Universe" />
+                    <PropertyInput Name="Address" Text="Address" Anchors="3,5" Texture="corner15" AutoHide="Yes" Property="Address" />
+
+                    <AppearanceInput Name="Appearance" Anchors="1,7" Texture="corner15" />
+                    <SwipeButton   Anchors="3,7" Texture="corner15" Property="FontSize"     Text="FontSize" />
+                    <PropertyInput Name="Color" Text="Color" Anchors="5,7" Texture="corner15" AutoHide="Yes" Property="Color" />
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Tools"  Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="TitleButtons">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Mask" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

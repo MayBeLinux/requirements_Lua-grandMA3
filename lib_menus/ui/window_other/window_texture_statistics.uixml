@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window OnLoad=":OnLoad" Name="WindowTextureStatistics">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <NormedTitleBar Anchors="0,0" Name="Title">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton    Texture="corner2" Anchors="1,0" Text="Texture Statistics"/>
+            <ContextButton  Texture="corner1" Anchors="0,0" ToolTip="Show Texture Statistics"/>
+        </NormedTitleBar>
+        <DialogFrame Anchors="0,1" Name="Frame">
+            <WindowTextureStatistics Anchors="0,0" OnLoad=":OnLoad" Name="WindowTextureStatistics">
+            </WindowTextureStatistics>
+        </DialogFrame>
+    </Window>
+</GMA3>

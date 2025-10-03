@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PSRPatchMainDialog Name="PSRPatch" EscModalResult="Confirm" OverrideKeybSC="Yes" OnLoad=":OnLoaded" HelpTopic="sc_psr.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" MinSize="750,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="PSR Prepare " />
+            <AutoLayout Margin="0,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <IndicatorButton W="100"  MinSize="60,0"  Text="Reset" Clicked=":Reset" ColorIndicator="Button.BackgroundClear" />
+                <IndicatorControl W="140"  MinSize="60,0" OnLoad=":UseSettingsTarget"  Property="HideEnvironmental" ShowValue="No" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="3,0" CloseAction="Confirm" />
+        </TitleBar>
+
+
+        <MainDialogContent Name="Content" Margin="4,-5,0,2" BackColor="ShowCreator.Section" Transparent="No" Texture="corner3">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1"  />
+                <Item SizePolicy="Fixed"   Size="70" />
+                <Item SizePolicy="Stretch" Size="1"  />
+            </ItemCollectColumns>
+            <UILayoutGrid Anchors="0,0,2,0" Name="FilterBlock" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                </ItemCollectColumns>
+
+                <Button Anchors="0,0" Text="Filter:" W="60" BackColor="global.transparent" Texture="corner5" Interactive="No" />
+                <LineEdit         Anchors="1,0" Name="FilterEdit"  Margin="0,4,1,4" Texture="corner5"  Focus="WantsFocus" Property="Filter" Clear=":ClearFilters" Execute=":JumpToGrid" Icon="zoom" IconAlignmentH="Right" IconAlignmentV="Center" KeyboardIconAlignmentH="Left" Message="Type to search..."/>
+                <IndicatorButton  Anchors="2,0" Name="Clear"       Margin="0,4,1,4" Texture="corner10"  Text="Clear" Clicked=":ClearFilters" W="80" WantsNumericRedirect="Yes" Focus="Never" />
+                <SwipeButton      Anchors="3,0" Name="Stage"       Margin="4,4,1,4" Texture="corner5"  Text="Stage"                          W="150" TextAlignmentH="Left" ValueAutoAdjust="Yes" ActiveColorIndicator="Filter.ActiveIcon"   Focus="Never" OnLoad=":SetFilter"          Property="StageFilter"       ShowValue="Yes" />
+                <SwipeButton      Anchors="4,0" Name="FilterType"  Margin="0,4,1,4" Texture="corner0"  Text="Match Type"                     W="150" TextAlignmentH="Left" ValueAutoAdjust="Yes" ActiveColorIndicator="Filter.ActiveIcon"   Focus="Never" OnLoad=":UseSettingsTarget"  Property="FilterType"        ShowLabel="Yes"  />
+                <SwipeButton      Anchors="5,0" Name="FixtureType" Margin="0,4,1,4" Texture="corner0"  Text="FixtureType"                    W="150" TextAlignmentH="Left" ValueAutoAdjust="Yes" ActiveColorIndicator="Filter.ActiveIcon"   Focus="Never" OnLoad=":SetFilter"          Property="FixtureTypeFilter" ShowValue="Yes" />
+                <SwipeButton      Anchors="6,0" Name="Layer"       Margin="0,4,1,4" Texture="corner0"  Text="Layer"                          W="150" TextAlignmentH="Left" ValueAutoAdjust="Yes" ActiveColorIndicator="Filter.ActiveIcon"   Focus="Never" OnLoad=":SetFilter"          Property="LayerFilter"       ShowValue="Yes" />
+                <SwipeButton      Anchors="7,0" Name="Class"       Margin="0,4,1,4" Texture="corner0"  Text="Class"                          W="150" TextAlignmentH="Left" ValueAutoAdjust="Yes" ActiveColorIndicator="Filter.ActiveIcon"   Focus="Never" OnLoad=":SetFilter"          Property="ClassFilter"       ShowValue="Yes" />
+                <IndicatorButton  Anchors="8,0" Name="Reset"       Margin="0,4,4,4" Texture="corner10" Text="Reset&#xD;Filters" Clicked=":ResetFilters"  W="80" WantsNumericRedirect="Yes" Focus="Never" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="0,1" Name="PSRGrid">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UILayoutGrid Name="PSRSubTitle" Anchors="0,0">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <TitleButton Anchors="0,0" Texture="corner3" Name="PsrSubTitleText" Text="PSR Patch" />
+                </UILayoutGrid>
+                <PSRPatchGrid Name="PSRPatchGrid"     Anchors="0,1" BackColor="UIGrid.Background" CellType="UIGridCell" DataType="PSRPatchGridData" SelectionType="ColumnGridSelection" FilterBlockUIEnabled="No" AllowFilterContent="Yes" AlternateBackColor="Yes" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Toolbar"    Anchors="1,1" DefaultMargin="1" Transparent="No" BackColor="Popup.SelectedItemBackground" >
+
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1"  />
+                    <Item SizePolicy="Fixed"   Size="70" />
+                    <Item SizePolicy="Fixed"   Size="70" />
+                    <Item SizePolicy="Fixed"   Size="70" />
+                    <Item SizePolicy="Stretch" Size="1"  />
+                </ItemCollectRows>
+
+
+                <IndicatorButton  Anchors="0,1" Icon="ok"             Focus="Never" Clicked=":ChooseSelected"  ToolTip="Use the selected fixtures in the resulting patch."/>
+                <IndicatorButton  Anchors="0,2" Icon="FlipLeftRight"  Focus="Never" Clicked=":ToggleSelected"  ToolTip="Use the fixture from the opposite patch in the resulting patch."/>
+                <IndicatorButton  Anchors="0,3" Icon="Cancel"         Focus="Never" Clicked=":ChooseNone"      ToolTip="Remove the selected fixtures in the resulting patch." />
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="2,1" Name="LocalGrid">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UILayoutGrid Name="LocalSubTitle" Anchors="0,0">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <TitleButton Anchors="0,0" Texture="corner3" Name="LocalSubTitleText" Text="Local Patch" />
+                </UILayoutGrid>
+                <PSRPatchGrid Name="LocalPatchGrid" Anchors="0,1" FilterBlockUIEnabled="No" AllowFilterContent="Yes" BackColor="UIGrid.Background" CellType="UIGridCell" DataType="PSRPatchGridData" SelectionType="ColumnGridSelection" AlternateBackColor="Yes" />
+            </UILayoutGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <IndicatorButton Anchors="3,0" Text="Use PSR&#xD;Only"   Clicked=":AllToPsr"     ToolTip="Use only PSR fixtures in the resulting patch." />
+                <IndicatorButton Anchors="3,1" Text="Merge PSR"   Clicked=":MergePSR"     ToolTip="Merge discarded PSR fixures in the resulting patch." />
+                <UIObject Anchors="0,0,2,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="0,1,2,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0" Text="Use Local&#xD;Only"  Clicked=":AllToLocal"   ToolTip="Use only local fixtures in the resulting patch." />
+                <IndicatorButton Anchors="0,1" Text="Merge Local"   Clicked=":MergeLocal"     ToolTip="Merge deleted local fixtures in the resulting patch." />
+                <IndicatorButton Anchors="3,1" Text="Proceed" Clicked=":Proceed" ColorIndicator="Button.BackgroundPlease" ToolTip="Tap to create a new patch and open the PSR Import dialog." />
+                <UIObject Anchors="1,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="1,1,2,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+
+    </PSRPatchMainDialog>
+</GMA3>

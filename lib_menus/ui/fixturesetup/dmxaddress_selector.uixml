@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UIDMXPatch OnAddressSelected=":DMXAddressSelected" AutoClose="No" OverrideKeybSC="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch"/>
+            <Item SizePolicy="Fixed" Size="50"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectColumns>
+
+        <TitleBar Name="TitleBar" Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="DMX Universe"  Icon=""/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal"  Texture="corner2" Content="Yes" >
+                <DialogButton Name="ColumnCountContorl" Text="Columns"  W="90" Property="ColumnsCount" TextAutoAdjust="No" ShowValue="Yes"/>
+                <DialogButton Name="AddressControl"  W="90" Property="Address" TextAutoAdjust="No" ShowValue="Yes"/>
+                <Button Name="UniverseDown" Clicked=":UniverseDown" Icon="arrow_left" W="50" />
+                <DialogButton Name="UniverseControl"  W="90" Property="Universe" TextAutoAdjust="No" ShowValue="Yes"/>
+                <Button Name="UniverseUp" Clicked=":UniverseUp" Icon="arrow_right" W="50" />
+            </AutoLayout>
+        </TitleBar>
+
+        <DMXSheet  OnUniverseDownClicked=":UniverseDown" OnUniverseUpClicked=":UniverseUp" Anchors="0,1" Name="UniverseGrid" SelectionType="SingleCellGridSelection" DataType="DMXSheetListGridData" />
+
+        <AutoLayout Name="ButtonBlock" Anchors="0,2" DefaultMargin="1" Direction="Horizontal" W="480" AlignmentH="Right" Texture="corner15">
+            <SwipeButton Name="AddressMode" Property="AddressMode" TextAutoAdjust="No" />
+            <IndicatorControl Name="SkipPatched" Property="SkipPatched" ContentAreaMargin="4,7,4,2"/>
+            <IndicatorControl Name="Select" Text="Select" Clicked=":DoSelect" />
+        </AutoLayout>
+    </UIDMXPatch>
+</GMA3>

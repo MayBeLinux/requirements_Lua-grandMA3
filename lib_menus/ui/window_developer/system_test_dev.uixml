@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window Name="SystemTest" OnLoad=":OnLoaded" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="SystemTest" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0" />
+        </NormedTitleBar>
+
+        <DialogFrame Name="Content" Anchors="0,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50"/>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <AutoLayout Name="ActionButtons" Anchors="0,0">
+                <IndicatorButton Text="DB TEST" Clicked=":CommandLine" SignalValue="Plugin 1"/>
+            </AutoLayout>
+
+            <RadioButtonList Name="TestList" Anchors="0,1" Type="Horizontal" AvoidScroll="Yes" ItemType="RadioItemButtonV2" OnSelectedItem=":OnSelected"/>
+            <UIObject Name="Status" Anchors="0,2" Text="Status" TextAlignmentH="Left" BackColor="CommandLineHistory.Background"/>
+        </DialogFrame>
+    </Window>
+</GMA3>

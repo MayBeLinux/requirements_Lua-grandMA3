@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ContentWindow Name="ContentSheet" OnLoad=":ContentSheetWindowLoaded" HelpTopic="cue_content_sheet.html">
+        <!--ScrollTarget="Frame/ContentGrid">-->
+
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0" >
+            <!--MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes" >-->
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0,2,0" Text="Content Sheet" TrackWorld="Yes"/>
+            <TitleAutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes" OnLoad=":OnTitlebuttonsLoaded">
+                <SwipeButton      Name="ValueReadout"        MinSize="50,0" W="120" Text="Readout" ShowLabel="Yes" Property="Readout" TextAutoAdjust="No" />
+                <SwipeButton      Name="LinkType"            MinSize="50,0" W="100" Property="LinkType" Text="Link Type" />
+                <SwipeButton      Name="ContentSheetCueMode" MinSize="50,0" W="120" Text="Cue Mode" ShowLabel="Yes" Property="ContentSheetCueMode" TextAutoAdjust="No" />
+                <IndicatorControl Name="ShowTracked"         MinSize="50,0" W="100" Text="Show&#xD;Tracked" TextAutoAdjust="No" Property="ShowTracked" />
+                <IndicatorControl Name="ShowParts"           MinSize="50,0" W="100" Text="Show&#xD;Parts" TextAutoAdjust="No" Property="ShowParts" />
+                <IndicatorControl Name="CueOnlyBtn"          MinSize="50,0" W="100" Text="Cue&#xD;Only" Property="CueOnly" />
+                <IndicatorControl Name="FixtureSort"         MinSize="50,0" W="100" Text="Fixture Sort" TextAutoAdjust="Yes" Property="FixtureSort" />
+                <IndicatorControl Name="FixtureSelect"       MinSize="50,0" W="100" Text="Fixture Select" TextAutoAdjust="Yes" Property="FixtureSelect" />
+                <IndicatorControl Name="FeatureSort"         MinSize="50,0" W="100" Text="Feature Sort" TextAutoAdjust="Yes" Property="FeatureSort" />
+                <PropertyInput    Name="ShowMaskToolbar"     MinSize="50,0" W="100" Text="Mask Toolbar" TextAutoAdjust="Yes" Property="ShowMaskToolbar" />
+                <PropertyInput    Name="ShowLayerToolbar"    MinSize="50,0" W="100" Text="Layer Toolbar" TextAutoAdjust="Yes" Property="ShowLayerToolbar" />
+                <SwipeButton      Name="OutputSymbol"        MinSize="50,0" W="130" TextAutoAdjust="Yes" Property="OutputSymbol" OnLoad=":SetFixtureSettingsTarget"/>
+                <PropertyInput    Name="FeatureSymbols"      MinSize="50,0" W="100" TextAutoAdjust="Yes" Property="FeatureSymbols" OnLoad=":SetFixtureSettingsTarget" />
+                <SwipeButton      Name="MergeCells"          MinSize="50,0" W="100" Text="Merge Cells" TextAutoAdjust="Yes" Property="MergeCells" />
+                <SwipeButton      Name="PresetReadout"       MinSize="50,0" W="100" Text="Preset" Property="PresetReadout" />
+                <SwipeButton      Name="ChannelSetReadout"   MinSize="50,0" W="100" Text="ChannelSet" Property="ChannelSetReadout" />
+                <SwipeButton      Name="ColorMode"           MinSize="50,0" W="100" Property="ColorMode" />
+                <IndicatorControl Name="ShowRecipes"         MinSize="50,0" W="100" Text="Show Recipes"  TextAutoAdjust="Yes" Property="ShowRecipes" />
+                <PropertyInput    Name="ShowNameField"       MinSize="50,0" W="100" Text="Show Fixture Name" TextAutoAdjust="Yes" Property="ShowNameField" />
+                <PropertyInput    Name="ShowIDType"          MinSize="50,0" W="100" Text="Show ID Type" TextAutoAdjust="Yes" Property="ShowIDType" />
+                <IndicatorControl Name="ShowNotes"           MinSize="50,0" W="100" Text="Show Notes"  TextAutoAdjust="Yes" Property="ShowNotes" />
+                <SwipeButton      Name="SortMode"            MinSize="50,0" W="100" Text="Sorted By" TextAutoAdjust="Yes" Property="SortMode" />
+                <PropertyInput    Name="GroupByIDType"       MinSize="50,0" W="100" Text="Group By ID Type" TextAutoAdjust="Yes" Property="GroupByIDType"/>
+                <SwipeButton      Name="Layer"               MinSize="50,0" W="100" Property="Layer" />
+                <MaskValueControl  Name="Mask1"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="0"/>
+                <MaskValueControl  Name="Mask2"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="1"/>
+                <MaskValueControl  Name="Mask3"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="2"/>
+                <MaskValueControl  Name="Mask4"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="3"/>
+                <MaskValueControl  Name="Mask5"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="4"/>
+                <MaskValueControl  Name="Mask6"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="5"/>
+                <MaskValueControl  Name="Mask7"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="6"/>
+                <MaskValueControl  Name="Mask8"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="7"/>
+                <MaskValueControl  Name="Mask9"  MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="8"/>
+                <MaskValueControl  Name="Mask10" MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="9"/>
+                <MaskValueControl  Name="Mask11" MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="10"/>
+                <MaskValueControl  Name="Mask12" MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="11"/>
+                <MaskValueControl  Name="Mask13" MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="12"/>
+                <MaskValueControl  Name="Mask14" MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="13"/>
+                <MaskValueControl  Name="Mask15" MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="14"/>
+                <MaskValueControl  Name="Mask16" MinSize="50,0" W="100" ShowValue="Yes" Property="Enabled" ArrayIndex="15"/>
+            </TitleAutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_content" ToolTip="configures Content sheet"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Frame">
+            <ContentView Anchors="0,0" Name="Splitter" Transparent="Yes">
+                <CueInputGrid Name="CueGrid" OnSelectedItem=":OnCueSelected" OnSelectedRow=":OnRowSelected" AllowEdit="No" AllowAddContent="No" SelectionType="SingleRowGridSelection" AllowFilterContent="Yes" FilterBlockUIEnabled="No" HiglightActiveCue="Yes" LevelLimit="1">
+                    <GridSettings RowHeightFactor="1.5" AdjustColumns="Yes" NoFixedColumns="No" ContentFilterType="GridObjectContentFilter">
+                        <GridObjectContentFilter>
+                            <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                        </GridObjectContentFilter>
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Inclusive="Yes">
+                                <GridColumn Name="No" Visible="Yes" />
+                                <GridColumn Name="Part" Visible="Yes" />
+                                <GridColumn Name="Name" Visible="Yes" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                    <DBObjectGridData UseLocalExpandedState="Yes" HierarchyFilterMask="1" IgnoreCmdInput="Yes"/>
+                </CueInputGrid>
+
+                <UILayoutGrid Name="Scroller">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectRows>
+
+                    <UILayoutGrid Name="ScrollerFrame" Anchors="0,0" Visible="No"  MinSize="0,200">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectRows>
+                        <ScrollContainer  Name="CuePartViewerScroll" Anchors="0,0" >
+                            <ContentSheetGridScroller  Name="MultiScroller">
+                            </ContentSheetGridScroller>
+                        </ScrollContainer>
+                    </UILayoutGrid >
+
+                    <SplitterV     Name="Resizer"   Anchors="0,1" Property="SplitSize" OnLoad=":SetSettingsAsTarget" />
+
+                    <UILayoutGrid Name="NotesFrame" Anchors="0,2" Visible="Yes" MinSize="0,100">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="40" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectRows>
+                        <UIObject Name="NotesHeader" Anchors="0,0" HasHover="No" Padding="5,5,5,5" Text="Cue Notes" TextAlignmentH="Left" BackColor="UIGrid.HeaderAltBackground"/>
+                        <NoteTextEdit Name="NotesEdit"   Anchors="0,1" HasHover="No" Padding="5,5,5,5" Enabled="false" Focus="WantsFocus"/>
+                    </UILayoutGrid >
+
+                    <UILayoutGrid Name="RecipeFrame" Anchors="0,2" Visible="No"  MinSize="0,100" OnLoad=":SetRecipeSettings" HelpTopic="cue_recipe.html" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="40" />
+                            <Item SizePolicy="Stretch" />
+                        </ItemCollectRows>
+                        <AutoLayout  Name="RecipeFilter" DefaultMargin="1" Anchors="0,0" Direction="Horizontal" >
+                            <IndicatorControl Text="References" Property="Bits" ArrayIndex="3" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+                            <IndicatorControl Text="Grid"       Property="Bits" ArrayIndex="5" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+                            <IndicatorControl Text="Layers"     Property="Bits" ArrayIndex="4" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+                            <IndicatorControl Text="Shuffle"    Property="Bits" ArrayIndex="10" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+                            <IndicatorControl Text="X"          Property="Bits" ArrayIndex="7" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+                            <IndicatorControl Text="Y"          Property="Bits" ArrayIndex="8" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+                            <IndicatorControl Text="Z"          Property="Bits" ArrayIndex="9" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+                        </AutoLayout>
+                        <DBObjectGrid  Name="RecipeGrid" Anchors="0,1" AutoNextCell="No" DataType="RecipeGridData"/>
+                    </UILayoutGrid >
+
+                    <AutoLayout DefaultMargin="5" Anchors="0,3" Name="Toolbars" Direction="Vertical" Texture="corner15" Content="Yes"  Font="Regular18" LowDpiFont="Regular14" >
+                        <UILayoutGrid H="50" Name="MaskToolbar">
+                            <ScrollBox >
+                                <UILayoutGrid OnLoad=":SetMaskTarget" Columns="16" W="1615">
+                                    <MaskValueControl  Anchors="0,0" Name="Mask1"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="0" Texture="Corner5"/>
+                                    <MaskValueControl  Anchors="1,0" Name="Mask2"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="1"/>
+                                    <MaskValueControl  Anchors="2,0" Name="Mask3"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="2"/>
+                                    <MaskValueControl  Anchors="3,0" Name="Mask4"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="3"/>
+                                    <MaskValueControl  Anchors="4,0" Name="Mask5"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="4"/>
+                                    <MaskValueControl  Anchors="5,0" Name="Mask6"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="5"/>
+                                    <MaskValueControl  Anchors="6,0" Name="Mask7"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="6"/>
+                                    <MaskValueControl  Anchors="7,0" Name="Mask8"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="7"/>
+                                    <MaskValueControl  Anchors="8,0" Name="Mask9"  Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="8"/>
+                                    <MaskValueControl  Anchors="9,0" Name="Mask10" Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="9"/>
+                                    <MaskValueControl  Anchors="10,0" Name="Mask11" Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="10"/>
+                                    <MaskValueControl  Anchors="11,0" Name="Mask12" Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="11"/>
+                                    <MaskValueControl  Anchors="12,0" Name="Mask13" Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="12"/>
+                                    <MaskValueControl  Anchors="13,0" Name="Mask14" Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="13"/>
+                                    <MaskValueControl  Anchors="14,0" Name="Mask15" Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="14"/>
+                                    <MaskValueControl  Anchors="15,0" Name="Mask16" Margin="1,0,0,0" ShowValue="Yes" Property="Enabled" ArrayIndex="15" Texture="Corner10"/>
+                                </UILayoutGrid>
+                            </ScrollBox>
+                        </UILayoutGrid>
+                        <PropertyRadioButtonList H="50" Name="LayerToolbar" OnLoad=":SetTargetSettings" Property="Layer" SetType="Property" Type="Horizontal" ItemType="RadioItemButtonV2" Visible="No" ItemSize="100" />
+                    </AutoLayout>
+                </UILayoutGrid>
+            </ContentView>
+        </DialogFrame>
+    </ContentWindow>
+</GMA3>

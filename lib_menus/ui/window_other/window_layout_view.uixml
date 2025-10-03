@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <LayoutView Name="LayoutView" EditEncoderBar="LayoutBar" OnLoad=":OnLoad" ReactToPreview="Yes" HelpTopic="edit_layout_view.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" MinSize="50" />
+                <Item SizePolicy="Content"/>
+            </ItemCollectColumns>
+            <TitleButton   Anchors="1,0,2,0" Text="Layout View" TrackWorld="Yes" Texture="corner2"/>
+            <TitleAutoLayout Anchors="2,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <IndicatorControl W="70"  MinSize="60,0" Name="Setup"            Property="Setup"        />
+                <SwipeButton      W="100" MinSize="60,0" Name="Layout"           Property="Layout"        IndirectEdit="1" />
+                <SwipeButton      W="100" MinSize="60,0" Name="Layer"            Text="Layer"             Property="LayoutOutputSelection" />
+                <Button           W="60"  MinSize="50,0" Name="ZoomToFit"        Icon="fit"               Clicked=":OnZoomToFit"  Tooltip="Zoom to fit" />
+                <SwipeButton      W="100" MinSize="60,0" Name="FitType"          Property="FitType"       />
+                <IndicatorControl W="100" MinSize="60,0" Name="AutoFit"          Property="AutoFit"       />
+                <SwipeButton      W="100" MinSize="60,0" Name="CanvasFitMode"    Property="CanvasFitMode" />
+                <SwipeButton      W="100" MinSize="60,0" Name="GridStyle"        Property="GridStyle"     />
+                <IndicatorControl W="100" MinSize="60,0" Name="LockPosition"     Property="Lock"          Text="Lock&#xD;Position" />
+                <IndicatorControl W="100" MinSize="60,0" Name="RightClickToEdit" Property="RightClickToEdit" Text="2 Finger&#xD;Edit" />
+                <IndicatorControl W="100" MinSize="60,0" Name="ShowSelection"    Property="ShowSelection" TextAutoAdjust="Yes"/>
+                <IndicatorControl W="100" MinSize="60,0" Name="SnapToGrid"       Property="SnapToGrid"   />
+                <PropertyInput    W="100" MinSize="60,0" Name="SnapGrid"         Property="SnapGrid"     />
+                <SwipeButton      W="100" MinSize="60,0" Name="SelectionMode"    Property="SelectionMode" />
+                <SwipeButton      W="100" MinSize="60,0" Name="LassoFilter"      Property="LassoFilter" />
+                <Button           W="100" MinSize="60,0" Name="SelectionToGrid"   Icon="sel_to_matricks"   Clicked=":SelectAsGrid" Tooltip="Applies the current fixture selection to the selection grid according to the layout arrangement." />
+            </TitleAutoLayout>
+            <ContextButton Texture="corner1"   Icon="object_layout" ToolTip="configures layout view" ReactToRecipeEdit="Yes"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" MixInBackColorFromParent="Yes">
+
+            <UILayoutGrid Name="MenuGrid" Anchors="0,0" DefaultMargin="0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch"  />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+                <Toolbar Name="MainToolBar" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,0" Direction="Vertical">
+                    <ValueControl UiGroupId="1" H="60" W="60" Name="Auto"        ShowLabel="No" ShowValue="No" Icon="autoCursor"      Property="Tool" Value="Auto"              Undo="No" OnLoad=":SetTarget" ToolTip="Automatically choose select, resize or move, depending on the touch - position." />
+                    <ValueControl UiGroupId="1" H="60" W="60" Name="select"      ShowLabel="No" ShowValue="No" Icon="select"          Property="Tool" Value="Select"            Undo="No" OnLoad=":SetTarget" ToolTip="Select tool" />
+                    <ValueControl UiGroupId="1" H="60" W="60" Name="move"        ShowLabel="No" ShowValue="No" Icon="PhaserMovePoint" Property="Tool" Value="Move"              Undo="No" OnLoad=":SetTarget" ToolTip="Move tool " />
+                    <ValueControl UiGroupId="1" H="60" W="60" Name="resize"      ShowLabel="No" ShowValue="No" Icon="PhaserSizing"    Property="Tool" Value="Resize"            Undo="No" OnLoad=":SetTarget" ToolTip="Resize tool" />
+                    <ValueControl UiGroupId="1" H="60" W="60" Name="resizeFixed" ShowLabel="No" ShowValue="No" Icon="ResizeFixed"     Property="Tool" Value="ResizeFixedRatio"  Undo="No" OnLoad=":SetTarget" ToolTip="Resize tool with fixed ratio." />
+                    <ValueControl UiGroupId="1" H="60" W="60" Name="add"         ShowLabel="No" ShowValue="No" Icon="plus"            Property="Tool" Value="Add"               Undo="No" OnLoad=":SetTarget" ToolTip="Add tool" />
+                    <ValueControl UiGroupId="1" H="60" W="60" Name="del"         ShowLabel="No" ShowValue="No" Icon="minus"           Property="Tool" Value="Delete"            Undo="No" OnLoad=":SetTarget" ToolTip="Delete tool" />
+                    <Button       UiGroupId="2" H="60" W="60" Name="align"                                     Icon="Snap"   Clicked=":AlignSelected" ToolTip="Click here to align your selection." />
+                </Toolbar>
+                <Button Name="lockBtn" Anchors="0,0" Enabled="No" Icon="Locked" Texture="Corner15" IconColor="Global.Selected" BackColor="Global.Transparent75" Visible="No"/>
+
+                <UILayoutGrid Name="Center" Anchors="1,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectColumns>
+                    <LayoutCanvas  Name="Canvas" Focus="CanHaveFocus" HideFocusFrame="Yes" />
+                    <ScrollBarV Name="ScrollV" Anchors="1,0" ScrollTarget="../Canvas" />
+                    <ScrollBarH Name="ScrollH" Anchors="0,1" ScrollTarget="../Canvas" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </LayoutView>
+</GMA3>

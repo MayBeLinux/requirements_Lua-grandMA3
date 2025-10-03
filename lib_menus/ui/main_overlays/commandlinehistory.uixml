@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <CommandLineHistory Name="CommandLineHistory">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0,1,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Command Line History" Icon=""/>
+            <Button  Name="AutoScroll" Anchors="1,0" Texture="corner0" Text="Jump to Bottom" TextAutoAdjust="Yes" ToolTip="Activate history view autoscroll mechansim." BackColor="Button.Background" Clicked=":CommandlineHistoryTextView_AutoScroll" Focus="Never"/>
+            <CloseButton Texture="corner2" Anchors="2,0" Focus="Never"/>
+        </TitleBar>
+
+        <!-- Textdisplay -->
+        <CommandlineHistoryTextView Name="CmdHistoryView" Anchors="0,1,1,1" TextViewProvider="$" Font="console16" BackColor="CommandLineHistory.Background" SelectionColor="CommandLineHistory.SelectedRow" FixedBackColor="CommandLineHistory.FixedBackground" ToolTip="Click on a line to copy it back into the command line." />
+        <!-- Vertical scrollbar -->
+        <ScrollBarV Anchors="1,1" ScrollTarget="../CmdHistoryView" />
+        <!-- Horizontal scrollbar -->
+        <ScrollBarH Anchors="0,2" ScrollTarget="../CmdHistoryView" />
+
+    </CommandLineHistory>
+</GMA3>

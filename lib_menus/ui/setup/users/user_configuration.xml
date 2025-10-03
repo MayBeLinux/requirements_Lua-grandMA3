@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="183" Name="UserConfiguration" Guid="00 1B 21 70 C7 96 00 00 31 52 36 54 89 D8 B2 AD" Author="MA" Version="0.1.0.0" Path="/ui/setup/users">
+        <ComponentXML Index="1" Guid="00 1B 21 70 6B B5 00 00 30 52 36 54 89 D8 B2 AD" FileName="user_configuration.uixml" PlaceHolder="MainDialog" Toggle="No" />
+        <ComponentLua Index="2" FileName="../../editors/generic_edit.lua" />
+        <ComponentLua Index="3" FileName="user_configuration.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="ConnectorConfig" OnLoad=":ConnectorConfigLoaded" HelpTopic="dmx_port_config.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" Rows="1">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Connector Configuration" Icon="setup"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <SwipeButton Name="ColumnsFilters" MinSize="50,0" W="130" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" SelectionChanged=":ColumnsFilterSelected" />
+                <SwipeButton Name="StationFilters" MinSize="50,0" W="130" ShowLabel="Yes" Text="Session" TextAutoAdjust="No" SelectionChanged=":RowFilterSelected" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="1" OnLoad=":ContentLoaded">
+            <OutputConfigGrid Name="Consoles"  BackColor="UIGrid.Background" Anchors="0,0" DataType="OutputConfigGridData" AllowFilterContent="Yes" Focus="InitialFocus" FilterBlockUIEnabled="No">
+                <GridSettings ContentFilterType="GridObjectContentFilter" >
+                    <GridColumnFilterCollect SelectedFilter="Condensed">
+                        <GridColumnNamesFilter Name="Full">
+                            <GridColumn Name="Lock"            Visible="Yes" />
+                            <GridColumn Name="No"              Visible="Yes" />
+                            <GridColumn Name="Name"            Visible="Yes" />
+                            <GridColumn Name="DevicesInSession" Visible="Yes" />
+                            <GridColumn Name="Type"            Visible="Yes" />
+                            <GridColumn Name="IP"              Visible="Yes" />
+                            <GridColumn Name="XLR A"           Visible="Yes" />
+                            <GridColumn Name="XLR B"           Visible="Yes" />
+                            <GridColumn Name="XLR C"           Visible="Yes" />
+                            <GridColumn Name="XLR D"           Visible="Yes" />
+                            <GridColumn Name="XLR E"           Visible="Yes" />
+                            <GridColumn Name="XLR F"           Visible="Yes" />
+                            <GridColumn Name="XLR G"           Visible="Yes" />
+                            <GridColumn Name="XLR H"           Visible="Yes" />
+                            <GridColumn Name="Mode A"          Visible="Yes" />
+                            <GridColumn Name="Mode B"          Visible="Yes" />
+                            <GridColumn Name="Mode C"          Visible="Yes" />
+                            <GridColumn Name="Mode D"          Visible="Yes" />
+                            <GridColumn Name="Mode E"          Visible="Yes" />
+                            <GridColumn Name="Mode F"          Visible="Yes" />
+                            <GridColumn Name="Mode G"          Visible="Yes" />
+                            <GridColumn Name="Mode H"          Visible="Yes" />
+                            <GridColumn Name="Merge A"         Visible="Yes" />
+                            <GridColumn Name="Merge B"         Visible="Yes" />
+                            <GridColumn Name="Merge C"         Visible="Yes" />
+                            <GridColumn Name="Merge D"         Visible="Yes" />
+                            <GridColumn Name="Merge E"         Visible="Yes" />
+                            <GridColumn Name="Merge F"         Visible="Yes" />
+                            <GridColumn Name="Merge G"         Visible="Yes" />
+                            <GridColumn Name="Merge H"         Visible="Yes" />
+                            <GridColumn Name="Prio A"          Visible="Yes" />
+                            <GridColumn Name="Prio B"          Visible="Yes" />
+                            <GridColumn Name="Prio C"          Visible="Yes" />
+                            <GridColumn Name="Prio D"          Visible="Yes" />
+                            <GridColumn Name="Prio E"          Visible="Yes" />
+                            <GridColumn Name="Prio F"          Visible="Yes" />
+                            <GridColumn Name="Prio G"          Visible="Yes" />
+                            <GridColumn Name="Prio H"          Visible="Yes" />
+                            <GridColumn Name="SMPTEMode"       Visible="Yes" />
+                            <GridColumn Name="SMPTETC"         Visible="Yes" />
+                            <GridColumn Name="MIDITCMode"      Visible="Yes" />
+                            <GridColumn Name="MIDITC"          Visible="Yes" />
+                            <GridColumn Name="MIDIDataMode"    Visible="Yes" />
+                            <GridColumn Name="MIDIOffset"      Visible="Yes" />
+                            <GridColumn Name="DCStart"         Visible="Yes" />
+                            <GridColumn Name="Art-NetInterface" Visible="Yes" />
+                            <GridColumn Name="SendArt-NetIfIdleMaster" Visible="Yes" />
+                            <GridColumn Name="sACNInterface"   Visible="Yes" />
+                            <GridColumn Name="SendsACNIfIdleMaster" Visible="Yes" />
+                            <GridColumn Name="OscInterface"    Visible="Yes" />
+                            <GridColumn Name="PsnInterface"    Visible="Yes" />
+                            <GridColumn Name="InMySession"     Visible="No"  />
+                            <GridColumn Name="Port A"          Visible="No"  />
+                            <GridColumn Name="Port B"          Visible="No"  />
+                            <GridColumn Name="Port C"          Visible="No"  />
+                            <GridColumn Name="Port D"          Visible="No"  />
+                            <GridColumn Name="Port E"          Visible="No"  />
+                            <GridColumn Name="Port F"          Visible="No"  />
+                            <GridColumn Name="Port G"          Visible="No"  />
+                            <GridColumn Name="Port H"          Visible="No"  />
+                        </GridColumnNamesFilter>
+                        <GridColumnNamesFilter Name="Condensed" Inclusive="Yes">
+                            <GridColumn Name="Lock"            Visible="Yes" />
+                            <GridColumn Name="No"              Visible="Yes" />
+                            <GridColumn Name="Name"            Visible="Yes" />
+                            <GridColumn Name="DevicesInSession" Visible="Yes" />
+                            <GridColumn Name="Type"            Visible="Yes" />
+                            <GridColumn Name="IP"              Visible="Yes" />
+                            <GridColumn Name="Port A"          Visible="Yes" />
+                            <GridColumn Name="Port B"          Visible="Yes" />
+                            <GridColumn Name="Port C"          Visible="Yes" />
+                            <GridColumn Name="Port D"          Visible="Yes" />
+                            <GridColumn Name="Port E"          Visible="Yes" />
+                            <GridColumn Name="Port F"          Visible="Yes" />
+                            <GridColumn Name="Port G"          Visible="Yes" />
+                            <GridColumn Name="Port H"          Visible="Yes" />
+                            <GridColumn Name="SMPTEMode"       Visible="Yes" />
+                            <GridColumn Name="SMPTETC"         Visible="Yes" />
+                            <GridColumn Name="MIDITCMode"      Visible="Yes" />
+                            <GridColumn Name="MIDITC"          Visible="Yes" />
+                            <GridColumn Name="MIDIDataMode"    Visible="Yes" />
+                            <GridColumn Name="MIDIOffset"      Visible="Yes" />
+                            <GridColumn Name="DCStart"         Visible="Yes" />
+                            <GridColumn Name="Art-NetInterface" Visible="Yes" />
+                            <GridColumn Name="SendArt-NetIfIdleMaster" Visible="Yes" />
+                            <GridColumn Name="SACNInterface"   Visible="Yes" />
+                            <GridColumn Name="SendSacnIfIdleMaster" Visible="Yes" />
+                            <GridColumn Name="OscInterface"    Visible="Yes" />
+                            <GridColumn Name="PsnInterface"    Visible="Yes" />
+                            <GridColumn Name="InMySession"     Visible="No"  />
+                        </GridColumnNamesFilter>
+                        <GridColumnNamesFilter Name="XLROnly" Inclusive="Yes">
+                            <GridColumn Name="Lock"        Visible="Yes" />
+                            <GridColumn Name="No"          Visible="Yes" />
+                            <GridColumn Name="Name"        Visible="Yes" />
+                            <GridColumn Name="DevicesInSession" Visible="Yes" />
+                            <GridColumn Name="Type"        Visible="Yes" />
+                            <GridColumn Name="IP"          Visible="Yes" />
+                            <GridColumn Name="Port A"      Visible="Yes" />
+                            <GridColumn Name="Port B"      Visible="Yes" />
+                            <GridColumn Name="Port C"      Visible="Yes" />
+                            <GridColumn Name="Port D"      Visible="Yes" />
+                            <GridColumn Name="Port E"      Visible="Yes" />
+                            <GridColumn Name="Port F"      Visible="Yes" />
+                            <GridColumn Name="Port G"      Visible="Yes" />
+                            <GridColumn Name="Port H"      Visible="Yes" />
+                            <GridColumn Name="InMySession" Visible="No"  />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                    <GridObjectContentFilter>
+                        <GridObjectContentFilterItem Name="InMySession" Columns="InMySession" Filter="Yes" />
+                    </GridObjectContentFilter>
+                </GridSettings>
+            </OutputConfigGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportButton ChangeDestination="Yes" ImportOptions="/Merge" />
+                <MainDlgExportButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0" Text="Add&#xD;Present" Clicked=":ButtonClicked"  SignalValue="AddPresent"/>
+                <IndicatorButton Anchors="0,1" Text="Remove&#xD;Absent" Clicked=":ButtonClicked" SignalValue="RemoveAbsent"/>
+                <UIObject Anchors="1,1" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="2,0,3,0" Texture="corner0" HasHover="0"/>
+                <PropertyInput Anchors="1,0" Text="RDM" Property="Enable" Target="ShowData.RDMData" ToolTip="Enable this station to be remotely controlled by others"/>
+                <IndicatorButton Anchors="2,1" Text="Save&#xD;Device Configuration" Clicked=":SaveDeviceConfiguration"/>
+                <PropertyInput Name="ShowConnectors" Anchors="3,0" Texture="corner0" Target="~" Text="Show Connectors" Clicked=":ConnectorViewClick" Property="ShowConnectors" ToolTip="Display connectors on letterbox screens" />
+                <IndicatorButton Anchors="3,1" Text="Load&#xD;Device Configuration" Clicked=":LoadDeviceConfiguration" />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+    </MainDialog>
+
+</GMA3>

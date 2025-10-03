@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UILayoutGrid Name="ColumnConfig" OnLoad=":OnColumnConfigLoaded" HelpTopic="ws_ui_adjustable_columns.html">
+    <ItemCollectColumns>
+        <Item SizePolicy="Stretch" Size="2"/>
+        <Item SizePolicy="Stretch"/>
+    </ItemCollectColumns>
+    <!-- LEFT: SCROLLABLE LIST -->
+    <UILayoutGrid Anchors="0,0" Name="CCLeft" Margin="5,5,5,5">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="0" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content"/>
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectColumns>
+        <!-- Label -->
+        <UIObject Anchors="0,0,1,0" Texture="corner0" HasHover="0" Text="Current configuration:" BackColor="Global.Transparent" TextAlignmentH="Left" Padding="20,0,0,0"/>
+        <!-- Buttons -->
+        <UILayoutGrid Anchors="0,1" W="60" AlignmentH="Center" Margin="5,0,5,0" Visible="Yes" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <Button Anchors="0,1" Icon="arrow_up"   Texture="corner3"  Clicked=":OnClickedColConfigUp"  />
+            <Button Anchors="0,2" Icon="arrow_down" Texture="corner12" Clicked=":OnClickedColConfigDown"/>
+        </UILayoutGrid>
+        <!-- List -->
+        <DBObjectGrid Anchors="1,1" Name="ColConfigGrid" ScrollCellAutomatic="No" DataType="ColumnSetGridData">
+            <GridSettings AdjustColumns="Yes" >
+                <GridColumnFilterCollect>
+                    <GridColumnNamesFilter Inclusive="Yes">
+                        <GridColumn Name="No" Visible="Yes" />
+                        <GridColumn Name="Name" Visible="Yes" />
+                        <GridColumn Name="Visible" Visible="Yes" />
+                        <!-- <GridColumn Name="Size" Visible="Yes" /> -->
+                    </GridColumnNamesFilter>
+                </GridColumnFilterCollect>
+            </GridSettings>
+        </DBObjectGrid>
+    </UILayoutGrid>
+
+    <!-- RIGHT: BUTTONS -->
+    <UILayoutGrid Anchors="1,0" Name="CCRight" Margin="20,5,5,5" DefaultMargin="2">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Stretch"/>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Fixed" Size="60" />
+        </ItemCollectRows>
+
+        <SwipeButton Anchors="0,0" Text="Columns" Texture="corner3" TextAutoAdjust="Yes" Property="SelectedColumnConfiguration" ReferencedTitleButton="ColumnConfig" ValueRole="DisplayShort" IndirectEdit="Yes" OnLoad=":OnLoadedColumnsButton" InteractWithCommandline="Yes"/>
+        <AutoLayout Anchors="0,1" Texture="corner12" Direction="Horizontal" Name="LabelDeleteButtons">
+            <IndicatorButton Name="NewBtn"    Text="New"    Clicked=":OnClickedNewSet" />
+            <IndicatorButton Name="LabelBtn"  Text="Label"  Clicked=":OnClickedLabelSet" />
+            <IndicatorButton Name="DeleteBtn" Text="Delete" Clicked=":OnClickedDeleteSet"/>
+        </AutoLayout>
+
+        <AutoLayout Anchors="0,3" Texture="corner15" Direction="Horizontal" Name="Buttons">
+            <IndicatorButton Name="SetAllVisibleBtn"   Text="Set All&#xD;Visible"   Texture="corner15" Clicked=":OnClickedAllColumnsVisible" />
+            <IndicatorButton Name="SetAllInvisibleBtn" Text="Set All&#xD;Invisible" Texture="corner15" Clicked=":OnClickedAllColumnsInvisible" />
+        </AutoLayout>
+        <IndicatorButton Anchors="0,4" Name="ResetOrderBtn" Text="Reset Order" Texture="corner15" Clicked=":OnClickedColConfigResetOrder" />
+    </UILayoutGrid>
+</UILayoutGrid>

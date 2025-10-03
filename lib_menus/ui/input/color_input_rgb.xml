@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="19" Name="ColorInputRGB" Guid="F6 12 E6 B7 FB B5 48 CD A1 06 CA 8C 1C 42 DF 1C" Author="MA" Version="0.1.0.0" Path="/ui/input" >
+        <ComponentXML Index="1" Guid="44 67 44 8F 8D 6D 40 4E 97 24 A3 91 91 16 48 E4" FileName="color_input_rgb.uixml" PlaceHolder="ModalOverlay" BuddyGroupId="InputLine" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="EB FC 7E 0F E3 83 40 9E 91 2A 36 8E 8F 02 FA C3" FileName="color_input_rgb.lua" />
+    </Menu>
+</GMA3>

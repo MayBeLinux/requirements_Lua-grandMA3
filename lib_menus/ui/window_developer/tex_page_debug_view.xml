@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="173" Name="TexPageDebugView" Guid="82 88 AA 8B 14 5E 42 C0 BB E5 3B D7 12 FB A3 29" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="A8 49 F2 93 22 A7 4B D0 90 2F D8 1D 4C 62 58 A5" FileName="tex_page_debug_view.uixml" PlaceHolder="UiScreen" Toggle="No" />
+    </Menu>
+</GMA3>

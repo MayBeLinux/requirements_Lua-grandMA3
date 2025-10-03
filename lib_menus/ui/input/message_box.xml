@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="MessageBox" Guid="00 1B 21 70 4D D9 00 00 5F 9F 41 2A 7C 8C D2 5B" UserRights="None" Author="MA" Version="0.1.0.0" Path="/ui/input" Placement="Multi">
+        <ComponentXML Guid="00 1B 21 70 F4 8F 00 00 5E 9F 41 2A 7C 8C D2 5B" FileName="messagebox.uixml" UserRights="None" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" Toggle="No" BuddyGroupId="MessageBox" />
+        <ComponentLua FileName="message_box.lua" />
+    </Menu>
+</GMA3>

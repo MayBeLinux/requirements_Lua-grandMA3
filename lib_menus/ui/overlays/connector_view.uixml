@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Overlay Name="ConnectorView" W="100%" H="100%" AlignmentH="Center" AlignmentV="Center" WantsModal="0" ContentDriven="No" DefaultMargin="0" OnLoad=":ConnectorViewLoaded" Visible="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+
+        <UILayoutGrid Name="Disp8" W="100%" H="100%" Anchors="0,0" Transparent="false" Visible="Yes" BackColor="Button.Background">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size ="5" />
+                <Item SizePolicy="Fixed" Size ="50" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size ="115" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size="22" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size ="20" />
+                <!-- Margin -->
+                <Item SizePolicy="Fixed" Size ="52" />
+                <!-- SPDIF -->
+                <Item SizePolicy="Fixed" Size ="85" />
+                <!-- Audio -->
+                <Item SizePolicy="Fixed" Size ="68" />
+                <!-- USB -->
+                <Item SizePolicy="Fixed" Size ="85" />
+                <!-- LTC -->
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size ="70" />
+                <!-- Midi -->
+                <Item SizePolicy="Fixed" Size ="70" />
+                <!-- Midi -->
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- DMX G -->
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- DMX F -->
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- DMX E -->
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- DMX D -->
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- DMX C -->
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- DMX B -->
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- DMX A -->
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Fixed" Size ="105" />
+                <!-- PowerC -->
+                <Item SizePolicy="Fixed" Size ="76" />
+                <!-- Light -->
+                <Item SizePolicy="Fixed" Size ="10" />
+                <!-- Margin -->
+            </ItemCollectColumns>
+
+            <!-- Top row -->
+            <!--<Button HasHover="No" Anchors="10,10"/>-->
+            <!-- hidden focus for escape key to work -->
+            <Button HasHover="No" Focus="Never" Anchors="17,1" Icon="PowerS"/>
+            <Button HasHover="No" Focus="Never" Anchors="17,2" Text="Off -&gt; On"/>
+
+            <Button HasHover="No" Name="Dp1Icon" Visible="No" Focus="Never" Anchors="14,1,15,1" Icon="Dp" IconAlignmentH="Center"/>
+            <Button HasHover="No" Name="Dp1Text" Visible="No" Focus="Never" Anchors="14,2,15,2" Text="DP 1"/>
+
+            <Button HasHover="No" Name="Dp2Icon" Visible="No" Focus="Never" Anchors="12,1,13,1" Icon="Dp" IconAlignmentH="Center"/>
+            <Button HasHover="No" Name="Dp2Text" Visible="No" Focus="Never" Anchors="12,2,13,2" Text="DP 2"/>
+
+            <Button HasHover="No" Name="Dp3Icon" Visible="No" Focus="Never" Anchors="10,1,11,1" Icon="Dp" IconAlignmentH="Center"/>
+            <Button HasHover="No" Name="Dp3Text" Visible="No" Focus="Never" Anchors="10,2,11,2" Text="DP 3"/>
+
+            <Button HasHover="No" Focus="Never" Anchors="09,1" Icon="Dp"/>
+            <Button HasHover="No" Focus="Never" Anchors="09,2" Text="DP 4"/>
+            <Button HasHover="No" Focus="Never" Anchors="06,1,07,1" Icon="Dp" IconAlignmentH="Left"/>
+            <Button HasHover="No" Focus="Never" Anchors="06,2" Text="DP 5"/>
+            <Button HasHover="No" Focus="Never" Anchors="03,1" Icon="Usb3"/>
+            <Button HasHover="No" Focus="Never" Anchors="03,2" Text="USB 3"/>
+            <Button HasHover="No" Focus="Never" Anchors="01,1,02,1" Icon="SubD"/>
+            <Button HasHover="No" Focus="Never" Anchors="01,2,02,2" Text="DC Remote In"/>
+
+            <!-- Main row -->
+            <Button HasHover="No" Focus="Never" Anchors="18,3" Icon="Xlr4pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="18,4" Text="Desk Light"/>
+            <Button HasHover="No" Focus="Never" Anchors="17,3" Icon="PowerC" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="17,4" Text="Power"/>
+            <Button HasHover="No" Focus="Never" Anchors="15,3" Icon="Xlr5pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="15,4" Text="DMX A"/>
+            <Button HasHover="No" Focus="Never" Anchors="14,3" Icon="Xlr5pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="14,4" Text="DMX B"/>
+            <Button HasHover="No" Focus="Never" Anchors="13,3" Icon="Xlr5pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="13,4" Text="DMX C"/>
+            <Button HasHover="No" Focus="Never" Anchors="12,3" Icon="Xlr5pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="12,4" Text="DMX D"/>
+            <Button HasHover="No" Focus="Never" Anchors="11,3" Icon="Xlr5pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="11,4" Text="DMX E"/>
+            <Button HasHover="No" Focus="Never" Anchors="10,3" Icon="Xlr5pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="10,4" Text="DMX F"/>
+            <Button HasHover="No" Focus="Never" Anchors="09,3" Icon="Xlr5pM" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="09,4" Text="DMX G"/>
+            <Button HasHover="No" Focus="Never" Anchors="07,3" Icon="Midi" Text="In" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="06,4,07,4" Text="MIDI"/>
+            <Button HasHover="No" Focus="Never" Anchors="06,3" Icon="Midi" Text="Out" IconAlignmentV="Bottom"/>
+            <!--<Button HasHover="No" Focus="Never" Anchors="05,4" Text="MIDI Out"/>-->
+            <Button HasHover="No" Focus="Never" Anchors="04,3" Icon="Xlr3pF"  IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="04,4" Text="LTC"/>
+
+            <UILayoutGrid Anchors="03,3" Transparent="false" BackColor="Button.Background">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <Button HasHover="No" Focus="Never" Anchors="0,0" Icon="Usb2" IconAlignmentV="Bottom"/>
+                <Button HasHover="No" Focus="Never" Anchors="0,1" Icon="Usb2" IconAlignmentV="Bottom"/>
+                <Button HasHover="No" Focus="Never" Anchors="0,2" Icon="Usb2" IconAlignmentV="Bottom"/>
+            </UILayoutGrid>
+            <Button HasHover="No" Focus="Never" Anchors="03,4" Text="USB 2"/>
+            <Button HasHover="No" Focus="Never" Anchors="02,3" Icon="Xlr3pF"  IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="02,4" Text="Audio In"/>
+            <UILayoutGrid Anchors="01,3" Transparent="false"  BackColor="Button.Background">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <Button HasHover="No" Focus="Never" Anchors="0,0" H="52" W="52" Texture="Spdif" Text="I" IconAlignmentV="Bottom"/>
+                <Button HasHover="No" Focus="Never" Anchors="0,1" H="52" W="52" Texture="Spdif" Text="O" IconAlignmentV="Bottom"/>
+            </UILayoutGrid>
+            <Button HasHover="No" Focus="Never" Anchors="01,4" Text="S/PDIF"/>
+
+        </UILayoutGrid>
+
+
+        <UILayoutGrid Name="Disp9" W="100%" H="100%" Anchors="0,0" Transparent="false" Visible="No"  BackColor="Button.Background">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size ="5" />
+                <Item SizePolicy="Fixed" Size ="50" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size ="115" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size="22" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size ="1" />
+                <Item SizePolicy="Fixed" Size ="76" />
+                <Item SizePolicy="Stretch" Size ="1" />
+                <Item SizePolicy="Fixed" Size ="76" />
+                <Item SizePolicy="Fixed" Size ="76" />
+                <Item SizePolicy="Fixed" Size ="76" />
+                <Item SizePolicy="Fixed" Size ="1" />
+            </ItemCollectColumns>
+
+
+            <!-- Main row -->
+            <Button HasHover="No" Focus="Never" Anchors="5,3" Icon="EtherC" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="5,4" Text="Ethernet 1"/>
+            <Button HasHover="No" Focus="Never" Anchors="4,3" Icon="EtherC" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="4,4" Text="Ethernet 2"/>
+            <Button HasHover="No" Focus="Never" Anchors="3,3" Icon="EtherC" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="3,4" Text="Ethernet 3"/>
+            <Button Name="DesklightLightIcon" HasHover="No" Focus="Never" Anchors="1,3" Icon="Xlr4pF" IconAlignmentV="Bottom"/>
+            <Button Name="DesklightLightText" HasHover="No" Focus="Never" Anchors="1,4" Text="Desk Light"/>
+
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Disp10" W="100%" H="100%" Anchors="0,0" Transparent="false" Visible="No" BackColor="Button.Background">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size ="5" />
+                <Item SizePolicy="Fixed" Size ="50" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size ="115" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size="22" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size ="1" />
+                <Item SizePolicy="Fixed" Size="72" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size ="1" />
+            </ItemCollectColumns>
+
+
+            <!-- Main row -->
+            <Button HasHover="No" Focus="Never" Anchors="1,3" Icon="Xlr4pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="1,4" Text="Desk Light"/>
+
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Disp11" W="100%" H="100%" Anchors="0,0" Transparent="false" Visible="No" BackColor="Button.Background">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size ="5" />
+                <Item SizePolicy="Fixed" Size ="50" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size ="115" />
+                <Item SizePolicy="Fixed" Size ="25" />
+                <Item SizePolicy="Fixed" Size="22" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size ="960" />
+                <!-- Ethernet -->
+                <Item SizePolicy="Fixed" Size ="81" />
+                <!-- Ethernet -->
+                <Item SizePolicy="Fixed" Size="50" />
+                <!-- Margin -->
+                <Item SizePolicy="Fixed" Size ="105" />
+                <!-- PowerC -->
+                <Item SizePolicy="Fixed" Size ="76" />
+                <!-- Light -->
+                <Item SizePolicy="Fixed" Size ="10" />
+                <!-- Margin -->
+            </ItemCollectColumns>
+
+
+            <!-- Main row -->
+            <Button HasHover="No" Focus="Never" Anchors="3,1" Icon="PowerS"/>
+            <Button HasHover="No" Focus="Never" Anchors="3,2" Text="Off -&gt; On"/>
+
+            <Button HasHover="No" Focus="Never" Anchors="3,3" Icon="PowerC" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="3,4" Text="Power"/>
+
+            <Button HasHover="No" Focus="Never" Anchors="4,3" Icon="Xlr4pF" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="4,4" Text="Desk Light"/>
+
+            <Button HasHover="No" Focus="Never" Anchors="1,3" Icon="EtherC" IconAlignmentV="Bottom"/>
+            <Button HasHover="No" Focus="Never" Anchors="1,4" Text="Ethernet"/>
+
+        </UILayoutGrid>
+
+    </Overlay>
+</GMA3>

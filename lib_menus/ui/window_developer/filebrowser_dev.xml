@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="84" Name="FilebrowserDev" Guid="D2 67 CA 54 C4 B9 4F EC 80 0F BC D7 03 E4 0C CE" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML FileName="filebrowser_dev.uixml" PlaceHolder="UiScreen" Toggle="No" />
+        <ComponentLua FileName="filebrowser_dev.lua" />
+    </Menu>
+</GMA3>

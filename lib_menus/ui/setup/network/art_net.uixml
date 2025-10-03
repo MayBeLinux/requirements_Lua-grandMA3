@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="ArtNet" BackColor="MainDialog.Background" HelpTopic="dmx_ethernet_artnet.html" OnLoad=":ArtnetMenuLoaded">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Art-Net" Icon="setup_protocols"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent OnLoad=":MainDlgContenLoaded">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="ArtNet" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes" Anchors="0,0" Columns="9">
+                <PropertyInput Anchors="0,0" Property="PreferredIP" Texture="corner15" />
+                <PropertyInput Anchors="1,0" Property="Interface" Text="Interface" Texture="corner15" />
+                <PropertyInput Anchors="2,0" Text="Enable Output" Property="Out" Texture="corner15" />
+                <PropertyInput Anchors="3,0" Text="Enable Input" Property="In" Texture="corner15" />
+                <PropertyInput Anchors="4,0" Property="broadcastThreshold" Texture="corner15" />
+                <PropertyInput Anchors="5,0" Property="ArtPollRate" Texture="corner15" />
+                <PropertyInput Anchors="6,0" Property="SetupMode" Texture="corner15" />
+                <PropertyInput Anchors="7,0" Property="SendArt-NetIfIdleMaster" Texture="corner15" OnLoad=":SendIfIdleButtonLoaded"/>
+                <PropertyInput Anchors="8,0" Property="OutputDelay" Texture="corner15"/>
+            </UILayoutGrid>
+
+            <UITab Name="ArtNetTabs" Anchors="0,1" AvoidScroll="Yes" TabChanged=":TabChanged" UseTabRegistry="Yes">
+                <ItemStr Title="Data" Value="Data" />
+                <ItemStr Title="Nodes" Value="Nodes" />
+
+            </UITab>
+            <DialogContainer Name="Grids" Anchors="0,2" ChangeActive=":TabChanged">
+
+                <UILayoutGrid Name="Data" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                    <DBObjectGrid Name="ObjectGrid" Anchors="0,0"  Focus="InitialFocus"/>
+
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Nodes" DefaultMargin="20" DefaultMarginOnBorders="Yes" Margin="20,20,20,20">
+                    <DBObjectGrid Name="ObjectGrid" Anchors="0,0" AllowMergeChildren="Yes" AllowAddContent="No" />
+                </UILayoutGrid>
+
+            </DialogContainer>
+
+        </MainDialogContent>
+
+        <MainDialogPrimaryMenu>
+            <MainDialogMainTabs ItemSize="100" Target="~" Property="LastOpenDmxProtocolsTab" OnLoad=":MainTabsLoaded" ShowAdditionalInfo="Yes" AdditionalInfoTextColor="Global.Text" >
+                <ItemStr Title="Art-Net" Value="" />
+                <ItemStr Title="sACN" Value="sACN" />
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportButton ChangeDestination="Yes" Name="ImportButtonArt"/>
+                <MainDlgExportButton Name="ExportButtonArt" />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0" Name="DeleteNodes" Text="Delete All Nodes" Clicked=":CommandLine" SignalValue="delete root 'DeviceConfigurations'.'DMXprotocols'.'Artnet'.'ArtnetNodeCollect'.'*'"/>
+                <IndicatorButton Anchors="0,1" Name="DeleteInactiveNodes" Text="Delete All Inactive Nodes" Clicked=":DeleteInactive" />
+                <UIObject Anchors="1,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+        <MainDialogPlaceHolder Name="MainDialog" />
+    </MainDialog>
+</GMA3>

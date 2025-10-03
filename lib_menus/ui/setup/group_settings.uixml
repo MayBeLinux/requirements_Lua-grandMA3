@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SettingsBox DefaultMargin="10" Margin ="10,10,10,10" OnLoad=":OnSettingsLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="4"/>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="3"/>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <EditorPropertyButtons Anchors="0,0" BigModeColumns="2" BigModeRows="6" BigMode="Yes" UseEditorTarget="Yes" >
+            <EditorCategoryButton Text="Label"/>
+            <EditorNameButton />
+            <EditorScribbleButton />
+            <EditorAppearanceButton />
+            <EditorTagButton />
+            <EditorNoteButton />
+            <EditorCategoryButton Text="Settings"/>
+            <EditorPropertyButton Property="Lock"/>
+            <SwipeButton Property="Mode"/>
+            <SwipeButton Property="MoveGridCursor"/>
+        </EditorPropertyButtons>
+
+        <UILayoutGrid Name="Commands"  Anchors="0,1" DefaultMargin="10" Rows="1" Columns="2" >
+            <Button Anchors="0,0" Texture="corner15" Text="Edit&#xD;Content"    Clicked=":OnEdit"/>
+            <Button Anchors="1,0" Texture="corner15" Text="List&#xD;References" Clicked=":OnListReference" />
+        </UILayoutGrid>
+
+        <UiFader Name="_Master" Text="Master" Anchors="1,0,1,1" ToolTip="Group Master" />
+    </SettingsBox>
+</GMA3>

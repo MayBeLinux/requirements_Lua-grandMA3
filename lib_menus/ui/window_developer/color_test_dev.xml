@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="189" Name="ColorTestDev" Guid="73 7A 08 B0 D3 C5 40 1C A0 55 59 90 79 30 02 3C" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="F0 AE 27 C9 8C 3A 4D 7C B2 0A 54 62 84 B5 E6 BB" FileName="color_test_dev.uixml" PlaceHolder="UiScreen" Toggle="No" />
+    </Menu>
+</GMA3>

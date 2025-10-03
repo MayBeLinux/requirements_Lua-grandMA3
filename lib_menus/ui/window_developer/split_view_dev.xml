@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="165" Name="SplitViewDev" Guid="E9 14 04 1E 8B 7C 4C 2C 94 AC C6 6B 1A 3B 05 28" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="F2 D7 54 09 AA 74 49 2F 81 79 38 D4 84 88 53 26" FileName="split_view_dev.uixml" PlaceHolder="UiScreen" Toggle="No" />
+    </Menu>
+</GMA3>

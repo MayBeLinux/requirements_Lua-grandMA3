@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog HelpTopic="other_date_and_time.html" OnLoad=":OnLoadTimeServer">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Date and Time" Icon="setup_time"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="2" Columns="3" Name="TimeServerInfo">
+            <UILayoutGrid Anchors="0,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner3" Anchors="0,0" Text="NTP" />
+                </TitleBar>
+                <SwipeButton ShowLabel="Yes" Text="Extern TimeSync Mode" ShowValue="Yes" Anchors="0,1" Target="StationSettings.TimeConfig" Property="TimeSyncMode" />
+                <PropertyInput ShowLabel="Yes" Text="Server IP" ShowValue="Yes" Anchors="0,2" Target="StationSettings.TimeConfig" Property="NtpTimeserverIP" ValueRole="Default"/>
+                <PropertyInput ShowLabel="Yes" Texture="Corner12" Text="Server Name" ShowValue="Yes" Anchors="0,3" Target="StationSettings.TimeConfig" Property="NtpTimeserverName" ValueRole="Default"/>
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="1,0,2,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner3" Anchors="0,0" Text="NTP Monitor" />
+                </TitleBar>
+                <UILayoutGrid Anchors="0,1"  Margin="10,5,10,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectColumns>
+                    <TextView Name="NTPMonitor" TextViewProvider="/Temp/NtpMonitor" Anchors="0,0,1,0" BackColor="SystemMonitor.Background" SelectionColor="SystemMonitor.SelectedRow" FixedBackColor="SystemMonitor.FixedBackground" />
+                    <ScrollBarV Anchors="1,0" ScrollTarget="../NTPMonitor" />
+                    <ScrollBarH Anchors="0,1" ScrollTarget="../NTPMonitor" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+    </MainDialog>
+</GMA3>

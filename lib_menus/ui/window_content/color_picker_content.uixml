@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ColorPickerContent Name="ColorPickerContent" Texture="White" BackColor="Global.Background">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <PlaceHolder Anchors="0,0" Name="DialogContent" />
+    </ColorPickerContent>
+</GMA3>

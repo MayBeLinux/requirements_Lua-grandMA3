@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="BaseInput" MinSize="0,0" MaxSize="0,0">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content" />
+        </ItemCollectColumns>
+
+        <AutoLayout Anchors="0,0" Name="Buttons" Texture="corner15" Direction="Horizontal" Content="Yes" ContentDriven="Yes" ChildrenFillPolicy="RowFirst">
+            <!-- Buttons copied from ExpandableButton  -->
+        </AutoLayout>
+
+    </BaseInput>
+</GMA3>

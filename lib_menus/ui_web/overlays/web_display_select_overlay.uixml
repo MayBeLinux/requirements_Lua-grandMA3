@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay UserRights="None"  Name="WebDisplaySelect" W="200" H="500" AlignmentH="Left" AlignmentV="Top" WantsModal="0" ContentDriven="No" DefaultMargin="0" FocusSearchPolicy="Default">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1"/>
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="Title" Rows="1" HelpTopic="ws_onpc_displays.html">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Displays" Icon="display" HelpTopic="ws_onpc_displays.html"/>
+            <CloseButton Texture="corner2" Anchors="1,0" HelpTopic="ws_onpc_displays.html"/>
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="1" Name="Content" Rows="5" HelpTopic="wvm_change_location.html">
+            <ValueControl  Texture="corner3"  Property="DisplayIndex" Value="1" Anchors="0,0" Margin="0,4,0,0" ToolTip="Select display 1"          OnLoad=":SetTargetOnLoad" Text="1" HelpTopic="ws_onpc_displays.html"/>
+            <ValueControl  Texture="corner0"  Property="DisplayIndex" Value="2" Anchors="0,1"                  ToolTip="Select display 2"          OnLoad=":SetTargetOnLoad" Text="2" HelpTopic="ws_onpc_displays.html"/>
+            <ValueControl  Texture="corner12" Property="DisplayIndex" Value="3" Anchors="0,2" Margin="0,0,0,4" ToolTip="Select display 3"          OnLoad=":SetTargetOnLoad" Text="3" HelpTopic="ws_onpc_displays.html"/>
+
+            <ValueControl  Texture="corner3"  Property="DisplayIndex" Value="4" Anchors="0,3" Margin="0,4,0,0" ToolTip="Select external display 4" OnLoad=":SetTargetOnLoad" Text="E4" HelpTopic="ws_onpc_displays.html"/>
+            <ValueControl  Texture="corner12" Property="DisplayIndex" Value="5" Anchors="0,4" Margin="0,0,0,4" ToolTip="Select external display 5" OnLoad=":SetTargetOnLoad" Text="E5" HelpTopic="ws_onpc_displays.html"/>
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

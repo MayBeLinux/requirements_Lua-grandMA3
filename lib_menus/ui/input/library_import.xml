@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="109" Name="LibraryImport" Guid="00 1A 7D DA 67 1B 00 00 F1 7F 27 00 2A B6 1E 07" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" Guid="00 1A 7D DA 03 63 00 00 F0 7F 27 00 2A B6 1E 07" FileName="library_import.uixml" PlaceHolder="ModalOverlay" Toggle="No" CanProvideUiGridSelection="No" />
+        <ComponentLua Index="2" Guid="70 8B CD 59 46 47 00 00 3F 52 36 54 9A 84 55 B0" FileName="library_import.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <MainDialog Name="OopsOverlay" OnLoad=":OnLoaded" HelpTopic="ws_oops_overlay.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1"  Anchors="0,0" Text="Oops" Icon="undo"/>
+            <SwipeButton                    Anchors="1,0" Name="ColumnsFilters" MinSize="50,0" W="130" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" SelectionChanged=":ColumnsFilterSelected" />
+            <ScreenSelectorButton           Anchors="2,0" MinSize="50,0" />
+            <CloseButton Texture="corner2"  Anchors="3,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PlaceHolder Name="OopsPlaceholder" Anchors="0,0" Margin="0,0,0,0"/>
+        </MainDialogContent>
+
+    </MainDialog>
+</GMA3>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditor Name="GenericEditor" OnLoad=":OnGenericEditLoaded" DefaultMargin="2" CanBeEmbedded="Yes" UpdateSettingsVisibility="Yes">
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Generic Editor" Icon="object_encbar"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" />
+                <IndicatorControl Name="Settings" Texture="corner0" Anchors="1,0" Text="Settings" Property="ShowSettingsInEditors" Target="~" MinSize="50,0" W="100"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Ok" />
+        </TitleBar>
+
+        <MainDialogContent>
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <PlaceHolderBase Anchors="0,0" Name="ObjectSettings" OnLoad=":LoadObjectSettings"/>
+            <TagButtonList Name="TagButtonList" Anchors="0,1" />
+            <DBObjectGrid Anchors="0,2" Name="GenericEditorGrid" BackColor="UIGrid.Background" Focus="InitialFocus" AddTargets="Yes" DataType="AssignmentEditorGridData"/>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportEditorButton />
+                <MainDlgExportEditorButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,2,1" Texture="corner0" HasHover="0"/>
+                <MainDlgNewLineToggleButton />
+                <MainDlgMergeToggleButton />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+
+        <MainDialogPlaceHolder Name="EditSubmenu" />
+
+    </GenericEditor>
+</GMA3>

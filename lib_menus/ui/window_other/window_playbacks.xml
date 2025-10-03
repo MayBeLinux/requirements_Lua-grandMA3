@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="227" Name="WindowPlaybacks" Guid="3D 88 BD 54 08 0A 40 E0 B2 70 4D B3 1F 99 12 D7" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="1B 35 B4 D0 F5 1C 48 C2 B8 5A E0 32 99 CF 93 7E" FileName="window_playbacks.uixml" PlaceHolder="UiScreen" WindowSettings="PlaybackWindowSettings" WindowContext="ContextPlaybacks" Toggle="No" />
+        <ComponentLua Index="2" Guid="01 93 91 14 D5 14 40 03 B2 04 12 CA D2 EF 05 76" FileName="window_playbacks.lua" />
+    </Menu>
+</GMA3>

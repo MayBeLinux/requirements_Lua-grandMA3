@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.1.95.0">
+	<DialogContainer Name="DC" >
+        <!INCLUDE ../../include/content_color_book.uixml >
+	</DialogContainer>
+</GMA3>

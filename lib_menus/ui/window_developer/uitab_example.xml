@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="181" Name="UITabExample" Guid="43 61 54 86 03 77 48 05 88 4F 63 80 8A F2 B1 C9" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="89 2E 78 C4 95 C5 4B 5D A3 D9 95 B5 76 7E 81 D8" FileName="uitab_example.uixml" PlaceHolder="UiScreen" Toggle="No" />
+        <ComponentLua Index="2" Guid="AD D5 82 2C 38 E1 47 05 9C 50 7B BF DD 80 5A 33" FileName="uitab_example.lua" />
+    </Menu>
+</GMA3>

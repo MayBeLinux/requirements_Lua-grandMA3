@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <UILayoutGrid Name="EulaDialog" OnLoad=":EulaDialogLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <TextEdit Name="EulaEdit" Anchors="0,0" HasHover="No" ScrolledToEndV=":ActivateAgreeBtn" />
+        <IndicatorControl Name="WithCodecs" Anchors="0,1" H="50" Visible="No" Text="3rd party codecs" />
+    </UILayoutGrid>
+</GMA3>

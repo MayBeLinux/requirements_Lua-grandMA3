@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditor EditEncoderBar="GeneratorRandomEditBar" OnLoad=":OnGenericEditLoaded" OnSetEditTarget=":OnSetEditTarget" OnUpdateTitle=":OnUpdateTitle" UpdateSettingsVisibility="Yes" InitialSaveEditTarget="true" HelpTopic="generator.html">
+        <TitleBar name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton  Texture="corner1" Anchors="0,0" Icon="object_generators" Text="Edit Generator"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="60,0" />
+                <RevertButton Texture="corner0" MinSize="100,0"/>
+                <IndicatorControl Texture="corner0" Name="Settings" Text="Settings" Property="ShowSettingsInEditors" Target="~" MinSize="100,0"/>
+            </AutoLayout>
+            <CloseButton  Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" DefaultMargin="4" DefaultMarginOnBorders="1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="350" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <PlaceHolderBase Anchors="0,0" Name="ObjectSettings" OnLoad=":LoadObjectSettings"/>
+            <TagButtonList Name="TagButtonList" Anchors="0,1" />
+            <UILayoutGrid Name="Top" Anchors="0,2" DefaultMargin="4" DefaultMarginOnBorders="1" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section" >
+                <DBObjectGrid Name="EditorGrid" BackColor="UIGrid.Background" Focus="InitialFocus" OnSelectedRow=":OnRowSelected" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Bottom" Anchors="0,3" DefaultMargin="4" DefaultMarginOnBorders="1" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section" >
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="150" />
+                </ItemCollectColumns>
+                <UILayoutGrid Name="SpeedGroup" Anchors="0,0" Columns="2" DefaultMargin="4" >
+                    <UiFader Anchors="0,0" Name="VSC" Text="Speed" HeadLineDimension="40" ButtonDimension="40" Texture="corner1" HeadLineTexture="corner1" Property="Speed" System="EncoderSystemRandom" />
+                    <UiFader Anchors="1,0" Name="VSD" Text="Speed Variance" HeadLineDimension="40" ButtonDimension="40" Texture="corner2" HeadLineTexture="corner2" Property="SpeedVariance" System="EncoderSystemRandom" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="PhaseGroup" Anchors="1,0" Columns="2" DefaultMargin="4" >
+                    <UiFader Anchors="0,0" Name="VPC" Text="Phase" HeadLineDimension="40" ButtonDimension="40" Texture="corner1" HeadLineTexture="corner1" Property="Phase" System="EncoderSystemRandom" />
+                    <UiFader Anchors="1,0" Name="VPD" Text="Phase Variance"  HeadLineDimension="40" ButtonDimension="40" Texture="corner2" HeadLineTexture="corner2" Property="PhaseVariance" System="EncoderSystemRandom" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="LowGroup" Anchors="2,0" Columns="2" DefaultMargin="4" >
+                    <UiFader Anchors="0,0" Name="VLC" Text="Low" HeadLineDimension="40" ButtonDimension="40" Texture="corner1" HeadLineTexture="corner1" Property="Low" System="EncoderSystemRandom" />
+                    <UiFader Anchors="1,0" Name="VLD" Text="Low Variance"  HeadLineDimension="40" ButtonDimension="40" Texture="corner2" HeadLineTexture="corner2" Property="LowVariance" System="EncoderSystemRandom" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="HighGroup" Anchors="3,0" Columns="2" DefaultMargin="4" >
+                    <UiFader Anchors="0,0" Name="VHC" Text="High" HeadLineDimension="40" ButtonDimension="40" Texture="corner1" HeadLineTexture="corner1" Property="High" System="EncoderSystemRandom" />
+                    <UiFader Anchors="1,0" Name="VHD" Text="High Variance"  HeadLineDimension="40" ButtonDimension="40" Texture="corner2" HeadLineTexture="corner2" Property="HighVariance" System="EncoderSystemRandom" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="AtkGroup" Anchors="4,0" Columns="2" DefaultMargin="4" >
+                    <UiFader Anchors="0,0" Name="VA" Text="Attack" HeadLineDimension="40" ButtonDimension="40" Texture="corner1" HeadLineTexture="corner1" Property="Attack" System="EncoderSystemRandom" />
+                    <UiFader Anchors="1,0" Name="VD" Text="Decay" HeadLineDimension="40" ButtonDimension="40" Texture="corner2" HeadLineTexture="corner2" Property="Decay" System="EncoderSystemRandom" />
+                </UILayoutGrid>
+                <UILayoutGrid Name="RatioGroup" Anchors="5,0" Columns="2" DefaultMargin="4" >
+                    <UiFader Anchors="0,0" Name="VTC" Text="Ratio" HeadLineDimension="40" ButtonDimension="40" Texture="corner1" HeadLineTexture="corner1" Property="Ratio" System="EncoderSystemRandom" />
+                    <UiFader Anchors="1,0" Name="VTD" Text="Ratio Variance"  HeadLineDimension="40" ButtonDimension="40" Texture="corner2" HeadLineTexture="corner2" Property="RatioVariance" System="EncoderSystemRandom" />
+                </UILayoutGrid>
+                <UILayoutGrid Anchors="6,0" Name="Settings" Transparent="Yes"  Columns="1" DefaultMargin="4" DefaultMarginOnBorders="1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content" MinSize="60" />
+                        <Item SizePolicy="Content" MinSize="60" />
+                        <Item SizePolicy="Content" MinSize="60" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <IndicatorControl Anchors="0,0" Texture="corner15" Text="Random Start" Property="RandomStart" />
+                    <IndicatorControl Anchors="0,1" Texture="corner15" Text="Speed&#xD;Once" Property="SpeedOnce" />
+                    <IndicatorControl Anchors="0,2" Texture="corner15" Text="Phase&#xD;Once" Property="PhaseOnce" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </MainDialogContent>
+
+
+        <MainDialogFunctionButtons Name="Buttons">
+            <CmdDlgFunctionButtonsLeft Name="Left">
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportEditorButton WorkWithGrid="No" />
+                <MainDlgExportEditorButton WorkWithGrid="No" />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight Name="Right">
+                <UIObject Anchors="0,0,3,0" HasHover="0" />
+                <UIObject Anchors="0,1,2,1" HasHover="0" />
+                <MainDlgButtonBase  Name="At" Text="At" Anchors="3,1" Clicked=":OnClickedAt" ColorIndicator="Button.BackgroundPlease" />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </GenericEditor>
+
+</GMA3>

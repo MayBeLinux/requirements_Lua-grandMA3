@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ShaperWindowTitlebar" Author="MA" Version="0.1.0.0" Path="/ui/window_content">
+        <ComponentXML FileName="shaper_window_titlebar.uixml" Placeholder="SpecialDialogTitlebar"/>
+        <ComponentLua FileName="shaper_window_titlebar.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <DialogContainer Name="DC" >
+        <UILayoutGrid Name="WindowColorPickerCIE" Texture="White" BackColor="Global.Background" OnLoad=":CIEOnLoad" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="7" />
+                <Item SizePolicy="Stretch" Size="2" />
+                <Item SizePolicy="Stretch" Size="2" />
+            </ItemCollectColumns>
+
+            <ColorPickXYZ Name="XYZ" W="1r" Anchors="0,0" System="sRGB" />
+
+            <UILayoutGrid Name="Coordinates" Anchors="1,0" Columns="2">
+                <ColorPickerFader Focus="CanHaveFocus" Name="_X"  Anchors="0,0" Texture="corner1" Property="x" System="sRGB" DrawInbetweenValues="Yes" HeadLineTexture="corner1"/>
+                <ColorPickerFader Focus="CanHaveFocus" Name="_Y"  Anchors="1,0" Texture="corner2" Property="y" System="sRGB" DrawInbetweenValues="Yes" HeadLineTexture="corner2" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="BQ" Anchors="2,0" Columns="2">
+                <ColorPickerFader Focus="InitialFocus" Name="_BO"  Anchors="0,0" Texture="corner3" UpperTexture="white" LowerTexture="white" DrawGradient="1" UseDynamicIndicatorColor="Yes" UpperColor="ColorPicker.White" DrawInbetweenValues="Yes" LowerColor="ColorPicker.Black" Property="BO" System="sRGB" />
+                <ColorPickerFader Focus="CanHaveFocus" Name="_Q" Property="Q" System="sRGB" Anchors="1,0" ToolTip="Quality fader control."   Texture="corner3" HeadLineTexture="corner3" />
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </DialogContainer>
+</GMA3>

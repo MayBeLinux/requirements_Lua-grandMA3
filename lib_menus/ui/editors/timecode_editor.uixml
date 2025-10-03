@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <TimecodeEditor EditEncoderBar="TimecodeBar" OnLoad=":OnGenericEditLoaded" HelpTopic="timecode_create.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <Button W="50" Clicked=":Context" BackColor="TitleButton.Background" Texture="corner1" Anchors="0,0" Icon="settings" />
+            <Navigator Texture="corner0" Anchors="1,0" OnLoad=":SetNavTarget"/>
+            <TitleButton Texture="corner0" Anchors="2,0" Text="Edit Timecode" />
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="3,0" Name="SourceTCButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <TCTimeButton MinSize="70,0" W="130" Property="Cursor" ValueRole="DisplayShort" />
+                <TCTimeButton Name="TCOffsetButton" MinSize="70,0" W="130" Property="OffsetTCSlot" Text="Offset TC Slot" ValueRole="DisplayShort" Visible="No"/>
+            </AutoLayout>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="4,0" Name="ZoomButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <Button  MinSize="40,0" W="70" Name="ZoomIn"    Icon="UrlZoomIn"  Clicked=":ZoomIn" />
+                <Button  MinSize="40,0" W="70" Name="ZoomOut"   Icon="UrlZoomOut" Clicked=":ZoomOut" />
+                <Button  MinSize="40,0" W="70" Name="ResetView" Icon="zoom"       Clicked=":ResetView" />
+                <IndicatorControl ShowLabel="No" Icon="time" W="70" MinSize="40,0" Property="FollowTimeCursor" OnLoad=":SetTarget" ToolTip="Follow time cursor" />
+            </AutoLayout>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="5,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <IndicatorControl MinSize="60,0" W="70" Name="Setup" Property="Setup" OnLoad=":SetSharedTarget" ForceEncoderBar="Yes" />
+                <ScreenSelectorButton MinSize="50,0" />
+                <DialogButton Text="Settings" W="90" MinSize="50,0" ToolTip="Show timecode settings" Clicked=":CommandLine" SignalValue="menu TimecodeSettingsOverlay" />
+                <SwipeButton Text="View Mode" W="100" MinSize="50,0" Property="ViewMode" ToolTip="Change timecode view mode" />
+                <SwipeButton Name="TextModeBtn" Text="Text Mode" W="100" MinSize="50,0" Property="TextMode" ToolTip="Change what you see in text mode" />
+                <SwipeButton  Name="ItemMode"    W="130" MinSize="50,0" Property="SelectionTargetType" OnLoad =":SetSharedTarget" Text="Selection Target" Undo="No" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="6,0" />
+        </TitleBar>
+
+        <MainDialogContent>
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch"  />
+                <Item SizePolicy="Content"  />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+
+            <TagButtonList Name="TagButtonList" Anchors="0,0,3,0" />
+            <ScrollBox Name="ToolBarsSB" Anchors="0,1" W="50" HelpTopic="event_time-ranges.html">
+                <UILayoutGrid Name="ToolBars" DefaultMargin="5" ContentDriven="Yes" ContentWidth="No">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectRows>
+                    <AutoLayout Anchors="0,0" Name="SelectionTargetTypeBar" Visible="No" Texture="corner15" Transparent="0" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" TryFitMainIfContentDriven="No" >
+                        <ValueControl H="50" W="50" ShowLabel="No" ShowValue="No" Icon="TimeRangesIcon" Property="SelectionTargetType" Value="TimeRanges" Undo="No" OnLoad=":SetSharedTarget" ToolTip="Select time ranges" />
+                        <ValueControl H="50" W="50" ShowLabel="No" ShowValue="No" Icon="EventsIcon"     Property="SelectionTargetType" Value="Events"     Undo="No" OnLoad=":SetSharedTarget" ToolTip="Select events"      />
+                    </AutoLayout>
+                    <AutoLayout Anchors="0,1" Name="EditToolBar" Texture="corner15" Transparent="0" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" TryFitMainIfContentDriven="No" >
+                        <AuxValueControl H="50" W="50" ShowLabel="No" ShowValue="No" Icon="select"          Property="Tool" Value="Select" Undo="No" OnLoad=":SetTarget" ToolTip="Select tool" AuxProperty="SelectionCount" />
+                        <ValueControl    H="50" W="50" ShowLabel="No" ShowValue="No" Icon="plus"            Property="Tool" Value="Add"    Undo="No" OnLoad=":SetTarget" ToolTip="Add tool"    />
+                        <ValueControl    H="50" W="50" ShowLabel="No" ShowValue="No" Icon="minus"           Property="Tool" Value="Delete" Undo="No" OnLoad=":SetTarget" ToolTip="Delete tool" />
+                        <ValueControl    H="50" W="50" ShowLabel="No" ShowValue="No" Icon="PhaserMovePoint" Property="Tool" Value="Move"   Undo="No" OnLoad=":SetTarget" ToolTip="Move tool"   />
+                        <ValueControl    H="50" W="50" ShowLabel="No" ShowValue="No" Icon="PhaserSizing"    Property="Tool" Value="Resize" Undo="No" OnLoad=":SetTarget" ToolTip="Resize tool" Name="ToolSize" />
+                    </AutoLayout>
+                    <AutoLayout Anchors="0,2" Name="SelectionManipBar" Texture="corner15" Transparent="0" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" TryFitMainIfContentDriven="No" >
+                        <Button Name="TCCut"   H="50" W="50" Icon="PhaserCut"    ToolTip="Cut selection"    Clicked=":TCCut"    />
+                        <Button Name="TCCopy"  H="50" W="50" Icon="PhaserCopy"   ToolTip="Copy selection"   Clicked=":TCCopy"   />
+                        <Button Name="TCPaste" H="50" W="50" Icon="PhaserPaste"  ToolTip="Paste selection"  Clicked=":TCPaste"  />
+                    </AutoLayout>
+                    <AutoLayout Anchors="0,3" Name="AddObjectsBar" Visible="Yes" Texture="corner15" Transparent="0" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" TryFitMainIfContentDriven="No" >
+                        <Button Name="AddEvent"       H="50" W="50" Icon="add_event"        Visible="Yes" ToolTip="Add event at time cursor"           Clicked=":TCAddEvent"       />
+                        <Button Name="AddMultiEvents" H="50" W="50" Icon="add_multi_events" Visible="Yes" ToolTip="Add multiple events at time cursor" Clicked=":TCAddMultiEvents" />
+                        <Button Name="AddTM"          H="50" W="50" Icon="add_time_marker"  Visible="Yes" ToolTip="Add marker at time cursor"          Clicked=":TCAddTimeMarker"  />
+                        <Button Name="AddTMQ"         H="50" W="50" Text="+M"               Visible="Yes" ToolTip="Quickly add marker at time cursor"  Clicked=":TCAddTimeMarker"  SignalValue="quick" />
+                        <Button Name="AddTR"          H="50" W="50" Text="+TR"              Visible="No"  ToolTip="Add time range at time cursor"      Clicked=":TCAddTimeRange"   />
+                    </AutoLayout>
+                </UILayoutGrid>
+            </ScrollBox>
+
+            <TimecodeGrid Name="Timecode" Anchors="1,1" ResetView=":ResetView" ZoomIn=":ZoomIn" ZoomOut=":ZoomOut" TimecodeNextMarker=":TCNextMarker" TimecodePrevMarker=":TCPrevMarker" TimecodeBackward=":TCBackward" TimecodeRecord=":TCRecord" TimecodeForward=":TCForward" TimecodeStop=":TCStop" TimecodePause=":TCPause" TimecodePlay=":TCPlay" SelectionCopy=":TCCopy" SelectionCut=":TCCut" SelectionPaste=":TCPaste" />
+
+            <TimecodeTextGrid Name="SelectionGrid" Anchors="3,1" W="400" MinSize="400,0" AllowMergeChildren="No" LevelLimit="0" CmdlineInteraction="Yes" EditAllowedAdd="No" >
+                <GridSettings>
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="No">
+                            <GridColumn Name="Scribble" Visible="No" />
+                            <GridColumn Name="No" Visible="No" />
+                            <!--<GridColumn Name="Appearance" Visible="No" />-->
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </GridSettings>
+            </TimecodeTextGrid>
+            <SplitterH Name="Resizer" Anchors="2,1" Auto="No" />
+
+            <AutoLayout Name="PlaybackToolbar" Anchors="1,2,3,2" Texture="corner15" Transparent="0" Direction="Horizontal" Content="Yes" ContentDriven="Yes" TryFitMainIfContentDriven="No" AlignmentH="Center" HelpTopic="timecode_record.html">
+                <IndicatorButton W="50" H="50" Name="TCBackward"   Icon="PlaybackJumpbackward" Clicked=":TCBackward"   />
+                <IndicatorButton W="50" H="50" Name="TCPrevMarker" Text="M&lt;&lt;"            Clicked=":TCPrevMarker" />
+                <IndicatorButton W="50" H="50" Name="TCStop"       Icon="PlaybackStop"         Clicked=":TCStop"       />
+                <IndicatorButton W="50" H="50" Name="TCPause"      Icon="PlaybackPaused"       Clicked=":TCPause"      />
+                <IndicatorButton W="50" H="50" Name="TCPlay"       Icon="PlaybackForward"      Clicked=":TCPlay"       />
+                <IndicatorButton W="50" H="50" Name="TCNextMarker" Text="&gt;&gt;M"            Clicked=":TCNextMarker" />
+                <IndicatorButton W="50" H="50" Name="TCForward"    Icon="PlaybackJumpforward"  Clicked=":TCForward"    />
+                <IndicatorButton W="50" H="50" Name="TCRec"        Icon="PlaybackRecord"       Clicked=":TCRecord"     IconColor="Timecode.RecordActive" />
+            </AutoLayout>
+        </MainDialogContent>
+
+    </TimecodeEditor>
+
+</GMA3>

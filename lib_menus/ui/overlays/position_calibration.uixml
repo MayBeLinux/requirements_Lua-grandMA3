@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PositionCalibration WantsModal="No" CloseOnEscape="Yes" AutoClose="No" HelpTopic="patch_position_fixtures.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Position Calibration"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="EditorGrid" Anchors="0,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <PosCalibrationView Anchors="0,0" AllowFilterContent="Yes" LevelLimit="0" >
+                    <GridSettings>
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Inclusive="Yes">
+                                <GridColumn Name="Name" Visible="Yes" />
+                                <GridColumn Name="FID" Visible="Yes" />
+                                <GridColumn Name="P1X" Visible="Yes" />
+                                <GridColumn Name="P1Y" Visible="Yes" />
+                                <GridColumn Name="P1Z" Visible="Yes" />
+                                <GridColumn Name="P1Pan" Visible="Yes" />
+                                <GridColumn Name="P1Tilt" Visible="Yes" />
+
+                                <GridColumn Name="P2X" Visible="Yes" />
+                                <GridColumn Name="P2Y" Visible="Yes" />
+                                <GridColumn Name="P2Z" Visible="Yes" />
+                                <GridColumn Name="P2Pan" Visible="Yes" />
+                                <GridColumn Name="P2Tilt" Visible="Yes" />
+
+                                <GridColumn Name="P3X" Visible="Yes" />
+                                <GridColumn Name="P3Y" Visible="Yes" />
+                                <GridColumn Name="P3Z" Visible="Yes" />
+                                <GridColumn Name="P3Pan" Visible="Yes" />
+                                <GridColumn Name="P3Tilt" Visible="Yes" />
+
+                                <GridColumn Name="P4X" Visible="Yes" />
+                                <GridColumn Name="P4Y" Visible="Yes" />
+                                <GridColumn Name="P4Z" Visible="Yes" />
+                                <GridColumn Name="P4Pan" Visible="Yes" />
+                                <GridColumn Name="P4Tilt" Visible="Yes" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                </PosCalibrationView>
+                <UILayoutGrid Name="EditorGrid" Anchors="0,1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="2" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="2" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="2" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="2" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <IndicatorButton Anchors="0,0" Text="Store&#xD;P1" Clicked=":CommandLine"  SignalValue="Action StoreCalibrationPoint1"   Texture="corner4" BackColor="FixtureCalibPoints.P1" />
+                    <IndicatorButton Anchors="1,0" Text="Call&#xD;P1" Clicked=":CommandLine"  SignalValue="Action CallCalibrationPoint1"    Texture="corner8" BackColor="FixtureCalibPoints.P1" />
+                    <IndicatorButton Anchors="2,0" Text="Store&#xD;P2" Clicked=":CommandLine"  SignalValue="Action StoreCalibrationPoint2"   Texture="corner4" BackColor="FixtureCalibPoints.P2" />
+                    <IndicatorButton Anchors="3,0" Text="Call&#xD;P2" Clicked=":CommandLine"  SignalValue="Action CallCalibrationPoint2"    Texture="corner8" BackColor="FixtureCalibPoints.P2" />
+                    <IndicatorButton Anchors="4,0" Text="Store&#xD;P3" Clicked=":CommandLine"  SignalValue="Action StoreCalibrationPoint3"   Texture="corner4" BackColor="FixtureCalibPoints.P3" />
+                    <IndicatorButton Anchors="5,0" Text="Call&#xD;P3" Clicked=":CommandLine"  SignalValue="Action CallCalibrationPoint3"    Texture="corner8" BackColor="FixtureCalibPoints.P3" />
+                    <IndicatorButton Anchors="6,0" Text="Store&#xD;P4" Clicked=":CommandLine"  SignalValue="Action StoreCalibrationPoint4"   Texture="corner4" BackColor="FixtureCalibPoints.P4" />
+                    <IndicatorButton Anchors="7,0" Text="Call&#xD;P4" Clicked=":CommandLine"  SignalValue="Action CallCalibrationPoint4"    Texture="corner8" BackColor="FixtureCalibPoints.P4" />
+                    <IndicatorButton Anchors="8,0" Text="Solve" Clicked=":CommandLine" SignalValue="Action SolveCalibration" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </MainDialogContent>
+    </PositionCalibration>
+</GMA3>

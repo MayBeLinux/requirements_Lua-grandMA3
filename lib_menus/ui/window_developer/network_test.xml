@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="NetworkTest" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML FileName="network_test.uixml" PlaceHolder="UiScreen" WindowSettings="SysteminfoWindowSettings" WindowContext="ContextSysteminfoWindow" Toggle="No" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <DialogContainer Name="DC" >
+        <UILayoutGrid Name="WindowColorPickerFader" Texture="White" BackColor="Global.Background" OnLoad=":OnLoad" DefaultMargin="10" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="3" />
+                <Item SizePolicy="Stretch" Size="3" />
+                <Item SizePolicy="Stretch" Size="3" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="RGB" Anchors="0,0" Columns="3" Rows="1">
+                <ColorPickerFader Focus="InitialFocus" Name="_R" Texture="corner1" HeadLineTexture="corner1" LowerTexture="white" DrawGradient="1" Property="R" System="FixtureType" Anchors="0,0" DrawInbetweenValues="Yes" UseDynamicIndicatorColor="Yes" ToolTip="Red fader control." />
+                <ColorPickerFader Focus="CanHaveFocus" Name="_G" Texture="corner0" HeadLineTexture="corner0" LowerTexture="white" DrawGradient="1" Property="G" System="FixtureType" Anchors="1,0" DrawInbetweenValues="Yes" UseDynamicIndicatorColor="Yes" ToolTip="Green fader control."/>
+                <ColorPickerFader Focus="CanHaveFocus" Name="_B" Texture="corner2" HeadLineTexture="corner2" LowerTexture="white" DrawGradient="1" Property="B" System="FixtureType" Anchors="2,0" DrawInbetweenValues="Yes" UseDynamicIndicatorColor="Yes" ToolTip="Blue fader control." />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="CMY" Anchors="1,0" Columns="3" Rows="1">
+                <ColorPickerFader Focus="CanHaveFocus" Name="_C" Texture="corner1" HeadLineTexture="corner1" LowerTexture="white" DrawGradient="1" Property="C" System="FixtureType" Anchors="0,0" DrawInbetweenValues="Yes" UseDynamicIndicatorColor="Yes" ToolTip="Cyan fader control." />
+                <ColorPickerFader Focus="CanHaveFocus" Name="_M" Texture="corner0" HeadLineTexture="corner0" LowerTexture="white" DrawGradient="1" Property="M" System="FixtureType" Anchors="1,0" DrawInbetweenValues="Yes" UseDynamicIndicatorColor="Yes" ToolTip="Magenta fader control." />
+                <ColorPickerFader Focus="CanHaveFocus" Name="_Y" Texture="corner2" HeadLineTexture="corner2" LowerTexture="white" DrawGradient="1" Property="Y" System="FixtureType" Anchors="2,0" DrawInbetweenValues="Yes" UseDynamicIndicatorColor="Yes" ToolTip="Yellow fader control." />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="HSB" Anchors="2,0" Columns="3" Rows="1">
+                <ColorPickerFader Focus="CanHaveFocus" Name="_H" UpperTexture="FaderGrad1"    LowerTexture="FaderGrad1"             UseDynamicIndicatorColor="Yes"    Property="H" System="FixtureType" Anchors="0,0" DrawInbetweenValues="Yes" ToolTip="Hue fader control."        Texture="corner1" HeadLineTexture="corner1" />
+                <ColorPickerFader Focus="CanHaveFocus" Name="_S" UpperTexture="white"         LowerTexture="white" DrawGradient="1" UseDynamicIndicatorColor="Yes"   Property="S" System="FixtureType" Anchors="1,0" DrawInbetweenValues="Yes" ToolTip="Saturation fader control." Texture="corner0" HeadLineTexture="corner0" />
+                <ColorPickerFader Focus="CanHaveFocus" Name="_BO" UpperTexture="white"         LowerTexture="white" DrawGradient="1" UseDynamicIndicatorColor="Yes"   Property="BO" System="FixtureType" Anchors="2,0" UpperColor="ColorPicker.White" DrawInbetweenValues="Yes" LowerColor="ColorPicker.Black" ToolTip="Brightness fader control." Texture="corner2" HeadLineTexture="corner2" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="BrightnessQuality" Anchors="3,0" Columns="1" Rows="1">
+                <ColorPickerFader Focus="CanHaveFocus" Name="_Q" Texture="corner3" HeadLineTexture="corner3" Property="Q" System="FixtureType" Anchors="0,0" ToolTip="Quality fader control."/>
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </DialogContainer>
+</GMA3>

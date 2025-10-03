@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.9.77.1">
+    <Menu Name="MvrExport" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML FileName="mvr_export.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="mvr_export.lua" />
+    </Menu>
+</GMA3>

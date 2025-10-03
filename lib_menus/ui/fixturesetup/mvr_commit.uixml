@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="MvrCommit" OnLoad=":OnLoaded" W="60%" H="50%" AlignmentH="Center" AlignmentV="Center" DriveReset="true" HelpTopic="key_patch_mvr.html" OverrideKeybSC="Yes" AdjustInitialPosition="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="Title">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Commit existing MVR" Icon="ImportExportIcon"/>
+            <SwipeButton Name="TypeSelector" ShowLabel="No" Texture="corner0" Anchors="1,0" SelectionChanged=":TypeChange" />
+            <DriveSelector Name="DriveSelector" Texture="corner0" Anchors="2,0" Target="Temp.DriveCollect" SelectionChanged=":DriveChange" />
+            <CloseButton Texture="corner2" Anchors="3,0" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="4" Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Name="FileContainer" H="50" Anchors="0,0" DefaultMargin="2">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Text="Name:" Anchors="0,0" ContentDriven="Yes" Texture="" />
+                <LineEdit Name="FileName" Anchors="1,0" Texture="corner15" CharInput=":OnFilterChanged" KeyUp=":OnFilterChanged" Message="Type to search..."/>
+            </UILayoutGrid>
+            <FilebrowserView Name="FilesView" Anchors="0,1" Focus="InitialFocus" OnSelectedRow=":OnFileSelected" BaseFilter="*.mvr" FuzzyFilterExcludeEnd=".mvr" SelectionOnFocusOnly="Yes" />
+            <UILayoutGrid Name="MessageContainer" H="50" Anchors="0,2" DefaultMargin="2">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Text="Message:" Anchors="0,0" ContentDriven="Yes" Texture="" />
+                <LineEdit Name="Message" Anchors="1,0" Texture="corner15" />
+            </UILayoutGrid>
+            <AutoLayout Name="ActionButtons" H="60" Anchors="0,3" DefaultMargin="4" Direction="Horizontal" Texture="corner15">
+                <IndicatorButton Text="Commit" Clicked=":Commit" />
+                <IndicatorButton Text="Delete" Clicked=":Delete" />
+            </AutoLayout>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" AlignmentH="Right" AlignmentV="Bottom" />
+    </ShadedOverlay>
+</GMA3>

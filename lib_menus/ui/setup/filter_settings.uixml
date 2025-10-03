@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <FilterGrid Anchors="0,0" Name="GenericEditorGrid" BackColor="UIGrid.Background" Focus="InitialFocus" AlternateBackColor="Yes" DataType="FilterGridData" CellType="FilterGridCell" >
+        <GridSettings>
+            <GridColumnFilterCollect>
+                <GridColumnNamesFilter Inclusive="No">
+                    <GridColumn Name="Name" Visible="No" />
+                    <!-- <GridColumn Name="Size" Visible="Yes" /> -->
+                </GridColumnNamesFilter>
+            </GridColumnFilterCollect>
+        </GridSettings>
+    </FilterGrid>
+</GMA3>

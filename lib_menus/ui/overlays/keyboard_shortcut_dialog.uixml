@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UILayoutGrid Name="KeyboardShortcutDialog" HelpTopic="do_shortcuts_keyboard.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Fixed" Size="120" />
+        </ItemCollectRows>
+        <DBObjectGrid Name="GenericEditorGrid" BackColor="UIGrid.Background" Anchors="0,0" DataType="EditKeybShortcutGridData" Focus="InitialFocus" AddTargets="No"  OnLoad=":OnVisibleKeyboardShortcutDialog"/>
+        <MainDialogFunctionButtons Anchors="0,1">
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton AutoEnabled="false" Enabled="true" Text="Insert&#xD;new Keyboard Shortcut" UseComposedText="No"/>
+                <MainDlgDelButton AutoEnabled="false" Enabled="true" />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportEditorButton />
+                <MainDlgExportEditorButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0" Name="ResetToDefaults" Text="Load&#xD;Defaults" Clicked=":OnResetToDefaults"/>
+                <UIObject Anchors="1,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="0,1,3,1" Texture="corner0" HasHover="0"/>
+
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </UILayoutGrid>
+</GMA3>

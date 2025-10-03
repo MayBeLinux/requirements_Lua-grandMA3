@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="executor_configurations.html">
+        <ConfigurationPoolLayoutGrid  Text="Executor&#xD;Configs" TitleButtonIcon="execconfig" ToolTip="Executor Configuration pool window">
+            <PoolTitleButton />
+        </ConfigurationPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

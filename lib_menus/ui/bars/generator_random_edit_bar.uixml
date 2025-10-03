@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GraphicsEncoderBar OnLoad=":BarLoaded" LinkedObjectChanged=":BarLoaded" DefaultMargin="3">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+
+        <UILayoutGrid Name="Upper" Anchors="0,0" Columns="1" Rows="1" DefaultMargin="3" Margin="0,3,3,3">
+            <UIObject Texture="corner15" HasHover="No" />
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Lower" Anchors="0,1" Columns="5" Rows="2" DefaultMargin="4,0,4,0" Margin="0,0,3,0">
+            <EncoderControl Name="Encoder1a" System="EncoderSystemRandom" Property="Speed" EncoderRing="Inner" EncoderType="Inside1"  Anchors="0,0" Texture="corner0" />
+            <EncoderControl Name="Encoder1b" System="EncoderSystemRandom" Property="SpeedVariance" EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" />
+
+            <EncoderControl Name="Encoder2a" System="EncoderSystemRandom" Property="Phase" EncoderRing="Inner" EncoderType="Inside2"  Anchors="1,0" Texture="corner0" />
+            <EncoderControl Name="Encoder2b" System="EncoderSystemRandom" Property="PhaseVariance" EncoderRing="Outer" EncoderType="Outside2" Anchors="1,1" Texture="corner0" />
+
+            <EncoderControl Name="Encoder3a" System="EncoderSystemRandom" Property="Low" EncoderRing="Inner" EncoderType="Inside3"  Anchors="2,0" Texture="corner0" />
+            <EncoderControl Name="Encoder3b" System="EncoderSystemRandom" Property="LowVariance" EncoderRing="Outer" EncoderType="Outside3" Anchors="2,1" Texture="corner0" />
+
+            <EncoderControl Name="Encoder4a" System="EncoderSystemRandom" Property="High" EncoderRing="Inner" EncoderType="Inside4"  Anchors="3,0" Texture="corner0" />
+            <EncoderControl Name="Encoder4b" System="EncoderSystemRandom" Property="HighVariance" EncoderRing="Outer" EncoderType="Outside4" Anchors="3,1" Texture="corner0" />
+
+            <ScreenEncoderControl CheckForScreenEncoders="0" Name="Encoder5a" System="EncoderSystemRandom" Property="Ratio"         EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner0"/>
+            <ScreenEncoderControl CheckForScreenEncoders="0" Name="Encoder5b" System="EncoderSystemRandom" Property="RatioVariance" EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner0"/>
+
+        </UILayoutGrid>
+    </GraphicsEncoderBar>
+</GMA3>

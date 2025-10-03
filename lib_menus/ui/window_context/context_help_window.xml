@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="43" Name="ContextHelpWindow" Guid="70 4D 7B 2D A5 38 00 00 02 58 86 BB 7A B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/window_context">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 5E 4A 00 00 01 58 86 BB 7A B1 01 1A" FileName="context_help_window.uixml" PlaceHolder="ModalOverlay" Toggle="No" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 58 ED 00 00 8F 52 36 54 0A 82 55 B0" FileName="context_window.lua" />
+    </Menu>
+</GMA3>

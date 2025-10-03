@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window Name="WindowHardwareTest" OnLoad=":HardwareTestLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+
+        <NormedTitleBar Anchors="0,0" Name="Title">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBtn" Texture="corner2" Anchors="1,0" Text="Hardwaretest"/>
+
+            <AutoLayout Anchors="2,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes" Margin="1,0,0,0" >
+                <!--Buttons der Titlebar -->
+            </AutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name ="Frame" Anchors="0,1">
+            <UILayoutGrid Name="Textfields" Rows="3">
+                <UIObject Name="InstructionText" Anchors="0,0" Text="This text should be not visible.&#xD;If you see it, something went wrong." BackColor="Global.Transparent">
+                    <Button Name="ResetBtn" Anchors="0,0" Clicked=":resetClick" AlignmentH="Right" AlignmentV="Top" H="50" W="50" Icon="PhaserReset" Texture="corner15"/>
+                </UIObject>
+                <UIObject Name="ResultText" Anchors="0,1" Text="Dieser Text sollte nicht sichtbar sein.&#xD;Wenn Sie ihn sehen, ist etwas falschgelaufen." BackColor="Global.Transparent" Font="console18"/>
+                <UILayoutGrid Name="Buttons" Columns="3" Anchors="0,2">
+                    <Button Name="BackBtn" Anchors="0,0" Text="Back" Clicked=":backClick" W="300" H="150" AlignmentH="Center" AlignmentV="Center" />
+                    <Button Name="RerunBtn" Anchors="1,0" Text="Rerun" Clicked=":rerunClick" W="300" H="150" AlignmentH="Center" AlignmentV="Center" />
+                    <Button Name="ConfirmBtn" Anchors="2,0" Text="Confirm" Clicked=":confirmClick" W="300" H="150" AlignmentH="Center" AlignmentV="Center" />
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </DialogFrame>
+
+    </Window>
+</GMA3>

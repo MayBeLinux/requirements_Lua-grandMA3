@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ImageInput W="400" H="500" WantsModal="1" OnLoad=":OnLoaded">
+
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Store Image Options" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame" Columns="1" DefaultMargin="10" DefaultMarginOnBorders="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="2" />
+                <Item SizePolicy="Stretch" Size="9" />
+                <Item SizePolicy="Stretch" Size="2" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Anchors="0,0" Rows="1" Columns="3" DefaultMargin="4">
+                <UIObject Text="Label:" Anchors="0,0" BackColor="global.BackGround" HasHover="No"/>
+                <LineEdit Name="InputField" Anchors="1,0,2,0" Texture="corner15" Execute=":OnPleaseClicked" Property="NewName" Target="%.TempStoreSettings" />
+            </UILayoutGrid>
+            <UILayoutGrid Name="Settings" Anchors="0,1" Rows="2" Columns="2" DefaultMargin="4">
+                <SwipeButton Texture="corner1" Anchors ="0,0" Property="ImageStoreSource"  Text="Source"     Target="%.TempStoreSettings" />
+                <SwipeButton      Visible="0" Texture="corner10" Name="DisplayIndex" Anchors ="1,0" Property="ImageDisplayIndex" ShowValue="1" Text="Display Index"    Target="%.TempStoreSettings" />
+                <IndicatorControl Visible="0" Texture="corner10" Name="NDIIndex"     Anchors ="1,0" Property="ImageNDISource"     ShowValue="1" Text="NDI Source"       Target="%.TempStoreSettings" />
+                <SwipeButton Texture="corner12" Anchors ="0,1" Property="ImageResolution"   Text="Resolution" Target="%.TempStoreSettings" />
+            </UILayoutGrid>
+            <UILayoutGrid Name="Buttons" Anchors="0,2" Rows="1" Columns="3" DefaultMargin="4">
+                <Button  Anchors="2,0"  Text="OK"     Clicked=":OnPleaseClicked" Texture="corner15"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </ImageInput>
+</GMA3>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="800" H="480" WantsModal="1" OnLoad=":OnLoaded">
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Edit Repeat"/>
+            <IndicatorButton Texture="corner0" Anchors="1,0" Text="Reset Pattern" Clicked=":ClearPattern" />
+            <CloseButton Texture="corner2" Anchors="2,0" Focus="InitialFocus"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+
+            <UITab Name="Selector" Anchors="0,0" TextAutoAdjust="Yes" Texture="corner3" AvoidScroll="Yes" TabChanged=":OnTabChanged" Type="Horizontal" UseTabRegistry="Yes">
+                <ItemStr Title="Schedule" Value="Schedule" />
+                <ItemStr Title="Iterations" Value="Iterations" />
+            </UITab>
+
+            <!-- TAB "Schedule" -->
+            <UILayoutGrid Name="Schedule" Anchors="0,1" Visible="Yes">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="100" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="100" />
+                </ItemCollectRows>
+
+                <UILayoutGrid Name="TimeSetting" Anchors="0,0" Texture="corner0" DefaultMargin="10" DefaultMarginOnBorders="1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="100" />
+                        <Item SizePolicy="Fixed" Size="110" />
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Fixed" Size="100" />
+                        <Item SizePolicy="Fixed" Size="110" />
+                        <Item SizePolicy="Fixed" Size="130" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <!-- Starttime -->
+                    <UIObject        Anchors="0,0" Name="StartDesc" Text="Startdate:" HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Anchors="1,0" Name="StartDate" Property="StartDate" ShowLabel="No" Texture="corner15"/>
+                    <UIObject        Anchors="3,0" Name="StartDesc" Text="Starttime:" HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Anchors="4,0" Name="StartTime" Property="StartTime" ShowLabel="No" Texture="corner15"/>
+                    <!-- Endtime -->
+                    <UIObject        Anchors="0,1" Name="EndDesc" Text="Enddate:" HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Anchors="1,1" Name="EndDate" Property="EndDate" ShowLabel="No" Texture="corner15"/>
+                    <IndicatorButton Anchors="3,1,4,1" Text="Reset Endtime" Clicked=":ResetEnddate" Texture="corner15"/>
+                </UILayoutGrid>
+
+                <!-- DAY PATTERN -->
+
+                <UILayoutGrid Name="DayRepeat" Anchors="0,1" Visible="Yes" DefaultMargin="10" DefaultMarginOnBorders="1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+
+                    <UILayoutGrid Name="DayButtons" Anchors="0,0" Rows="1" Columns="7" DefaultMargin="1" DefaultMarginOnBorders="1" >
+                        <CheckBox Text="Mon"    Texture="corner5" Anchors="0,0" Property="RepeatOnMonday" />
+                        <CheckBox Text="Tue"   Texture="corner0" Anchors="1,0" Property="RepeatOnTuesday" />
+                        <CheckBox Text="Wed" Texture="corner0" Anchors="2,0" Property="RepeatOnWednesday" />
+                        <CheckBox Text="Thu"  Texture="corner0" Anchors="3,0" Property="RepeatOnThursday" />
+                        <CheckBox Text="Fri"    Texture="corner0" Anchors="4,0" Property="RepeatOnFriday" />
+                        <CheckBox Text="Sat"  Texture="corner0" Anchors="5,0" Property="RepeatOnSaturday" />
+                        <CheckBox Text="Sun"    Texture="corner10" Anchors="6,0" Property="RepeatOnSunday" />
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+                <!-- WEEK PATTERN -->
+                <UILayoutGrid Name="WeekRepeat" Anchors="0,2" Visible="Yes" DefaultMargin="10" DefaultMarginOnBorders="1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+
+                    <UILayoutGrid Name="WeekButtons" Anchors="0,0" Rows="1" Columns="6" DefaultMargin="1" DefaultMarginOnBorders="1" >
+                        <CheckBox Text="1st Week" Texture="corner5" Anchors="0,0" Property="RepeatOnFirstWeek" />
+                        <CheckBox Text="2nd Week" Texture="corner0" Anchors="1,0" Property="RepeatOnSecondWeek" />
+                        <CheckBox Text="3rd Week" Texture="corner0" Anchors="2,0" Property="RepeatOnThirdWeek" />
+                        <CheckBox Text="4th Week" Texture="corner0" Anchors="3,0" Property="RepeatOnFourthWeek" />
+                        <CheckBox Text="5th Week" Texture="corner0" Anchors="4,0" Property="RepeatOnFifthWeek" />
+                        <CheckBox Text="6th Week" Texture="corner10" Anchors="5,0" Property="RepeatOnSixthWeek" />
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+                <!-- MONTH PATTERN -->
+                <UILayoutGrid Name="MonthRepeat" Anchors="0,3" Visible="Yes" DefaultMargin="10" DefaultMarginOnBorders="1" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="100" />
+                    </ItemCollectRows>
+
+                    <UILayoutGrid Name="MonthButtons" Anchors="0,0" Rows="2" Columns="6" DefaultMargin="1" DefaultMarginOnBorders="1" >
+                        <CheckBox Text="Jan"  Texture="corner1" Anchors="0,0"  Property="RepeatInJanuary" />
+                        <CheckBox Text="Feb"  Texture="corner0" Anchors="1,0"  Property="RepeatInFebruary" />
+                        <CheckBox Text="Mar"  Texture="corner0" Anchors="2,0"  Property="RepeatInMarch" />
+                        <CheckBox Text="Apr"  Texture="corner0" Anchors="3,0"  Property="RepeatInApril" />
+                        <CheckBox Text="May"  Texture="corner0" Anchors="4,0"  Property="RepeatInMay" />
+                        <CheckBox Text="Jun"  Texture="corner2" Anchors="5,0"  Property="RepeatInJune" />
+                        <CheckBox Text="Jul"  Texture="corner4" Anchors="0,1"  Property="RepeatInJuly" />
+                        <CheckBox Text="Aug"  Texture="corner0" Anchors="1,1"  Property="RepeatInAugust" />
+                        <CheckBox Text="Sep"  Texture="corner0" Anchors="2,1"  Property="RepeatInSeptember" />
+                        <CheckBox Text="Oct"  Texture="corner0" Anchors="3,1"  Property="RepeatInOctober" />
+                        <CheckBox Text="Nov"  Texture="corner0" Anchors="4,1" Property="RepeatInNovember" />
+                        <CheckBox Text="Dec"  Texture="corner8" Anchors="5,1" Property="RepeatInDecember" />
+                    </UILayoutGrid>
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <!-- TAB "Iterations" -->
+            <UILayoutGrid Name="Iterations" Anchors="0,1" Visible="No" DefaultMargin="10" DefaultMarginOnBorders="1">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+
+
+                <AutoLayout Name="MinuteRepeat" Anchors="0,0" Direction="Horizontal" Content="Yes" ContentDriven="Yes" Texture="corner0"  >
+                    <UIObject                                   W="110" H="50" Text="Repeat every "      HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Name="MinuteRepeatControl" W="60"  H="50" Property="MinuteInterval" Texture="corner15" ShowLabel="No"/>
+                    <UIObject                                   W="165" H="50" Text=" minute(s) between" HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Name="StartTime"           W="100" H="50" Property="StartTime" Texture="corner15" ShowLabel="No"/>
+                    <UIObject                                   W="40"  H="50" Text=" and " HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Name="EndTime"             W="100" H="50" Property="EndTime" Texture="corner15" ShowLabel="No"/>
+                    <UIObject                                   W="10"  H="50" Text="." HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                </AutoLayout>
+
+                <AutoLayout Name="DayRepeat" Anchors="0,1" Direction="Horizontal" Content="Yes" ContentDriven="Yes" Texture="corner0"  >
+                    <UIObject W="110" H="50" Name="RepeatDesc" Text="Repeat every " HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Name="DayRepeatControl" W="60" H="50" Texture="corner15" Property="DayRepeat" ShowLabel="No"/>
+                    <UIObject W="120" H="50" Name="RepeatDesc" Text=" day(s)." HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                </AutoLayout>
+
+                <AutoLayout Name="WeekRepeat" Anchors="0,2" Direction="Horizontal" Content="Yes" ContentDriven="Yes" Texture="corner0"  >
+                    <UIObject W="110" H="50" Name="RepeatDesc" Text="Repeat every " HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Name="WeekRepeatControl" W="60" H="50" Texture="corner15" Property="WeekRepeat" ShowLabel="No"/>
+                    <UIObject W="120" H="50" Name="RepeatDesc" Text=" week(s)." HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                </AutoLayout>
+
+                <AutoLayout Name="MonthRepeat" Anchors="0,3" Direction="Horizontal" Content="Yes" ContentDriven="Yes" Texture="corner0"  >
+                    <UIObject W="110" H="50" Name="RepeatDesc" Text="Repeat every " HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Name="MonthRepeatControl" W="60" H="50" Texture="corner15" Property="MonthRepeat" ShowLabel="No"/>
+                    <UIObject W="120" H="50" Name="RepeatDesc" Text=" month(s)." HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                </AutoLayout>
+
+                <AutoLayout Name="YearRepeat" Anchors="0,4" Direction="Horizontal" Content="Yes" ContentDriven="Yes" Texture="corner0"  >
+                    <UIObject W="160" H="50" Name="RepeatDesc" Text="Repeat every year: " HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                    <PropertyControl Name="YearRepeatControl" W="60" H="50" Texture="corner15" Property="RepeatEveryYear" ShowLabel="No"/>
+                </AutoLayout>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="RepeatCount" Anchors="0,2" Visible="Yes" DefaultMargin="10" DefaultMarginOnBorders="1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="140" />
+                    <Item SizePolicy="Fixed" Size="80" />
+                    <Item SizePolicy="Fixed" Size="140" />
+                    <Item SizePolicy="Fixed" Size="80" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <UIObject        Anchors="0,0" Name="RepeatCountDesc" Text="Total Repeat: " HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                <PropertyControl Anchors="1,0" Name="RepeatCountTotal" Property="RepeatCountTotal" ShowLabel="No" Texture="corner15"/>
+                <UIObject        Anchors="2,0" Name="RepeatCountDesc" Text="Repeated days: " HasHover="No" TextAlignmentH="Left" BackColor="UIGrid.Background"/>
+                <PropertyControl Anchors="3,0" Name="RepeatCountDays" Property="RepeatCountDays" ShowLabel="No" Texture="corner15"/>
+            </UILayoutGrid>
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

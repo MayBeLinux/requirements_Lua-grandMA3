@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <EditorPropertyButtons>
+        <EditorCategoryButton Text="Label"/>
+        <EditorNameButton/>
+        <EditorScribbleButton/>
+        <EditorAppearanceButton/>
+        <EditorTagButton />
+        <EditorNoteButton/>
+        <EditorCategoryButton Text="Other"/>
+        <EditorPropertyButton Property="Lock"/>
+    </EditorPropertyButtons>
+</GMA3>

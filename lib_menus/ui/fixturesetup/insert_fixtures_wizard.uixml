@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <InsertFixturesWizard Name="InsertFixturesWizard" W="100%" H="100%" RelativeToDisplay="Yes" AlignmentH="Center" MinSize="800,480" OnLoad=":InsertFixturesWizardLoaded" AutoClose="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="Title" SearchFocusTestParent="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="130" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0,1,0" Text="Insert New Fixtures" Icon=""/>
+            <SwipeButton Name="ColumnsFilters" Anchors="1,0" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" Property="SelectedFilter" DirectProperty="Yes" ValueRole="Default" />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+
+            <WarningInfoButton Name="WarningButton" Anchors="0,0,2,0" Font="Regular32"/>
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Frame" DefaultMargin="1" SearchFocusTestParent="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="350" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <!-- FIELDS -->
+            <UILayoutGrid Name="Fields" Anchors="0,0" Margin="5,5,5,5" DefaultMargin="2">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="150" />
+                    <Item SizePolicy="Fixed" Size="250" />
+                </ItemCollectColumns>
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Fixed" Size="50"/>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+
+                <UIObject Anchors="0,0"  Visible="Yes" Text="Fixture Type" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <Button   Anchors="1,0"  Visible="Yes" Name="FixtureTypeSelector" TextAlignmentH="Left" Focus="CanHaveFocus" Text="&lt;Select fixture type&gt;" KeyDown=":FocusToContext" TextAutoAdjust="Yes" Clicked=":SelectContext" FocusLost=":UpdateDMXMode" WantsNumericRedirect="Yes" />
+
+                <UIObject Anchors="0,1"  Visible="No"  Name="FixtureTypeModeDesc" Text="Mode" H="50" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <Button   Anchors="1,1"  Visible="No"  Name="FixtureTypeModeInfo" TextAlignmentH="Left" HasHover="No" Focus="Never" Text="" TextAutoAdjust="Yes" Clicked=":ChangeModeViaPopup"/>
+
+                <UIObject Anchors="0,2"  Visible="No"  Name="FixtureTypeChanDesc" Text="DMX&#xD;Footprint" H="50" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <Button   Anchors="1,2"  Visible="No"  Name="FixtureTypeChanInfo" TextAlignmentH="Left" HasHover="No" Focus="Never" Text="" TextAutoAdjust="Yes" Enabled="No"/>
+
+                <UIObject Anchors="0,3"  Visible="Yes" Name="FixtureNameLabel" Text="Name" HasHover="No" TextColor="Global.Selected" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,3"  Visible="Yes" Name="FixtureName" KeyUp=":SendTab" FocusGet=":LineEditSelectAll" FocusLost=":LineEditDeSelect" Enabled="No" ShowKeyboardButton="Yes" Property="FixtureName"/>
+
+                <UIObject Anchors="0,4"  Visible="Yes" Name="QuantityLabel" Text="Quantity" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,4"  Visible="Yes" Name="Quantity" KeyUp=":SendTab" FocusGet=":LineEditSelectAll" TextChanged=":QuantityChanged" FocusLost=":LineEditDeSelect" Enabled="No" MaxTextLength="6" Filter="0123456789" VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" Property="FixtureQuantity"/>
+
+                <UIObject Anchors="0,5"  Visible="Yes" Name="FixtureIDLabel" Text="FID" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,5"  Visible="Yes" Name="FixtureID" KeyUp=":SendTab" FocusGet=":OnFIDGetFocus" TextChanged=":FIDChanged" FocusLost=":LineEditDeSelect" Enabled="No" Filter="0123456789" MaxTextLength="7" VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" Property="FixtureFID"/>
+
+                <UIObject Anchors="0,6"  Visible="Yes" H="50" Name="IDTypeLabel" Text="IDType" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <Button   Anchors="1,6"  Visible="Yes" Name="IDType" TextAlignmentH="Left" KeyUp=":SendTab" Focus="WantsFocus" KeyDown=":FocusToContext" Enabled="No" Clicked=":SelectContext" FocusGet=":SelectContext" WantsNumericRedirect="Yes" />
+
+                <UIObject Anchors="0,7"  Visible="Yes" H="50" Name="ChannelIDLabel" Text="CID" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,7"  Visible="Yes" Name="ChannelID" KeyUp=":SendTab" FocusGet=":OnFIDGetFocus" TextChanged=":CIDChanged" FocusLost=":LineEditDeSelect" Enabled="No" Filter="0123456789" MaxTextLength="7" VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" Property="FixtureCID"/>
+
+                <UIObject Anchors="0,8"  Visible="Yes" H="50" Name="LayerLabel" Text="Layer" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <Button   Anchors="1,8"  Visible="Yes" Name="Layer" TextAlignmentH="Left" KeyUp=":SendTab" Focus="WantsFocus" KeyDown=":FocusToContext" Enabled="No" Clicked=":SelectContext" FocusGet=":SelectContext" WantsNumericRedirect="Yes" />
+
+                <UIObject Anchors="0,9"  Visible="Yes" H="50" Name="ClassLabel" Text="Class" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <Button   Anchors="1,9"  Visible="Yes" Name="Class" TextAlignmentH="Left" KeyUp=":SendTab" Focus="WantsFocus" KeyDown=":FocusToContext" Enabled="No" Clicked=":SelectContext" FocusGet=":SelectContext" WantsNumericRedirect="Yes" />
+
+                <UIObject Anchors="0,10" Visible="No" Name="Br1" H="50" Text="Patch 1" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,10" Visible="No" SignalValue="1" Name="Address1" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,11" Visible="No" Name="Br2" H="50" Text="Patch 2" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,11" Visible="No" SignalValue="2" Name="Address2" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,12" Visible="No" Name="Br3" H="50" Text="Patch 3" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,12" Visible="No" SignalValue="3" Name="Address3" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,13" Visible="No" Name="Br4" H="50" Text="Patch 4" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,13" Visible="No" SignalValue="4" Name="Address4" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,14" Visible="No" Name="Br5" H="50" Text="Patch 5" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,14" Visible="No" SignalValue="5" Name="Address5" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,15" Visible="No" Name="Br6" H="50" Text="Patch 6" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,15" Visible="No" SignalValue="6" Name="Address6" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,16" Visible="No" Name="Br7" H="50" Text="Patch 7" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,16" Visible="No" SignalValue="7" Name="Address7" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,17" Visible="No" Name="Br8" H="50" Text="Patch 8" HasHover="No" BackColor="UIGrid.HeaderAltBackground"/>
+                <LineEdit Anchors="1,17" Visible="No" SignalValue="8" Name="Address8" KeyUp=":SendTab" FocusGet=":LineEditSelectAllAddr" FocusLost=":LineEditDeSelect" TextChanged=":AddrUserChanged" Filter="0123456789." VKPluginName="TextInputNumOnly" ShowKeyboardButton="No" />
+
+                <UIObject Anchors="0,18" Visible="Yes" Name="Filler" HasHover="No" Texture="corner0" Focus="Never" BackColor="UIGrid.HeaderAltBackground"/>
+                <UIObject Anchors="1,18" Visible="Yes" Name="Filler" HasHover="No" Texture="corner0" Focus="Never"/>
+            </UILayoutGrid>
+            <!-- CALCULATOR -->
+            <VirtualKeyboard Name="VirtualKeyboard" Anchors="1,0" Columns="3" Visible="Yes" Margin="5,5,5,5" DefaultMargin="2">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                </ItemCollectRows>
+                <VirtualKeyboardButton Name="Delete" Text="Del" KeyCode="Delete" Anchors="0,0" Texture="corner1"/>
+                <VirtualKeyboardButton Name="Backspace" Text="Backspace" KeyCode="Backspace" Anchors="1,0,2,0"  Texture="corner2"/>
+
+                <VirtualKeyboardButton Text="7" KeyCode="7" Anchors="0,1" />
+                <VirtualKeyboardButton Text="8" KeyCode="8" Anchors="1,1" />
+                <VirtualKeyboardButton Text="9" KeyCode="9" Anchors="2,1" />
+
+                <VirtualKeyboardButton Text="4" KeyCode="4" Anchors="0,2" />
+                <VirtualKeyboardButton Text="5" KeyCode="5" Anchors="1,2" />
+                <VirtualKeyboardButton Text="6" KeyCode="6" Anchors="2,2" />
+
+                <VirtualKeyboardButton Text="1" KeyCode="1" Anchors="0,3" />
+                <VirtualKeyboardButton Text="2" KeyCode="2" Anchors="1,3" />
+                <VirtualKeyboardButton Text="3" KeyCode="3" Anchors="2,3" />
+
+                <VirtualKeyboardButton  Anchors="0,4"               Text="0" KeyCode="0"  />
+                <VirtualKeyboardButton  Anchors="1,4" Name="Period" Text="." KeyCode="Period" />
+                <IndicatorButton        Anchors="2,4" Name="Clear"  Text="Clear"  Clicked=":ClearCurrentField" BackColor="Button.BackgroundClear"/>
+
+                <VirtualKeyboardButton Name="Please" Text="Please" KeyCode="Enter" Anchors="0,5,2,5" Texture="corner12" BackColor="Button.BackgroundPlease" />
+            </VirtualKeyboard>
+            <!-- CONTEXT -->
+            <DialogContainer Name="Context" Anchors="2,0" ChangeActive=":ContextChanged" >
+                <UIObject Name="ContextDone" Text="" Transparent="1" />
+                <!--This part is a helping context for FixtureName field-->
+                <UILayoutGrid Name="ContextFixtureName" MaxSize="800,600" Margin="5,10,5,5" DefaultMargin="3">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50"/>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <UIObject   Anchors="0,0" Text="Suggestions" BackColor="UIGrid.HeaderAltBackground" HasHover="No" TextAlignmentH="Left" Padding="10,0,0,0"/>
+                    <AutoLayout Anchors="0,1" Name="NamesAutoLayout" Direction="Vertical" Texture="corner0" AlignmentH="Center" ChildrenFillPolicy="RowFirst" GroupedCellsCount="2" SideSize="60" MinCellSize="100" DefaultMargin="3"/>
+                </UILayoutGrid>
+                <!--This part is a helping context for Quantity field-->
+                <UILayoutGrid Name="ContextQuantity"/>
+                <!--This part is a helping context for FixtureID field-->
+                <UILayoutGrid Name="ContextFixtureID">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectColumns>
+
+                    <!-- FIDGridMode is disabled for now as the loading time is too high! -->
+                    <!-- <PlaceHolderBase Anchors="0,0" Name="FIDGridMode" AllowedInvisible="Yes" /> -->
+
+                    <UILayoutGrid Anchors="0,0,0,1" Name="FidSuggestions" Rows="11" Columns="3" Margin="5,10,5,5" MaxSize="660,600" AlignmentH="Left" AlignmentV="Top" DefaultMargin="3">
+                        <UIObject Anchors="0,0,2,0" Text="Suggestions" BackColor="UIGrid.HeaderAltBackground" HasHover="No" TextAlignmentH="Left" Padding="10,0,0,0"/>
+                        <Button Anchors="0,1" SignalValue="101"    Text="101"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,1" SignalValue="1001"   Text="1001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,1" SignalValue="10001"  Text="10001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,2" SignalValue="201"    Text="201"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,2" SignalValue="2001"   Text="2001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,2" SignalValue="20001"  Text="20001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,3" SignalValue="301"    Text="301"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,3" SignalValue="3001"   Text="3001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,3" SignalValue="30001"  Text="30001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,4" SignalValue="401"    Text="401"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,4" SignalValue="4001"   Text="4001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,4" SignalValue="40001"  Text="40001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,5" SignalValue="501"    Text="501"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,5" SignalValue="5001"   Text="5001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,5" SignalValue="50001"  Text="50001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,6" SignalValue="601"    Text="601"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,6" SignalValue="6001"   Text="6001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,6" SignalValue="60001"  Text="60001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,7" SignalValue="701"    Text="701"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,7" SignalValue="7001"   Text="7001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,7" SignalValue="70001"  Text="70001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,8" SignalValue="801"    Text="801"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,8" SignalValue="8001"   Text="8001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,8" SignalValue="80001"  Text="80001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,9" SignalValue="901"    Text="901"   Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="1,9" SignalValue="9001"   Text="9001"  Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="2,9" SignalValue="90001"  Text="90001" Clicked=":DoSelectSuggestedFID"/>
+                        <Button Anchors="0,10,2,10" Text="None" Clicked=":DoSelectSuggestedFID"/>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+                <!--This part is a helping context for IDType field-->
+                <PlaceHolderBase Name="ContextIDType" AllowedInvisible="Yes" />
+                <!--This part is a helping context for Layer field-->
+                <PlaceHolderBase Name="ContextLayer" AllowedInvisible="Yes" />
+                <!--This part is a helping context for Class field-->
+                <PlaceHolderBase Name="ContextClass" AllowedInvisible="Yes" />
+                <!--This part is a helping context for Address field-->
+                <UILayoutGrid Name="ContextAddress">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch"/>
+                        <Item SizePolicy="Content"/>
+                    </ItemCollectColumns>
+
+                    <PlaceHolderBase Anchors="0,0" Name="AddrDMXSheetMode"   AllowedInvisible="Yes" MinSize="500,0"/>
+
+                    <UILayoutGrid Anchors="1,0" Name="PatchButtons" Margin="5,10,5,5">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="60"/>
+                            <Item SizePolicy="Fixed" Size="60"/>
+                            <Item SizePolicy="Fixed" Size="60"/>
+                            <Item SizePolicy="Fixed" Size="10"/>
+                            <Item SizePolicy="Fixed" Size="50"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Fixed" Size="200"/>
+                        </ItemCollectColumns>
+
+                        <IndicatorButton Anchors="0,0" Texture="corner3"  Text="Unpatch" Clicked=":DoPatchToNone"/>
+                        <IndicatorButton Anchors="0,1" Texture="corner0"  Text="Patch To Next&#xD;Free Address"  Clicked=":DoPatchNextAddr"/>
+                        <IndicatorButton Anchors="0,2" Texture="corner12" Text="Patch To Next&#xD;Free Universe" Clicked=":DoPatchNextUniv"/>
+
+                        <PropertyInput Anchors="0,4" Texture="corner15" Name="Offset" Property="PatchOffset"/>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+            </DialogContainer>
+            <!-- BUTTONS -->
+            <UILayoutGrid Anchors="0,1,2,1" Name="ButtonBlock">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="130"/>
+                    <Item SizePolicy="Fixed" Size="30"/>
+                </ItemCollectColumns>
+                <IndicatorButton Anchors="1,0" Name="Done" Focus="WantsFocus" Text="Create !" FocusGet=":SelectContext" Margin="0,5,0,5" Texture="corner15" Clicked=":Done" Enabled="No" WantsNumericRedirect="Yes" ColorIndicator="Button.BackgroundPlease"/>
+            </UILayoutGrid>
+
+            <!-- FixtureTypeImport -->
+            <UIObject        Visible="No" Anchors="0,0,2,1" Name="ContextFixtureTypeSelectorBackground" HasHover="No" BackColor="Overlay.Background"/>
+            <PlaceHolderBase Visible="No" Anchors="0,0,2,1" Margin="10,10,10,10" Name="ContextFixtureTypeSelector" AllowedInvisible="Yes" />
+        </DialogFrame>
+        <ResizeCorner />
+    </InsertFixturesWizard>
+</GMA3>

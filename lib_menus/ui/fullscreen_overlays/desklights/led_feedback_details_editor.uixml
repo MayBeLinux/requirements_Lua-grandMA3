@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="600" H="600" AlignmentH="Center" AlignmentV="Center" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="LED Feedback Details"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="20" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Anchors="0,1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                </ItemCollectColumns>
+
+                <UiFader Anchors="1,0" Name="LedEncoder" Text="Encoders" Property="LedEncoder" Target="StationSettings.DeskLightsCollect.LedFeedback" System="Intensity"  />
+                <UiFader Anchors="3,0" Name="LedFader" Text="Faders" Property="LedFader" Target="StationSettings.DeskLightsCollect.LedFeedback" System="Intensity"  />
+                <UiFader Anchors="5,0" Name="LedExec" Text="Execs" Property="LedExec" Target="StationSettings.DeskLightsCollect.LedFeedback" System="Intensity"  />
+                <UiFader Anchors="7,0" Name="LedOther" Text="Other" Property="LedOther" Target="StationSettings.DeskLightsCollect.LedFeedback" System="Intensity"  />
+                <PropertyControl Anchors="1,2,7,2" Target="StationSettings.DeskLightsCollect" Property="LedFeedbackDuration"  ShowLabel="true" />
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </GenericEditorOverlay>
+
+</GMA3>

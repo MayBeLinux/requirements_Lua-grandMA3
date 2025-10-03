@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <DeskLock Texture="corner15" BackColor="DeskLock.Background" TextColor="Desklock.Text" Text="*** Desk Locked ***" Font="Medium20" HasHover="0" KeyDown=":OnKeyDown" Transparent="0" Focus="InitialFocus" WantsModal="1" CloseOnEscape="0" Columns="3" Rows="4" OverrideKeybSC="Yes">
+        <!-- the first row is reserved for title, so we do not use it.  -->
+        <UIObject Anchors="0,1" Texture="" HasHover="0" Clicked=":DeskLockClick" SignalValue="1" />
+        <UIObject Anchors="2,1" Texture="" HasHover="0" Clicked=":DeskLockClick" SignalValue="2" />
+        <UIObject Anchors="0,3" Texture="" HasHover="0" Clicked=":DeskLockClick" SignalValue="3" />
+        <UIObject Anchors="2,3" Texture="" HasHover="0" Clicked=":DeskLockClick" SignalValue="4" />
+    </DeskLock>
+</GMA3>

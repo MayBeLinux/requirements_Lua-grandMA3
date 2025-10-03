@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="LibraryImport" W="50%" H="75%" MinSize="550,480" WantsModal="1" OnLoad=":OnMenuLoaded" DriveReset="Yes" >
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select Library" />
+            <DriveSelector Name="DriveSelector" W="150" Texture="corner0" Anchors="1,0" Target="Temp.DriveCollect" SelectionChanged=":DriveChange" ShowOldVersions="No"/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Anchors="0,0" Name="FilterBlock" Margin="6,6,6,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Content" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Text="Filter:" W="60" Anchors="0,0" BackColor="global.BackGround" HasHover="No" />
+                <LineEdit Name="FilterEdit" Focus="WantsFocus" Anchors="1,0" Texture="corner5" Target="../../LibraryGrid/Internals/GridBase/GridSettings/GridObjectContentFilter/Filter" Property="Filter" Clear=":ClearFilters" Execute=":JumpToGrid" />
+                <IndicatorButton Name="Clear" Text="Clear" Clicked=":ClearFilters" Anchors="2,0" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" />
+            </UILayoutGrid>
+            <DBObjectGrid Name="LibraryGrid" BackColor="UIGrid.Background" FilterBlockUIEnabled="No" AllowFilterContent="Yes" OnSelectedItem=":LibraryHandleSelect" Anchors="0,1" AllowEdit="No" OnLoad=":OnGridLoaded" CanProvideUiGridSelection="No" Margin="6,0,6,0" >
+                <GridSettings ContentFilterType="GridObjectContentFilter">
+                    <GridObjectContentFilter>
+                        <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                    </GridObjectContentFilter>
+                </GridSettings>
+                <GridColumnFilterCollect>
+                    <GridColumnNamesFilter Inclusive="No">
+                        <GridColumn Name="Name" Visible="No"/>
+                        <GridColumn Name="Lock" Visible="No"/>
+                    </GridColumnNamesFilter>
+                </GridColumnFilterCollect>
+            </DBObjectGrid>
+            <UILayoutGrid Name="ActionButtons" Rows="1" H="60" Anchors="0,2" DefaultMargin="4" AlignmentH="Right">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="160" />
+                </ItemCollectColumns>
+                <UIObject Name="HelpText" Text="" Anchors="0,0" Visible="No" Enabled="No"/>
+                <IndicatorButton Name="ImportBtn" Text="Import" Clicked=":ImportSelection" Anchors="1,0" W="160" Texture="corner9"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

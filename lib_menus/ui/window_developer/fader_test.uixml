@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window>
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="Fader Test" />
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip="configures fader test window"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="50"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <FaderTestView Anchors="0,0,2,0" />
+            <PropertyInput Anchors="0,1" Target="UsbNotifier" Property="MotorPredictP" />
+            <PropertyInput Anchors="1,1" Target="UsbNotifier" Property="MotorPredictI" />
+            <PropertyInput Anchors="2,1" Target="UsbNotifier" Property="MotorPredictD" />
+            <UILayoutGrid Anchors="2,0" Rows="5" AlignmentH="Right" AlignmentV="Top" H="150" W="200">
+                <UIObject Anchors="0,0" Text="Hardware Value" TextColor="Global.AlertText" BackColor="Global.Transparent50" Interactive="No"/>
+                <UIObject Anchors="0,1" Text="Software Value" TextColor="Global.SuccessText" BackColor="Global.Transparent50" Interactive="No"/>
+                <UIObject Anchors="0,2" Text="Prediction Value" TextColor="Global.WarningText" BackColor="Global.Transparent50" Interactive="No"/>
+                <UIObject Anchors="0,3" Text="Prediction Window Min" TextColor="Global.SelectedPreset" BackColor="Global.Transparent50" Interactive="No"/>
+                <UIObject Anchors="0,4" Text="Prediction Window Max" TextColor="Global.Collected" BackColor="Global.Transparent50" Interactive="No"/>
+            </UILayoutGrid>
+
+
+        </DialogFrame>
+
+
+    </Window>
+</GMA3>

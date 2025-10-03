@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="" Name="DSCPCombinedInput" Guid="" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" Guid="" FileName="dscpcombined_input.uixml" PlaceHolder="ModalOverlay" />
+    </Menu>
+</GMA3>

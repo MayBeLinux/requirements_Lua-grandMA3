@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="NetworkDialog" HelpTopic="network_session.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Network" Icon="network"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Texture="corner0" Content="Yes">
+                <DialogButton Texture="corner0" W="100" Text="My&#xD;Interfaces" Clicked=":CommandLine" SignalValue="menu 'RemoteIpEditor'" />
+                <SwipeButton W="150" MinSize="50,0" Target="ManetSocket" Property="SessionFilter" />
+                <PropertyControl W="150" MinSize="50,0" Target="ManetSocket" Property="Status" />
+                <!-- <PropertyControl W="50" MinSize="50,0" Target="ManetSocket" Property="SessionManager" Icon="manager32" ActiveIconColor="Network.Connected" IconColor="Network.Undefined" ShowLabel="false" ShowValue="false" /> -->
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogPrimaryMenu>
+            <MainDialogMainTabs ItemSize="75">
+                <ItemStr Title="Stations" Value="" />
+                <ItemStr Title="Keys" Value="KeyRegistry" HelpTopic="network_session_key.html"/>
+                <ItemStr Title="Web&#xD;Remote" Value="WebRemote" HelpTopic="network_webremote.html"/>
+                <ItemStr Title="Station&#xD;Control" Value="StationControl" HelpTopic="network_station_control.html"/>
+                <!--   <ItemStr Title="Mode 2&#xD;Stations" Value="Mode2" HelpTopic="mode2.html"/>   -->
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+
+        <!--
+        <MainDialogSubMenu>
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,0" Text="Stations" State="1" />
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,1" Text="Keys" Name="Keys" Clicked=":CommandLine" SignalValue="menu 'KeyRegistry'" />
+            <DialogButton Texture="corner0" H="100" Anchors="0,2" Text="My&#xD;Interfaces" Clicked=":CommandLine" SignalValue="menu 'RemoteIpEditor'" />
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,3" Text="Web&#xD;Remote" Clicked=":CommandLine" SignalValue="menu 'WebRemote'" />
+            <UIObject Texture="corner0" Anchors="0,9"  HasHover="0" />
+        </MainDialogSubMenu>
+        -->
+
+        <MainDialogContent>
+            <UiStationGrid Name="ManetStationGrid" Anchors="0,0" LevelLimit="1"  AddTargets="Yes" Focus="InitialFocus" AllowFilterContent="Yes" OnLoad=":StationGridLoaded" >
+                <GridSettings ContentFilterType="SessionGridFilter" RememberSorting="Yes">
+                    <SessionGridFilter FilterInternalWing="0" FilterSwitch="0" FilterPlugin="0" >
+                    </SessionGridFilter>
+                </GridSettings>
+            </UiStationGrid>
+        </MainDialogContent>
+
+
+        <MainDialogFunctionButtons H="240">
+            <CmdDlgFunctionButtonsLeft Rows="4">
+                <MainDlgInviteStationButton Anchors="0,0,0,0" Text="Invite Station" Clicked=":CommandLine" SignalValue="Invite UiGrid" ToolTip="Invites stations from the above list" HotKey="Insert" />
+                <MainDlgDismissStationButton Anchors="0,1,0,1" Texture="corner0" Text="Dismiss Station" Clicked=":CommandLine" SignalValue="Dismiss UiGrid" ToolTip="Dismisses stations from your session" HotKey="Delete" />
+                <MainDlgJoinSessionButton Anchors="0,2,0,2" Texture="corner0" Text="Join Session" Clicked=":CommandLine" SignalValue="JoinSession UiGrid" ToolTip="Joins the session of another station" HotKey="Alt+J" />
+                <MainDlgLeaveSessionButton Anchors="0,3,0,3" Texture="corner4" Text="Leave Session" Clicked=":CommandLine" SignalValue="LeaveSession" ToolTip="Leaves the current session" HotKey="Alt+L" />
+
+                <PropertyInput Anchors="1,0,3,0" Target="ManetSocket" Property="HostName" Texture="corner0" ToolTip="Changes the name of this station. Only possible when network is switched off." />
+                <PropertyInput Anchors="1,1,3,1" Target="ManetSocket" Property="Session" Texture="corner0" ToolTip="Changes the name of the session this station belongs to. Only possible when network is switched off." />
+                <PropertyInput Anchors="1,2,3,2" Target="ManetSocket" Property="Location" Texture="corner0" ToolTip="Changes the name of the location this station belongs to. Only possible when network is switched off." />
+                <PropertyInput Anchors="1,3,3,3" Target="ManetSocket" Property="MulticastBase" Texture="corner0" ToolTip="Changes the base address for multicast." />
+
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight Rows="4">
+
+                <PropertyInput Anchors="0,0,1,0" Target="ManetSocket" Property="Interface" Text="MA-Net Interface" Name="InterfaceButton" Icon="network" IconAlignmentH="Right" Padding="0,0,6,0" Texture="corner0" ToolTip="Selects the network interface used for MAnet protocol" OnLoad=":InterfaceButtonLoaded"/>
+                <PropertyInput Anchors="0,1,1,1" Target="Cloud"       Property="WorldServer" Text="World Server" Texture="corner0" ToolTip="Changes the dns name of the world server" />
+                <PropertyInput Anchors="0,2,1,2" Target="KeyRegistry" Property="Key" Texture="corner0" ToolTip="Selects the security key used for MAnet protocol" />
+
+                <PropertyInput Anchors="0,3,1,3" Target="ManetSocket" Property="MasterPriority" Text="Master Prio" Texture="corner0" ToolTip="Changes the master priority of this station. Only possible when network is switched off." />
+
+                <!--
+                  <PropertyInput Anchors="1,3" Target="ManetSocket" Property="PUPriority"     Text="PU Prio" Texture="corner0" ToolTip="Changes the processing unit priority of this station. Only possible when network is switched off." />
+                -->
+
+                <PropertyInput Anchors="2,0" Texture="corner0" Target="ManetSocket" Text="Invite" Property="EnableInvite" ToolTip="Enable this station to be invited by others" />
+                <PropertyInput Anchors="2,1" Texture="corner0" Target="ManetSocket" Text="Web Remote" Property="EnableRemotes" ToolTip="Enable web browser based remote control"  />
+                <PropertyInput Anchors="2,2" Texture="corner0" Target="ManetSocket" Text="Remote HID" Property="EnableRemoteHID" ToolTip="Enable this station to be remotely controlled by others" HelpTopic="comad_remotehid.html" />
+                <PropertyInput Anchors="2,3" Text="RDM" Property="Enable" Target="ShowData.RDMData" ToolTip="Enable this station to be remotely controlled by others"/>
+
+
+                <PropertyControl Anchors="3,0,3,2" Texture="corner8" Target="ManetSocket" Property="EnableNetwork" Icon="power" ActiveIconColor="Network.EnableNetwork" IconColor="Network.DisableNetwork" ToolTip="Toggles network functionality." OnLoad=":StatusButtonLoaded" ShowLabel="false" ShowValue="false">
+                    <UILayoutGrid Anchors="0,0" Columns="3" Rows="3">
+                        <PropertyControl Anchors="0,2,2,2" Target="ManetSocket" Property="ExtraStatusInfo" ShowLabel="false" Interactive="No" Texture=""/>
+                    </UILayoutGrid>
+                </PropertyControl>
+                <UIObject Anchors="3,3" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+        <MainDialogPlaceHolder Name="MainDialog" />
+    </MainDialog>
+</GMA3>

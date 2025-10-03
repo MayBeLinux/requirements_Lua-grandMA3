@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditor Name="GenericEditor" DefaultMargin="2" OnLoad=":OnLoaded" OnSetEditTarget=":OnSetEditTarget" ChangeDestination="1" CanBeEmbedded="Yes" UpdateSettingsVisibility="Yes" InitialSaveEditTarget="true" HelpTopic="tags.html">
+
+        <TitleBar Anchors="0,0,2,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Object Tag" Icon="object_tags"/>
+            <IndicatorControl Texture="corner0" Anchors="1,0" Name="Settings" Text="Settings" Property="ShowSettingsInEditors" Target="~"/>
+            <RevertButton Texture="corner0" Anchors="2,0" />
+            <ScreenSelectorButton Anchors="3,0" />
+            <CloseButton Texture="corner2" Anchors="4,0" CloseAction="Ok"/>
+        </TitleBar>
+
+        <MainDialogContent Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <PlaceHolderBase Anchors="0,0" Name="ObjectSettings" OnLoad=":LoadObjectSettings"/>
+            <TagButtonList Name="TagButtonList" Anchors="0,1" />
+            <DBObjectGrid Name="ObjectTagGrid" Anchors="0,2" BackColor="UIGrid.Background" Focus="InitialFocus" DefaultMargin="10" DefaultMarginOnBorders="10" CreateAndEdit="Yes"/>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton Clicked=":OnClickedInsert" AutoEnabled="false" Enabled="true" Text="Add" DummyComposedText="Add New Tag Reference"/>
+                <MainDlgDelButton Clicked=":OnClickedDelete"/>
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportEditorButton />
+                <MainDlgExportEditorButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="0,1,2,1" Texture="corner0" HasHover="0"/>
+                <Button   Anchors="3,1,3,1" Texture="corner8" Text="List&#xD;References"    Clicked=":OnListReference" />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </GenericEditor>
+</GMA3>

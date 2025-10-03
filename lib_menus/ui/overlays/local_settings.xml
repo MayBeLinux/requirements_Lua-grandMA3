@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="LocalSettings" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Index="1" FileName="local_settings.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" FileName="local_settings.lua" />
+        <ComponentLua Index="3" FileName="onpc_settings.lua" />
+    </Menu>
+</GMA3>

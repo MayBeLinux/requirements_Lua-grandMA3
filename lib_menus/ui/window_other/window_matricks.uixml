@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window OnLoad="::WindowLoaded"  ReactToPreview="Yes" HelpTopic="matricks.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBtn" Texture="corner2" Anchors="1,0,2,0" >
+                <PropertyControl Name="InitialName" Property="InitialName" ValueRole="DisplayShort" OnLoad="::SetMatricksTarget" Interactive="No" Focus="Never" ShowLabel="No" Texture="" ValueTextColor="Global.Text"  ValueAlignmentH="Left" ValueTextShadow="Yes"/>
+            </TitleButton>
+
+            <Button Anchors="2,0" Texture="corner2"  HasHover="No" BackColor="ContextButton.Background" />
+            <TitleAutoLayout Anchors="2,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes" Margin="1,0,0,0" >
+                <Button               Name="Reset"      MinSize="60,0" W="100" Text="Reset" Clicked=":CommandLine" SignalValue="Reset Selection Matricks" ToolTip="Reset MAtricks settings"/>
+                <IndicatorControl     Name="Active"     MinSize="60,0" W="100" ActiveBackColor="PoolWindow.Matricks"    Margin="10,0,0,0"  Property="Active" OnLoad="::SetMatricksTarget" ToolTip="Toggle MATricks activation" />
+                <MatricksToggleButton Name="Shuffle"    MinSize="60,0" W="100" ActiveTextColor="Global.Selected"        ShowLabel="Yes" ShowValue="No" Icon="" Text="Shuffle"   Property="EnableShuffle"   ToolTip="Show Shuffle content" />
+                <MatricksToggleButton Name="Layers"     MinSize="60,0" W="100" ActiveTextColor="Global.Selected"        ShowLabel="Yes" ShowValue="No" Icon="" Text="Layers"    Property="EnableLayers"    ToolTip="Show Layers content" />
+                <MatricksToggleButton Name="Grid"       MinSize="60,0" W="100" ActiveTextColor="Global.Selected"        ShowLabel="Yes" ShowValue="No" Icon="" Text="Grid"      Property="EnableGrid"      ToolTip="Show Grid content" />
+            
+                <MatricksToggleButton Name="EnableX"    MinSize="60,0" W="60" Property="EnableX" DataAsIs="Yes" ColorIndicatorHeight="4" Text="X" />
+                <MatricksToggleButton Name="EnableY"    MinSize="60,0" W="60" Property="EnableY" DataAsIs="Yes" ColorIndicatorHeight="4" Text="Y" />
+                <MatricksToggleButton Name="EnableZ"    MinSize="60,0" W="60" Property="EnableZ" DataAsIs="Yes" ColorIndicatorHeight="4" Text="Z" />
+
+            </TitleAutoLayout>
+            <ContextButton Name="ContextButton" Texture="corner1" Icon="object_matricks" Anchors="0,0" ToolTip="Configures MAtricks view" ReactToRecipeEdit="Yes"/>
+        </NormedTitleBar>
+        <DialogFrame Name ="Frame" Anchors="0,1" MixInBackColorFromParent="Yes" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="0"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <!INCLUDE ../../include/matricks_content.uixml >
+        </DialogFrame>
+
+    </Window>
+</GMA3>

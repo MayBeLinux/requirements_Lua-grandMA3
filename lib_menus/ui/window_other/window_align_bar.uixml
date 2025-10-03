@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window HelpTopic="operate_align.html" OnLoad=":AlignControlLoad" ReactToPreview="Yes">
+        <AppearanceTitleBar Name="Title" Transparent="false" Texture="corner15" BackColor="TitleButton.Background" HasHover="false" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="Context" Anchors="0,0" Texture="corner15" Transparent="No" W="100" BackColor="TitleButton.Background" >
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+                <ItemCollectRows>
+                    <Item SizePolicy="Content"/>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+                <!-- MA + Title -->
+                <TitleButton   Name="TitleBtn"   Anchors="0,1" Text="Align Bar" TextAlignmentH="Left" TextAlignmentV="Top" Icon=""/>
+                <ContextButton Name="ContextBtn" Anchors="0,0" Icon="object_align" />
+            </UILayoutGrid>
+
+            <ScrollBox Name="AlignScroll" Anchors="1,0" ResetChildrenSize="Yes">
+                <UILayoutGrid Name="ContentGrid">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Content"/>
+                        <Item SizePolicy="Fixed" Size="10"/>
+                        <Item SizePolicy="Content"/>
+                        <Item SizePolicy="Fixed" Size="10"/>
+                        <Item SizePolicy="Content" />
+                    </ItemCollectColumns>
+
+                    <AutoLayout Anchors="0,0" Name="Aligns" Direction="Horizontal" GroupedCellsCount="SizeDriven" Texture="corner15">
+                        <ValueControl Text="Off"       Target="#" Property="AlignMode"         Value="Off"       Undo="No" ToolTip="Set align mode to 'off'" />
+                        <ValueControl Text="/"         Target="#" Property="AlignMode"         Value="/"         Undo="No" ToolTip="Set align mode to '/'" />
+                        <ValueControl Text="&lt;"      Target="#" Property="AlignMode"         Value="&lt;"      Undo="No" ToolTip="Set align mode to '&lt;'" />
+                        <ValueControl Text="&gt;"      Target="#" Property="AlignMode"         Value="&gt;"      Undo="No" ToolTip="Set align mode to '&gt;'" />
+                        <ValueControl Text="&gt;&lt;"  Target="#" Property="AlignMode"         Value="&gt;&lt;"  Undo="No" ToolTip="Set align mode to '&gt;&lt;'" />
+                        <ValueControl Text="&lt;&gt;"  Target="#" Property="AlignMode"         Value="&lt;&gt;"  Undo="No" ToolTip="Set align mode to '&lt;&gt;'" />
+                    </AutoLayout>
+
+                    <AutoLayout Anchors="2,0" Name="AlignDirections" Direction="Horizontal" GroupedCellsCount="SizeDriven" Texture="corner15" >
+                        <PropertyControl Target="#" Property="AlignRotXY" ToolTip="Set align direction in XY plane" Texture="corner5" Text="XY Rotation" DefaultAction="No" Clicked=":CommandLine" SignalValue="Menu 'AlignmentRotationOverlay'"/>
+                        <RotationButton  Target="#" Property="AlignRotXY" ToolTip="Set align direction in XY plane" Texture="corner10" ShowLabel="No" ShowValue="No" SmallMode="Yes" />
+                    </AutoLayout>
+
+                    <AutoLayout Anchors="4,0" Name="AlignTransitions" Direction="Horizontal" MinCellSize="50" SideSize="100" GroupedCellsCount="2" Texture="corner15">
+                        <ValueControl Text="Lin"       Target="#" Property="AlignTransition"   Value="Linear"    Undo="No" ToolTip="Set align transition to 'linear'" />
+                        <ValueControl Text="Sin"       Target="#" Property="AlignTransition"   Value="Sinus"     Undo="No" ToolTip="Set align transition to 'sinus'" />
+                        <ValueControl Text="Slow"      Target="#" Property="AlignTransition"   Value="Slow"      Undo="No" ToolTip="Set align transition to 'slow'" />
+                        <ValueControl Text="Fast"      Target="#" Property="AlignTransition"   Value="Fast"      Undo="No" ToolTip="Set align transition to 'fast'" />
+                    </AutoLayout>
+
+
+
+                </UILayoutGrid>
+            </ScrollBox>
+        </AppearanceTitleBar>
+    </Window>
+</GMA3>

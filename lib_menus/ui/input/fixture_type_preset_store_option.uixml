@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="700" H="240" WantsModal="1" OnLoad=":OnLoaded">
+
+        <TitleBar Anchors="0,0">
+            <TitleButton Texture="corner3" Anchors="0,0" Text="Store FixtureType Presets" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Columns="1" DefaultMargin="10" DefaultMarginOnBorders="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <UILayoutGrid Name="Settings" Anchors="0,0" Rows="2" Columns="1" >
+                <UIObject  Anchors="0,0" Text="Use the At Filter to define the presets." TextAlignmentH="Center" TextAutoAdjust="Yes" TextAlignmentV="Center" HasHover="No" BackColor="global.Background" />
+                <UIObject  Anchors="0,1" Text="Only presets with names will be stored." TextAlignmentH="Center" TextAutoAdjust="Yes" TextAlignmentV="Center" HasHover="No" BackColor="global.Background" />
+            </UILayoutGrid>
+            <UILayoutGrid Name="Buttons" Anchors="0,1" Rows="1" Columns="3" H="50" >
+                <Button  Anchors="0,0"  Text="Overwrite"  Clicked=":OnOverwriteClicked" />
+                <Button  Anchors="1,0"  Text="Merge"      Clicked=":OnMergeClicked"     />
+                <Button  Anchors="2,0"  Text="Cancel"     Clicked=":OnCancelClicked"    Focus="InitialFocus" />
+            </UILayoutGrid>
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

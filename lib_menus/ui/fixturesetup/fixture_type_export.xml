@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.9.77.1">
+    <Menu Lock="Yes" Name="FixtureTypeExport" Guid="70 4D 7B 2D 37 E6 00 00 2E 7E 27 00 88 5A 1A 07" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML Guid="70 4D 7B 2D A4 D8 00 00 2D 7E 27 00 88 5A 1A 07" FileName="fixture_type_export.uixml" PlaceHolder="ModalOverlay" CanProvideUiGridSelection="No" />
+        <ComponentLua Guid="70 4D 7B 2D 9B F6 00 00 2C 7E 27 00 88 5A 1A 07" FileName="fixture_type_export.lua" />
+    </Menu>
+</GMA3>

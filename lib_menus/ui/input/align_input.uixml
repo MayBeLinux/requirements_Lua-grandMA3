@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="AlignInput" W="600" H="200" OnLoad=":OnLoaded">
+        <TitleBar Name="Title" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Align" />
+            <ToggleButton Name="TransitionBtn" Anchors="1,0" Text="Transition" Clicked=":OnChangedOption"/>
+            <ToggleButton Name="MathBtn" Anchors="2,0" Text="Math" Clicked=":OnChangedOption" />
+            <CloseButton Texture="corner2" Anchors="3,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <ScrollableItemList Anchors="0,0" Name="ModeList" ItemType="PopupItemButton" Type="Horizontal" OnSelectedItem=":OnSetTarget" AvoidScroll="Yes"/>
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

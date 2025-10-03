@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="PhaserEditorOverlay" Author="MA" Version="0.1.0.0" Path="/ui/overlays" DisplayFrom="Intern1" DisplayTo="Intern1">
+        <ComponentXML FileName="phaser_editor_overlay.uixml" PlaceHolder="ScreenOverlay" DefaultDisplay="1" />
+        <ComponentLua FileName="../window_other/window_phaser_editor.lua" />
+    </Menu>
+</GMA3>

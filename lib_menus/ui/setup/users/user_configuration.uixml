@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="UserConfiguration" OnLoad=":OnGenericEditLoaded" HelpTopic="user_settings.html">
+        <ItemCollectRows />
+        <ItemCollectColumns />
+        <TitleBar Anchors="0,0,2,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="User Configuration" Icon="setup_user"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+        <MainDialogPrimaryMenu>
+            <MainDialogMainTabs ItemSize="100">
+                <ItemStr Title="Users" Value="" />
+                <ItemStr Title="Profiles" Value="UserProfilesConfiguration" />
+                <ItemStr Title="Pools" Value="DataPoolsConfiguration" HelpTopic="datapool.html" />
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+        <MainDialogContent Rows="1" Columns="1">
+            <DBObjectGrid Name="UsersGrid" TargetObject="ShowData.Users" BackColor="UIGrid.Background" Anchors="0,0" Focus="InitialFocus" OnLoad=":OnLoad"/>
+        </MainDialogContent>
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton    />
+                <UIObject Anchors="1,0,3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,2,1" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="3,1,3,1" Texture="corner8" HasHover="0"/>
+                <MainDlgLoginButton/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+        <MainDialogPlaceHolder Name="MainDialog" />
+    </MainDialog>
+</GMA3>

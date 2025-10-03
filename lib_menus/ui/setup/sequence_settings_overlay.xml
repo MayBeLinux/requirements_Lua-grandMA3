@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="158" Name="SequenceSettingsOverlay" Guid="70 4D 7B 2D 8D 33 00 00 7D 58 86 BB 7F B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/setup">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D F2 31 00 00 7C 58 86 BB 7F B1 01 1A" FileName="sequence_settings_overlay.uixml" PlaceHolder="ModalOverlay" Toggle="No" DisplayTypePreference="BigOrSmall"/>
+        <ComponentLua Index="2" Guid="70 4D 7B 2D C6 46 00 00 73 58 86 BB 7F B1 01 1A" FileName="sequence_settings_overlay.lua" />
+    </Menu>
+</GMA3>

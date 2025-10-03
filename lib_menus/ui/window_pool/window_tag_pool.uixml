@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="tags.html" >
+        <TagPoolLayoutGrid Text="Tags" TitleButtonIcon="object_tags"  ToolTip="Tag pool window">
+            <PoolTitleButton />
+        </TagPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

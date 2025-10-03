@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="800" H="560" WantsModal="1" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Image">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Image"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="2" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="Left" Anchors="0,0" Rows="8" Columns="2" DefaultMargin="10" DefaultMarginOnBorders="1" >
+
+                <PropertyInput Texture="corner15" Anchors="0,0,1,0" Property="Name" ValueRole="Default" />
+                <PropertyInput Texture="corner15" Anchors="0,1,1,1" Property="FileName" Enabled="Yes"/>
+
+                <PropertyInput Texture="corner15" Anchors="0,2,1,2" Property="Note" />
+
+                <PropertyInput Texture="corner15" Anchors="0,3,1,3" Property="FilePath" Enabled="Yes" />
+
+                <PropertyInput Texture="corner15" Anchors="0,4" Property="Width" />
+                <PropertyInput Texture="corner15" Anchors="1,4" Property="Height" />
+
+                <PropertyInput Texture="corner15" Anchors="0,5,1,5" Property="FileSize" />
+
+                <IndicatorControl Texture="corner15" Anchors ="0,6" Text="Import" IndicatorIcon="DialogButtonIcon" Clicked=":ImportImage" />
+                <IndicatorControl Texture="corner15" Anchors="1,6" Text="Add&#xD;Alpha" Property="AddAlpha" />
+                <IndicatorControl Texture="corner15" Anchors="1,7" Property="Installed" />
+
+            </UILayoutGrid>
+
+            <AppearancePreview Name="Preview" Texture="checkboard" Anchors="2,0"/>
+
+        </DialogFrame>
+        <ResizeCorner/>
+    </GenericEditorOverlay>
+
+</GMA3>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="DisplaySelect" W="200" H="700" AlignmentH="Left" AlignmentV="Top" WantsModal="0" ContentDriven="No" DefaultMargin="0" FocusSearchPolicy="Default">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1"/>
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="Title" Rows="1" HelpTopic="ws_onpc_displays.html">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Displays" Icon="display" HelpTopic="ws_onpc_displays.html"/>
+            <CloseButton Texture="corner2" Anchors="1,0" HelpTopic="ws_onpc_displays.html"/>
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="1" Name="Content" Rows="7" HelpTopic="wvm_change_location.html">
+            <IndicatorControl  Texture="corner3" Enabled="No"  Target="StationSettings.DefaultDisplayPositionsCollect.Conventional.1" Property="Open" Anchors="0,0" Margin="0,4,0,0" ToolTip="Toggle display 1"          Text="1" HelpTopic="ws_onpc_displays.html"/>
+            <DisplaySelectButton  Texture="corner0"  Target="StationSettings.DefaultDisplayPositionsCollect.Conventional.2" Property="Open" SignalValue="ONPC_SCREEN2" Anchors="0,1"                  ToolTip="Toggle display 2"          Text="2" HelpTopic="ws_onpc_displays.html"/>
+            <DisplaySelectButton  Texture="corner12" Target="StationSettings.DefaultDisplayPositionsCollect.Conventional.3" Property="Open" SignalValue="ONPC_SCREEN3" Anchors="0,2" Margin="0,0,0,4" ToolTip="Toggle display 3"          Text="3" HelpTopic="ws_onpc_displays.html"/>
+
+            <DisplaySelectButton  Texture="corner3"  Target="StationSettings.DefaultDisplayPositionsCollect.Conventional.4" Property="Open" SignalValue="ONPC_SCREEN4" Anchors="0,3" Margin="0,4,0,0" ToolTip="Toggle external display 4" Text="E4" HelpTopic="ws_onpc_displays.html"/>
+            <DisplaySelectButton  Texture="corner12" Target="StationSettings.DefaultDisplayPositionsCollect.Conventional.5" Property="Open" SignalValue="ONPC_SCREEN5" Anchors="0,4" Margin="0,0,0,4" ToolTip="Toggle external display 5" Text="E5" HelpTopic="ws_onpc_displays.html"/>
+
+            <DisplaySelectButton  Texture="corner3"  Target="StationSettings.DefaultDisplayPositionsCollect.Conventional.6" Property="Open" SignalValue="ONPC_SCREEN6" Anchors="0,5" Margin="0,4,0,0" ToolTip="Toggle special display 6"  Text="S6" HelpTopic="ws_onpc_displays.html"/>
+            <DisplaySelectButton  Texture="corner12" Target="StationSettings.DefaultDisplayPositionsCollect.Conventional.7" Property="Open" SignalValue="ONPC_SCREEN7" Anchors="0,6" Margin="0,0,0,4" ToolTip="Toggle special display 7"  Text="S7" HelpTopic="ws_onpc_displays.html"/>
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

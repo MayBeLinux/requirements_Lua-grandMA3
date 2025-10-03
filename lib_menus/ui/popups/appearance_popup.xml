@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="AppearancePopup" Guid="00 00 00 00 49 70 00 00 2E 52 36 54 86 B4 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Guid="00 00 00 00 14 2F 00 00 C0 52 36 54 19 8E 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="generic_popup.lua" />
+        <ComponentLua Guid="00 00 00 00 2C 69 00 00 31 52 36 54 86 B4 55 B0" FileName="appearance_popup.lua" />
+    </Menu>
+</GMA3>

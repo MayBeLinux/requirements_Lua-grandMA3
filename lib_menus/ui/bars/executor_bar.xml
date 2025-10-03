@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ExecutorBar" Guid="00 1A 7D DA B8 21 00 00 1D 7F 27 00 43 4A 1E 07" Author="MA" Version="0.1.0.0" Path="/ui/bars" DisplayFrom="Intern1" DisplayTo="Small6" Core="Yes">
+        <ComponentXML Guid="00 1A 7D DA BD 4A 00 00 1C 7F 27 00 43 4A 1E 07" FileName="executor_bar.uixml" PlaceHolder="EncoderBarBase" Toggle="No" SearchFocusAllowed="No" />
+        <ComponentLua FileName="executor_bar.lua" />
+    </Menu>
+</GMA3>

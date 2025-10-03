@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <NumericInput Texture="corner15" OnLoad=":NumericInputLoaded" W="1100" H="480" MinSize="0,400" HelpTopic="ws_calculator.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="TitleBar" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Numeric input" Icon=""/>
+            <AutoLayout Margin="0,0,0,0" DefaultMargin="0" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <IndicatorControl Name="ApplyEnumFilter" Property="AllChannelSets" W="150" Visible="No" Clicked=":EnumFilterChanged"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Content" Anchors="0,1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <!--Tabs-->
+            <ScrollContainerPageScrollItemList Name="ScrollPage" Visible="No" Anchors="0,0" H="50">
+                <UITab Name="Tabs" ContentDriven="Yes" />
+            </ScrollContainerPageScrollItemList>
+
+            <!--Editor line-->
+            <UILayoutGrid Name="Editor" Anchors="0,1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Fixed" Size="4"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Fixed" Size="4"/>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <ToggleButton Name="ModeHex" W="100" Text="Mode" Anchors="0,0" ShowLabel="No" SelectionChanged=":CalculatorModeChanged" />
+                <SwipeButton Name="ModeHex2" W="100" Text="Mode" Anchors="0,0" ShowLabel="No" SelectionChanged=":CalculatorModeChanged" />
+                <SwipeButton Name="ModeTime" W="100" Text="Mode" Anchors="0,0" ShowLabel="No" SelectionChanged=":TimeModeChanged" />
+                <NumInputEdit ContentDriven="Yes" Padding="0,3,0,3" Name="EditField" Anchors="2,0" Clear=":NumericClear" SetText=":NumericSet" InsertText=":NumericInsert" Execute=":CloseConfirm" Focus="InitialFocus" ShowKeyboardButton="No" KeyRepeatEnabled="No" />
+            </UILayoutGrid>
+
+            <!--Buttons area-->
+            <UILayoutGrid Name="ButtonsArea" Anchors="0,2" DefaultMargin="3">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+                <ScrollContainer Name="AdditionalOptions" Anchors="0,0" ContentDriven="Yes" ContentHeight="No" Visible="Yes" >
+                    <ScrollBox Name="AddOptionsBox" ContentDriven="Yes" ContentHeight="No">
+                        <AutoLayout Name="AdditionalOptionsLayout" Direction="Vertical" SideSize="60" Texture="corner15" />
+                    </ScrollBox>
+                </ScrollContainer>
+                <!--Pre-defined buttons (numbers, dot, Back, Delete, etc.)-->
+                <VirtualKeyboard Name="Keys" W="450" Anchors="1,0" TargetObject="../../Editor/EditField" DefaultMargin="5" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Content" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="4" />
+                        <Item SizePolicy="Stretch" Size="2" />
+                        <Item SizePolicy="Fixed" Size="1"/>
+
+                    </ItemCollectColumns>
+
+                    <UILayoutGrid Name="NumericKeys" Rows="5" Columns="4" Anchors="0,0" >
+                        <VirtualKeyboardButton KeyCode="7" Anchors="0,0" Texture="corner1"/>
+                        <VirtualKeyboardButton KeyCode="8" Anchors="1,0"/>
+                        <VirtualKeyboardButton KeyCode="9" Anchors="2,0"/>
+                        <IndicatorControl Name="Add" Text=" + " SignalValue=" + " Anchors="3,0" Clicked=":NumericInsert"  Texture="corner2"/>
+
+                        <VirtualKeyboardButton KeyCode="4" Anchors="0,1"/>
+                        <VirtualKeyboardButton KeyCode="5" Anchors="1,1"/>
+                        <VirtualKeyboardButton KeyCode="6" Anchors="2,1"/>
+                        <IndicatorControl Name="Thru" Text="Thru" SignalValue=" Thru " Clicked=":NumericInsert" Anchors="3,1"/>
+
+                        <VirtualKeyboardButton KeyCode="1" Anchors="0,2"/>
+                        <VirtualKeyboardButton KeyCode="2" Anchors="1,2"/>
+                        <VirtualKeyboardButton KeyCode="3" Anchors="2,2"/>
+                        <IndicatorControl Name="Minus" Text="-" SignalValue=" - " Clicked=":NumericInsert" Anchors="3,2"  />
+
+                        <VirtualKeyboardButton KeyCode="0" Anchors="0,3" Texture="corner4" />
+                        <IndicatorControl Name="PeriodKey" Text="." SignalValue="." Clicked=":NumericInsert" Anchors="1,3"/>
+                        <IndicatorControl Name="Multiply" Text="*" SignalValue=" * " Clicked=":NumericInsert" Anchors="2,3"/>
+                        <IndicatorControl Name="Divide" Text="/" SignalValue=" / " Clicked=":NumericInsert" Anchors="3,3"/>
+
+                        <IndicatorControl Name="Please" Text="Please" CloseAction="Confirm" Anchors="2,4,3,4" Texture="corner12" BackColor="Button.BackgroundPlease" />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="OperationKeys" Rows="5" Columns="2" Anchors="1,0" >
+                        <VirtualKeyboardButton Text="Back" KeyCode="Backspace" Anchors="0,0" Texture="corner1" />
+                        <VirtualKeyboardButton Text="Del" KeyCode="Delete" Anchors="1,0" Texture="corner2" />
+
+                        <VirtualKeyboardButton Text="Home" KeyCode="Home" Anchors="0,1"/>
+                        <VirtualKeyboardButton Text="End" KeyCode="End" Anchors="1,1"/>
+
+                        <VirtualKeyboardButton Text="&lt;" KeyCode="Left" Anchors="0,2"/>
+                        <VirtualKeyboardButton Text="&gt;" KeyCode="Right" Anchors="1,2"/>
+
+                        <IndicatorControl Name="PlusMinus" Clicked=":PlusMinusClicked" Text="+/-" Anchors="0,3"/>
+                        <IndicatorControl Name="Modulo" Text="%" SignalValue=" % " Anchors="1,3" Clicked=":NumericInsert"  />
+
+                        <IndicatorControl Name="ClearBtn" Text="Clear" Clicked=":NumericClear" Anchors="0,4" BackColor="Button.BackgroundClear"    Texture="corner4"   />
+                        <IndicatorControl Name="Equal" Text="=" SignalValue=" = " Anchors="1,4" Clicked=":NumericInsert"  Texture="corner8"  />
+                    </UILayoutGrid>
+
+                    <UILayoutGrid Name="HexKeys" H="50" Rows="1" Columns="6" Anchors="0,1,1,1" Visible="No">
+                        <IndicatorControl Name="A" Text="A" Anchors="0,0" Clicked=":NumericInsert" SignalValue="A" Texture="corner5"/>
+                        <IndicatorControl Name="B" Text="B" Anchors="1,0" Clicked=":NumericInsert" SignalValue="B"/>
+                        <IndicatorControl Name="C" Text="C" Anchors="2,0" Clicked=":NumericInsert" SignalValue="C"/>
+                        <IndicatorControl Name="D" Text="D" Anchors="3,0" Clicked=":NumericInsert" SignalValue="D"/>
+                        <IndicatorControl Name="E" Text="E" Anchors="4,0" Clicked=":NumericInsert" SignalValue="E"/>
+                        <IndicatorControl Name="F" Text="F" Anchors="5,0" Clicked=":NumericInsert" SignalValue="F" Texture="corner10"/>
+                    </UILayoutGrid>
+                    <UILayoutGrid Name="TimeKeys" H="50" Rows="1" Columns="5" Anchors="0,1,1,1" Visible="No">
+                        <IndicatorControl Name="D" Text="D" Anchors="0,0" Clicked=":NumericInsert" SignalValue="D" Texture="corner5"/>
+                        <IndicatorControl Name="H" Text="H" Anchors="1,0" Clicked=":NumericInsert" SignalValue="H"/>
+                        <IndicatorControl Name="M" Text="M" Anchors="2,0" Clicked=":NumericInsert" SignalValue="M"/>
+                        <IndicatorControl Name="S" Text="S" Anchors="3,0" Clicked=":NumericInsert" SignalValue="S"/>
+                        <IndicatorControl Name="F" Text="F" Anchors="4,0" Clicked=":NumericInsert" SignalValue="F" Texture="corner10"/>
+                    </UILayoutGrid>
+                </VirtualKeyboard>
+                <!--Enums-->
+                <UITab Name="EnumGroupsTabs" Margin="-2,0,0,0" Visible="No" H="100%" Anchors="2,0" ItemSize="60" Type="Vertical" ContentDriven="Yes" ContentHeight="No" TabClickedOnCurrent=":GroupClickedTabAction" TabChanged=":GroupChangedTabAction" />
+                <UILayoutGrid Name="EnumsParent" Anchors="3,0" Margin="2,0,0,0" MinSize="100,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <LineEdit Name="EnumFilter" Anchors="0,0" Visible="No" ContentDriven="Yes" Padding="0,3,0,3" TextChanged=":NumInputFilterChanged" />
+                    <ScrollContainer Name="Enums" Anchors="0,1" Visible="Yes">
+                        <ScrollBox Name="Box">
+                            <DialogContainer Name="EnumsContainer" >
+                                <AutoLayout Name="EnumsLayout" GroupedCellsCount="SizeDriven" TryFitIntoSecondary="Yes" SideSize="60" MinCellSize="130" Texture="corner15" />
+                            </DialogContainer>
+                        </ScrollBox>
+                    </ScrollContainer>
+                </UILayoutGrid>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </NumericInput>
+</GMA3>

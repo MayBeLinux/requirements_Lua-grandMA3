@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="74" Name="EulaUpdate" Guid="00 1B 21 63 60 B2 00 00 AE 52 36 54 09 82 55 B1" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays" >
+        <ComponentXML Index="1" Guid="00 1B 21 63 8C F7 00 00 B1 52 36 54 09 82 55 B1" FileName="eula_update.uixml" PlaceHolder="FullScreen" DisplayTypePreference="BigOrSmall"/>
+        <ComponentLua Index="2" Guid="00 1B 21 63 BF B2 00 00 B0 52 36 54 09 82 55 B1" FileName="eula_update.lua" />
+    </Menu>
+</GMA3>

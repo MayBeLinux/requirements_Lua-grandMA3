@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="81" Name="FaderTest" Guid="00 1B 21 63 7A C1 00 00 B3 52 36 54 08 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="00 1B 21 63 04 9D 00 00 B2 52 36 54 08 82 55 B0" FileName="fader_test.uixml" PlaceHolder="UiScreen" WindowSettings="SysteminfoWindowSettings" WindowContext="ContextSysteminfoWindow" Toggle="No" />
+    </Menu>
+</GMA3>

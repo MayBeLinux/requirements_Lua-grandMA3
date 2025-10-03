@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="56" Name="DeskLock" Guid="00 1B 21 70 F9 D2 00 00 55 9F 41 2A 7C 8C D2 5B" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays" Placement="ForceMulti">
+        <ComponentXML Guid="00 1B 21 70 A6 F8 00 00 54 9F 41 2A 7C 8C D2 5D" FileName="desklock.uixml" PlaceHolder="FullScreen" BuddyGroupId="DeskLockBuddies" />
+        <ComponentLua Guid="00 1B 21 70 A6 F8 00 00 54 9F 41 2A 7C 8C D2 5C" FileName="desklock.lua" />
+    </Menu>
+</GMA3>

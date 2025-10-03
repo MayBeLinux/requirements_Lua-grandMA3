@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="3" Name="AddWindow" Guid="00 1B 21 70 35 AB 00 00 57 9F 41 2A 7C 8C D2 5B" Author="MA" Version="0.1.0.0" Path="/ui/window_add" UserRights="Presets">
+        <ComponentXML Index="1" Guid="00 1B 21 70 58 C6 00 00 56 9F 41 2A 7C 8C D2 5B" FileName="add_window.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="70 8B CD 59 C8 08 00 00 37 52 36 54 9A 84 55 B0" FileName="add_window.lua" />
+    </Menu>
+</GMA3>

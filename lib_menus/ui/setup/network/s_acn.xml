@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="sACN" Guid="" Author="MA" Version="0.1.0.0" Path="/ui/setup/network">
+        <ComponentXML Index="1" Guid="" FileName="s_acn.uixml" PlaceHolder="MainDialog" Toggle="No" />
+        <ComponentLua Index="2" Guid="" FileName="s_acn.lua" />
+        <ComponentLua Index="3" Guid="" FileName="dmx_left.lua" />
+    </Menu>
+</GMA3>

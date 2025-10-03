@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="StationControl" BackColor="MainDialog.Background" HelpTopic="network_station_control.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Station Control" Icon="network"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Columns="2" Transparent="No" Interactive="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <UIObject Anchors="0,0" Text="Station" Font="Regular28" Interactive="No" TextColor="Global.Bright" BackColor="Global.Background"/>
+            <UILayoutGrid DefaultMargin="20" Anchors="0,1" Rows="8" Columns="3" Margin="20,0,20,20" DefaultMarginOnBorders="Yes" Texture="corner15" BackColor="Global.BackgroundSelectedInverted" Transparent="No" >
+                <UIObject Anchors="0,0" Text="General" Interactive="No" TextColor="Global.Bright" BackColor="Global.BackgroundSelectedInverted"/>
+
+                <PropertyInput Anchors="0,1" Texture="corner15" Target="ManetSocket" Text="Invite" Property="EnableInvite" ToolTip="Enable this station to be invited by others" />
+                <PropertyInput Anchors="0,2" Texture="corner15" Target="ManetSocket" Text="Web Remote" Property="EnableRemotes" ToolTip="Enable web browser based remote control"  />
+                <PropertyInput Anchors="0,3" Texture="corner15" Target="ManetSocket" Text="Remote HID" Property="EnableRemoteHID" ToolTip="Enable this station to be remotely controlled by others" HelpTopic="key_comad_remotehid.html" />
+                <PropertyInput Anchors="0,4" Texture="corner15" Target="ManetSocket" Text="SFTP Access" Property="EnableSFTP" ToolTip="Enable SFTP Access to the Console." />
+                <PropertyInput Anchors="0,5" Property="SendArt-NetIfIdleMaster" Texture="corner15" OnLoad=":SendIfIdleButtonLoaded"/>
+                <PropertyInput Anchors="0,6" Property="SendSacnIfIdleMaster" Texture="corner15" OnLoad=":SendIfIdleButtonLoaded"/>
+
+                <UIObject Anchors="1,0" Text="Session Data Merge" Interactive="No" TextColor="Global.Bright" BackColor="Global.BackgroundSelectedInverted"/>
+                <PropertyInput Anchors="1,1" Texture="corner15" Target="ManetSocket" Text="Include Playbacks" Property="PlaybackDataMerge" ToolTip="Should playback actions create a visible session data merge? This setting is per station." />
+            </UILayoutGrid>
+            <UIObject Anchors="1,0" Text="Session" Font="Regular28" Interactive="No" TextColor="Global.Bright" BackColor="Global.Background"/>
+            <UILayoutGrid DefaultMargin="20" Anchors="1,1" Rows="8" Columns="3" Margin="20,0,20,20" DefaultMarginOnBorders="Yes" Texture="corner15" BackColor="Global.BackgroundSelectedInverted" Transparent="No" >
+                <UIObject Anchors="0,0" Text="General" Interactive="No" TextColor="Global.Bright" BackColor="Global.BackgroundSelectedInverted"/>
+                <PropertyInput Anchors="0,1" Texture="corner15" Text="RDM" Target="ShowData.RDMData" Property="Enable" ToolTip=""/>
+                <PropertyInput Anchors="0,2" Texture="corner15" Text="DSCP" TextAlignmentV="Center" TextAlignmentH="Center" Target="ShowData.ShowSettings.GlobalSettings" Property="DSCPConfiguration" ShowValue="No" ToolTip=""/>
+                <SwipeButton Anchors="0,3" Texture="corner15" Text="Data Merge Default Mode"  Target="ShowData.ShowSettings.GlobalSettings" Property="DataMergeDefaultMode" ToolTip=""/>
+                <PropertyInput Anchors="0,4" Texture="corner15" Text="Data Merge Default Timeout"  Target="ShowData.ShowSettings.GlobalSettings" Property="DataMergeDefaultTimeout" ToolTip=""/>
+                <PropertyInput Anchors="0,7" Texture="corner15" Text="TTL"  Target="ShowData.ShowSettings.GlobalSettings" Property="TTL" ToolTip=""/>
+
+                <UIObject Anchors="1,0" Text="In &amp; Out" Interactive="No" TextColor="Global.Bright" BackColor="Global.BackgroundSelectedInverted"/>
+                <PropertyInput Anchors="1,1" Texture="corner15" Target="ShowData.Remotes.DCRemotes" Text="DC Remotes" Property="Enabled" ToolTip="" />
+                <PropertyInput Anchors="1,2" Texture="corner15" Target="ShowData.Remotes.MIDIRemotes" Text="MIDI Remotes" Property="Enabled" ToolTip="" />
+                <PropertyInput Anchors="1,3" Texture="corner15" Target="ShowData.Remotes.DmxRemotes" Text="DMX Remotes" Property="Enabled" ToolTip="" />
+                <PropertyInput Anchors="1,4" Texture="corner15" Target="ShowData.OSCBase" Text="OSC Input" Property="EnableInput" ToolTip="" />
+                <PropertyInput Anchors="1,5" Texture="corner15" Target="ShowData.OSCBase" Text="OSC Output" Property="EnableOutput" ToolTip="" />
+                <PropertyInput Anchors="1,6" Texture="corner15" Target="ShowData.PSNProtocol" Text="PSN" Property="In" ToolTip="" />
+                <PropertyInput Anchors="1,7" Texture="corner15" Target="ShowData.MVRxchange" Text="MVR-xchange" Property="Enabled" ToolTip="" />
+
+                <UIObject Anchors="2,0" Text="DMX Protocols" Interactive="No" TextColor="Global.Bright" BackColor="Global.BackgroundSelectedInverted"/>
+                <PropertyInput Anchors="2,1" Texture="corner15" Target="DeviceConfigurations.DmxProtocols.ArtNet" Text="Art-Net Input" Property="In" ToolTip="" />
+                <PropertyInput Anchors="2,2" Texture="corner15" Target="DeviceConfigurations.DmxProtocols.ArtNet" Text="Art-Net Output" Property="Out" ToolTip="" />
+                <PropertyInput Anchors="2,3" Texture="corner15" Target="DeviceConfigurations.DmxProtocols.ArtNet" Text="Art-Net Setup" Property="SetupMode" ToolTip="" />
+                <PropertyInput Anchors="2,4" Texture="corner15" Target="DeviceConfigurations.DmxProtocols.sACN" Text="sACN Input" Property="In" ToolTip="" />
+                <PropertyInput Anchors="2,5" Texture="corner15" Target="DeviceConfigurations.DmxProtocols.sACN" Text="sACN Output" Property="Out" ToolTip="" />
+                <PropertyInput Anchors="2,6" Texture="corner15" Target="DeviceConfigurations.DmxProtocols.sACN" Text="sACN Setup" Property="SetupMode" ToolTip="" />
+            </UILayoutGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialog>
+</GMA3>

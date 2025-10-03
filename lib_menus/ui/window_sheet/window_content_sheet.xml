@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="204" Name="WindowContentSheet" Guid="7A 9A D6 E7 03 36 44 53 A6 5E F0 68 E4 BA 79 05" Author="MA" Version="0.1.0.0" Path="/ui/window_sheet">
+        <ComponentXML Index="1" Guid="20 FC 48 32 85 AD 45 5A 8C 8B 0C F6 83 B4 EF 57" FileName="window_content_sheet.uixml" PlaceHolder="UiScreen" WindowSettings="ContentSheetSettings" WindowContext="ContextContentSheet" Toggle="No" />
+        <ComponentLua FileName="window_content_sheet.lua" />
+    </Menu>
+</GMA3>

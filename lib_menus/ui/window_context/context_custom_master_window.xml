@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ContextCustomMasterWindow" Author="MA" Version="0.1.0.0" Path="/ui/window_context">
+        <ComponentXML Index="1" FileName="context_custom_master_window.uixml" PlaceHolder="ModalOverlay" Toggle="No" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 68 A0 00 00 45 53 36 54 0F 82 55 B0" FileName="context_window.lua" />
+    </Menu>
+</GMA3>

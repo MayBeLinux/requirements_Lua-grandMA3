@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow Name="MatricksPool" HelpTopic="matricks.html" >
+        <MatricksPoolLayoutGrid Text="MAtricks" TitleButtonIcon="object_matricks" ToolTip="Matricks pool window" ReactToRecipeEdit="Yes">
+            <PoolTitleButton />
+        </MatricksPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

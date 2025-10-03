@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="226" Name="WindowTrackpad" Guid="EF 91 05 19 45 C3 64 73 BC 59 EB 79 33 7C CE 77" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" FileName="window_trackpad.uixml" WindowSettings="WindowTrackpadSettings" WindowContext="ContextTrackpad" />
+        <ComponentLua Index="2" FileName="window_trackpad.lua" />
+    </Menu>
+</GMA3>

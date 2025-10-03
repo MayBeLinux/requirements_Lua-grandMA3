@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="138" Name="Popup" Guid="14 DA E9 DA E2 D1 00 00 E0 58 86 BB 32 A3 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Guid="14 DA E9 DA 7D CE 00 00 E7 58 86 BB 32 A3 01 1A" FileName="popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="../popups/generic_popup.lua" />
+        <ComponentLua FileName="../popups/default_popup.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GMA3 DataVersion="2.1.0.0">
+    <Menu Lock="Yes" Name="PsrImport" Author="MA" Version="2.1.0.0" Path="/ui/psr" UserRights="Program">
+        <ComponentXML FileName="psr_import.uixml" PlaceHolder="MainDialogPSR" DisplayTypePreference="Big" Toggle="Yes" />
+        <ComponentLua FileName="psr_import.lua" />
+    </Menu>
+</GMA3>

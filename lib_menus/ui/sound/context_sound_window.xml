@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="50" Name="ContextSoundWindow" Author="MA" Version="0.1.0.0" Path="/ui/sound">
+        <ComponentXML FileName="context_sound_window.uixml" PlaceHolder="ModalOverlay" Toggle="No" />
+        <ComponentLua FileName="../window_context/context_window.lua" />
+    </Menu>
+</GMA3>

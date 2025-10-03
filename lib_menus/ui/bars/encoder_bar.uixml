@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UILayoutGrid Name="EncoderBarContainer" Texture="" Transparent="Yes" Anchors="0,0" H="240" Rows="4" OnLoad=":BarLoaded" DefaultMargin="3" Font="Regular18" LowDpiFont="Regular11" EncoderUseDisplay="Yes" >
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="100" />
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Fixed" Size="85" />
+            <Item SizePolicy="Fixed" Size="85" />
+            <Item SizePolicy="Fixed" Size="85" />
+            <Item SizePolicy="Fixed" Size="100" />
+            <Item SizePolicy="Fixed" Size="100" />
+            <Item SizePolicy="Fixed" Size="100" />
+
+        </ItemCollectColumns>
+
+        <AutoLayout Name="ButtonsLeft" Anchors="0,0,0,3" Texture="corner15" FocusSearchPolicy="Suppress">
+            <!--<Button Text="Run Test" Clicked=":RunTest" Margin="0,3,0,0"/>-->
+            <IndicatorControl Property="Sync" Undo="No" Target="#" ToolTip="Synchronizes the Programmer" Margin="0,0,0,0"/>
+            <IndicatorControl Property="SingleStep" Undo="No" Target="#" ToolTip="Controls single step mode" />
+            <SwipeButton Text="Align" Undo="No" Target="#" Property="AlignMode" HelpTopic="operate_align.html" ActiveTextColor="Global.Selected" />
+            <SwipeButton Text="Readout"  Undo="No" Target="~" Property="ValueReadout" />
+        </AutoLayout>
+
+        <EncoderBankSelector Name="EncoderBankSelector" Anchors="1,0" AvoidScroll="Yes" ForceEncoderBar="Yes" Margin="0,0,0,0" />
+        <SelectionIndicatorButton Name="SelectionButton" Padding="-7,0,0,0" Anchors="2,0" Texture="corner15" Text="Selection" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu SelectionOverlay" IndicatorIconColor="Button.Icon" Margin="0,0,0,0" ToolTip="Opens the Selection dialog." Target="#.$CurrentSelectionRef$"/>
+        <IndicatorButton Anchors="3,0" Texture="corner15" Text="Phaser" IndicatorIcon="DialogButtonIcon" Clicked=":CommandLine" SignalValue="menu PhaserEditorOverlay" IndicatorIconColor="Button.Icon" Margin="0,0,0,0" ToolTip="Opens the Phaser Editor dialog" />
+        <MatricksIndicatorButton Name="MatricksMenu" Padding="6,0,0,0" Anchors="4,0" Property="Active" ShowLabel="No" Target="#.$CurrentSelectionRef$" Clicked=":CommandLine" DefaultAction="0" SignalValue="menu MatricksOverlay" ActiveColorIndicator="PoolWindow.Matricks" IconActive="DialogButtonIcon" IconInactive="DialogButtonIcon" Texture="corner15" Margin="0,0,0,0" ToolTip="Opens the MA Tricks dialog" SuppressOverlayAutoClose="Yes">
+            <PropertyControl Name="MatricksText" LabelAreaMargins="0,0,0,0" Text="MAtricks" ValueAreaMargins="0,0,0,0" Property="InitialName" Target="#.$CurrentSelectionRef$" ShowLabel="No" Interactive="No" Texture="" ValueTextColor="Global.Text" ValueAutoAdjust="Yes"  Margin="0,5,5,0" ToolTip="Opens the MA Tricks dialog" OnLoad=":MatricksLoaded"/>
+        </MatricksIndicatorButton>
+        <BlinkingFadeButton Anchors="6,0" Texture="corner10" Text="ExecFade" Mode="Exec" Clicked=":CommandLine" SignalValue="menu ExecFaderOverlay"  Margin="-2,0,3,0" ToolTip="" SuppressOverlayAutoClose="Yes"   IndicatorIcon="DialogButtonIcon"  IndicatorIconColor="Button.Icon"  />
+        <BlinkingFadeButton Anchors="5,0" Texture="corner5" Text="ProgFade" Clicked=":CommandLine" SignalValue="menu ProgFaderOverlay"  Margin="0,0,1,0" ToolTip="" SuppressOverlayAutoClose="Yes"  IndicatorIcon="DialogButtonIcon"  IndicatorIconColor="Button.Icon"  />
+        <GrandMasterFader Name="MasterFader" Text="Grand&#xD;Master" Target="ShowData.Masters.Grand.Master" Anchors="7,0,7,2" ToolTip="GrandMaster" Focus="Never" HeadLineDimension="45" OnOffTexture="led_rect" Margin="0,0,0,0" HelpTopic="do_control_grand.html"/>
+        <SpecialExecSection Anchors="7,3" Name="GrandMasterLabel" ExecBarToDraw="0" Rows="1" Columns="2" Texture="Corner3" OnLoad=":SpecialGrandMasterLoaded" />
+    </UILayoutGrid>
+</GMA3>

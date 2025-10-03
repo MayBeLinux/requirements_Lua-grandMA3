@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SwipeMenuOverlay Name="PoolSwipeDefault" W="250" H="250" X="-75" Y="-75" WantsModal="0" DefaultMargin="5" BackColor="SwipeOverlay.Background" Texture="White" OnLoad=":OnLoad" Columns="3" Rows="3" Font="Regular14" AutoClose="Yes" >
+
+        <UIObject Name="Action1" Texture="Corner1" BackColor="SwipeOverlay.Button" Anchors="0,0" Clicked=":OnSwipeMenu" SignalValue="Store" Text="Store" CloseAction="Ok" />
+        <UIObject Name="Action2" Texture="Corner0" BackColor="SwipeOverlay.Button" Anchors="0,1" Clicked=":OnSwipeMenu" SignalValue="Edit" Text="Edit" CloseAction="Ok" />
+        <UIObject Name="Action3" Texture="Corner4" BackColor="SwipeOverlay.Button" Anchors="0,2" Clicked=":OnSwipeMenu" SignalValue="Assign" Text="Assign" CloseAction="Ok" />
+
+        <UIObject Name="Action4" Texture="Corner0" BackColor="SwipeOverlay.Button" Anchors="1,0" Clicked=":OnSwipeMenu" SignalValue="Label" Text="Label" CloseAction="Ok" />
+
+        <UIObject Name="Action5" Texture="Corner2" BackColor="SwipeOverlay.Button" Anchors="2,0" Clicked=":OnSwipeMenu" SignalValue="Delete" Text="Delete" CloseAction="Ok" />
+        <UIObject Name="Action6" Texture="Corner0" BackColor="SwipeOverlay.Button" Anchors="2,1" Clicked=":OnSwipeMenu" SignalValue="Move" Text="Move" CloseAction="Ok" />
+        <UIObject Name="Action7" Texture="Corner8" BackColor="SwipeOverlay.Button" Anchors="2,2" Clicked=":OnSwipeMenu" SignalValue="Copy" Text="Copy" CloseAction="Ok" />
+
+
+    </SwipeMenuOverlay>
+</GMA3>

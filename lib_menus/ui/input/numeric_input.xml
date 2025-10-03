@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="122" Name="NumericInput" Guid="00 1B 21 70 E8 A2 00 00 5D 9F 41 2A 7C 8C D2 5B" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" Guid="00 1B 21 70 B1 85 00 00 5C 9F 41 2A 7C 8C D2 5B" FileName="numeric_input.uixml" PlaceHolder="ModalOverlay" BuddyGroupId="NumericInput" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="A1 92 31 DB 79 B9 4B 2F 8B A1 8F F1 57 3A FD 06" FileName="numeric_input.lua" />
+    </Menu>
+</GMA3>

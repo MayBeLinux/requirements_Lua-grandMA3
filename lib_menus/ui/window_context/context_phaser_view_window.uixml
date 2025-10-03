@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="phaser_window_settings.html" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Phaser Editor Settings" Icon=""/>
+            <EditTitlebarButton Anchors="1,0"  />
+            <Button   Anchors="2,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="WindowPhaserEditor" />
+            <Button   Anchors="3,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="WindowPhaserEditor" />
+            <DeleteWindowButton   Anchors="4,0"  />
+            <CloseButton Texture="corner2" Anchors="5,0" />
+        </TitleBar>
+
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+                <ItemStr Title="Sheet" Value="Sheet" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged"  >
+
+                <UILayoutGrid Name="Display" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10" >
+                    <!-- Row 1 -->
+                    <SwipeButton   Anchors="0,0" Texture="corner15" Property="ViewMode" Text="View Mode" />
+                    <TitlebuttonControl Anchors="1,0" ReferencedTitleButton="ViewModeAuto"  Text="Auto"  Texture="corner5"/>
+                    <TitlebuttonControl Anchors="2,0" ReferencedTitleButton="ViewMode2D"    Text="2D"    Texture="corner0"/>
+                    <TitlebuttonControl Anchors="3,0" ReferencedTitleButton="ViewMode1D"    Text="1D"    Texture="corner0"/>
+                    <TitlebuttonControl Anchors="4,0" ReferencedTitleButton="ViewModeSheet" Text="Sheet" Texture="corner10"/>
+                    <!-- Row 2 -->
+                    <SwipeButton Anchors="0,1" Texture="corner5" Property="Attributes" ReferencedTitleButton="Attributes"/>
+                    <IndicatorControl Anchors="1,1"  Texture="corner10" Property="ShowBeams" ReferencedTitleButton="ShowBeams"/>
+                    <TitlebuttonControl Anchors="2,1" ReferencedTitleButton="AbsRelMode" Text="Values" Texture="corner15"/>
+                    <TitlebuttonControl Anchors="3,1" ReferencedTitleButton="Spacer" Text="Spacer" Texture="corner15"/>
+                    <!-- Row 3 -->
+                    <PropertyInput Anchors="0,2" Texture="corner5" Property="LineHeight" Text="Line Height"/>
+                    <SwipeButton   Anchors="1,2" Texture="corner10" Property="Mode1D" Text="1D Mode" ReferencedTitleButton="Mode1D"/>
+                    <!-- Row 4 -->
+                    <AppearanceInput Name="Appearance" Anchors="0,3" Texture="corner15" />
+                    <SwipeButton   Anchors="1,3" Texture="corner15" Property="FontSize"     Text="Font Size" />
+                    <PropertyInput Anchors="2,3" Texture="corner5" Property="StepBar" ReferencedTitleButton="StepBar" />
+                    <PropertyInput Anchors="3,3" Texture="corner10" Property="LayerBar" ReferencedTitleButton="LayerBar"/>
+                    <SwipeButton Anchors="4,3" Texture="corner15" Property="EncoderBar" ReferencedTitleButton="EncoderBar" />
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Sheet" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10" >
+                    <SwipeButton Name="Readout" Anchors="2,0" Texture="corner15" Property="Readout" DataAsIs="Yes"/>
+                    <SwipeButton Name="Speed" Anchors="3,0" Texture="corner15" Property="Speed" />
+                    <SwipeButton Name="Preset" Text="Preset" Anchors="4,0" Texture="corner15" Property="PresetReadout" />
+                    <SwipeButton Anchors="5,0" Texture="corner15" Property="ColorMode" ReferencedTitleButton="ColorMode" />
+
+                    <PropertyInput Anchors="1,1" Texture="corner15" TextAutoAdjust="No" Property="AttributeSheet" Text="Attribute&#xD;Sheet"/>
+                    <PropertyInput Anchors="2,1" Texture="corner15" TextAutoAdjust="No" Property="LayerSheet" Text="Layer&#xD;Sheet" />
+                    <PropertyInput Text="Transpose" Anchors="4,1" Texture="corner15" TextAutoAdjust="No" Property="Transposed" />
+                    <PropertyInput Text="Show Empty&#xD;Rows" Anchors="5,1" Texture="corner15" TextAutoAdjust="No" Property="ShowEmptyLines" />
+                </UILayoutGrid>
+
+                <!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

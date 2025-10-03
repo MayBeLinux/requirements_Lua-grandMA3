@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ScribblePopup" Guid="70 4D 7B 2D 78 7D 00 00 47 58 86 BB 7F B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Guid="00 00 00 00 14 2F 00 00 C0 52 36 54 19 8E 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="generic_popup.lua" />
+        <ComponentLua Guid="70 4D 7B 2D 70 0C 00 00 46 58 86 BB 7F B1 01 1A" FileName="scribble_popup.lua" />
+    </Menu>
+</GMA3>

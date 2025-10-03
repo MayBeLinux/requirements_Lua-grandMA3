@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="StoreOverlay" W="100%" H="450" AlignmentH="Left" AlignmentV="Bottom" WantsModal="0" ContentDriven="No" DefaultMargin="0" BackColor="StoreOverlay.Background" HelpTopic="cue_store_settings_preferences.html" FocusSearchPolicy="Default">
+
+        <TitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Store Settings" TextAlignmentH="Left" BackColor="StoreOverlay.Headline" TextColor="StoreOverlay.Title" />
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Direction="Horizontal" Texture="corner0" Content="Yes" >
+                <Button Texture="corner0" Text="Save&#xD;Preferences" Clicked=":OnSavePreferences" W="150" MinSize="50,0" />
+                <Button Texture="corner0" Text="Load&#xD;Preferences" Clicked=":OnLoadPreferences" W="150" MinSize="50,0" />
+                <ScreenSelectorButton MinSize="50,0" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Confirm" BackColor="StoreOverlay.Headline" IconColor="StoreOverlay.Title" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="4" BackColor="StoreOverlay.Headline" OnLoad=":DialogLoaded" Padding="10,10,10,20">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="25" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="1" />
+            </ItemCollectRows>
+            <!--Column 0-->
+            <UILayoutGrid Name="DataSourceBlock" Anchors="0,0" H="80">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UIObject Texture="" Anchors="0,0" TextAlignmentH="Left" Text="Data Source" TextColor="StoreOverlay.Text" />
+                <PropertyRadioButtonList Anchors="0,1" Property = "StoreSource" Type="Horizontal" AvoidScroll="No" ItemType="RadioItemButtonV2" Target="%.TempStoreSettings" BackColor="StoreOverlay.Background" TextColor="StoreOverlay.Text" SetType="Property" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="UseSelectionBlock" Anchors="0,2" H="80">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UIObject Texture="" Anchors="0,0" TextAlignmentH="Left" Text="Use Selection" TextColor="StoreOverlay.Text" />
+                <PropertyRadioButtonList Name="ChannelFilter" Anchors="0,1" Property = "ChannelFilter" Type="Horizontal" AvoidScroll="Yes" ItemType="RadioItemButtonV2" Target="%.TempStoreSettings" BackColor="StoreOverlay.Background" TextColor="StoreOverlay.Text" SetType="Property" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="IfNotEmptyBlock" Anchors="0,4" H="80">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UIObject Texture="" Anchors="0,0" TextAlignmentH="Left" Text="If not empty" TextColor="StoreOverlay.Text" />
+                <PropertyRadioButtonList Anchors="0,1" Property = "StoreMode" Type="Horizontal" AvoidScroll="Yes" ItemType="RadioItemButtonV2" Target="%.TempStoreSettings" BackColor="StoreOverlay.Background" TextColor="StoreOverlay.Text" SetType="Property" />
+            </UILayoutGrid>
+
+            <!--Column 1-->
+            <UILayoutGrid Name="PresetsBlock" Anchors="2,0" H="80">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UIObject Texture="" Anchors="0,0" TextAlignmentH="Left" Text="Presets" TextColor="StoreOverlay.Text" />
+                <UILayoutGrid Anchors="0,1" Columns="5">
+                    <IndicatorControl Anchors="0,0" Texture="corner5" Property="StoreEmbedded" Text="Embedded"  Target="%.TempStoreSettings" />
+                    <IndicatorControl Anchors="1,0" Texture="corner0" Property="StoreMatricks" Text="MAtricks"  Target="%.TempStoreSettings" />
+                    <IndicatorControl Anchors="2,0" Texture="corner0" Property="PresetInputFilter" Text="Input Filter"    Target="%.TempStoreSettings" />
+                    <IndicatorControl Anchors="3,0" Texture="corner0" Property="KeepActivation" Text="Keep&#xD;Activation"  Target="%.TempStoreSettings" />
+                    <SwipeButton Anchors="4,0" Texture="corner10" Property="PresetMode" Target="%.TempStoreSettings" Text="Preset Mode" />
+                </UILayoutGrid >
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="CueBlock" Anchors="2,2" H="80">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1.5" />
+                    <Item SizePolicy="Fixed" Size="30" />
+                    <Item SizePolicy="Stretch" Size="0.75" />
+                    <Item SizePolicy="Fixed" Size="30" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Texture="" Anchors="0,0" TextAlignmentH="Left" Text="Cue" TextColor="StoreOverlay.Text" />
+                <PropertyRadioButtonList Anchors="0,1" Type="Horizontal" Property="CueOperationMode" AvoidScroll="Yes" SetType="Property" Target="%.TempStoreSettings" />
+                <UIObject Anchors="2,0" Texture="" Text="Protect from Tracking:" TextAlignmentH="Left" />
+                <IndicatorControl Anchors="2,1" Texture="corner15" Property="DimmerCueOnly" DirectProperty="Yes" Target="%.TempStoreSettings" />
+                <UIObject Anchors="4,0" Texture="" Text="Shield tracked values:" TextAlignmentH="Left" />
+                <PropertyRadioButtonList Anchors="4,1" ItemSize="80" Type="Horizontal" Property="UITrackingShield" SetType="Property" Target="%.TempStoreSettings" ShowLeftIcon="Yes" SkipTextIfIconExists="Yes" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="MiscBlock" Anchors="2,4" Columns="5" H="80">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UIObject Texture="" Anchors="0,0" TextAlignmentH="Left" Text="Grid" TextColor="StoreOverlay.Text" />
+                <SwipeButton Anchors="0,1" Texture="corner15" Property="GridMergeMode" Text="Merge Mode"  Target="%.TempStoreSettings" />
+
+                <UIObject Texture="" Anchors="1,0" TextAlignmentH="Left" Text="Store" TextColor="StoreOverlay.Text" />
+                <IndicatorControl Anchors="1,1" Texture="corner15" Property="StoreLook" Text="Look"  Target="%.TempStoreSettings" />
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

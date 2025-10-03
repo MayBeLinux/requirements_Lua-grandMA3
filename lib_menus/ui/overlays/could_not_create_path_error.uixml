@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay W="400" H="200" AlignmentH="Center" AlignmentV="Center" WantsModal="1" ContentDriven="No" DefaultMargin="0" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <TitleBar Name="TitleBar" Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Error" TextAlignmentH="Center" />
+            <CloseButton Texture="corner2" Anchors="1,0" CloseAction="Confirm"  />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="4" Name="Content" >
+            <Button Texture="corner0" Anchors="0,0" OnLoad=":AddPath" TextAutoAdjust="Yes" CloseAction="Confirm" />
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

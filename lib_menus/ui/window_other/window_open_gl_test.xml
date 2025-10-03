@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="221" Name="WindowOpenGlTest" Guid="92 2A D7 3D D8 25 4D F9 AD DE 31 73 CE 80 F8 42" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="C6 F3 73 F9 FF AA 4F BC 90 2B FA 75 8D 82 25 81" FileName="window_open_gl_test.uixml" PlaceHolder="UiScreen" WindowSettings="OpenGlWindowSettings" Toggle="No" />
+        <ComponentLua Index="2" Guid="B1 60 DB AF A2 56 4F 5B 92 0A 5A B6 54 CD 92 60" FileName="window_open_gl_test.lua" />
+    </Menu>
+</GMA3>

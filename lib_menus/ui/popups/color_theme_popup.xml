@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="26" Name="ColorThemePopup" Guid="70 4D 7B 2D 95 60 00 00 19 58 86 BB 75 B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 3D 0E 00 00 18 58 86 BB 75 B1 01 1A" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="70 4D 7B 2D 6E 48 00 00 1F 58 86 BB 75 B1 01 1A" FileName="color_theme_popup.lua" />
+    </Menu>
+</GMA3>

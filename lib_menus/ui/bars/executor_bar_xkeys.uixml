@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ExecutorBarXKeys Name="ExecutorBar" OnTitleClick=":TitleClicked">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1"/>
+            <Item SizePolicy="Fixed" Size="30" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectColumns>
+        <ExecutorSectionXKeys Name="Section" Anchors="0,0" Rows="2" Columns="4" />
+        <UILayoutGrid Anchors="1,0" H="100%">
+            <DialogButton Clicked=":TitleClicked" Name="Title" Text="Dummy" Font="Regular9" Texture="corner15" Anchors="0,0" TextVertical="Yes" />
+        </UILayoutGrid>
+        <ExecutorSectionXKeys Name="Section" Anchors="2,0" Rows="2" Columns="4" />
+    </ExecutorBarXKeys>
+</GMA3>

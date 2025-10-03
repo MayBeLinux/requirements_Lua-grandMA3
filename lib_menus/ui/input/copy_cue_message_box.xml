@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="CopyCueMessageBox" Guid="" Author="MA" Version="0.1.0.0" Path="/ui/input" Placement="Multi">
+        <ComponentXML Guid="" FileName="copy_cue_message_box.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" Toggle="No" BuddyGroupId="CopyCueMessageBox" />
+        <ComponentLua Guid="" FileName="copy_cue_message_box.lua" />
+    </Menu>
+</GMA3>

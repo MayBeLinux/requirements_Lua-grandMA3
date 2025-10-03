@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="600" H="460" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" OnLoad=":OnLoaded" DefaultTitle="Edit World">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed"   Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit World" Icon="object_world1"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1">
+            <PlaceHolderBase Name="ObjectSettings" OnLoad=":LoadObjectSettings"/>
+        </DialogFrame>
+
+    </GenericEditorOverlay>
+
+</GMA3>

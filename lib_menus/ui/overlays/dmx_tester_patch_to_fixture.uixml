@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PatchToOverlay WantsModal="Yes" AutoClose="Yes" OnLoad=":LoadLiveFixturePatchData" OnPatchToClicked=":PatchTo" OnShowUnpatchedClicked=":ShowUnpatched" AlignmentH="Center" AlignmentV="Center" UseSimplifiedResize="Yes" RelativeToDisplay="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content"/>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="60"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="TitleBar" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Fixture(s) to Patch" Icon="logo_small"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" >
+                <SwipeButton Name="StageControl" MinSize="50,0" W="100" ShowLabel="Yes" Text="Stage" TextAutoAdjust="No" Property="SelectedStage" DirectProperty="Yes" />
+                <!--<IndicatorControl Name="ShowSplit" ShowValue="No" Text="Split&#xD;View" W="80" Property="ShowSplitView" />-->
+                <!--<SwipeButton Name="ColumnsFilters" MinSize="50,0" W="130" ShowLabel="Yes" Text="Columns" TextAutoAdjust="No" Property="SelectedFilter" DirectProperty="Yes" ValueRole="Default" />-->
+                <IndicatorControl Name="UnPatchedOnly"  MinSize="50,0" W="160" Clicked=":ShowUnpatched" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0"/>
+        </TitleBar>
+
+        <PatchFixtureGrid Name="FixturesGrid" Anchors="0, 1" Focus="InitialFocus" ClearFilter=":ClearContentFilter" FixedColumns="6" SettingsType="PatchLiveSettings" UseUserProfileSettings="Yes" FilterBlockUIEnabled="Yes" AllowFilterContent="Yes" AllowEdit="No" AllowAddNewline="No"/>
+
+        <UILayoutGrid Anchors="0,2" DefaultMargin="1">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="130"/>
+                <Item SizePolicy="Fixed" Size="30"/>
+            </ItemCollectColumns>
+            <IndicatorButton Anchors="1,0" Margin="0,5,0,5" Text="Patch !" Clicked=":PatchTo" Texture="corner15" ColorIndicator="Button.BackgroundPlease"/>
+        </UILayoutGrid>
+    </PatchToOverlay>
+</GMA3>

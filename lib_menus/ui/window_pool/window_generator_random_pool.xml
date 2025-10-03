@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="WindowGeneratorRandomPool" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML FileName="window_generator_random_pool.uixml" PlaceHolder="UiScreen" WindowSettings="GeneratorPoolSettings" WindowContext="ContextGeneratorPool" Toggle="No" />
+    </Menu>
+</GMA3>

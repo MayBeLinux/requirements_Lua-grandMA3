@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <WindowHelpViewer BackColor="Global.Background" ScrollTarget="Frame/HelpDialog" Font="console16" OnLoad=":HelpViewerLoaded" HelpTopic="about_the_manual.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton  Anchors="1,0"  Name="TitleButton" Text="Help" Icon=""/>
+
+            <AutoLayout Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <Button Name="Forward"  Text="" Clicked=":WV_GoForward"  Icon="UrlFwd"     MinSize="50,0" Texture="corner2"/>
+                <Button Name="Backward" Text="" Clicked=":WV_GoBackward" Icon="UrlBack"    MinSize="50,0" />
+                <ValueFadeControl Name="ZoomFactor" Text="Zoom Factor" UseDefaultValue="Yes" Property="ZoomFactor" DataAsIs="Yes" MinSize="250,0"/>
+            </AutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0" Icon="object_question_small" ToolTip="Configures help viewer"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" Rows="1" Columns="1">
+            <DialogHelp Name="HelpDialog" Anchors="0,0" Focus="InitialFocus" />
+        </DialogFrame>
+
+    </WindowHelpViewer>
+</GMA3>

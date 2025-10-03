@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="600" H="400" AlignmentH="Center" AlignmentV="Center" WantsModal="1" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Pool Settings" Icon=""/>
+            <Button   Anchors="1,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="GelPool" />
+            <Button   Anchors="2,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="GelPool" />
+            <DeleteWindowButton   Anchors="3,0"  />
+            <CloseButton Texture="corner2" Anchors="4,0" />
+        </TitleBar>
+
+        <DialogFrame>
+
+            <UILayoutGrid Name="Display" DefaultMargin="10" Margin="10,10,10,10" Rows="4" Columns="4" >
+                <IndicatorControl Anchors="0,2" Texture="corner15" TextAutoAdjust="Yes" Property="ShowEmpty" Text="Show Empty" />
+                <AppearanceInput Anchors="0,3" Texture="corner15" />
+
+                <PropertyInput      Anchors="1,2" Texture="corner15" Property="PoolColumnsCount" Text="Pool Columns" />
+                <SwipeButton   Anchors="1,3" Texture="corner15" Property="FontSize"     Text="Font Size" />
+
+                <ColorPropertyInput Anchors="2,1" Texture="corner3" Property="PoolColor"    Text="Pool Color"/>
+                <ColorPropertyInput Anchors="2,2" Texture="corner12" Property="EmptyColor"   Text="Empty Color" />
+
+                <Button        Anchors="2,3" Texture="corner15"                         Text="Reset Colors" Clicked=":OnResetColors" />
+
+            </UILayoutGrid>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <CommandLineWindow OnLoad=":CommandlineHistoryWindowLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <Button  Name="AutoScroll" Anchors="2,0" MinSize="100,0" W="100" Texture="corner2" Text="Jump to Bottom" TextAutoAdjust="Yes" ToolTip="Activate history view autoscroll mechansim." BackColor="Button.Background" Clicked=":CommandlineHistoryTextView_AutoScroll"/>
+            <TitleButton Texture="corner0" Anchors="1,0" Text="Command Line History" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_cmd" ToolTip="Configures command line history"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" MixInBackColorFromParent="Yes" Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Name="CmdHistoryFrame" Anchors="0,0" Visible="Yes">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Content" />
+                </ItemCollectColumns>
+                <CommandlineHistoryTextView Name="CmdHistoryView" Anchors="0,0,1,0" TextViewProvider="$" BackColor="CommandLineHistory.Background" SelectionColor="CommandLineHistory.SelectedRow" FixedBackColor="CommandLineHistory.FixedBackground" ToolTip="Click on a line to copy it back into the command line." />
+                <ScrollBarV Anchors="1,0" ScrollTarget="../CmdHistoryView" />
+                <ScrollBarH Anchors="0,1" ScrollTarget="../CmdHistoryView" />
+            </UILayoutGrid>
+            <AutoLayout DefaultMargin="5" Anchors="0,1" Name="Toolbar" Direction="Vertical" Texture="corner15" Content="Yes"  Font="Regular18" LowDpiFont="Regular14" >
+                <CmdlineEdit Name="DisplayCommandLine" H="50" Texture="corner0" Focus="InitialFocus" HelpTopic="ws_ui_command_line.html" Visible="No"/>
+            </AutoLayout>
+        </DialogFrame>
+
+
+    </CommandLineWindow>
+</GMA3>

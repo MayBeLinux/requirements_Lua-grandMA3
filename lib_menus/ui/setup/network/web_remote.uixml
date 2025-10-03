@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialogDest Name="WebRemote" BackColor="MainDialog.Background" HelpTopic="network_webremote.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Web Remote" Icon="network"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Columns="1" Rows="1">
+            <DBObjectGrid Name="ObjectGrid" Anchors="0,0" TargetObject="WebServer" Focus="InitialFocus" />
+        </MainDialogContent>
+
+        <!--
+        <MainDialogSubMenu>
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,0" Text="Stations" Clicked=":CommandLine" SignalValue="menu 'Network'"/>
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,1" Text="Keys" Name="Keys" Clicked=":CommandLine" SignalValue="menu 'KeyRegistry'" />
+            <DialogButton Texture="corner0" H="100" Anchors="0,2" Text="My&#xD;Interfaces" Clicked=":CommandLine" SignalValue="menu 'RemoteIpEditor'" />
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,3" State="1" Text="Web&#xD;Remote" />
+            <UIObject Texture="corner0" Anchors="0,9" HasHover="0" />
+        </MainDialogSubMenu>
+-->
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <PropertyInput Anchors="0,0" Texture="corner0" Target="ManetSocket" Text="Web Remote" Property="EnableRemotes" ToolTip="Enable web browser based remote control."  />
+                <SwipeButton Anchors="1,0" Texture="corner0" Property="ResolutionLimit" Text="Resolution Limit" Target="StationSettings.LocalSettings" ToolTip="Defines the maximum resolution that can be requested by web remote client." />
+                <SwipeButton Anchors="2,0" Texture="corner0" Property="ConnectionLimit" Text="Connection Limit" Target="StationSettings.LocalSettings" ToolTip="Defines the maximum amount of web remote connections." />
+                <UIObject Anchors="3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="0,1,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialogDest>
+</GMA3>

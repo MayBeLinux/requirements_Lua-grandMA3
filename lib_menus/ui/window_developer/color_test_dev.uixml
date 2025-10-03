@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window Name="Test" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="ColorTestDev" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip="Configures help viewer"/>
+
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Rows="1" Columns="1">
+            <ColorTestView Anchors="0,0" Focus="InitialFocus" />
+        </DialogFrame>
+    </Window>
+</GMA3>

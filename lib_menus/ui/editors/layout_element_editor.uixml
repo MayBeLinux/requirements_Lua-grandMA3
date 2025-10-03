@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <LayoutElementEditorOverlay W="800" H="450" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Layout Element" OnLoad=":OnLoaded" HelpTopic="layout_elements_edit.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Icon="object_layout" Text="Edit Layout"/>
+            <Button Anchors="1,0" Text="Load from&#xD;Default" Clicked=":LoadFromDefault" />
+            <Button Anchors="2,0" Text="Save as&#xD;Default"   Clicked=":SaveAsDefault" />
+            <Button Anchors="3,0" Text="List&#xD;References"   Clicked=":OnListReference" />
+            <CloseButton Texture="corner2" Anchors="4,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" >
+
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" >
+                <ItemStr Title="General" Value="General" />
+                <ItemStr Title="Arrangement" Value="Arrangement" />
+                <ItemStr Title="Custom Text"    Value="CustomText" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" Name="Container" ChangeActive=":MyTabChanged">
+                <UILayoutGrid Name="General" DefaultMargin="10" DefaultMarginOnBorders="Yes" Margin="10,10,10,10" Rows="4" Columns="6" >
+                    <PropertyInput      Anchors="0,0,1,0" Texture="corner15"  Property="Name"    ValueRole="Default" OnTargetChanged=":ChangeTarget" />
+                    <AppearanceInput    Anchors="0,2" Texture="corner1"   />
+                    <PropertyInput      Anchors="1,2" Texture="corner2" Property="Tags"/>
+                    <PropertyInput      Anchors="0,3" Texture="corner4"  Property="FullResolution" />
+                    <SwipeButton        Anchors="1,3" Texture="corner0"  Property="Mirror" />
+                    <SwipeButton        Anchors="2,3" Texture="corner10" Property="AppearanceRotation" Text="Rotation" />
+
+
+                    <PropertyInput Anchors="2,0" Texture="corner15"  Property="ID"             ValueRole="Default" />
+                    <PropertyInput Anchors="3,0" Texture="corner15"  Property="CID" Name="CID" ValueRole="Default" />
+
+                    <PropertyInput Texture="corner15" Anchors="4,0,5,0" Property="Object"  ValueRole="Display" IndirectEdit="1" />
+                    <PropertyInput Texture="corner15" Anchors="4,1,5,1" Property="Action"      ValueRole="DisplayShort" Name="Action" />
+
+                </UILayoutGrid>
+                <UILayoutGrid Name="Arrangement" DefaultMargin="10" DefaultMarginOnBorders="Yes" Margin="10,10,10,10" Rows="4" Columns="6" >
+                    <SwipeButton        Anchors="0,0" Texture="corner15"  Property="ObjectTextSize" Text="Font Size"/>
+                    <ColorPropertyInput Anchors="0,1" Texture="corner5"   Property="BorderColor"  />
+                    <PropertyInput      Anchors="1,1" Texture="corner10"  Property="BorderSize" />
+
+                    <PropertyInput Anchors="4,0" Texture="corner1"   Property="PaddingTop"    Text="Padding Top" />
+                    <PropertyInput Anchors="5,0" Texture="corner2"   Property="PaddingBottom" Text="Padding Bottom" />
+                    <PropertyInput Anchors="4,1" Texture="corner4"   Property="PaddingLeft"   Text="Padding Left" />
+                    <PropertyInput Anchors="5,1" Texture="corner8"   Property="PaddingRight"  Text="Padding Right" />
+
+                    <PropertyInput Anchors="2,0" Texture="corner1" Property="PosX"  Text="Position X" />
+                    <PropertyInput Anchors="3,0" Texture="corner2" Property="PosY"  Text="Position Y" />
+                    <PropertyInput Anchors="2,1" Texture="corner4" Property="Width" Text="Width" />
+                    <PropertyInput Anchors="3,1" Texture="corner8" Property="Height" Text="Height" />
+
+                    <PropertyInput Texture="corner5"  Anchors="0,2,1,2" Property="VisibilityElement"            Text="Element Visible" />
+                    <PropertyInput Texture="corner0"  Anchors="2,2"     Property="VisibilityObjectName"         Text="Name" />
+                    <PropertyInput Texture="corner0"  Anchors="3,2"     Property="VisibilityID"                 Text="ID" />
+                    <PropertyInput Texture="corner0"  Anchors="4,2"     Property="VisibilityCID"                Text="CID" />
+                    <PropertyInput Texture="corner2"  Anchors="5,2"     Property="VisibilityBorder"             Text="Border" />
+                    <PropertyInput Texture="corner4"  Anchors="1,3"     Property="VisibilityIcon"               Text="Icons" />
+                    <PropertyInput Texture="corner0"  Anchors="2,3"     Property="VisibilityBar"                Text="Bar" />
+                    <PropertyInput Texture="corner0"  Anchors="3,3"     Property="VisibilityValue"              Text="Value" />
+                    <PropertyInput Texture="corner0"  Anchors="4,3"     Property="VisibilityIndicatorBar"       Text="Indicator&#xD;Bar" />
+                    <PropertyInput Texture="corner8"  Anchors="5,3"     Property="VisibilitySelectionRelevance" Text="Selection&#xD;Relev." />
+                </UILayoutGrid>
+                <UILayoutGrid Name="CustomText" DefaultMargin="10" DefaultMarginOnBorders="Yes" Margin="10,10,10,10" Rows="4" Columns="6" >
+                    <PropertyInput      Texture="corner15"        Anchors="0,0,5,0"   Text="Custom Text" Property="CustomTextText" />
+                    <SwipeButton        Texture="corner15"        Anchors="0,1"       Text="Text Size" Property="CustomTextSize" />
+                    <ColorPropertyInput Texture="corner15"   Anchors="1,1"       Text="Text Color" Property="CustomTextColor" />
+                    <SwipeButton        Texture="corner15"        Anchors="2,1"       Text="Align Horizontal" Property="CustomTextAlignmentH" />
+                    <SwipeButton        Texture="corner15"       Anchors="3,1"       Text="Align Vertical" Property="CustomTextAlignmentV" />
+                    <PropertyInput        Texture="corner15"        Anchors="4,1"       Text="Vertical" Property="CustomTextVertical" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+            <Button Name="lockBtn" Anchors="0,0,0,1" Enabled="No" Icon="Locked" Texture="Corner15" IconColor="Global.Selected" BackColor="Global.Transparent75" IconAlignmentV="Top" Visible="No"/>
+        </DialogFrame>
+    </LayoutElementEditorOverlay>
+
+</GMA3>

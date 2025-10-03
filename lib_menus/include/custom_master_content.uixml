@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<UILayoutGrid Anchors="0,0" Name="ContentGrid" DefaultMargin="12" DefaultMarginOnBorders="No">
+    <ItemCollectColumns>
+        <Item SizePolicy="Stretch" Size="4" />
+        <Item SizePolicy="Stretch" Size="4" />
+        <Item SizePolicy="Stretch" Size="4" />
+        <Item SizePolicy="Stretch" Size="1" />
+    </ItemCollectColumns>
+
+    <!-- Custom Section -->
+    <UILayoutGrid Anchors="0,0" Name="CustomSection" Transparent="Yes" Texture="Corner15" BackColor="CustomMasters.Section" DefaultMargin="6" DefaultMarginOnBorders="No" HelpTopic="executor_special.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="6" />
+            <Item SizePolicy="Stretch" Size="2" />
+        </ItemCollectRows>
+
+        <UILayoutGrid Anchors="0,0" Name="ProgrammerArea" Columns="3" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0,2,0"  Name="ProgrammerLabel" Rows="1" Columns="2" ExecBarToDraw="2" FirstRow="0" LastRow="0" />
+            <HardwareMiniEncoder Anchors="0,1,2,1" Name="ProgHW" H="1r" AlignmentH="Center" AlignmentV="Center" SpecialExecIndex="ProgEncoder" />
+            <HardwareButton Anchors="0,2" Texture="Corner4" SpecialExecIndex="ProgBtn1"/>
+            <HardwareButton Anchors="1,2" Texture="Corner0" SpecialExecIndex="ProgBtn2"/>
+            <HardwareButton Anchors="2,2" Texture="Corner8" SpecialExecIndex="ProgBtn3"/>
+        </UILayoutGrid>
+
+        <UILayoutGrid Anchors="0,1" Name="ExecTimeArea"   Columns="3" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0,2,0" Name="ExecTimeLabel" Rows="1" Columns="2" ExecBarToDraw="2" Texture="Corner3" FirstRow="1" LastRow="1" />
+            <HardwareMiniEncoder Anchors="0,1,2,1" H="1r" AlignmentH="Center" AlignmentV="Center" SpecialExecIndex="ExecEncoder" />
+            <HardwareButton Anchors="0,2" Texture="Corner4" SpecialExecIndex="ExecBtn1"/>
+            <HardwareButton Anchors="1,2" Texture="Corner0" SpecialExecIndex="ExecBtn2"/>
+            <HardwareButton Anchors="2,2" Texture="Corner8" SpecialExecIndex="ExecBtn3"/>
+        </UILayoutGrid>
+        <UILayoutGrid Anchors="0,2" Name="RateSpeed1Area" Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="4" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0,1,0" Name="RateSpeed1Label" Rows="1" Columns="2" ExecBarToDraw="2" Texture="Corner3" FirstRow="2" LastRow="2" />
+            <HardwareFader  Anchors="0,1" SpecialExecIndex="RateBtn2" Texture="Corner0"  BorderTexture="small_frame0" HeadLineTexture="Corner0"/>
+            <HardwareFader  Anchors="1,1" SpecialExecIndex="SpeedBtn2" Texture="Corner0" BorderTexture="small_frame0"  HeadLineTexture="Corner0"/>
+            <HardwareButton Anchors="0,2" Texture="Corner12" SpecialExecIndex="RateBtn2"/>
+            <HardwareButton Anchors="1,2" Texture="Corner12" SpecialExecIndex="SpeedBtn2"/>
+        </UILayoutGrid>
+
+        <UILayoutGrid Anchors="0,3" Name="RateSpeed2Area" Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0,1,0" Name="RateSpeed2Label" Rows="1" Columns="2" ExecBarToDraw="2" Texture="Corner3" FirstRow="3" LastRow="3" />
+            <HardwareButton Anchors="0,2" Texture="Corner12" SpecialExecIndex="RateBtn1"/>
+            <HardwareButton Anchors="1,2" Texture="Corner12" SpecialExecIndex="SpeedBtn1"/>
+        </UILayoutGrid>
+    </UILayoutGrid>
+
+    <!-- Masters -->
+    <UILayoutGrid Anchors="1,0" Name="MasterSection" Transparent="Yes" Texture="Corner15" BackColor="CustomMasters.Section" DefaultMargin="6" DefaultMarginOnBorders="No" >
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="6" />
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="2" />
+        </ItemCollectRows>
+        <UILayoutGrid Anchors="0,0" Name="HighlightSoloArea" Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0,1,0" Name="HighlightSoloLabel" Rows="1" Columns="2" ExecBarToDraw="1" Texture="Corner3" FirstRow="0" LastRow="0" />
+            <HardwareMiniEncoder Anchors="0,1" H="1r" MaxSize="47,47" AlignmentH="Center" AlignmentV="Center" SpecialExecIndex="XFade1Btn" />
+            <HardwareMiniEncoder Anchors="1,1" H="1r" MaxSize="47,47" AlignmentH="Center" AlignmentV="Center" SpecialExecIndex="XFade2Btn" />
+            <HardwareButton Anchors="0,2" Texture="Corner12" SpecialExecIndex="XFade1Btn" />
+            <HardwareButton Anchors="1,2" Texture="Corner12" SpecialExecIndex="XFade2Btn" />
+
+        </UILayoutGrid>
+
+        <UILayoutGrid Anchors="0,1" Name="MasterXfadeArea"   Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="4" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0,1,0" Name="MasterXfadeLabel" Rows="1" Columns="2" ExecBarToDraw="1" Texture="Corner3" FirstRow="1" LastRow="1" />
+            <HardwareFader Anchors="0,1,0,2" ToolTip="XFade1" Name="XFade1" SpecialExecIndex="XFade1"  HeadLineTexture="Corner0" Texture="Corner12" BorderTexture="small_frame12" />
+            <HardwareFader Anchors="1,1,1,2" ToolTip="XFade2" Name="XFade2" SpecialExecIndex="XFade2"  HeadLineTexture="Corner0" Texture="Corner12" BorderTexture="small_frame12" />
+
+        </UILayoutGrid>
+
+        <UILayoutGrid Anchors="0,2,0,3" Name="LastSelectedArea"  Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="3" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0,1,1" Name="LastSelectedLabel" Rows="1" Columns="2" ExecBarToDraw="1" Texture="Corner3" FirstRow="2" LastRow="3" />
+            <UILayoutGrid Anchors="0,2,1,2" Name="DefaultPlayback" Columns="3">
+                <HardkeyButton Texture="Corner4"  Anchors="0,0" SignalValue="DEF_PAUSE" LedToken="Pause" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp"/>
+                <HardkeyButton Texture="Corner0"  Anchors="1,0" SignalValue="DEF_GOBACK" LedToken="Go-" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp"/>
+                <HardkeyButton Texture="Corner8"  Anchors="2,0" SignalValue="DEF_GO" LedToken="Go+" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp"/>
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </UILayoutGrid>
+
+    <!-- GrandMaster -->
+    <UILayoutGrid Anchors="2,0" Name="GrandMasterSection" Transparent="Yes" Texture="Corner15" BackColor="CustomMasters.Section" DefaultMargin="6" DefaultMarginOnBorders="No" >
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="3" />
+            <Item SizePolicy="Stretch" Size="6" />
+            <Item SizePolicy="Stretch" Size="2" />
+        </ItemCollectRows>
+        <UILayoutGrid Anchors="0,0" Name="GrandMasterArea" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <SpecialExecSection Anchors="0,0" Name="GrandMasterLabel" Rows="1" Columns="2" ExecBarToDraw="0" Texture="Corner3" />
+            <HardwareMiniEncoder Anchors="0,1" Name="GrandMaster" H="1r" MaxSize="47,47" AlignmentH="Center" AlignmentV="Center" SpecialExecIndex="GrandKnob" />
+        </UILayoutGrid>
+    </UILayoutGrid>
+
+    <!-- Pages -->
+    <UILayoutGrid Anchors="3,0" Name="PagesSection"   Rows="4" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section" DefaultMargin="6" DefaultMarginOnBorders="No" >
+        <Button Name="NextPage"      Anchors="0,0" Texture="Corner3" Clicked=":CommandLine" SignalValue="Next Page" ToolTip="Select next page" Icon="arrow_up" />
+        <DialogButton Anchors="0,1,0,2" Clicked=":TitleClicked" Name="PageBtn" Texture="Corner0"  TextAutoAdjust="Yes" />
+        <Button Name="PrevPage"      Anchors="0,3" Texture="Corner12" Clicked=":CommandLine" SignalValue="Prev Page" ToolTip="Select previous page" Icon="arrow_down" MouseDownHold=":CommandLine" SignalValueHold="Page 1" />
+    </UILayoutGrid>
+</UILayoutGrid>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="239" Name="WindowWorldPool" Guid="D1 14 EF 4D CA BB 4F 32 89 2F 98 D0 0C D6 AC 77" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="DB B3 1D FA E8 78 43 29 9F 3F 06 AE 7F 0E 0C 21" FileName="window_world_pool.uixml" PlaceHolder="UiScreen" WindowSettings="WorldPoolSettings" WindowContext="ContextWorldPool" Toggle="No" />
+    </Menu>
+</GMA3>

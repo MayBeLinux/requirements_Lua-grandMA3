@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <!-- <GenericEditorOverlay W="640" H="320" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" > -->
+    <RenderQualityEditor W="800" H="480" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Render Quality" HelpTopic="patch_render_quality.html">
+
+        <!--******************************-->
+        <!-- Titelbar -->
+        <!--******************************-->
+        <TitleBar Name="Titlebar" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="Title" Texture="corner1" Anchors="0,0" Text="Edit Render Quality"/>
+            <!-- <Button Name="ReloadRenderQuality" Anchors="1,0" Text="Reload&#xD;RenderQuality" W="110" Clicked=":ReloadRenderQuality" SignalValue="ReloadRenderQuality"/> -->
+            <!-- <IndicatorControl W="60"  MinSize="50,0" Anchors="1,0" Focus="Never" Name="LockBtn" Icon="locked" Property="Lock" ShowLabel="No" ToolTip="Lock the Render Quality"/> -->
+            <CloseButton Texture="corner2" Anchors="2,0" Focus="Never"/>
+        </TitleBar>
+
+        <!--******************************-->
+        <!-- Dialog -->
+        <!--******************************-->
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Main Settings" Value="Quality" />
+                <ItemStr Title="Haze Settings" Value="Haze" />
+
+            </UITab>
+
+            <DialogContainer Name="MainDialogContainer" Anchors="0,1" ChangeActive=":MyTabChanged">
+                <!--******************************-->
+                <!-- Haze Settings -->
+                <!--******************************-->
+                <UILayoutGrid Name="Haze" Anchors="0,1" DefaultMargin="0" Margin="10,0,10,0">
+                    <!-- Haze Main Grid Definition-->
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="90" />
+                        <Item SizePolicy="Stretch" Size="10" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                    </ItemCollectColumns>
+                    <!-- Grid Definition for Haze Buttons -->
+                    <UILayoutGrid Name="Buttons" Anchors="0,0" Margin="0,0,10,10">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="10" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="10" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="10" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="10" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="10" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="10" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="10" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="100" />
+                        </ItemCollectColumns>
+                        <!-- Haze Buttons -->
+                        <IndicatorControl Name="HazeEnabled"    Text="Enabled"       Anchors="0,1"   Texture="corner15" Property="HazeEnabled"    TextAutoAdjust="Yes" ReferencedTitleButton="HazeEnabled"/>
+                    </UILayoutGrid>
+                    <!-- Haze Fader-->
+                    <UiFader Name="HazeParticleQuality"             Text="Particle&#xD;Quality"                 Property="HazeParticleQuality"            Texture="corner0" HeadLineTexture="corner0" Anchors="1,0,1,0" MaxValue="100"/>
+                    <UiFader Name="HazeParticleSize"             Text="Particle&#xD;Size"                 Property="HazeParticleSize"            Texture="corner0" HeadLineTexture="corner0" Anchors="2,0,2,0" MaxValue="100"/>
+                    <UiFader Name="HazeScale"     Text="Haze&#xD;Scale"    Property="HazeScale"    Texture="corner0" HeadLineTexture="corner0" Anchors="3,0,3,0" MaxValue="100"/>
+                    <UiFader Name="HazeLayers"        Text="Layers"       Property="HazeLayers"       Texture="corner0" HeadLineTexture="corner0" Anchors="4,0,4,0" MaxValue="8"/>
+                    <UiFader Name="HazeBlend"  Text="Blend" Property="HazeBlend" Texture="corner0" HeadLineTexture="corner0" Anchors="5,0,5,0" MaxValue="100"/>
+                    <UiFader Name="HazeAnimationSpeed"      Text="Animation&#xD;Speed"     Property="HazeAnimationSpeed"     Texture="corner0" HeadLineTexture="corner0" Anchors="6,0,6,0" MaxValue="100"/>
+                    <UIObject Name="HazeInfoText" Text="" Anchors="0,1,6,1" HasHover="0" BackColor="Global.Transparent" TextAutoAdjust="Yes" TextAlignmentV="Center" TextAlignmentH="Left" Margin="0,0,2,2"/>
+                </UILayoutGrid>
+                <!--******************************-->
+                <!-- Main Settings -->
+                <!--******************************-->
+                <UILayoutGrid Name="Quality" Anchors="0,1">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="71" />
+                        <Item SizePolicy="Fixed" Size="12"/>
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="50" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="50" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="50" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="50" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Fixed" Size="12"/>
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Fixed" Size="12"/>
+
+                    </ItemCollectColumns>
+                    <!-- Col 1 -->
+                    <UILayoutGrid Name="ButtonGrid" Anchors="0,0,7,10" DefaultMargin="0" Margin="10,10,0,0">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                        </ItemCollectColumns>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                        </ItemCollectRows>
+                        <EditorPropertyButtons Anchors="0,0,1,8" BigModeColumns="2" BigModeRows="7" BigMode="Yes">
+                            <EditorCategoryButton Text="Label"/>
+                            <EditorNameButton />
+                            <EditorScribbleButton />
+                            <EditorAppearanceButton />
+                            <EditorTagButton />
+                            <EditorNoteButton/>
+                            <IndicatorControl Name="LockBtn" Property="Lock" ToolTip="Lock the Render Quality" Text="Lock"/>
+                            <EditorCategoryButton Text="Settings"/>
+                            <SwipeButton    Text="Beam"                 Name="BeamMode"         Property="BeamMode"         TextAutoAdjust="Yes" BackColor="global.Default"/>
+                            <SwipeButton    Text="Shadow"               Name="ShadowMode"       Property="ShadowMode"       TextAutoAdjust="Yes" BackColor="global.Default"/>
+                            <SwipeButton    Text="Gobo"                 Name="GoboMode"         Property="GoboMode"         TextAutoAdjust="Yes" BackColor="global.Default"/>
+                            <SwipeButton    Text="Multi Led Beam Mode"  Name="MultiLedBeamMode" Property="MultiLedBeamMode" TextAutoAdjust="Yes" BackColor="global.Default"/>
+                            <SwipeButton    Text="Body Quality"          Name="BodyQuality3d"    Property="BodyQuality3d"    TextAutoAdjust="Yes" BackColor="global.Default"/>
+                            <SwipeButton    Text="Dilution Type"         Name="DilutionType"     Property="DilutionType"     TextAutoAdjust="Yes" BackColor="global.Default"/>
+                        </EditorPropertyButtons>
+                    </UILayoutGrid>
+                    <!-- Col 2 -->
+                    <!-- Label Background Color -->
+                    <UILayoutGrid Name="FaderGrid" Anchors="9,0,13,10" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="90" />
+                            <Item SizePolicy="Stretch" Size="10" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <Item SizePolicy="Stretch" Size="100" />
+                            <!-- <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" />
+                        <Item SizePolicy="Stretch" Size="100" /> -->
+                        </ItemCollectColumns>
+                        <UiFader Name="LightScale"        Text="Light&#xD;Scale"   Property="ResolutionScaleLight"  Texture="corner0" HeadLineTexture="corner0" Anchors="0,0,0,0" MaxValue="100"/>
+                        <UiFader Name="ResolutionScale3D" Text="Render&#xD;Scale"  Property="ResolutionScale3D"     Texture="corner0" HeadLineTexture="corner0" Anchors="1,0,1,0" MaxValue="100"/>
+                        <UiFader Name="NativeColors"      Text="Native&#xD;Colors" Property="NativeColors"          Texture="corner0" HeadLineTexture="corner0" Anchors="2,0,2,0" MaxValue="100"/>
+                        <UiFader Name="DilutionScale"     Text="Dilution&#xD;Scale"   Property="DilutionScale"  Texture="corner0" HeadLineTexture="corner0" Anchors="3,0,3,0" MaxValue="1000"/>
+                        <!-- <UiFader Name="BeamRange" Text="Beam&#xD;Range"  Property="BeamRange" Texture="corner0" HeadLineTexture="corner0" Anchors="4,0,4,0" MaxValue="500"/> -->
+                        <!-- <UiFader Name="FalloffPow" Text="FallOff&#xD;Pow" Property="FalloffPow" Texture="corner0" HeadLineTexture="corner0" Anchors="5,0,5,0" MaxValue="200"/> -->
+                        <!-- <UiFader Name="FalloffMultiplier" Text="FallOff&#xD;Multiplier" Property="FalloffMultiplier" Texture="corner0" HeadLineTexture="corner0" Anchors="6,0,6,0" MaxValue="100"/> -->
+                        <!-- <UiFader Name="FalloffOffset" Text="FallOff&#xD;Offset" Property="FalloffOffset" Texture="corner0" HeadLineTexture="corner0" Anchors="7,0,7,0" MaxValue="100"/> -->
+                        <!-- <UiFader Name="BeamIntensityMultiplier" Text="Beam&#xD;Intensity" Property="BeamIntensityMultiplier" Texture="corner0" HeadLineTexture="corner0" Anchors="8,0,8,0" MaxValue="100"/> -->
+
+                        <IndicatorButton    Name="Import" Text="Import" Anchors ="3,1,3,1"  Clicked=":ImportRenderQuality" Texture="corner15"/>
+
+                        <!-- Maximal shift by 7 Positions -->
+                    </UILayoutGrid>
+
+                    <!-- Col 3 -->
+                    <UILayoutGrid Name="FaderGrid" Anchors="11,1,12,10" >
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="45" />
+                            <Item SizePolicy="Fixed" Size="45" />
+                            <Item SizePolicy="Fixed" Size="45" />
+                            <Item SizePolicy="Fixed" Size="45" />
+                            <Item SizePolicy="Fixed" Size="45" />
+                            <Item SizePolicy="Fixed" Size="45" />
+                        </ItemCollectRows>
+                        <!-- <PropertyInput      Name="LabelFontSize"             Text="Font Size"          Anchors="0,0,0,0"  Texture="corner15"  Property="LabelFontSize"/> -->
+                    </UILayoutGrid>
+                </UILayoutGrid>
+            </DialogContainer>
+        </DialogFrame>
+        <!-- </GenericEditorOverlay> -->
+    </RenderQualityEditor>
+
+</GMA3>

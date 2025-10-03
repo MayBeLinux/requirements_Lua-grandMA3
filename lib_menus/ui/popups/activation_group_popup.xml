@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="1" Name="ActivationGroupPopup" Guid="EC 6C FA E5 1E 76 4A 2C 9B 1B D7 03 96 F5 E4 D2" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="78 62 69 D4 08 25 4A D3 83 B1 20 63 FC 2D E3 5C" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="E4 E0 ED F7 21 08 48 E8 9E AE EE C0 26 8C CB E7" FileName="activation_group_popup.lua" />
+    </Menu>
+</GMA3>

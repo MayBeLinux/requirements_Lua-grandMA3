@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="233" Name="WindowSequenceSheet" Guid="7B 88 9E B9 6F 72 45 E7 9F AD 90 FD 37 6E A1 A3" Author="MA" Version="0.1.0.0" Path="/ui/window_sheet">
+        <ComponentXML Index="1" Guid="6C 9E C0 65 D1 66 46 51 A2 3E 74 B4 45 77 56 8F" FileName="window_sequence_sheet.uixml" PlaceHolder="UiScreen" WindowSettings="SequenceSheetSettings" WindowContext="ContextSequenceSheet" Toggle="No" />
+        <ComponentLua FileName="window_sequence_sheet.lua" />
+    </Menu>
+</GMA3>

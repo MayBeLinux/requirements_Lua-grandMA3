@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="178" Name="TouchConfig" Guid="A7 3A E8 5C 89 98 47 0E A2 B2 AE 2C 5F DB 76 16" Author="MA" Version="0.1.0.0" Path="/ui/setup">
+        <ComponentXML Index="1" Guid="F1 40 C6 D4 B6 DB 4D 9C A1 D3 B6 4E F8 D4 C5 98" FileName="touch_config.uixml" PlaceHolder="MainDialog" Toggle="No" />
+        <ComponentLua Index="2" Guid="F1 40 C6 D4 B6 DB 4D 9C A1 D3 B6 4E F8 D4 C5 99" FileName="touch_config.lua" />
+    </Menu>
+</GMA3>

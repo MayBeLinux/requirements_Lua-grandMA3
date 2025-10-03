@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog BackColor="Global.Background" OverrideKeybSC="Yes">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="DMX Profiles" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="1" />
+
+        <MainDialogSubMenu />
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft />
+            <CmdDlgFunctionButtonsRight />
+        </MainDialogFunctionButtons>
+    </MainDialog>
+</GMA3>

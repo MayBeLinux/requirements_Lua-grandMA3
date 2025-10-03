@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog OnLoad=":SoftwareUpdateLoaded" HelpTopic="update_network.html">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBarText" Texture="corner1" Anchors="0,0" Text="Software Update" Icon="setup_sw_update"/>
+            <SwipeButton Anchors="1,0" Target="ManetSocket" Property="SoftwareFilter" />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogPrimaryMenu Name="MainMenu">
+            <UITab  Texture="corner5" ItemSize="75" W="100%" H="100%" Name="PagesTab" Anchors="0,0" TabChanged=":PageChanged" Type="Vertical">
+                <ItemStr Title="Update" Value="UpdatePage" />
+                <ItemStr Title="Release&#xD;Notes" Value="ReleaseNotesPage" />
+                <ItemStr Title="Beta&#xD;News" Value="BetaReleaseNotesPage" VisibleInRelease="No" />
+                <ItemStr Title="EULA" Value="EULAPage" />
+                <ItemStr Title="Privacy&#xD;Policy" Value="PrivacyPolicyPage" />
+                <ItemStr Title="Credits" Value="CreditPage" />
+                <ItemStr Title="Trade-&#xD;marks" Value="TrademarksPage" />
+            </UITab>
+        </MainDialogPrimaryMenu>
+
+        <MainDialogFunctionButtons H="60" Name="FunctionButtons">
+            <CmdDlgFunctionButtonsLeft Name="Left">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="0.5" />
+                    <Item SizePolicy="Fixed" Size="0"/>
+                </ItemCollectRows>
+
+                <!-- visible in other tabs -->
+                <UIObject         Anchors="0,0,3,0" Name="EmptyOther" Texture="corner4" HasHover="0" />
+
+                <!-- visible in "Update" tab -->
+                <UIObject         Anchors="0,0,1,0" Name="EmptyFirst" Texture="corner4" HasHover="0"   />
+                <IndicatorButton  Anchors="2,0" Name="DeleteBtn" Padding="20,0,20,0" Text="Delete Update Files" Clicked=":DoDeleteUpdateFiles" ColorIndicator="Button.BackgroundClear" HelpTopic="update_delete_files.html"/>
+                <UIObject         Anchors="3,0" Name="EmptyLast" Texture="corner0" HasHover="0"   />
+
+                <!-- visible in "EULA" tab -->
+                <UIObject         Anchors="0,0,3,0" Name="EmptyEula" Texture="corner4" HasHover="0"   />
+
+                <!-- visible in "Privacy Policy" tab -->
+                <UIObject         Anchors="0,0,3,0" Name="EmptyPrivacyPolicy" Texture="corner4" HasHover="0"   />
+
+                <!-- visible in "Trademarks" tab -->
+                <UIObject         Anchors="0,0,3,0" Name="EmptyTrademarks" Texture="corner4" HasHover="0"   />
+
+            </CmdDlgFunctionButtonsLeft>
+
+            <CmdDlgFunctionButtonsRight Name="Right">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="0.5" />
+                    <Item SizePolicy="Fixed" Size="0"/>
+                </ItemCollectRows>
+
+                <!-- visible in other tabs -->
+                <UIObject         Anchors="0,0,3,0" Name="EmptyOther" Texture="corner8" HasHover="0" />
+
+                <!-- visible in "Update" tab -->
+                <UIObject         Anchors="0,0" Name="EmptyFirst" Texture="corner0" HasHover="0" />
+                <IndicatorButton  Anchors="1,0" Name="SelectBtn" Text="Select and Import&#xD;Update Files" Clicked=":DoSelectUpdateFile"/>
+                <IndicatorButton  Anchors="2,0" Name="UpdateBtn" Enabled="No" Text="Update Devices" Clicked=":DoUpdate"/>
+                <IndicatorButton  Anchors="3,0" Name="CancelBtn"  Enabled="No" Text="Cancel Software Update&#xD;Process" Clicked=":DoCancelSoftwareUpdate" ColorIndicator="Button.BackgroundClear" Texture="corner8"/>
+
+                <!-- visible in "EULA" tab -->
+                <UIObject         Anchors="0,0,2,0" Name="EmptyEula" Texture="corner0" HasHover="0" />
+                <IndicatorControl Anchors="3,0" Name="ThirdpartyBtn" Visible="No" Texture="corner8" Property="Accepted3rdParty" Text="Third-Party Software" Target="ShowData.ShowSettings.GlobalSettings" />
+
+                <!-- visible in "Privacy Policy" tab -->
+                <UIObject         Anchors="0,0,1,0" Name="EmptyPrivacyPolicy" Texture="corner0" HasHover="0" />
+                <UIObject         Anchors="2,0" Name="UserName" Texture="corner0" HasHover="0" OnLoad=":SetUserName"/>
+                <IndicatorControl Anchors="3,0" Name="PrivacyPolicyAgreeBtn" Property="PrivacyPolicy" Visible="No" Texture="corner8" Text="Agreed" OnLoad=":SetPrivacyPolicyAgreeBtnTarget" />
+
+                <!-- visible in other tabs -->
+                <UIObject         Anchors="0,0,3,0" Name="EmptyTrademarks" Texture="corner8" HasHover="0" />
+
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+        <MainDialogContent>
+            <DialogContainer Name="Dialogs" ChangeActive=":PageChanged">
+                <UIObject Name="UpdatePage" HasHover="0">
+                    <UiStationGrid Name="ManetStationGrid" Anchors="0,0" LevelLimit="1" AddTargets="Yes" AllowFilterContent="Yes" OnLoad=":StationGridLoaded">
+                        <GridSettings NoFixedColumns="No" ContentFilterType="SoftwareGridFilter">
+                        </GridSettings>
+                    </UiStationGrid>
+                </UIObject>
+                <UIObject Name="ReleaseNotesPage" Transparent="Yes" OnVisible=":OnReleaseNotesPageVisible">
+                    <PlaceHolder Name="ReleaseNotesPlace" />
+                </UIObject>
+                <UIObject Name="BetaReleaseNotesPage" Transparent="Yes" OnVisible=":OnBetaReleaseNotesPageVisible">
+                    <PlaceHolder Name="BetaReleaseNotesPlace" />
+                </UIObject>
+                <UIObject Name="EULAPage" Transparent="Yes" OnVisible=":OnEULAPageVisible">
+                    <PlaceHolder Name="EULAPlace" />
+                </UIObject>
+                <UIObject Name="PrivacyPolicyPage" Transparent="Yes" OnVisible=":OnPrivacyPolicyPageVisible">
+                    <PlaceHolder Name="PrivacyPolicyPlace" />
+                </UIObject>
+                <UIObject Name="CreditPage" Transparent="Yes" OnVisible=":OnCreditPageVisible">
+                    <PlaceHolder Name="CreditPlace" />
+                </UIObject>
+                <UIObject Name="TrademarksPage" Transparent="Yes" OnVisible=":OnTrademarksPageVisible">
+                    <PlaceHolder Name="TrademarksPlace" />
+                </UIObject>
+            </DialogContainer>
+        </MainDialogContent>
+    </MainDialog>
+</GMA3>

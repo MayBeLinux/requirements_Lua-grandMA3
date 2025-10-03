@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="WindowSmartView" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML FileName="window_smart_view.uixml" PlaceHolder="UiScreen" WindowSettings="SmartViewSettings" WindowContext="ContextSmartView" Toggle="No" />
+        <ComponentLua FileName="window_smart_view.lua" />
+    </Menu>
+</GMA3>

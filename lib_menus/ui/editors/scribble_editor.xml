@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="151" Name="ScribbleEditor" Guid="33 4E 5C 7C 9E D2 4F D1 AD 1D E6 71 D0 11 D0 00" Author="MA" Version="0.1.0.0" Path="/ui/editors">
+        <ComponentXML Index="1" Guid="B7 3B 0C 1F D6 D1 4A B2 B3 F8 E2 DC CD 89 2C 66" FileName="scribble_editor.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="07 56 D0 FF C5 05 49 B5 AF 93 8A 61 56 81 F9 93" FileName="scribble_editor.lua" />
+        <ComponentLua FileName="../content/placeholder_base.lua" />
+    </Menu>
+</GMA3>

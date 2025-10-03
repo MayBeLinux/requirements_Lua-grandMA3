@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="2.2.61">
+    <Menu Lock="Yes" Name="LearnOverlay" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML FileName="learn_overlay.uixml" PlaceHolder="ScreenOverlay" SearchFocusAllowed="No" />
+        <ComponentLua FileName="learn_overlay.lua" />
+    </Menu>
+</GMA3>

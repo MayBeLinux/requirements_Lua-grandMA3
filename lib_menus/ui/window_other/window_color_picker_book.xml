@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="197" Name="WindowColorPickerBook" Guid="00 1B 21 63 8B DE 00 00 79 53 36 54 00 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_other" DisplayFrom="Small6" DisplayTo="Small6">
+        <ComponentXML Index="1" Guid="00 1B 21 63 58 E4 00 00 78 53 36 54 00 82 55 B0" FileName="window_color_picker_book.uixml" PlaceHolder="DialogContent" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 77 93 00 00 7B 53 36 54 00 82 55 B0" FileName="window_color_picker_book.lua" />
+    </Menu>
+</GMA3>

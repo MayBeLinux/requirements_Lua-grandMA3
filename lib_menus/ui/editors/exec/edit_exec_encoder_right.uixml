@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="EditExecEncoderRight" WantsModal="1" W="700" H="300" OnLoad="::OnInputLoad">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed"  Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+
+        <TitleBar Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="Title" Texture="corner1" Anchors="0,0" Text="Edit Encoder"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+        <DialogFrame Name="DialogContent" Anchors="0,1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="3" />
+            </ItemCollectColumns>
+            <IndicatorControl Name="EncoderRightToken"   Property="EncoderRight"       ShowValue="Yes"           Anchors="0,0" Texture="corner5"/>
+            <IndicatorControl Name="MAEncoderRightToken" Property="MAEncoderRight"     ShowValue="Yes"           Anchors="0,1" Texture="corner5"/>
+            <LineEdit         Name="EncoderRight"        Property="EncoderRightCommand"    TextChangeOnEnter="1"     Anchors="1,0" Texture="corner10" />
+            <LineEdit         Name="MAEncoderRight"      Property="MAEncoderRightCommand"  TextChangeOnEnter="1"     Anchors="1,1" Texture="corner10" />
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

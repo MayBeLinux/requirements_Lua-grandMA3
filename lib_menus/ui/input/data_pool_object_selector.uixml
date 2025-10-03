@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput W="50%" H="60%" MinSize="600,500" WantsModal="1" OnLoad=":OnLoaded">
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select object" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame DefaultMargin="5">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="3" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Anchors="0,0,1,0" Rows="1" DefaultMargin="10">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <UIObject Text="Filter:" Anchors="0,0" ContentDriven="Yes" BackColor="global.BackGround" HasHover="No"/>
+                <LineEdit Name="ObjectFilter" Anchors="1,0" Texture="corner15" Target="../../ObjectSelector/Internals/GridBase/GridSettings/GridContentFilter/Name" Property="Filter" />
+            </UILayoutGrid>
+            <DBObjectGrid Name="DataPoolSelector" TargetObject="ShowData.DataPools" LevelLimit="0" Anchors="0,1" SelectionType="SingleRowGridSelection" OnSelectedItem=":OnDataPoolSelected" AllowAddNewline="No" AllowEdit="No" AllowMergeChildren="No">
+                <GridSettings AdjustColumns="Yes" NoFixedColumns="Yes" >
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="Yes">
+                            <GridColumn Name="Name" Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                </GridSettings>
+            </DBObjectGrid>
+            <DBObjectGrid Name="ObjectSelector" LevelLimit="0" Anchors="1,1" SelectionType="SingleRowGridSelection" OnSelectedItem=":OnObjectSelected" AllowFilterContent="Yes" AllowAddNewline="No" AllowEdit="No" AllowMergeChildren="No">
+                <GridSettings NoFixedColumns="Yes" >
+                    <GridColumnFilterCollect>
+                        <GridColumnNamesFilter Inclusive="Yes">
+                            <GridColumn Name="Name" Visible="Yes" />
+                            <GridColumn Name="No" Visible="Yes" />
+                        </GridColumnNamesFilter>
+                    </GridColumnFilterCollect>
+                    <GridContentFilter>
+                        <GridContentFilterItem Name="Name" Columns="Name" />
+                    </GridContentFilter>
+                </GridSettings>
+            </DBObjectGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

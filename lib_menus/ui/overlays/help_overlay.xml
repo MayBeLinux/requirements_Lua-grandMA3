@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="100" Name="HelpOverlay" Guid="70 4D 7B 2D B7 10 00 00 21 58 86 BB 78 B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Index="1" Guid="F5 94 A2 C8 FF CF 40 B4 98 45 83 52 80 48 C9 82" FileName="help_overlay.uixml" PlaceHolder="HelpOverlay" DisplayTypePreference="Big" WindowSettings="HelpViewerWindowSettings"/>
+        <ComponentLua Index="2"  FileName="help_overlay.lua" />
+    </Menu>
+</GMA3>

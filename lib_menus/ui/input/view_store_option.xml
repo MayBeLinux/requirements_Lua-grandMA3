@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="188" Name="ViewStoreOption" Guid="00 1B 21 63 D2 DE 00 00 6D 53 36 54 01 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/input" Placement="ForceMulti">
+        <ComponentXML Index="1" Guid="00 1B 21 63 D9 E4 00 00 6C 53 36 54 01 82 55 B0" FileName="view_store_option.uixml" PlaceHolder="ModalOverlay" BuddyGroupId="InputLine" DisplayTypePreference="BigOrSmall" DefaultDisplay="1" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 29 C7 00 00 6F 53 36 54 01 82 55 B0" FileName="view_store_option.lua" />
+    </Menu>
+</GMA3>

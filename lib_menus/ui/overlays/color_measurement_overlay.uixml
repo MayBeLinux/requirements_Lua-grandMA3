@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ColorMeasurementOverlay Name="ColorMeasurement" OnLoad=":OnLoaded" W="60%" H="50%" MinSize="800,480" AlignmentH="Center" AlignmentV="Center" RelativeToDisplay="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+
+        <TitleBar Anchors="0,0" Name="Title" Texture="corner1">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBtn" Texture="corner1" Anchors="0,0" Text="Color Measurement"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Anchors="0,0" Name="ColorMeasurement" Columns="4" DefaultMargin="10" Margin="10,10,10,10">
+                <Button Texture="corner15" Anchors="0,0" Text="Select Fixture" Clicked=":SelectFixture" />
+                <Button Texture="corner15" Anchors="1,0" Text="Find Device" Clicked=":FindDevice" />
+                <Button Texture="corner15" Anchors="2,0" Text="Dark Calibration" Clicked=":DarkCalibration" />
+                <Button Texture="corner15" Anchors="3,0" Text="Measure" Clicked=":StartMeasuring" />
+
+
+            </UILayoutGrid>
+            <UILayoutGrid Name="Feedback" Anchors="0,1" Visible="Yes" DefaultMargin="10" DefaultMarginOnBorders="1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="100" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="250" />
+                    <Item SizePolicy="Fixed" Size="300" />
+                </ItemCollectColumns>
+                <UIObject Text="Measurement Status" Texture="corner15" Anchors="0,0"  HasHover="No" BackColor="UIGrid.Background"/>
+                <PropertyControl Name="MeasurementStatus" ShowLabel="No" Texture="corner15" Anchors="1,0" Property="MeasurementStatus"/>
+            </UILayoutGrid>
+
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" AlignmentH="Right" AlignmentV="Bottom" />
+    </ColorMeasurementOverlay>
+</GMA3>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay Name="GelEditor" W="580" H="350" WantsModal="0" DefaultTitle="Edit Gel" OnSetEditTarget=":OnSetEditTarget" OnLoad=":OnLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed"   Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+
+        <TitleBar Name="TitleBar" Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Pool Settings" Icon="" OnLoad=":TitleButtonLoaded"/>
+            <IndicatorButton    Name="Import" Text="Import" Anchors ="1,0"  Clicked=":ImportGel" OnLoad=":LoadImportExportButton" />
+            <IndicatorButton    Name="Export" Text="Export" Anchors ="2,0"  Clicked=":ExportGel" OnLoad=":LoadImportExportButton" />
+            <CloseButton Texture="corner2" Anchors="3,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1" Columns="2" DefaultMargin="4">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="0.5" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <!-- Index Row -->
+            <UIObject       Texture=""          Anchors="0,0" Text="Label"  TextColor="Global.Bright" Interactive="No" />
+            <UIObject       Texture=""          Anchors="1,0" Text="Gel"    TextColor="Global.Bright" Interactive="No" />
+
+            <!-- Label column -->
+            <PropertyInput   Anchors="0,1" Texture="corner3" Property="Name" />
+            <PropertyInput   Anchors="0,2" Texture="corner0" Property="Note" />
+            <PropertyInput   Anchors="0,3" Texture="corner0" Property="Tags" />
+            <PropertyInput   Anchors="0,4" Texture="corner12" Property="Lock" />
+
+            <!-- Gel column -->
+            <PropertyInput   Anchors="1,1" Texture="corner3" Property="Key"/>
+            <GelColorPropertyInput   Anchors="1,2,1,4" Texture="corner12" Property="Color" ValueAutoAdjust="Yes"/>
+
+        </DialogFrame>
+    </GenericEditorOverlay>
+</GMA3>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+
+<UILayoutGrid Anchors="1,1" Name="AtFilterArea" W="300" >
+    <ItemCollectRows>
+        <Item SizePolicy="Fixed" Size="50" />
+        <Item SizePolicy="Stretch" Size="1" />
+    </ItemCollectRows>
+    <UILayoutGrid Anchors="0,0" Name="FixtureSubTitle">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectColumns>
+        <TitleButton Anchors="0,0" Texture="corner1" Text="At" />
+        <Button      Anchors="1,0" Texture="corner0" W="100" Text="Select&#xD;All" Clicked=":SelectAll" />
+        <Button      Anchors="2,0" Texture="corner0" W="100" Text="Select&#xD;None" Clicked=":SelectNothing" />
+        <PropertyControl Anchors="3,0" Name="ExpandBtn" Texture="corner2" Icon="triangle_right"  W="50" ShowLabel="No" ShowValue="No" OnLoad=":UseSettingsTarget" Property="ExpandAtFilter" />
+    </UILayoutGrid>
+    <ScrollContainer Name="Container" Anchors="0,1" DefaultMargin="0" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+        <ScrollBox Name="Box">
+            <AtFilterDialog Name="AtFilter" Anchors="0,0" Columns="1" FeatureGroupsOnly="Yes" DefaultMargin="8" DefaultMarginOnBorders="Yes" HasHover="No"/>
+        </ScrollBox>
+    </ScrollContainer>
+</UILayoutGrid>

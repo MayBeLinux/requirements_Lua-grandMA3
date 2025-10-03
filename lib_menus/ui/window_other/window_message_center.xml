@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="220" Name="WindowMessageCenter" Guid="70 8B CD 59 0C 59 00 00 C5 52 36 54 9A 84 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="70 8B CD 59 FD 4F 00 00 C4 52 36 54 9A 84 55 B0" FileName="window_message_center.uixml" PlaceHolder="UiScreen" WindowSettings="MessageGridSettings" WindowContext="ContextMessageCenterWindow" Toggle="No" />
+        <ComponentLua Index="2" Guid="70 8B CD 59 AF 2D 00 00 C7 52 36 54 9A 84 55 B0" FileName="window_message_center.lua" />
+        <ComponentLua FileName="../content/placeholder_base.lua" />
+    </Menu>
+</GMA3>

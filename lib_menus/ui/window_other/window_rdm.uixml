@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window HelpTopic="rdm.html" OnLoad=":OnLoad">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton   Anchors="1,0,2,0" Text="RDM Devices" Texture="corner2"/>
+            <TitleAutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <SwipeButton Name="ColumnConfig" W="100" MinSize="50,0" Text="Columns" Property="SelectedColumnConfiguration" ValueRole="DisplayShort" IndirectEdit="Yes" InteractWithCommandline="Yes"/>
+            </TitleAutoLayout>
+            <ContextButton Anchors="0,0" Icon="object_rdm" Texture="corner1" />
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame">
+            <DBObjectGrid Name="Grid" Anchors="0,0"  TargetObject="ShowData.RDMData" DataType="RdmGridData" AllowAddNewline="No" />
+        </DialogFrame>
+    </Window>
+</GMA3>

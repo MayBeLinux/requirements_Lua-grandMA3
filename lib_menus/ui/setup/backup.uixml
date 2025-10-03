@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <BackupMenu Name="Backup" OnLoad=":BackupLoaded" DriveReset="true" OverrideKeybSC="Yes" DefaultMargin="0" HelpTopic="show_file_management.html">
+        <TitleBar Name="Title" Anchors="0,0,2,0" SearchFocusTestParent="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="160" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectColumns>
+            <TitleButton        Anchors="0,0,5,0" Name="TitleBtn"        Texture="corner1" Margin="1,0,0,0" Text="Backup" Icon="folder_open" HasPressedAnimation="No"/>
+            <PropertyControl    Anchors="1,0" Property="AutoSaveCountdown" Target="ShowData.ShowSettings.GlobalSettings" Focus="Never" HasHover="No" HasPressedAnimation="No" BackColor="Global.Transparent" DefaultAction="No" ShowLabel="No"/>
+            <SwipeButton        Anchors="2,0"     Name="Filter"          Texture="corner0" Margin="1,0,0,0" Visible="No" Target="~" SelectionChanged=":SetFilter" Undo="No" />
+            <DriveSelector      Anchors="3,0"     Name="DriveSelector"   Texture="corner0" Margin="1,0,0,0" Target="Temp.DriveCollect" ShowOldVersions="Yes"/>
+            <EjectButton        Anchors="4,0"     Name="EjectBtn"        Texture="corner0" Margin="1,0,1,0" />
+            <CloseButton        Anchors="6,0"                            Texture="corner2" Margin="0,0,0,0" />
+            <WarningInfoButton  Anchors="0,0,6,0" Name="WarningButton" Font="Regular32" H="45"/>
+        </TitleBar>
+
+        <!INCLUDE ../../include/show_selector_content.uixml >
+
+        <!-- PreMenu -->
+        <UILayoutGrid Name="PreMenu" Anchors="2,2" Margin="1,0,0,0" DefaultMargin="2">
+            <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Fixed" Size="70"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Content"/>
+            </ItemCollectColumns>
+
+            <UIObject Anchors="0,0,1,2" Name="Background" HasHover="No" BackColor="MainDialog.Background"/>
+
+            <UILayoutGrid Name="ShowFileAndDescription" Anchors="0,0,1,0" DefaultMargin="0" H="230">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="25"/>
+                    <Item SizePolicy="Fixed" Size="45"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Fixed" Size="300"/>
+                    <Item SizePolicy="Fixed" Size="100"/>
+                </ItemCollectColumns>
+
+                <UIObject           Anchors="0,0" Text="Current Show" HasHover="No" BackColor="Global.Transparent" TextAlignmentH="Left"  Padding="60,0,60,0" />
+                <PropertyControl    Anchors="0,1" ValueAlignmentH="Left" Padding="60,0,60,0" Target="ManetSocket" Property="Showfile" Font="Regular32" ValueTextShadow="Yes" Focus="Never" HasHover="No" HasPressedAnimation="No" BackColor="Global.Transparent" DefaultAction="No" ShowLabel="No"/>
+
+                <UILayoutGrid Name="LayoutDescription" Anchors="0,2,2,2" Padding="60,10,60,10">
+                    <UIObject BackColor="Global.Transparent" Text="Description" TextAlignmentH="Left" TextAlignmentV="Top" HasHover="No"/>
+                    <TextEdit Name="EditDescription" Margin="51,25,0,0" Padding="5,0,5,0" Focus="CanHaveFocus" Property="Description" Target="/ShowData/ShowSettings/ShowMetaData" HasHover="No" BackColor="UIGrid.FixedBackground" UserRights="Admin" FocusGet=":OnDescriptionGetFocus" Texture="corner10" WantsNumericRedirect="Yes"/>
+                    <Button   Margin="0,25,0,0" W="50" Icon="keyboard" AlignmentH="Left" Clicked=":OpenDescriptionInput" BackColor="UIGrid.FixedBackground" Texture="corner5"/>
+                </UILayoutGrid>
+
+                <DriveStatusButton Name="DriveStatus" Anchors="1,0,1,1" Texture="corner0" Margin="0,0,0,0" Clicked=":UpdateDiskStatus" TextAlignmentV="Top" TextAlignmentH="Right" Padding="0,5,0,0" Focus="Never" HasHover="No" HasPressedAnimation="No" BackColor="Global.Transparent"/>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="CenterButtons" Anchors="0,1" AlignmentH="Center" AlignmentV="Center" MaxSize="0,400">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" MinSize="50"/>
+                    <Item SizePolicy="Stretch" MinSize="50"/>
+                    <Item SizePolicy="Stretch" MinSize="50"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch"/>
+                    <Item SizePolicy="Stretch" MinSize="100"/>
+                    <Item SizePolicy="Stretch" MinSize="100"/>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectColumns>
+
+                <IndicatorControl Anchors="1,0" Name="ModeLoad" Text="Load"       Texture="corner15" Clicked=":GotoLoad"   Padding="10,10,10,10" Margin="0,3,5,3"                                          IconAlignmentH="Left" Icon="folder"      IndicatorIcon="DialogButtonIcon" UserRights="Playback" Focus="InitialFocus"/>
+                <IndicatorControl Anchors="1,1" Name="ModeSaAs" Text="Save As"    Texture="corner15" Clicked=":GotoSaveAs" Padding="10,10,10,10" Margin="0,3,5,3" ColorIndicator="Button.BackgroundPlease" IconAlignmentH="Left" Icon="Backup"      IndicatorIcon="DialogButtonIcon" UserRights="Presets" />
+                <IndicatorControl Anchors="1,2" Name="ModeDele" Text="Delete"     Texture="corner15" Clicked=":GotoDelete" Padding="10,10,10,10" Margin="0,3,5,3" ColorIndicator="Button.BackgroundClear"  IconAlignmentH="Left" Icon="delete_file" IndicatorIcon="DialogButtonIcon" UserRights="Presets"/>
+                <IndicatorControl Anchors="2,0" Name="ModeNewS" Text="New Show"   Texture="corner15" Clicked=":GotoNewShow"  Padding="10,10,10,10" Margin="0,3,5,3"                                          IconAlignmentH="Left" Icon="file"        IndicatorIcon="DialogButtonIcon" UserRights="Admin" />
+                <IndicatorControl Anchors="2,1" Name="ModeSave" Text="Save"       Texture="corner15" Clicked=":DoSave"     Padding="10,10,10,10" Margin="0,3,5,3" ColorIndicator="Button.BackgroundPlease" IconAlignmentH="Left" Icon="Backup"                                       UserRights="Presets" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="SideCtr" Anchors="1,1" AlignmentH="Right" AlignmentV="Center" W="462" H="100%" Visible="No">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="40"/>
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+                <UIObject Anchors="0,0,0,1" Text="Available Drives:" BackColor="TitleButton.Background" HasHover="No" TextAlignmentH="Left" TextAlignmentV="Top" Padding="10,10,10,10"/>
+
+                <DBObjectGrid Name="HddDetailsGrid" Anchors="0,1" BackColor="Global.Transparent" TargetObject="Temp.DriveCollect" AllowAddNewline="No" AllowEdit="No" AllowFilterContent="Yes" FilterBlockUIEnabled="No" Padding="3,3,3,3">
+                    <GridSettings ContentFilterType="GridObjectContentFilter" NoFixedColumns="Yes">
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter>
+                                <GridColumn Name="Lock" Visible="No" />
+                                <GridColumn Name="Path" Visible="No" />
+                                <GridColumn Name="DriveType" Visible="No" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                        <GridObjectContentFilter>
+                            <GridObjectContentFilterItem Columns="DriveType" Filter="Internal" />
+                            <GridObjectContentFilterItem Columns="DriveType" Filter="Removeable" />
+                        </GridObjectContentFilter>
+                    </GridSettings>
+                </DBObjectGrid>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Settings" Anchors="0,2,1,2">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="220"/>
+                    <Item SizePolicy="Fixed" Size="180"/>
+                    <Item SizePolicy="Fixed" Size="280"/>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <PropertyInput    Name="AutoSaveBtn"                            Anchors="0,0" Texture="corner15" Padding="10,0,10,0" Margin="8,8,8,8" Property="AutosaveInterval"                         Target="ShowData.ShowSettings.GlobalSettings" Text="AutoSave Interval"                                     UserRights="Presets" Icon="Backup" IconAlignmentH="Left" ShowLabel="Yes" ShowValue="Yes" TextAlignmentH="Center"/>
+                <IndicatorControl Name="ExportCachedObjOnShowSave"              Anchors="1,0" Texture="corner15" Padding="10,0,10,0" Margin="8,8,8,8" Property="ExportCachedObjectsOnShowSave"            Target="ShowData.ShowSettings.GlobalSettings" Text="Export Media&#xD;on Show Save"                         UserRights="Admin" Focus="CanHaveFocus"/>
+                <IndicatorControl Name="EnumShowFileNameWhenDescriptionChanges" Anchors="2,0" Texture="corner15" Padding="10,0,10,0" Margin="8,8,8,8" Property="EnumShowFileNameWhenDescriptionChanges"   Target="ShowData.ShowSettings.GlobalSettings" Text="Enumerate Show File Name&#xD;When Description Changes" UserRights="Admin" Focus="CanHaveFocus"/>
+            </UILayoutGrid>
+        </UILayoutGrid>
+
+        <PlaceHolderBase Name="KeyboardPlaceholder" AllowedInvisible="Yes" />
+    </BackupMenu>
+</GMA3>

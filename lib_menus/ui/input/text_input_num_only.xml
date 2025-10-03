@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="175" Name="TextInputNumOnly" Guid="00 1B 21 63 42 DB 00 00 66 53 36 54 01 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML Index="1" Guid="00 1B 21 63 E4 C0 00 00 69 53 36 54 01 82 55 B0" FileName="text_input_num_only.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 3D A2 00 00 68 53 36 54 01 82 55 B0" FileName="text_input_num_only.lua" />
+    </Menu>
+</GMA3>

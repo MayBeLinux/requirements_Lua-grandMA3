@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="ExecFaderOverlay" W="100" H="50%" AlignmentH="Right" AlignmentV="Bottom" WantsModal="0" ContentDriven="No" DefaultMargin="0" FocusSearchPolicy="Default" >
+
+        <TitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner3" Anchors="0,0" Text="Exec Fade" TextAlignmentH="Center" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="1" Columns="2">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1"/>
+            </ItemCollectRows>
+
+            <UiFader Name="ExecTime" Text="Executor&#xD;Time" Target="ShowData.Masters.Grand.ExecutorTime" Anchors="0,0" ToolTip="Executor time override" OnOffTexture="led_rect"      Texture="corner1" HeadLineTexture="corner1"/>
+            <UiFader Name="ExecXFade" Text="Executor&#xD;XFade" Target="ShowData.Masters.Grand.ExecutorXFade" Anchors="1,0" ToolTip="Manual Executor XFade" OnOffTexture="led_rect"      Texture="corner2" HeadLineTexture="corner2"/>
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>
+

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="Remote Inputs" HelpTopic="remote_inputs.html" OnLoad=":OnLoaded">
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="In &amp; Out" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Columns="1" Rows="1">
+            <DialogContainer Name="Dialogs" ChangeActive=":ContentChange">
+                <UILayoutGrid Name="DCRemotes" Transparent="0" HelpTopic="remote_inputs_dc.html">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="150" />
+                        <Item SizePolicy="Stretch" Size="150" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <UILayoutGrid Name="DCRemotesButtons" Transparent="0" Columns="3" Anchors="0,0" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                        <PropertyInput Anchors="2,0" Target="ShowData.Remotes.DCRemotes" Text="Enable Input" Property="Enabled" Texture="corner15" ToolTip="Enables the input of the DC Remotes." />
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="DCGrid" Anchors="0,1" OnLoad=":setRemoteTargets"  Focus="InitialFocus"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="MIDIRemotes" Transparent="0" HelpTopic="remote_inputs_midi.html">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="150" />
+                        <Item SizePolicy="Stretch" Size="150" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <UILayoutGrid Name="MIDIRemotesButtons" Transparent="0" Columns="3" Anchors="0,0" DefaultMargin="20" Margin="20,0,20,0" DefaultMarginOnBorders="Yes">
+                        <UILayoutGrid Anchors="0,0" Texture="corner0" Transparent="0" BackColor="Button.Background" >
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" />
+                                <Item SizePolicy="Content" />
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" />
+                                <Item SizePolicy="Content" />
+                            </ItemCollectColumns>
+                            <TextView Anchors="0,0" Focus="Never" Name="MidiMonitor" TextViewProvider="/Temp/MidiMonitor" BackColor="SystemMonitor.Background" SelectionColor="SystemMonitor.SelectedRow" FixedBackColor="SystemMonitor.FixedBackground" />
+                            <ScrollBarV Anchors="1,0" ScrollTarget="../MidiMonitor" />
+                        </UILayoutGrid>
+                        <PropertyInput Margin="0,20,0,20" Anchors="1,0" Target="ShowData.Remotes.MIDIRemotes" Text="Show MIDI Data in System Monitor" Property="FeedbackInput" Texture="corner15"/>
+                        <PropertyInput Margin="0,20,0,20" Anchors="2,0" Target="ShowData.Remotes.MIDIRemotes" Text="Enable Input" Property="Enabled" Texture="corner15"/>
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="MIDIGrid" Anchors="0,1" OnLoad=":setRemoteTargets" Focus="InitialFocus"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="DMXRemotes" Transparent="0" HelpTopic="remote_inputs_dmx.html">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="150" />
+                        <Item SizePolicy="Stretch" Size="150" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <UILayoutGrid Name="DMXRemotesButtons" Transparent="0" Columns="3" Anchors="0,0" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                        <PropertyInput Anchors="2,0" Target="ShowData.Remotes.DmxRemotes" Text="Enable Input" Property="Enabled" Texture="corner15"/>
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="DmxGrid" Anchors="0,1" OnLoad=":setRemoteTargets" Focus="InitialFocus"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="OSC" Transparent="0" HelpTopic="remote_inputs_osc.html">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="150" />
+                        <Item SizePolicy="Stretch" Size="150" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <UILayoutGrid Name="OSCButtons" Transparent="0" Columns="4" Anchors="0,0" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                        <PropertyInput Anchors="0,0" Target="ShowData.OSCBase" Property="PreferredIP" Texture="corner15" />
+                        <PropertyInput Anchors="1,0" Target="ShowData.OSCBase" Property="Interface" Text="Interface" Texture="corner15" />
+                        <OSCActivityButton Anchors="2,0" Target="ShowData.OSCBase" Text="Enable Output" Property="EnableOutput" Texture="corner15" Direction ="1"/>
+                        <OSCActivityButton Anchors="3,0" Target="ShowData.OSCBase" Text="Enable Input" Property="EnableInput" Texture="corner15" Direction ="0"/>
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="OSCData" Anchors="0,1" OnLoad=":setRemoteTargets" Focus="InitialFocus"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="PSN" Transparent="0" HelpTopic="remote_inputs_psn.html">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="150" />
+                        <Item SizePolicy="Stretch" Size="150" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <UILayoutGrid Name="PSNButtons" Transparent="0" Columns="4" Anchors="0,0" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                        <PropertyInput Anchors="0,0" Target="ShowData.PSNProtocol" Property="PreferredIP" Texture="corner15" />
+                        <PropertyInput Anchors="1,0" Target="ShowData.PSNProtocol" Property="Interface" Text="Interface" Texture="corner15" />
+                        <OSCActivityButton Anchors="2,0" Target="ShowData.PSNProtocol" Text="Enable Output" Property="Out" Texture="corner15" Direction ="1" Visible="No"/>
+                        <OSCActivityButton Anchors="3,0" Target="ShowData.PSNProtocol" Text="Enable Input" Property="In" Texture="corner15" Direction ="0"/>
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="PSNData" Anchors="0,1" OnLoad=":setRemoteTargets" Focus="InitialFocus"/>
+                </UILayoutGrid>
+                <UILayoutGrid Name="MVRxchange" Transparent="0" HelpTopic="remote_inputs_mvr.html">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="150" />
+                        <Item SizePolicy="Content"/>
+                        <Item SizePolicy="Stretch" Size="150" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+                    <UILayoutGrid Name="MVRButtons" Transparent="0" Columns="3" Anchors="0,0" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                        <PropertyInput Anchors="0,0" Target="ShowData.MVRxchange" Property="GroupName" Text="Group" Texture="corner15"/>
+                        <PropertyInput Anchors="1,0" Target="ShowData.MVRxchange" Property="Interface" Text="Interface" Texture="corner15" />
+                        <PropertyInput Anchors="2,0" Target="ShowData.MVRxchange" Property="Enabled" Text="Enable" Texture="corner15" />
+                    </UILayoutGrid>
+                    <UITab Name="MvrTabs" Anchors="0,1" AvoidScroll="Yes" TabChanged=":MVRTabChanged" UseTabRegistry="Yes">
+                        <ItemStr Title="Local" Value="Local" />
+                        <ItemStr Title="Services" Value="Services" />
+                        <ItemStr Title="Files" Value="Files" />
+                    </UITab>
+                    <DialogContainer Name="Grids" Anchors="0,2" ChangeActive=":MVRTabChanged">
+                        <UILayoutGrid Name="Local" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                            <DBObjectGrid Name="MvrLocalGrid"  BackColor="UIGrid.Background" Anchors="0,0" AllowFilterContent="Yes" Focus="InitialFocus" AllowAddNewline="No" OnSelectedItem=":OnGridSelectionChanged" FilterBlockUIEnabled="No" TargetObject="ShowData.MVRxchange"/>
+                        </UILayoutGrid>
+                        <UILayoutGrid Name="Services" DefaultMargin="20" DefaultMarginOnBorders="Yes" Margin="20,20,20,20">
+                            <DBObjectGrid Name="MvrServicesGrid"  BackColor="UIGrid.Background" Anchors="0,0" AllowFilterContent="Yes" Focus="InitialFocus" SelectionType="SingleRowGridSelection" AllowAddNewline="No" OnSelectedItem=":OnGridSelectionChanged" FilterBlockUIEnabled="No" TargetObject="Temp.TempMVRExchange.MVRServiceCollect 1" GridVersion="1"  DataType="MvrServicesGridData" />
+                        </UILayoutGrid>
+                        <UILayoutGrid Name="Files" DefaultMargin="20" DefaultMarginOnBorders="Yes" Margin="20,20,20,20">
+                            <DBObjectGrid Name="MvrFilesGrid"  BackColor="UIGrid.Background" Anchors="0,0" AllowFilterContent="Yes" Focus="InitialFocus" SelectionType="SingleRowGridSelection" AllowAddNewline="No" OnSelectedItem=":OnGridSelectionChanged" FilterBlockUIEnabled="No" TargetObject="Temp.TempMVRExchange.MVRFileCollect 2" GridVersion="1"/>
+                        </UILayoutGrid>
+
+                    </DialogContainer>
+                </UILayoutGrid>
+            </DialogContainer>
+        </MainDialogContent>
+
+        <MainDialogPrimaryMenu>
+            <MainDialogMainTabs TextAutoAdjust="Yes" ItemSize="100" Name="ContentTab" Target="~" Property="LastOpenRemotesTab" TabChanged=":ContentChange">
+                <ItemStr Title="DC Remotes" Value="DCRemotes" HelpTopic="remote_inputs_dc.html"/>
+                <ItemStr Title="MIDI Remotes" Value="MIDIRemotes" HelpTopic="remote_inputs_midi.html"/>
+                <ItemStr Title="DMX Remotes" Value="DMXRemotes" HelpTopic="remote_inputs_dmx.html"/>
+                <ItemStr Title="OSC" Value="OSC" HelpTopic="remote_inputs_osc.html"/>
+                <ItemStr Title="PSN" Value="PSN" HelpTopic="remote_inputs_psn.html"/>
+                <ItemStr Title="MVR" Value="MVRxchange" HelpTopic="remote_inputs_mvr.html"/>
+            </MainDialogMainTabs>
+        </MainDialogPrimaryMenu>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner0" HasHover="0" Visible="No" Name="ButtonBack"/>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportButton ChangeDestination="Yes" />
+                <MainDlgExportButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight Name="empty">
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+            <CmdDlgFunctionButtonsRight Name="osc" Visible="No">
+                <IndicatorButton Anchors="0,0" Name="ReceiveAll" Text="Receive All" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'Receive' = 1"/>
+                <IndicatorButton Anchors="0,1" Name="ReceiveNone" Text="Receive None" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'Receive' = 0" />
+                <IndicatorButton Anchors="1,0" Name="SendAll" Text="Send All" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'Send' = 1"/>
+                <IndicatorButton Anchors="1,1" Name="SendNone" Text="Send None" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'Send' = 0" />
+                <IndicatorButton Anchors="2,0" Name="ReceiveCmdAll" Text="Receive Command All" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'ReceiveCommand' = 1"/>
+                <IndicatorButton Anchors="2,1" Name="ReceiveCmdNone" Text="Receive Command None" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'ReceiveCommand' = 0" />
+                <IndicatorButton Anchors="3,0" Name="SendCmdAll" Text="Send Command All" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'SendCommand' = 1"/>
+                <IndicatorButton Anchors="3,1" Name="SendCmdNone" Text="Send Command None" Clicked=":CommandLine" SignalValue="Set 'Showdata'.'OSCBase'.'*' 'SendCommand' = 0" />
+            </CmdDlgFunctionButtonsRight>
+            <CmdDlgFunctionButtonsRight Name="mvr" Visible="No">
+                <UIObject Anchors="0,0,3,1" Texture="corner0" HasHover="0"/>
+                <IndicatorButton Anchors="0,0" Name="RequestButton" Text="Request" Clicked=":RequestClicked" />
+                <IndicatorButton Anchors="0,0" Name="LeaveButton" Text="Leave" Clicked=":LeaveClicked" />
+                <IndicatorButton Anchors="0,1" Name="JoinButton" Text="Join" Clicked=":JoinClicked" />
+                <IndicatorButton Anchors="3,1" Name="CommitButton" Text="Commit MVR" Clicked=":CommandLine" SignalValue="menu 'MvrCommit'" HelpTopic=""/>
+
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+        <MainDialogPlaceHolder Name="MainDialog" />
+    </MainDialog>
+</GMA3>

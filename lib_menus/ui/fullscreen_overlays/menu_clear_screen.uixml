@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShadedOverlay Name="MenuSide" MaxSize="250,460" AlignmentH="Right" AlignmentV="Bottom" WantsModal="1" HelpTopic="wvm_menus.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner3" Anchors="0,0" Text="Display"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed"   Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="29" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="29" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="10" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed"   Size="12" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="12" />
+            </ItemCollectColumns>
+
+            <IndicatorControl Anchors="1,1" Texture="corner15" Text="Delete This Screen"    Clicked=":CommandLine" SignalValue="Delete ScreenContent Default.*" CloseAction="Ok" FocusSearchPolicy="Force" />
+            <IndicatorControl Anchors="1,3" Texture="corner15" Text="Delete All Screens"        Clicked=":CommandLine" SignalValue="Delete ScreenContent *.*" CloseAction="Ok" />
+            <IndicatorControl Name="DisplayConfig" Anchors="1,5" Texture="corner15" Text="Configure Display"        Clicked=":MenuConfigDisplay" CloseAction="Ok" />
+            <IndicatorControl Anchors="1,7" Name="ResetDialogsDI" Texture="corner15" Text="Set Dialogs&#xD;to This Display"  Clicked=":ResetMainDialogsToThis" CloseAction="Ok" FocusSearchPolicy="Force" />
+            <IndicatorControl Anchors="1,9" Name="ResetDialogsDIToDefault" Texture="corner15" Text="Set Dialog&#xD;Positions to Default"  Clicked=":ResetMainDialogsToDefault" CloseAction="Ok" FocusSearchPolicy="Force" />
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog BackColor="MainDlgSetup.Background">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="40" />
+            <Item SizePolicy="Fixed" Size="40" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="40" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="40" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Settings" Icon="settings"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+
+    </MainDialog>
+
+</GMA3>

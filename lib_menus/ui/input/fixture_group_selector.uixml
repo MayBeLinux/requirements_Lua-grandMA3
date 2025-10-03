@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+	<BaseInput W="800" H="480" MinSize="800,480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" OnLoad=":OnLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <TitleBar Anchors="0,0" Name="TitleBar" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+				<Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select Fixtures or Groups" Icon=""/>
+			<!--<AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="AutoButtons" Direction="Horizontal" Texture="corner0" Content="Yes" Visible="Yes">-->
+			<!--    <ObjectSelector Anchors="0,0" Name="DataPoolSelector" Text="DataPool" W="100" SelectionChanged=":OnDataPoolChanged" Target="ShowData.Datapools" ShowLabel="Yes" TextColor="Button.Text" OnLoad=":OnDataPoolLoaded" Texture="corner0" ColorIndicatorHeight="0" ToolTip="Select Source Data Pool" Focus="Never" Visible="No"/>-->
+			<!--</AutoLayout>-->
+            <CloseButton Texture="corner2" Anchors="2,0" Focus="Never"/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+				<Item SizePolicy="Fixed" Size="50" />
+			</ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":OnTabChanged" >
+                <ItemStr Title="Fixtures" Value="FrameFixtures" />
+                <ItemStr Title="Groups" Value="FrameGroups" />
+            </UITab>
+
+            <DialogContainer Name="DC" Anchors="0,1" ChangeActive=":OnTabChanged" ActiveChild="FrameFixtures">
+
+				<!-- ++++++++++++++++++++++++++ FIXTURE GRID AREA ++++++++++++++++++++++++++ -->
+				
+                <UILayoutGrid Name="FrameFixtures" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+
+                    <UILayoutGrid Anchors="0,0" Name="FilterBlock">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Content" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Content" Size="1" />
+                        </ItemCollectColumns>
+                        <UIObject Anchors="0,0" Text="Filter:" W="60" BackColor="global.BackGround" HasHover="No" />
+                        <LineEdit Anchors="1,0" Name="FilterEdit" Focus="WantsFocus" Texture="corner5" Target="../../FixtureGrid/Internals/GridBase/GridSettings/GridObjectContentFilter/Filter"  Property="Filter" Clear=":ClearFilters" Execute=":JumpToGrid" />
+                        <IndicatorButton Anchors="2,0" Name="Clear" Text="Clear" Clicked=":ClearFilters" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" />
+                    </UILayoutGrid>
+                    <DBObjectGrid Anchors="0,1" Name="FixtureGrid" SelectionType="MultiRowGridSelection" TargetObject="ShowData.LivePatch.Stages" FilterBlockUIEnabled="No" AllowFilterContent="Yes" AllowEdit="No" CanProvideUiGridSelection="No" BackColor="Global.Transparent" AllowMergeChildren="No" LevelLimit="255" AllowAddNewline="No">
+                        <GridSettings ContentFilterType="GridObjectContentFilter" AdjustColumns="Yes" NoFixedColumns="No" >
+                            <GridObjectContentFilter >
+                                <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                            </GridObjectContentFilter>
+                            <GridColumnFilterCollect>
+                                <GridColumnNamesFilter Inclusive="Yes">
+                                    <GridColumn Name="FID" Visible="Yes" />
+                                    <GridColumn Name="IDType" Visible="Yes" />
+                                    <GridColumn Name="CID" Visible="Yes" />
+                                    <GridColumn Name="Name" Visible="Yes" />
+                                    <GridColumn Name="Note" Visible="Yes" />
+                                    <GridColumn Name="Patch" Visible="Yes" />
+                                </GridColumnNamesFilter>
+                            </GridColumnFilterCollect>
+                        </GridSettings>
+                        <DBObjectGridData HeaderRows="1" LocalExpandedStateDefault="Yes" UseLocalExpandedState="Yes" HierarchyFilterMask="1" IgnoreCmdInput="Yes"/>
+                    </DBObjectGrid>
+		        </UILayoutGrid>
+
+				<!-- ++++++++++++++++++++++++++ GROUP GRID AREA ++++++++++++++++++++++++++ -->
+				
+				<UILayoutGrid Name="FrameGroups" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+                    <ItemCollectRows>
+						<Item SizePolicy="Fixed" Size="50" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+					<UILayoutGrid Anchors="0,0" Name="FilterBlock">
+						<ItemCollectRows>
+							<Item SizePolicy="Stretch" Size="1" />
+						</ItemCollectRows>
+						<ItemCollectColumns>
+							<Item SizePolicy="Content" Size="1" />
+							<Item SizePolicy="Stretch" Size="1" />
+							<Item SizePolicy="Content" Size="1" />
+						</ItemCollectColumns>
+						<UIObject Anchors="0,0" Text="Filter:" W="60" BackColor="global.BackGround" HasHover="No" />
+						<LineEdit Anchors="1,0" Name="FilterEdit" Focus="WantsFocus" Texture="corner5" Target="../../GroupGrid/Internals/GridBase/GridSettings/GridObjectContentFilter/Filter"  Property="Filter" Clear=":ClearGroupFilter" Execute=":JumpToGrid" />
+						<IndicatorButton Anchors="2,0" Name="Clear" Text="Clear" Clicked=":ClearGroupFilter" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" />
+					</UILayoutGrid>
+					<DBObjectGrid Anchors="0,1" Name="GroupGrid" SelectionType="MultiRowGridSelection" BackColor="Global.Transparent" AllowEdit="No" CanProvideUiGridSelection="No" OnLoad=":OnGroupGridLoaded" FilterBlockUIEnabled="No" AllowFilterContent="Yes" LevelLimit="0" >
+						<GridSettings ContentFilterType="GridObjectContentFilter" AdjustColumns="Yes" NoFixedColumns="No" ContentFilterType="GridObjectContentFilter">
+							<GridObjectContentFilter >
+								<GridObjectContentFilterItem Name="Filter" Columns="Name" />
+							</GridObjectContentFilter>
+							<GridColumnFilterCollect>
+								<GridColumnNamesFilter Inclusive="Yes">
+									<GridColumn Name="No" Visible="Yes" />
+									<GridColumn Name="Name" Visible="Yes" />
+									<GridColumn Name="Scribble" Visible="Yes" />
+									<GridColumn Name="Appearance" Visible="Yes" />
+									<GridColumn Name="Note" Visible="Yes" />									
+								</GridColumnNamesFilter>
+							</GridColumnFilterCollect>
+						</GridSettings>
+						<DBObjectGridData HeaderRows="1" HierarchyFilterMask="1" IgnoreCmdInput="Yes"/>
+					</DBObjectGrid>
+                </UILayoutGrid>
+
+            </DialogContainer>
+
+			<IndicatorButton Name="AddFixtures" Text="Add"  Margin="0,0,15,0" Clicked=":DoAddFixtures" Anchors="0,2" W="130" AlignmentH="Right" Texture="corner15" WantsNumericRedirect="Yes" OnLoad=":OnLoadedPleaseButton"/>
+			
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+
+    </BaseInput>
+</GMA3>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="SelectionOverlay" W="100%" H="100%" AlignmentH="Left" AlignmentV="Bottom" WantsModal="0" DefaultMargin="0" FocusSearchPolicy="Default" OnLoad=":OnLoad" AutoClose="0" AutoCloseOnOverlay="1" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <TitleBar Anchors="0,0" Name="Title" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Anchors="0,0" Name="TitleBtn" Texture="corner1" Text="Selection Grid"/>
+
+            <AutoLayout Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" Margin="1,0,0,0" >
+                <IndicatorControl MinSize="50,0" W="70"  Name="SetupMode"                  Texture="corner0" Text="Setup"                  Property="SetupMode" Target="#.$CurrentSelectionRef$"/>
+                <IndicatorControl MinSize="50,0" W="50"  Name="AutoScroll"                 Texture="corner0" Text=" "                      Property="AutoScroll"     Icon  ="fit"       ToolTip="Toggle view autoscroll."      />
+                <IndicatorControl MinSize="50,0" W="50"  Name="GridLines"                  Texture="corner0" Text=" "                      Property="GridLines"  Icon  ="show_grid" ToolTip="Toggle grid lines."           />
+                <IndicatorControl MinSize="50,0" W="130" Name="PreserveGridPositions"      Texture="corner0" Text="Preserve&#xD;GridPositions"   Property="PreserveGridPositions" Target="#.$CurrentSelectionRef$" ToolTip="Toggle auto-remove of gaps" />
+                <SwipeButton      MinSize="50,0" W="140" Name="MoveGridCursor"             Texture="corner0" Text="Move Grid Cursor"       Property="MoveGridCursor" Target="~"   ToolTip="Change grid cursor movement" />
+                <IndicatorControl MinSize="50,0" W="150" Name="ShowMAtricksTransformation" Texture="corner0"                               Property="MAtricksTransformation"        ToolTip="Toggle between original and matricks gridpos" />
+                <IndicatorControl MinSize="50,0" W="120" Name="CenterlineX"                Texture="corner0"                               Property="CenterlineX" ToolTip="Toggle x centerline." />
+                <IndicatorControl MinSize="50,0" W="120" Name="CenterlineY"                Texture="corner0"                               Property="CenterlineY" ToolTip="Toggle y centerline." />
+            </AutoLayout>
+
+            <CloseButton Anchors="2,0" Texture="corner2"  CloseAction="Confirm" />
+        </TitleBar>
+
+        <!INCLUDE ../../include/selection_content.uixml >
+    </ShadedOverlay>
+</GMA3>

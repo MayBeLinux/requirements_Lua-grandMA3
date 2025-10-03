@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <BaseInput Name="StatusOverlay" H="204" W="204" AlignmentH="Left" AlignmentV="Top" WantsModal="0" DefaultMargin="0" FocusSearchPolicy="Default" AutoClose="Yes" ExclusivePropertyChange="Yes" OnLoad=":OnLoad" PositionBeneathFinger="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Anchors="0,0"  Name="Title"    Texture="corner1"/>
+            <CloseButton Anchors="1,0"                  Texture="corner2"  CloseAction="Confirm" />
+        </TitleBar>
+        <DialogFrame Name ="Frame" Anchors="0,1" MixInBackColorFromParent="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="42" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <PropertyRadioButtonList Name="VisibilityList"  Anchors="0,0,0,1" Focus="WantsFocus"    Margin="0,0,0,0" SetType="Property" Property="Visibility" Type="Vertical" ItemType="BaseItemButton" AvoidScroll="Yes" IndicatorBarEnabled="No" CloseOnClick="Yes" />
+            <UIObject                Name="SourceTitle"     Anchors="1,0,1,0" Text="User Profile"   Margin="16,0,0,0" HasHover="0" BackColor="Global.Transparent" />
+            <PropertyRadioButtonList Name="SourceList"      Anchors="1,1,1,1"                       Margin="16,0,0,0" SetType="Property" Property="Source"     Type="Vertical" ItemType="BaseItemButton" AvoidScroll="Yes" IndicatorBarEnabled="No" CloseOnClick="No" />
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

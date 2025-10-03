@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="208" Name="WindowGelPool" Guid="00 1B 21 63 60 B7 00 00 06 53 36 54 00 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="00 1B 21 63 41 C4 00 00 09 53 36 54 00 82 55 B0" FileName="window_gel_pool.uixml" PlaceHolder="UiScreen" WindowSettings="GelPoolSettings" WindowContext="ContextGelPool" Toggle="No" />
+    </Menu>
+</GMA3>

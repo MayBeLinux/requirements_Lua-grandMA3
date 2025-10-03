@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="185" Name="UserLanguagePopup" Guid="2C 49 18 8F 73 5E 46 B4 B5 96 20 58 83 16 A4 01" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="77 A2 27 26 2E 3C 40 4C 84 B7 FD 55 99 79 0A 42" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="00 A5 9C 99 04 10 4A E1 8B 20 85 9A 57 F4 63 10" FileName="user_language_popup.lua" />
+    </Menu>
+</GMA3>

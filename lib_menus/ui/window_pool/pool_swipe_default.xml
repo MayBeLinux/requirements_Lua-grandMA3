@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="137" Name="PoolSwipeDefault" Guid="70 4D 7B 2D 4D 53 00 00 4B 58 86 BB 7E B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 1C 7C 00 00 4A 58 86 BB 7E B1 01 1A" FileName="pool_swipe_default.uixml" PlaceHolder="PlaceHolder" Toggle="No" />
+        <ComponentLua Index="2" Guid="70 4D 7B 2D 13 12 00 00 49 58 86 BB 7E B1 01 1A" FileName="pool_swipe_default.lua" />
+    </Menu>
+</GMA3>

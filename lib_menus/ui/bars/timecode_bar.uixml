@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <TimecodeBar OnLoad=":BarLoaded" LinkedObjectChanged=":BarLoaded" DefaultMargin="3" HelpTopic="timecode_create.html">
+        <UILayoutGrid Name="InnerBox" Anchors="0,0" Rows="3"  Columns="10">
+
+            <SwipeButton Anchors="0,0" Name="Pages" Text="Pages" Texture="corner3" Property="EncoderFunction" SelectionChanged=":EncoderPageChanged" Margin="0,3,3,0" />
+
+            <AutoLayout Name="Upper" Anchors="1,0,9,0" Direction="Horizontal" Margin="0,3,3,3" Texture="Corner15">
+                <IndicatorButton Name="TCBackward"   Icon="PlaybackJumpbackward" Clicked=":TCBackward"   />
+                <IndicatorButton Name="TCPrevMarker" Text="M&lt;&lt;"            Clicked=":TCPrevMarker" />
+                <IndicatorButton Name="TCStop"       Icon="PlaybackStop"         Clicked=":TCStop"       />
+                <IndicatorButton Name="TCPause"      Icon="PlaybackPaused"       Clicked=":TCPause"      />
+                <IndicatorButton Name="TCPlay"       Icon="PlaybackForward"      Clicked=":TCPlay"       />
+                <IndicatorButton Name="TCNextMarker" Text="&gt;&gt;M"            Clicked=":TCNextMarker" />
+                <IndicatorButton Name="TCForward"    Icon="PlaybackJumpforward"  Clicked=":TCForward"    />
+                <IndicatorButton Name="TCRec"        Icon="PlaybackRecord"       Clicked=":TCRecord"     IconColor="Timecode.RecordActive"  />
+            </AutoLayout>
+
+            <UILayoutGrid Name="Lower" Anchors="0,1,9,2" Columns="5" Rows="2" Margin="0,0,3,0" DefaultMargin="4,0,4,0">
+                <EncoderControl Name="Encoder1a"  EncoderRing="Inner" EncoderType="Inside1"  Anchors="0,0" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder1b"  EncoderRing="Outer" EncoderType="Outside1" Anchors="0,1" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder2a"  EncoderRing="Inner" EncoderType="Inside2"  Anchors="1,0" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder2b"  EncoderRing="Outer" EncoderType="Outside2" Anchors="1,1" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder3a"  EncoderRing="Inner" EncoderType="Inside3"  Anchors="2,0" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder3b"  EncoderRing="Outer" EncoderType="Outside3" Anchors="2,1" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder4a"  EncoderRing="Inner" EncoderType="Inside4"  Anchors="3,0" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder4b"  EncoderRing="Outer" EncoderType="Outside4" Anchors="3,1" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder5a"  EncoderRing="Inner" EncoderType="Inside5"  Anchors="4,0" Texture="corner0" TextAutoAdjust="Yes" />
+                <EncoderControl Name="Encoder5b"  EncoderRing="Outer" EncoderType="Outside5" Anchors="4,1" Texture="corner0" TextAutoAdjust="Yes" />
+
+                <!--Screen encoder controls that are visible depending on the UserProfile setting in m_Data.m_Flags.m_Bits.m_ScreenEncoders-->
+                <ScreenEncoderControl Name="Encoder5aScr" System="Scroll"      EncoderRing="Inner" EncoderType="Inside5"  Direction="Vertical"   Anchors="4,0" Texture="corner3" />
+                <ScreenEncoderControl Name="Encoder5bScr" System="Scroll"      EncoderRing="Outer" EncoderType="Outside5" Direction="Horizontal" Anchors="4,1" Texture="corner12" />
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </TimecodeBar>
+</GMA3>

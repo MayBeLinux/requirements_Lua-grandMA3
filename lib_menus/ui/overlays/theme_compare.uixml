@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ThemeMergeDialog Name="ThemeMerge" DefaultMargin="2" OnLoad=":OnMenuLoaded" OverrideKeybSC="Yes" HelpTopic="ws_compare_tool.html">
+
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Merge Themes" Icon="setup"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Confirm" />
+        </TitleBar>
+
+        <MainDialogContent >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="90" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed"   Size="90" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <!-- ######## Running Theme ######## -->
+            <UILayoutGrid Anchors="0,0,0,1" Name="PrimaryGrid">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UILayoutGrid Anchors="0,0" Name="SubTitle">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="150" />
+                    </ItemCollectColumns>
+                    <TitleButton Anchors="0,0" Texture="corner1" Name="SubTitleText" Text="Primary Theme" />
+                    <DialogButton Anchors="1,0" Name="ThemeName" Text="Select&#xD;Base Theme" Property="FileName" OnLoad=":PrimaryTarget" Texture="corner2" />
+                </UILayoutGrid>
+                <UILayoutGrid Anchors="0,1" Name="DefinitionsGrid" MinSize="0,100" >
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="40" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <UILayoutGrid Anchors="0,0" Name="FilterGrid">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Fixed" Size="100" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed" Size="100" />
+                        </ItemCollectColumns>
+                        <UIObject Text="Filter:" HasHover="No" ContentDriven="Yes" Anchors="0,0" />
+                        <LineEdit Name="PrimaryFilter" Target="../../PrimaryThemeGrid/Internals/GridBase/GridSettings/GridContentFilter/Name" Property="Filter" Anchors="1,0" Clear=":ClearColorDefFilter" Focus="InitialFocus" />
+                        <Button Text="Clear Filter" Clicked=":ClearColorDefFilter" Anchors="2,0" ContentDriven="Yes" />
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="PrimaryThemeGrid" AllowFilterContent="Yes" FilterBlockUIEnabled="No" Texture="" Anchors="0,1" DataType="ThemeMergeGridData" >
+                        <GridSettings AdjustColumns="Yes" />
+                        <GridContentFilter>
+                            <GridContentFilterItem Name="Name" Columns="Name" />
+                            <GridContentFilterItem Name="MissingOrMerged" Columns="Unmatched,Auto Generated" />
+                        </GridContentFilter>
+                    </DBObjectGrid>
+                </UILayoutGrid>
+            </UILayoutGrid>
+            <Button Anchors="1,0" Interactive="No" />
+            <ThemeMergeToolBar Anchors="1,1" Name="Toolbar" DefaultMargin="1" Transparent="No" BackColor="Popup.SelectedItemBackground">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed"   Size="10" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed"   Size="10" />
+                </ItemCollectColumns>
+                <Button Anchors="1,0" Interactive="No" />
+                <IndicatorButton Anchors="1,1" Icon="arrow_up" Clicked=":TestFcn2" Texture="corner0" ToolTip="Go to previews missing or merged line"/>
+                <IndicatorButton Anchors="1,2" Icon="object_filter" Clicked=":ToggleRowFilter" Texture="corner0" ToolTip="Show only missing or merged lines"/>
+                <IndicatorButton Anchors="1,3" Icon="arrow_down" Clicked=":TestFcn" Texture="corner0" ToolTip="Go to next missing or merged line"/>
+                <Button Anchors="1,4" Interactive="No" />
+                <IndicatorButton Anchors="1,5" Name="MergeAll" Icon="MergeAllRight" Clicked=":AddColors" Texture="corner0" ToolTip="Merge missing lines"/>
+                <IndicatorButton Anchors="1,6" Name="MergeSel" Icon="MergeRight" Clicked=":AddSelectedColors" Texture="corner0" ToolTip="Merge selected lines"/>
+                <Button Anchors="1,7" Interactive="No" />
+            </ThemeMergeToolBar>
+
+            <!-- ######## Compare Theme ######## -->
+            <UILayoutGrid Anchors="2,0,2,1" Name="SecondaryGrid">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <UILayoutGrid Anchors="0,0" Name="SubTitle">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="150" />
+                    </ItemCollectColumns>
+                    <TitleButton Anchors="0,0" Texture="corner1" Name="SubTitleText" Text="" />
+                    <DialogButton Anchors="1,0" Name="ThemeName" Text="Select&#xD;Compare Theme" Property="FileName" OnLoad=":SecondaryTarget" Texture="corner2" />
+                </UILayoutGrid>
+                <UILayoutGrid Anchors="0,1" Name="DefinitionsGrid">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="40" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <UILayoutGrid Anchors="0,0" Name="FilterGrid">
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Fixed" Size="100" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed" Size="100" />
+                        </ItemCollectColumns>
+                        <UIObject Text="Filter:" HasHover="No" ContentDriven="Yes" Anchors="0,0" />
+                        <LineEdit Name="SecondaryFilter" Target="../../SecondaryThemeGrid/Internals/GridBase/GridSettings/GridContentFilter/Name" Property="Filter" Anchors="1,0" Clear=":ClearColorDefFilter" Focus="WantsFocus" />
+                        <Button Text="Clear Filter" Clicked=":ClearColorDefFilter" Anchors="2,0" ContentDriven="Yes" />
+                    </UILayoutGrid>
+                    <DBObjectGrid Name="SecondaryThemeGrid" AllowFilterContent="Yes" FilterBlockUIEnabled="No" Texture="" Anchors="0,1" DataType="ThemeMergeGridData" >
+                        <GridSettings AdjustColumns="Yes" />
+                        <GridContentFilter>
+                            <GridContentFilterItem Name="Name" Columns="Name" />
+                            <GridContentFilterItem Name="MissingOrMerged" Columns="Unmatched,Auto Generated" />
+                        </GridContentFilter>
+                    </DBObjectGrid>
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons Name="MainFcnButtons">
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <UIObject Anchors="3,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="2,1,3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+
+            <CmdDlgFunctionButtonsRight Name="RightFcnButtons">
+                <MainDlgNewLineToggleButton />
+                <IndicatorButton Anchors="0,0" Name="ExportAsTheme" Text="Export As..." Clicked=":ExportAsClicked" />
+                <UIObject        Anchors="1,0,2,0" Texture="corner0" HasHover="0"/>
+                <UIObject        Anchors="0,1,1,1" Texture="corner0" HasHover="0"/>
+                <IndicatorButton Anchors="2,1" Name="ColorListRef" Text="List References" Clicked=":CommandLine" SignalValue="ListReference UiGrid" />
+                <UIObject        Anchors="3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+
+        </MainDialogFunctionButtons>
+
+
+        <MainDialogPlaceHolder Name="EditSubmenu" />
+
+    </ThemeMergeDialog>
+</GMA3>

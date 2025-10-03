@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+  <GenericSettingsEditor WantsModal="0" OnSetEditTarget=":OnSetEditTarget" AutoClose="0" UpdateSettingsVisibility="Yes" OnLoad="::PresetWindowLoaded">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+          <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Preset"/>
+          <AutoLayout Anchors="1,0"   Name="MAtricksButtons"    Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes" Margin="1,0,1,0" Visible="0">
+           <!-- <Button          Name="ResetBtn" MinSize="60,0" W="100" Text="Reset&#xD;Selected" Clicked=":CommandLine" SignalValue="" ToolTip="Reset MAtricks settings"/> -->
+          </AutoLayout>
+          <IndicatorControl MinSize="50,0" W="100" Anchors="2,0" Name="Settings" Text="Settings" Property="ShowFullSettings" Clicked=":OnSettingsButtonClicked" Visible="0"/>
+          <IndicatorControl Texture="corner0" Anchors="2,0" Text="Settings" Property="ShowSettingsInEditors" Target="~"/>
+          <ScreenSelectorButton Anchors="3,0" />
+          <CloseButton Texture="corner2" Anchors="4,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Frame" DefaultMargin="4" DefaultMarginOnBorders="1" OnLoad=":OnGenericEditLoaded">
+          <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+          <EditorPropertyButtons Name="SettingsSmall" Anchors="0,0" UseEditorTarget="Yes" OnLoad=":SettingsButtonsLoaded">
+            <EditorNameButton />
+            <EditorScribbleButton />
+            <EditorAppearanceButton/>
+            <EditorTagButton/>
+            <EditorNoteButton/>
+            <EditorPropertyButton Property="InputFilter"/>
+            <EditorPropertyButton Property="Lock"   />
+            <EditorPropertyButton Property="CuePart"    />
+            <EditorPropertyButton Property="MAgic"      />
+            <EditorPropertyButton Property="PresetMode" />
+            <EditorPropertyButton Property="RecipeTemplate" />
+			<EditorPropertyButton Property="DelayToPhase" />
+			<EditorPropertyButton Property="Action" Text="Object Action"/>
+		  </EditorPropertyButtons>
+
+          <UILayoutGrid Name="MAtricks" Anchors="0,1" DefaultMargin="5" OnLoad=":SetPresetRecipeSettings" DefaultMarginOnBorders="Yes" OnVisible=":OnMAtricksVisibilityChanged">
+            <ItemCollectRows>
+              <Item SizePolicy="Fixed" Size="40" />
+              <Item SizePolicy="Stretch" Size="1" />
+              <Item SizePolicy="Content"/>
+              <Item SizePolicy="Content"/>
+            </ItemCollectRows>
+            <AutoLayout  Name="RecipeFilter" DefaultMargin="1" Anchors="0,0" Direction="Horizontal" >
+              <IndicatorControl Name="RefBtn"      Text="References" Property="Bits" ArrayIndex="3"  DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+              <IndicatorControl Name="MatricksBtn" Text="Grid"       Property="Bits" ArrayIndex="5"  DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+              <IndicatorControl Name="LayersBtn"   Text="Layers"     Property="Bits" ArrayIndex="4"  DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+              <IndicatorControl                    Text="Shuffle"    Property="Bits" ArrayIndex="10" DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+              <IndicatorControl                    Text="X"          Property="Bits" ArrayIndex="7"  DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+              <IndicatorControl                    Text="Y"          Property="Bits" ArrayIndex="8"  DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+              <IndicatorControl                    Text="Z"          Property="Bits" ArrayIndex="9"  DirectProperty="Yes" NonEmptyIndicatorColor="MAtricks.BackgroundActive" />
+            </AutoLayout>
+            <DBObjectGrid Name="PresetRecipes" Anchors="0,1" BackColor="UIGrid.Background"  OnSelectedRow=":OnPresetRecipeRowSelected" FixedColumns="4" AddTargets="Yes" AutoNextCell="No" >
+              <DBObjectGridData HeaderRows="1" />
+            </DBObjectGrid>
+            <UILayoutGrid Name="MAtricksSplit" Anchors="0,3" MinSize="0,280">
+              <ItemCollectRows>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" />
+              </ItemCollectRows>
+              <PlaceHolder Anchors="0,0" Name="ObjectSettings"/>
+              <!INCLUDE ../../include/matricks_content.uixml >
+            </UILayoutGrid>
+            <SplitterV     Name="Resizer"        Anchors="0,2" Property="SplitSize" OnLoad=":SetSettingsAsTarget" />
+          </UILayoutGrid>          
+            
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <UIObject Anchors="2,1" Texture="corner0" HasHover="0"/>
+				<IndicatorButton Anchors="3,1" Texture="corner0"  Text="List&#xD;References" Clicked=":OnListReference"/>
+			</CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+				<IndicatorButton Anchors="0,0" Texture="corner0"  Text="CleanUp&#xD;Recipes" Clicked=":OnCleanup" Name="CleanupBtn" />
+                <IndicatorButton Anchors="0,1" Texture="corner0"  Text="Edit"                Clicked=":OnEdit"   CloseAction="Ok" Name="EditBtn" />
+                <IndicatorButton Anchors="1,1" Texture="corner0"  Text="Recast&#xD;Preset"   Clicked=":OnRecast" CloseAction="Ok" />
+                <IndicatorButton Anchors="1,0" Texture="corner0"  Text="Reset MAtricks&#xD;for Selected"  Clicked=":CommandLine" SignalValue="Reset UiGridSelection" ToolTip="Reset MAtricks settings"/>
+                <IndicatorButton Anchors="2,0" Texture="corner0"  Text="Turn into&#xD;Recipe" Clicked=":OnTune" Name="TuneBtn" />
+                <IndicatorButton Anchors="2,1" Texture="corner0"  Text="Cook"                Clicked=":OnCook" Name="CookBtn" />
+                <IndicatorButton Anchors="3,0" Texture="corner0"  Text="Take Selection"      Clicked=":OnTakeSelection" Name="TakeSelectionBtn" />
+				<IndicatorButton Anchors="3,1" Texture="corner0"  Text="At"                  Clicked=":OnAT"            Name="AtBtn" ColorIndicator="Button.BackgroundPlease"/>				
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+        <MainDialogPlaceHolder Name="MainDialog" />
+    </GenericSettingsEditor>
+</GMA3>

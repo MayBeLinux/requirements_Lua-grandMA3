@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="FixtureTypePresetStoreOption" Author="MA" Version="0.1.0.0" Path="/ui/input" >
+        <ComponentXML FileName="fixture_type_preset_store_option.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" DefaultDisplay="1" />
+        <ComponentLua FileName="fixture_type_preset_store_option.lua" />
+    </Menu>
+</GMA3>

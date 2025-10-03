@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+    <GenericEditorOverlay Name="Overlay" W="640" H="480" WantsModal="1" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Material">
+        <TitleBar Name="Titlebar" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="Title" Texture="corner1" Anchors="0,0" Text="Edit material"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+        <DialogFrame Name="Frame" Columns="2" Rows="8"  DefaultMargin="10">
+            <PropertyInput Name="_Name"     Texture="corner15"  Anchors="0,0"   Property="Name" ValueRole="Default" />
+            <PropertyInput Name="_FileName" Texture="corner15"  Anchors="0,1"   Property="FileName"  />
+            <PropertyInput Name="_FilePath" Texture="corner15"  Anchors="0,2"   Property="FilePath" />
+            <PropertyInput Name="Color"     Texture="corner15"  Anchors="0,3"   Property="Color"/>
+            <PropertyInput Name="Filesize"  Texture="corner15"  Anchors="0,4"   Property="FileSize" />
+            <!-- <PropertyInput Name="Content Type"  Property="ContentType" Anchors="0,5" /> -->
+            <MeshPreview Name="Preview" Texture="checkboard" Anchors="1,0,1,4" Focus="InitialFocus" HideFocusFrame="Yes" KeyDown=":OnKeyDown" />
+        </DialogFrame>
+    </GenericEditorOverlay>
+</GMA3>
+
+

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow ScrollTarget="SmartViewPool" OnLoad=":OnLoad" HelpTopic="operate_smart.html" ReactToPreview="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Content" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <SmartViewPoolLayoutGrid Text="sMArt" PoolColor="PoolWindow.SmartView" Anchors="0,0" Name="SmartViewPool" Texture="corner15" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes" TitleButtonIcon="object_smart" />
+        <UILayoutGrid Name="Menu" Anchors="0,1"  OnLoad=":InitMenu"  Font="Regular18" LowDpiFont="Regular14" >  <!-- Used to toggle the menu-visibility -->
+            <NormedGrid  Anchors="0,0" Rows="2" Columns="1" RasterHeight="2">   <!-- Used to set the menu-size to the screen-grid-size -->
+                <Button Anchors="0,0,0,1" Enabled="No" Texture="corner12" Margin="0,1,0,0"/>
+                <FeatureRadioButtonList Anchors="0,0" />
+                <AttributeRadioButtonList Anchors="0,1" />
+            </NormedGrid>
+        </UILayoutGrid>
+
+    </PoolWindow>
+</GMA3>

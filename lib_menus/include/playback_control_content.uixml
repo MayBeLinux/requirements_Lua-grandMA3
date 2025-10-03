@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+
+<UILayoutGrid Anchors="0,0" Name="Content">
+    <ItemCollectRows>
+        <Item SizePolicy="Content" Size="1" />
+        <Item SizePolicy="Content" Size="1" />
+    </ItemCollectRows>
+    <PlaybackViewExecutorBar Name="Labels" Anchors="0,0" >
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="0" />
+            <Item SizePolicy="Stretch" Size="1"/>
+            <Item SizePolicy="Fixed"   Size="30" />
+            <Item SizePolicy="Stretch" Size="1"/>
+            <Item SizePolicy="Fixed"   Size="30" />
+            <Item SizePolicy="Stretch" Size="1"/>
+            <Item SizePolicy="Fixed" Size="0" />
+        </ItemCollectColumns>
+        <ExecutorSection Name="Section1" Anchors="1,0" Rows="4" Columns="5" />
+        <ExecutorSection Name="Section2" Anchors="3,0" Rows="4" Columns="5" />
+        <ExecutorSection Name="Section3" Anchors="5,0" Rows="4" Columns="5" />
+    </PlaybackViewExecutorBar>
+
+    <UILayoutGrid Name="Executors" Anchors="0,1">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="2" />
+            <Item SizePolicy="Stretch" Size="2" />
+            <Item SizePolicy="Stretch" Size="6" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="0" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="30" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="30" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="0" />
+        </ItemCollectColumns>
+        <!--<Button Texture="corner0" Anchors="0,0,0,3" Text="&lt;" Clicked=":CommandLine" SignalValue="menu CommandControls"/>-->
+
+        <!--5 Button 5 Encoder Module-->
+        <UILayoutGrid Name="Encoders" Anchors="1,0" Rows="2" Columns="5" >
+            <PlaybackHardwareMiniEncoder Name="PHME_401" Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="401"/>
+            <PlaybackHardwareMiniEncoder Name="PHME_402" Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="402"/>
+            <PlaybackHardwareMiniEncoder Name="PHME_403" Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="403"/>
+            <PlaybackHardwareMiniEncoder Name="PHME_404" Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="404" />
+            <PlaybackHardwareMiniEncoder Name="PHME_405" Anchors="4,0" H="1r" AlignmentH="Center" ExecutorIndex="405"/>
+
+            <PlaybackHardwareButton Name="PHB_401" Texture="corner5"  Anchors="0,1" ExecutorIndex="401"/>
+            <PlaybackHardwareButton Name="PHB_402" Texture="corner0"  Anchors="1,1" ExecutorIndex="402"/>
+            <PlaybackHardwareButton Name="PHB_403" Texture="corner0"  Anchors="2,1" ExecutorIndex="403"/>
+            <PlaybackHardwareButton Name="PHB_404" Texture="corner0"  Anchors="3,1" ExecutorIndex="404"/>
+            <PlaybackHardwareButton Name="PHB_405" Texture="corner10" Anchors="4,1" ExecutorIndex="405"/>
+        </UILayoutGrid>
+
+        <!--5 Button 5 Encoder Module-->
+        <UILayoutGrid Name="Encoders" Anchors="1,1" Rows="2" Columns="5" >
+            <PlaybackHardwareMiniEncoder Name="PHME_301" Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="301"/>
+            <PlaybackHardwareMiniEncoder Name="PHME_302" Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="302"/>
+            <PlaybackHardwareMiniEncoder Name="PHME_303" Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="303"/>
+            <PlaybackHardwareMiniEncoder Name="PHME_304" Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="304"/>
+            <PlaybackHardwareMiniEncoder Name="PHME_305" Anchors="4,0" H="1r" AlignmentH="Center" ExecutorIndex="305"/>
+
+            <PlaybackHardwareButton Name="PHB_301" Texture="corner5"  Anchors="0,1" ExecutorIndex="301"/>
+            <PlaybackHardwareButton Name="PHB_302" Texture="corner0"  Anchors="1,1" ExecutorIndex="302"/>
+            <PlaybackHardwareButton Name="PHB_303" Texture="corner0"  Anchors="2,1" ExecutorIndex="303"/>
+            <PlaybackHardwareButton Name="PHB_304" Texture="corner0"  Anchors="3,1" ExecutorIndex="304"/>
+            <PlaybackHardwareButton Name="PHB_305" Texture="corner10" Anchors="4,1" ExecutorIndex="305"/>
+        </UILayoutGrid>
+
+        <!--5 Button 5 HardwareFader Module-->
+        <UILayoutGrid Name="Faders" Anchors="1,2" Columns="5" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="5" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <PlaybackHardwareFader Anchors="0,0" ToolTip="DefaultMaster" ExecutorIndex="201" Texture="corner1" HeadLineTexture="corner1" />
+            <PlaybackHardwareFader Anchors="1,0" ToolTip="DefaultMaster" ExecutorIndex="202" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="2,0" ToolTip="DefaultMaster" ExecutorIndex="203" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="3,0" ToolTip="DefaultMaster" ExecutorIndex="204" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="4,0" ToolTip="DefaultMaster" ExecutorIndex="205" Texture="corner2" HeadLineTexture="corner2" />
+
+            <PlaybackHardwareButton Name="PHB_201" Texture="corner5"  Anchors="0,1" ExecutorIndex="201"/>
+            <PlaybackHardwareButton Name="PHB_202" Texture="corner0"  Anchors="1,1" ExecutorIndex="202"/>
+            <PlaybackHardwareButton Name="PHB_203" Texture="corner0"  Anchors="2,1" ExecutorIndex="203"/>
+            <PlaybackHardwareButton Name="PHB_204" Texture="corner0"  Anchors="3,1" ExecutorIndex="204"/>
+            <PlaybackHardwareButton Name="PHB_205" Texture="corner10" Anchors="4,1" ExecutorIndex="205"/>
+        </UILayoutGrid>
+
+        <!--5 Button Module-->
+        <UILayoutGrid Anchors="1,3" Rows="1" Columns="5" >
+            <PlaybackHardwareButton Name="PHB_101" Texture="corner5"  Anchors="0,0" ExecutorIndex="101"/>
+            <PlaybackHardwareButton Name="PHB_102" Texture="corner0"  Anchors="1,0" ExecutorIndex="102"/>
+            <PlaybackHardwareButton Name="PHB_103" Texture="corner0"  Anchors="2,0" ExecutorIndex="103"/>
+            <PlaybackHardwareButton Name="PHB_104" Texture="corner0"  Anchors="3,0" ExecutorIndex="104"/>
+            <PlaybackHardwareButton Name="PHB_105" Texture="corner10" Anchors="4,0" ExecutorIndex="105"/>
+        </UILayoutGrid>
+
+
+
+
+
+        <!--5 Button 5 Encoder Module-->
+        <UILayoutGrid  Name="Encoders" Anchors="3,0" Rows="2" Columns="5">
+            <PlaybackHardwareMiniEncoder Name="PHME_406" Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="406" />
+            <PlaybackHardwareMiniEncoder Name="PHME_407" Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="407" />
+            <PlaybackHardwareMiniEncoder Name="PHME_408" Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="408" />
+            <PlaybackHardwareMiniEncoder Name="PHME_409" Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="409" />
+            <PlaybackHardwareMiniEncoder Name="PHME_410" Anchors="4,0" H="1r" AlignmentH="Center" ExecutorIndex="410" />
+
+            <PlaybackHardwareButton Name="PHB_406" Texture="corner5"  Anchors="0,1" ExecutorIndex="406" />
+            <PlaybackHardwareButton Name="PHB_407" Texture="corner0"  Anchors="1,1" ExecutorIndex="407" />
+            <PlaybackHardwareButton Name="PHB_408" Texture="corner0"  Anchors="2,1" ExecutorIndex="408" />
+            <PlaybackHardwareButton Name="PHB_409" Texture="corner0"  Anchors="3,1" ExecutorIndex="409" />
+            <PlaybackHardwareButton Name="PHB_410" Texture="corner10" Anchors="4,1" ExecutorIndex="410" />
+        </UILayoutGrid>
+
+        <!--5 Button 5 Encoder Module-->
+        <UILayoutGrid  Name="Encoders" Anchors="3,1" Rows="2" Columns="5">
+            <PlaybackHardwareMiniEncoder Name="PHME_306" Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="306" />
+            <PlaybackHardwareMiniEncoder Name="PHME_307" Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="307" />
+            <PlaybackHardwareMiniEncoder Name="PHME_308" Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="308" />
+            <PlaybackHardwareMiniEncoder Name="PHME_309" Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="309" />
+            <PlaybackHardwareMiniEncoder Name="PHME_310" Anchors="4,0" H="1r" AlignmentH="Center" ExecutorIndex="310" />
+
+            <PlaybackHardwareButton Name="PHB_306" Texture="corner5"  Anchors="0,1" ExecutorIndex="306" />
+            <PlaybackHardwareButton Name="PHB_307" Texture="corner0"  Anchors="1,1" ExecutorIndex="307" />
+            <PlaybackHardwareButton Name="PHB_308" Texture="corner0"  Anchors="2,1" ExecutorIndex="308" />
+            <PlaybackHardwareButton Name="PHB_309" Texture="corner0"  Anchors="3,1" ExecutorIndex="309" />
+            <PlaybackHardwareButton Name="PHB_310" Texture="corner10" Anchors="4,1" ExecutorIndex="310" />
+        </UILayoutGrid>
+
+        <!--5 HardwareFader Module-->
+        <UILayoutGrid Name="Faders" Anchors="3,2" Columns="5">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="5" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <PlaybackHardwareFader Anchors="0,0" ToolTip="DefaultMaster" ExecutorIndex="206" Texture="corner1" HeadLineTexture="corner1" />
+            <PlaybackHardwareFader Anchors="1,0" ToolTip="DefaultMaster" ExecutorIndex="207" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="2,0" ToolTip="DefaultMaster" ExecutorIndex="208" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="3,0" ToolTip="DefaultMaster" ExecutorIndex="209" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="4,0" ToolTip="DefaultMaster" ExecutorIndex="210" Texture="corner2" HeadLineTexture="corner2" />
+
+            <PlaybackHardwareButton Name="PHB_206" Texture="corner5"  Anchors="0,1" ExecutorIndex="206" />
+            <PlaybackHardwareButton Name="PHB_207" Texture="corner0"  Anchors="1,1" ExecutorIndex="207" />
+            <PlaybackHardwareButton Name="PHB_208" Texture="corner0"  Anchors="2,1" ExecutorIndex="208" />
+            <PlaybackHardwareButton Name="PHB_209" Texture="corner0"  Anchors="3,1" ExecutorIndex="209" />
+            <PlaybackHardwareButton Name="PHB_210" Texture="corner10" Anchors="4,1" ExecutorIndex="210"/>
+        </UILayoutGrid>
+
+        <!--10 Button / 2 Row Module-->
+        <UILayoutGrid  Anchors="3,3" Rows="1" Columns="5">
+            <PlaybackHardwareButton Name="PHB_106" Texture="corner5"  Anchors="0,0" ExecutorIndex="106" />
+            <PlaybackHardwareButton Name="PHB_107" Texture="corner0"  Anchors="1,0" ExecutorIndex="107" />
+            <PlaybackHardwareButton Name="PHB_108" Texture="corner0"  Anchors="2,0" ExecutorIndex="108" />
+            <PlaybackHardwareButton Name="PHB_109" Texture="corner0"  Anchors="3,0" ExecutorIndex="109" />
+            <PlaybackHardwareButton Name="PHB_110" Texture="corner10" Anchors="4,0" ExecutorIndex="110" />
+        </UILayoutGrid>
+
+
+
+
+
+        <!--5 Button 5 Encoder Module-->
+        <UILayoutGrid  Name="Encoders" Anchors="5,0" Rows="2" Columns="5">
+            <PlaybackHardwareMiniEncoder Name="PHME_411" Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="411" />
+            <PlaybackHardwareMiniEncoder Name="PHME_412" Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="412" />
+            <PlaybackHardwareMiniEncoder Name="PHME_413" Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="413" />
+            <PlaybackHardwareMiniEncoder Name="PHME_414" Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="414" />
+            <PlaybackHardwareMiniEncoder Name="PHME_415" Anchors="4,0" H="1r" AlignmentH="Center" ExecutorIndex="415" />
+
+            <PlaybackHardwareButton Name="PHB_411" Texture="corner5"  Anchors="0,1" ExecutorIndex="411" />
+            <PlaybackHardwareButton Name="PHB_412" Texture="corner0"  Anchors="1,1" ExecutorIndex="412" />
+            <PlaybackHardwareButton Name="PHB_413" Texture="corner0"  Anchors="2,1" ExecutorIndex="413" />
+            <PlaybackHardwareButton Name="PHB_414" Texture="corner0"  Anchors="3,1" ExecutorIndex="414" />
+            <PlaybackHardwareButton Name="PHB_415" Texture="corner10" Anchors="4,1" ExecutorIndex="415" />
+        </UILayoutGrid>
+
+        <!--5 Button 5 Encoder Module-->
+        <UILayoutGrid  Name="Encoders" Anchors="5,1" Rows="2" Columns="5">
+            <PlaybackHardwareMiniEncoder Name="PHME_311" Anchors="0,0" H="1r" AlignmentH="Center" ExecutorIndex="311" />
+            <PlaybackHardwareMiniEncoder Name="PHME_312" Anchors="1,0" H="1r" AlignmentH="Center" ExecutorIndex="312" />
+            <PlaybackHardwareMiniEncoder Name="PHME_313" Anchors="2,0" H="1r" AlignmentH="Center" ExecutorIndex="313" />
+            <PlaybackHardwareMiniEncoder Name="PHME_314" Anchors="3,0" H="1r" AlignmentH="Center" ExecutorIndex="314" />
+            <PlaybackHardwareMiniEncoder Name="PHME_315" Anchors="4,0" H="1r" AlignmentH="Center" ExecutorIndex="315" />
+
+            <PlaybackHardwareButton Name="PHB_311" Texture="corner5"  Anchors="0,1" ExecutorIndex="311" />
+            <PlaybackHardwareButton Name="PHB_312" Texture="corner0"  Anchors="1,1" ExecutorIndex="312" />
+            <PlaybackHardwareButton Name="PHB_313" Texture="corner0"  Anchors="2,1" ExecutorIndex="313" />
+            <PlaybackHardwareButton Name="PHB_314" Texture="corner0"  Anchors="3,1" ExecutorIndex="314" />
+            <PlaybackHardwareButton Name="PHB_315" Texture="corner10" Anchors="4,1" ExecutorIndex="315" />
+        </UILayoutGrid>
+
+        <!--5 HardwareFader Module-->
+        <UILayoutGrid Name="Faders" Anchors="5,2" Columns="5">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="5" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <PlaybackHardwareFader Anchors="0,0" ToolTip="DefaultMaster" ExecutorIndex="211" Texture="corner1" HeadLineTexture="corner1" />
+            <PlaybackHardwareFader Anchors="1,0" ToolTip="DefaultMaster" ExecutorIndex="212" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="2,0" ToolTip="DefaultMaster" ExecutorIndex="213" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="3,0" ToolTip="DefaultMaster" ExecutorIndex="214" Texture="corner0" HeadLineTexture="corner0" />
+            <PlaybackHardwareFader Anchors="4,0" ToolTip="DefaultMaster" ExecutorIndex="215" Texture="corner2" HeadLineTexture="corner2" />
+
+            <PlaybackHardwareButton Name="PHB_211" Texture="corner5"  Anchors="0,1" ExecutorIndex="211" />
+            <PlaybackHardwareButton Name="PHB_212" Texture="corner0"  Anchors="1,1" ExecutorIndex="212" />
+            <PlaybackHardwareButton Name="PHB_213" Texture="corner0"  Anchors="2,1" ExecutorIndex="213" />
+            <PlaybackHardwareButton Name="PHB_214" Texture="corner0"  Anchors="3,1" ExecutorIndex="214" />
+            <PlaybackHardwareButton Name="PHB_215" Texture="corner10" Anchors="4,1" ExecutorIndex="215" />
+        </UILayoutGrid>
+
+        <!--10 Button / 2 Row Module-->
+        <UILayoutGrid  Anchors="5,3" Rows="1" Columns="5">
+            <PlaybackHardwareButton Name="PHB_111" Texture="corner5"  Anchors="0,0" ExecutorIndex="111" />
+            <PlaybackHardwareButton Name="PHB_112" Texture="corner0"  Anchors="1,0" ExecutorIndex="112" />
+            <PlaybackHardwareButton Name="PHB_113" Texture="corner0"  Anchors="2,0" ExecutorIndex="113" />
+            <PlaybackHardwareButton Name="PHB_114" Texture="corner0"  Anchors="3,0" ExecutorIndex="114" />
+            <PlaybackHardwareButton Name="PHB_115" Texture="corner10" Anchors="4,0" ExecutorIndex="115" />
+        </UILayoutGrid>
+    </UILayoutGrid>
+</UILayoutGrid>
+

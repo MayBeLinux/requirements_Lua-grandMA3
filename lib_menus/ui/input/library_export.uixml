@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="LibraryExport" W="50%" H="75%" MinSize="550,550" WantsModal="1" OnLoad=":OnMenuLoaded" DriveReset="Yes" >
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select Library" />
+            <DriveSelector Name="DriveSelector" W="150" Texture="corner0" Anchors="1,0" Target="Temp.DriveCollect" SelectionChanged=":DriveChange" ShowOldVersions="No"/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Name="FileContainer" H="50" Anchors="0,0" DefaultMargin="2">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <UIObject Text="Name:" Anchors="0,0" ContentDriven="Yes" Texture="" />
+                <LineEdit Name="FileName" Anchors="1,0" Texture="corner15" Focus="InitialFocus" CharInput=":OnFilterChanged" KeyUp=":OnFilterChanged" Execute=":Export" />
+            </UILayoutGrid>
+            <FilebrowserView Name="FilesView" Anchors="0,1" OnSelectedRow=":OnFileSelected" BaseFilter="*.xml" FuzzyFilterExcludeEnd=".xml" SelectionOnFocusOnly="Yes" CanProvideUiGridSelection="No" />
+            <UILayoutGrid Name="ActionButtons" Rows="1" H="60" Anchors="0,2" DefaultMargin="4" AlignmentH="Right">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="160" />
+                </ItemCollectColumns>
+                <UIObject Name="HelpText" Text="" Anchors="0,0" Visible="No" Enabled="No"/>
+                <IndicatorButton Name="ExportButton" Text="Export" Anchors="1,0" Clicked=":Export" W="160"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+</GMA3>

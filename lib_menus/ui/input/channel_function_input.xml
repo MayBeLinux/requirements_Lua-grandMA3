@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="ChannelFunctionInput" Author="MA" Version="0.1.0.0" Path="/ui/input">
+        <ComponentXML FileName="channel_function_input.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="channel_function_input.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="ExecConfigEditor" Author="MA" Version="0.1.0.0" Path="/ui/editors/exec">
+        <ComponentXML FileName="exec_config_editor.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="exec_config_editor.lua" />
+    </Menu>
+</GMA3>

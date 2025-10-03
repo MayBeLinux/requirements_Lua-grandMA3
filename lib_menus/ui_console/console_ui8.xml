@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" UserRights="None" Name="ConsoleUI8" Guid="00 1A 7D DA D5 5D 00 00 D4 7F 27 00 83 EF 1F 07" Author="MA" Version="0.1.0.0" Path="/ui_console" DisplayFrom="Small6" DisplayTo="Small6" HostType="Console" Core="Yes">
+        <ComponentLua UserRights="None" FileName="console_ui.lua" />
+        <ComponentXML UserRights="None" Guid="00 1A 7D DA 28 22 00 00 D3 7F 27 00 83 EF 1F 07" FileName="console_ui8.uixml" PlaceHolder="Display" Toggle="No" />
+        <ComponentXML UserRights="None" FileName="../ui/bars/encoder_bar.uixml" PlaceHolder="EncoderBarBase" />
+        <ComponentLua UserRights="None" FileName="../ui/bars/encoder_bar.lua" />
+    </Menu>
+</GMA3>

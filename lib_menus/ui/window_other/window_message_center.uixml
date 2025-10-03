@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MessageCenterWindow Name="MessageCenter" OnLoad=":OnLoaded" HelpTopic="ws_ui_command_line.html#message_center">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="180" />
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Fixed" Size="150" />
+            </ItemCollectColumns>
+            <TitleButton        Texture="corner0"   Anchors="1,0" Text="Message Center" />
+            <Button                                 Anchors="2,0" Text="Confirm Messages" Clicked=":CommandLine" SignalValue="Call MessageCenter" ToolTip="Confirms unread messages." />
+            <SwipeButton                            Anchors="3,0" Text="Notification Mode" Name="NotificationMode" ShowLabel="Yes" Target="~" Property="NotificationMode" />
+            <IndicatorControl  Texture="corner2"    Anchors="4,0" Text="Notifications" Name="NotificationsEnabled" Target="~" Property="NotificationEnabled"/>
+            <ContextButton Texture="corner1"        Anchors="0,0" Icon="object_message" ToolTip="Configures message center."/>
+        </NormedTitleBar>
+        <DialogFrame Name="Frame" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PlaceHolder Name="MessageCenterPlaceholder" Anchors="0,0" Margin="4,4,4,4" BlockLevel="Little"/>
+        </DialogFrame>
+    </MessageCenterWindow>
+</GMA3>

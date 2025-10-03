@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SelectionViewWindow ReactToPreview="Yes" ReactToEdit="Yes" OnLoad=":OnLoad" HelpTopic="operate_selection.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="Title" Anchors="0,0" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0,2,0" Text="Selection Grid" TrackEdit="Yes" ShowSelectionCount="Yes"/>
+            <TitleAutoLayout Texture="corner2" Anchors="2,0" Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Content="Yes">
+                <IndicatorControl MinSize="50,0" W="50"  Name="AutoScroll"                 Texture="corner2"  Text=" "                      Property="AutoScroll"     Icon  ="fit"       ToolTip="Toggle view autoscroll."      />
+                <IndicatorControl MinSize="50,0" W="50"  Name="GridLines"                  Texture="corner0"  Text=" "                      Property="GridLines"  Icon  ="show_grid" ToolTip="Toggle grid lines."           />
+                <IndicatorControl MinSize="50,0" W="120" Name="CenterlineX"                Texture="corner0"                                Property="CenterlineX" ToolTip="Toggle x centerline." />
+                <IndicatorControl MinSize="50,0" W="120" Name="CenterlineY"                Texture="corner0"                                Property="CenterlineY" ToolTip="Toggle y centerline." />
+                <IndicatorControl MinSize="50,0" W="130" Name="PreserveGridPositions"      Texture="corner0" Text="Preserve&#xD;GridPositions"   Property="PreserveGridPositions"  ToolTip="Toggle auto-remove of gaps" Target="#.$CurrentSelectionRef$"/>
+                <SwipeButton      MinSize="50,0" W="140" Name="MoveGridCursor"             Texture="corner0"  Text="Move Grid Cursor"       Property="MoveGridCursor" Target="~"   ToolTip="Change grid cursor movement" />
+                <SwipeButton      MinSize="50,0" W="100" Name="SelectionAlignment"         Texture="corner0"  Text="Alignment"              Property="SelectionAlignment" Target="~"   ToolTip="Change the default selection alignment" />
+                <IndicatorControl MinSize="50,0" W="150" Name="ShowMAtricksTransformation" Texture="corner0"                                Property="MAtricksTransformation"        ToolTip="Toggle between original and matricks gridpos" />
+                <IndicatorControl MinSize="50,0" W="100" Name="ShowToolbar"                Texture="corner15" Property="Toolbar"   />
+                <IndicatorControl MinSize="50,0" W="100" Name="ShowAlignbar"               Texture="corner15" Property="Alignbar"   />
+                <IndicatorControl MinSize="50,0" W="70"  Name="SetupMode"                  Texture="corner15" Property="SetupMode" Text="Setup" Target="#.$CurrentSelectionRef$"/>
+				<SwipeButton MinSize="50,0" W="120" Name="FontSizeRef"            Texture="corner0"                                Property="FontSize" ToolTip="Defines the font size." />
+			</TitleAutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_selgrid" ToolTip="configures selection window"/>
+        </NormedTitleBar>
+
+        <!INCLUDE ../../include/selection_content.uixml >
+    </SelectionViewWindow>
+</GMA3>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="OopsOverlay" Author="MA" Version="0.1.0.0" Path="/ui/main_overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML FileName="oops_overlay.uixml" PlaceHolder="MainOverlay" DefaultDisplay="1" />
+        <ComponentLua FileName="oops_overlay.lua" />
+        <ComponentLua FileName="../content/placeholder_base.lua" />
+    </Menu>
+</GMA3>

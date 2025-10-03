@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <TimezoneInput Name="TimezoneInput" W="50%" H="50%" MinSize="600,480" WantsModal="1" AlignmentH="Center" AlignmentV="Center" RelativeToDisplay="Yes" OnLoad=":OnLoaded">
+
+        <TitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Anchors="0,0" Texture="corner1" />
+            <CloseButton Anchors="1,0" Texture="corner2" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Frame" Columns="1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+
+            <UILayoutGrid Anchors="0,0" Name="FilterArea" Margin="6,6,3,6" DefaultMargin="4" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="50" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <UILayoutGrid Anchors="0,0" Name="FilterBlock">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Content" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Content" Size="1" />
+                    </ItemCollectColumns>
+                    <UIObject Anchors="0,0" Text="Filter:" W="60" BackColor="global.BackGround" HasHover="No" />
+                    <LineEdit Anchors="1,0" Name="FilterEdit" Focus="WantsFocus" Texture="corner5" Target="../../TimezoneGrid/Internals/GridBase/GridSettings/GridObjectContentFilter/Filter" Property="Filter" Clear=":ClearFilters" Execute=":JumpToGrid" />
+                    <IndicatorButton Anchors="2,0" Name="Clear" Text="Clear" Clicked=":ClearFilters" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" />
+                </UILayoutGrid>
+
+                <TimezoneGrid Anchors="0,1" Name="TimezoneGrid" BackColor="UIGrid.Background" AllowFilterContent="Yes" AllowEdit="No" OnLoad=":OnTimezoneGridLoaded" AllowAddContent="No" SelectionType="SingleRowGridSelection" OnSelectedItem=":OnItemSelected" FilterBlockUIEnabled="No">
+                    <DBObjectGridData HeaderRows="0" />
+                    <GridSettings RowHeightFactor="1.5" ContentFilterType="GridObjectContentFilter">
+                        <GridObjectContentFilter>
+                            <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                        </GridObjectContentFilter>
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Inclusive="Yes">
+                                <GridColumn Name="Lock" Visible="No" />
+                                <GridColumn Name="No" Visible="No" />
+                                <GridColumn Name="Name" Visible="Yes"/>
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                </TimezoneGrid>
+
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </TimezoneInput>
+</GMA3>

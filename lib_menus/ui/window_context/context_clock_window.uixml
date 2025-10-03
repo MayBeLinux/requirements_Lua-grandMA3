@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Clock Window Settings" Icon=""/>
+            <Button   Anchors="1,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="ClockWindow" />
+            <Button   Anchors="2,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="ClockWindow" />
+            <DeleteWindowButton   Anchors="3,0"  />
+            <CloseButton Texture="corner2" Anchors="4,0" />
+        </TitleBar>
+
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged" >
+
+                <UILayoutGrid Name="Display" Rows ="4" Columns="4" DefaultMargin="10" Margin="10,10,10,10">
+                    <SwipeButton Anchors="0,0" Texture="corner15" Text="Clock Source" Property="ClockSource" />
+                    <PropertyInput ShowValue="Yes" Anchors="1,0" Texture="corner15" Property="TitlePrefix" Text="Title Prefix" />
+                    <!--<SwipeButton Anchors="1,1" Texture="corner15" Name="SessionTimeStyleBtn" Text="Session Time Style" Property="SessionTimeStyle" />-->
+                    <SwipeButton Anchors="0,1" Texture="corner15" Text="Timecode Slot" Property="TCSlot" />
+                    <SwipeButton Anchors="0,2" Texture="corner15" Text="Timer" Property="TimerIndex" />
+                    <AppearanceInput Anchors="0,3" Texture="corner15" />
+                    <ColorPropertyInput Anchors="1,3" Texture="corner15" Property="PixelColor" Text="Pixel Color"/>
+
+                    <SwipeButton Anchors="2,1" Texture="corner15" Text="Time Format" Property="Timedisplayformat" />
+                    <SwipeButton Anchors="3,1" Texture="corner15" Text="Frame Readout" Property="FrameReadout" />
+                    <IndicatorControl Anchors="3,2" Property="ShowSecondFractals"  Texture="corner15" TextAutoAdjust="Yes" Text="Show Fractions" />
+                    <IndicatorControl Anchors="3,3" Property="ShowTitleBar"  Texture="corner15" TextAutoAdjust="Yes" Text="Show Title Bar" />
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Tools"  Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="TitleButtons"  Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Mask" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

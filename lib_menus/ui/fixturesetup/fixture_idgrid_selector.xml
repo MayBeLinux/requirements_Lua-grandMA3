@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="FixtureIDGridSelector" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML FileName="fixture_idgrid_selector.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="fixture_idgrid_selector.lua" />
+    </Menu>
+</GMA3>

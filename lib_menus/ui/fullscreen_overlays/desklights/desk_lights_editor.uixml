@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="700" H="600" AlignmentH="Center" AlignmentV="Center" WantsModal="0" HelpTopic="si_desklights.html"  >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Desk Lights &amp; Color Theme"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="4" />
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="20" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="Left" Anchors="0,1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                </ItemCollectColumns>
+
+                <UiFader Anchors="1,0" Text="Desk Lights" Name="DeskLights" Property="Master" Target="StationSettings.DeskLightsCollect.DeskLights" System="Intensity" Focus="InitialFocus" />
+                <UiFader Anchors="3,0" Name="Screens" Text="Screens" Property="Master" Target="StationSettings.DeskLightsCollect.Screens" System="Intensity" />
+                <UiFader Anchors="5,0" Name="LEDMstr" Text="LED Master" Property="Master" Target="StationSettings.DeskLightsCollect.LedMaster" System="Intensity" />
+                <UiFader Anchors="7,0" Name="LEDBackgnd" Text="LED Backgr." Property="Master" Target="StationSettings.DeskLightsCollect.LedBackground" System="Intensity" />
+                <UiFader Anchors="9,0" Name="FeedBack" Text="LED Feedb." Property="Master" Target="StationSettings.DeskLightsCollect.LedFeedback" System="Intensity" />
+
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Left" Anchors="0,3" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                </ItemCollectColumns>
+
+                <!--<PropertyInput Anchors="1,0" Name="Patch" Text="Patch" Property="Masteraddress" Target="StationSettings.DeskLightsCollect.DeskLights" Texture="corner15" />-->
+                <DialogButton Anchors="3,0" Name="Screens_Details" Text="Details" Clicked=":CommandLine" SignalValue="menu 'ScreenDetailsEditor'" Texture="corner15" />
+                <DialogButton Anchors="5,0" Name="LED_Details" Text="Details" Clicked=":CommandLine" SignalValue="menu 'LEDDetailsEditor'" Texture="corner15" />
+                <DialogButton Anchors="7,0" Name="LED_Backgnd_Details" Text="Details" Clicked=":CommandLine" SignalValue="menu 'LedBackgroundDetailsEditor'" Texture="corner15" />
+                <DialogButton Anchors="9,0" Name="FeedBack_Details" Text="Details" Clicked=":CommandLine" SignalValue="menu 'LedFeedbackDetailsEditor'" Texture="corner15" />
+
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Left" Anchors="0,5" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                </ItemCollectColumns>
+
+                <DialogButton Anchors="1,0,5,0" Name="ThemeName" Text="Active Color Theme" Texture="corner5" Property="FileName" Target="ColorTheme" OnLoad=":ActiveSelectorLoaded" />
+                <DialogButton Anchors="7,0" Name="Edit" Text="Edit" Texture="corner0" Clicked=":CommandLine" SignalValue="Edit ColorTheme" CloseAction="Ok" />
+                <DialogButton Anchors="9,0" Name="Compare" Text="Compare" Texture="corner10" Clicked=":CommandLine" SignalValue="Menu 'ThemeCompare'" CloseAction="Ok" />
+
+            </UILayoutGrid>
+
+            <PlaceHolder Name="DesklightsSubMenu" />
+        </DialogFrame>
+    </GenericEditorOverlay>
+
+</GMA3>

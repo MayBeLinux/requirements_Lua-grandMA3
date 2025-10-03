@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window >
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50"/>
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Fixed" Size="50"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <NormedTitleBar Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="Video Window" />
+            <ContextButton Texture="corner1"  Icon="object_video" Anchors="0,0" ToolTip=""/>
+        </NormedTitleBar>
+        <UILayoutGrid Name="VpuMenu" Anchors="0,2" Transparent="true" ContentWidth="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+            </ItemCollectColumns>
+            <Button   Anchors="0,0" Texture="corner5" Clicked=":ActionPlay" Name="Play" SignalValue="play" ToolTip="Play clips." Text="Play clips"/>
+            <Button   Anchors="1,0" Texture="corner0" Clicked=":ActionStop" Name="Stop" SignalValue="stop" ToolTip="Stop clips." Text="Stop clips"/>
+            <Button   Anchors="2,0" Texture="corner0" Clicked=":ActionSpeedHalf" Name="SpeedHalf" SignalValue="SpeedHalf" ToolTip="Set clips half speed." Text="1/2 Speed"/>
+            <Button   Anchors="3,0" Texture="corner0" Clicked=":ActionSpeedNormal" Name="SpeedNormal" SignalValue="SpeedNormal" ToolTip="Set clips normal speed." Text="1/1 Speed"/>
+            <Button   Anchors="4,0" Texture="corner10"  Clicked=":ActionSpeedDouble" Name="SpeedDouble" SignalValue="SpeedDouble" ToolTip="Set clips double speed." Text="2/1 Speed"/>
+            <Button   Anchors="6,0" Texture="corner5" Clicked=":MyCppAction" SignalValue="tocpp" Text="To C++"/>
+            <Button   Anchors="7,0" Texture="corner10" Clicked=":OnVPULuaButtonClicked" Name="ToLua" SignalValue="tolua" ToolTip="Command to Lua." Text="To Lua"/>
+        </UILayoutGrid>
+        <UILayoutGrid Name="VpuMenu" Anchors="0,1" Transparent="true">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch"/>
+                <!-- VPU Debug Dialog -->
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectColumns>
+            <!-- ........................................................................................................................ -->
+            <!-- Video Window -->
+            <!-- ........................................................................................................................ -->
+            <VpuDialog Name="Video Window" Anchors="0,0" BackColor="Piano.White"/>
+            <!-- ........................................................................................................................ -->
+        </UILayoutGrid>
+    </Window>
+</GMA3>

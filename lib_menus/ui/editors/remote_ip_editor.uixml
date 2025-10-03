@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="RemoteIpEditor" WantsModal="1" W="100%" H="100%" OnLoad=":OnListLoad">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="0" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <TitleBar Name="Title" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Network Interfaces" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" W="50" />
+        </TitleBar>
+
+        <DialogFrame Name="Content" Anchors="0,1" DefaultMargin="10" DefaultMarginOnBorders="1" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <UITab  Texture="corner5" ItemSize="75" W="100%" H="100%" Name="PagesTab" Anchors="0,0" TabChanged=":PageChanged" Type="Vertical" UseTabRegistry="Yes">
+                <ItemStr Title="Standard" Value="StandardPage" />
+                <ItemStr Title="Extended" Value="ExtendedPage" />
+            </UITab>
+
+            <DialogContainer Name="Dialogs" Anchors="1,0" ChangeActive=":PageChanged">
+
+                <DBObjectGrid Name="StandardPage" Anchors="0,0" TargetObject="Temp.TempNetworkInterfaces.1" AllowMergeChildren="Yes">
+                    <GridSettings Name="StandardPageGridSettings" >
+                        <GridColumnFilterCollect>
+                            <GridColumnNamesFilter Inclusive="Yes">
+                                <GridColumn Name="Name" Visible="Yes" />
+                                <GridColumn Name="Link" Visible="Yes" />
+                                <GridColumn Name="DHCP" Visible="Yes" />
+                                <GridColumn Name="IP"   Visible="Yes" />
+                                <GridColumn Name="Mask" Visible="Yes" />
+                                <GridColumn Name="MAC"  Visible="Yes" />
+                                <GridColumn Name="RenewDHCP" Visible="Yes" />
+                            </GridColumnNamesFilter>
+                        </GridColumnFilterCollect>
+                    </GridSettings>
+                </DBObjectGrid>
+
+                <UILayoutGrid Name="ExtendedPage" HasHover="0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="220" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <DBObjectGrid Name="InterfacesGrid" Anchors="0,0" TargetObject="Temp.TempNetworkInterfaces.1" AllowMergeChildren="Yes"/>
+                </UILayoutGrid>
+
+            </DialogContainer>
+
+            <UILayoutGrid Name="AddDelete" DefaultMargin="5" DefaultMarginOnBorders="Yes" Anchors="0,1,1,1" Columns="2" Rows="1">
+                <Button Anchors="0,0" Text="Apply Changes" Clicked=":ApplyInterfaceChanges" BackColor="Button.BackgroundPlease" Texture="corner4"/>
+                <Button Anchors="1,0" Text="Cancel Changes" Clicked=":CancelChanges" Texture="corner8"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,2" AlignmentH="Right" AlignmentV="Bottom" />
+    </BaseInput>
+
+
+</GMA3>

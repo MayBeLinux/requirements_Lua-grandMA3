@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MultiLineTextInput Visible="No" W="90%" H="90%" AdjustInitialPosition="No" AutoClose="No" AlignmentH="Center" AlignmentV="Center" OnLoad=":LuaInputLoaded" MinSize="800,480" HelpTopic="plugins.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <TitleBar Name="Title" Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="120" />
+                <Item SizePolicy="Fixed" Size="120" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <Button Name="VK" Texture="corner1" Anchors="0,0" Clicked=":ToggleVirtualKeyboard" Icon="keyboard" Focus="Never"/>
+            <TitleButton Texture="corner0" Anchors="1,0" Text="Lua Input" Icon=""/>
+            <IndicatorControl Anchors="2,0" Name="ToggleTemplates" Text="Lua Code&#xD;Templates" Property="Visible" OnLoad=":TemplatesVisiblityBtnLoaded" Margin="1,0,0,0" Clicked=":TemplateBtnClicked"/>
+            <IndicatorControl Anchors="3,0" Name="ToggleAPI" Text="API&#xD;Description" Property="Visible" OnLoad=":ApiVisiblityBtnLoaded" Margin="1,0,0,0"/>
+            <Button Name="Undo"    Icon="undo" ActiveBackColor="Button.Background" ToolTip="Undo last change" HotKey="Ctrl+Z" Texture="corner0" Anchors="4,0" Clicked=":UndoTextEdit" Margin="1,0,0,0"/>
+            <Button Name="Redo"    Icon="redo" ActiveBackColor="Button.Background" ToolTip="Redo last undo" HotKey="Ctrl+Y" Texture="corner0" Anchors="5,0" Clicked=":RedoTextEdit" Margin="1,0,0,0"/>
+            <Button Name="SaveBtn" Text="Save" ToolTip="Save changes and close input dialog" HotKey="Alt+Enter" Texture="corner0" Anchors="6,0" Clicked=":CloseOK" Margin="1,0,0,0"/>
+            <CloseButton Texture="corner2" Anchors="7,0" CloseAction="Confirm" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50"/>
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+
+            <TextEdit Name="InputField" Anchors="0,0" Focus="InitialFocus" Execute=":CloseOK" Undo=":UndoTextEdit" Redo=":RedoTextEdit" TextAutoAdjust="true" UndoRedoChanged=":UndoRedoChanged" HasHover="No" BackColor="LineEdit.Background" ShowLineNumbers="Yes" ShowWhiteSpace="Yes" HighlightCurrentLine="Yes" NewlineWithSpaces="Yes" ForceCursor="Yes" WantsNumericRedirect="Yes"/>
+
+            <UILayoutGrid Name="ApiList" Anchors="2,0" MinSize="400,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="2" />
+                    <Item SizePolicy="Content"/>
+                </ItemCollectRows>
+                <LineEdit Anchors="0,0" H="50" Name="ItemFilterField" Property="ItemFilter" Target="../ItemList" Focus="WantsFocus" />
+                <ScrollableItemList Anchors="0,1" Name="ItemList" OnLoad=":OnApiListLoaded" OnSelectedItem=":AdjustSelectedAPIInfo" Focus="CanHaveFocus" ScrollChangesSelection="Yes" ItemType="ListItemButton" Rounded="No" DoubleClicked=":InsertSelectedAPI"/>
+                <ScrollBarV         Anchors="0,1" Name="ScrollV" W="20" ScrollTarget="../ItemList" ScrollOpposite="No" Visible="Yes" AlignmentH="Right" />
+                <!-- <ScrollBarH         Anchors="0,1" Name="ScrollH" H="20" ScrollTarget="../ItemList" ScrollOpposite="No" Visible="Yes" AlignmentV="Bottom" /> -->
+
+                <UILayoutGrid Anchors="0,2" Name="SelectedInfo" DefaultMargin="0" Margin="0,3,2,3" MinSize="0,200">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="40" />
+                        <Item SizePolicy="Fixed" Size="25" />
+                        <Item SizePolicy="Fixed" Size="50"/>
+                        <Item SizePolicy="Fixed" Size="25" />
+                        <Item SizePolicy="Fixed" Size="50"/>
+                    </ItemCollectRows>
+                    <UIObject Anchors="0,0" Texture="corner3"  HasHover="No" TextAlignmentH="Left"                      Margin="0,0,0,0" Padding="5,5,5,5" Name="FuncName" Font="console24"/>
+
+                    <Button Anchors="0,0" W="50" AlignmentH="Right" AlignmentV="Center" Icon="plus" Texture="corner15" Margin="3,3,3,3" Clicked=":InsertSelectedAPI"/>
+
+                    <UIObject Anchors="0,1" Texture="corner0"  HasHover="No" TextAlignmentH="Left" TextAlignmentV="Top" Margin="0,1,0,0" Padding="5,2,5,0" Text="Arguments:" />
+                    <TextEdit Anchors="0,2" Texture="corner0"  HasHover="No" TextAlignmentH="Left" TextAlignmentV="Top" Margin="0,0,0,0" Padding="5,2,5,0" Name="Arguments" BackColor="UIObject.Background"/>
+                    <UIObject Anchors="0,3" Texture="corner0"  HasHover="No" TextAlignmentH="Left" TextAlignmentV="Top" Margin="0,1,0,0" Padding="5,2,5,0" Text="Return Values:" />
+                    <TextEdit Anchors="0,4" Texture="corner12" HasHover="No" TextAlignmentH="Left" TextAlignmentV="Top" Margin="0,0,0,0" Padding="5,2,5,0" Name="ReturnValues" BackColor="UIObject.Background"/>
+                </UILayoutGrid>
+            </UILayoutGrid>
+            <SplitterH Name="Resizer" Anchors="1,0" />
+
+            <PlaceHolder Name="VirtualKeyboardPlaceholder" Anchors="0,1,2,1" H="250"/>
+
+            <UILayoutGrid Name="LuaTemplates" Anchors="0,0,2,1" Visible="No">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+
+                <UIObject Anchors="0,0,0,1" Name="Background" HasHover="No" BackColor="Overlay.Background"/>
+
+                <ScrollContainer Anchors="0,0" Name="ScrollContainer" Visible="Yes">
+                    <ScrollBox>
+                        <UILayoutGrid Name="Templates" OnLoad=":OnTemplatesLoaded">
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Content" />
+                                <Item SizePolicy="Content" />
+                            </ItemCollectColumns>
+
+                            <UILayoutGrid Anchors="0,0" Name="Commandline" Padding="10,10,10,5" W="600">
+                                <UIObject Texture="corner15" Name="SelectFrame" HasHover="No" Margin="0,0,0,0" BackColor="Global.Selected" Visible="No"/>
+                                <UIObject Texture="corner3"  Name="Title"       HasHover="No" Margin="1,1,1,1" H="50" Padding="10,10,10,5" TextAlignmentH="Left" TextAlignmentV="Top" Font="Regular28" Text="Basic Functions"/>
+                                <UIObject Texture="corner12" Name="Border"      HasHover="No" Margin="1,52,1,1" />
+                                <TextEdit Texture="corner15" Name="Text"                      Margin="4,56,4,4" OnLoad=":SetTemplateText" Clicked=":ChangeTemplateSelection" FocusGet=":ChangeTemplateSelection" ShowLineNumbers="Yes" ShowWhiteSpace="Yes" NewlineWithSpaces="Yes" ColorLineNumberBackground="Global.Transparent" Focus="WantsFocus" HideFocusFrame="Yes"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Anchors="1,0" Name="Arguments" Padding="10,10,10,5" W="700">
+                                <UIObject Texture="corner15" Name="SelectFrame" HasHover="No" Margin="0,0,0,0" BackColor="Global.Selected" Visible="No"/>
+                                <UIObject Texture="corner3"  Name="Title"       HasHover="No" Margin="1,1,1,1" H="50" Padding="10,10,10,5" TextAlignmentH="Left" TextAlignmentV="Top" Font="Regular28" Text="Main Arguments"/>
+                                <UIObject Texture="corner12" Name="Border"      HasHover="No" Margin="1,52,1,1" />
+                                <TextEdit Texture="corner15" Name="Text"                      Margin="4,56,4,4" OnLoad=":SetTemplateText" Clicked=":ChangeTemplateSelection" FocusGet=":ChangeTemplateSelection" ShowLineNumbers="Yes" ShowWhiteSpace="Yes" NewlineWithSpaces="Yes" ColorLineNumberBackground="Global.Transparent" Focus="CanHaveFocus" HideFocusFrame="Yes"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Anchors="2,0" Name="ProgressBar" Padding="10,10,10,5" W="770">
+                                <UIObject Texture="corner15" Name="SelectFrame" HasHover="No" Margin="0,0,0,0" BackColor="Global.Selected" Visible="No"/>
+                                <UIObject Texture="corner3"  Name="Title"       HasHover="No" Margin="1,1,1,1" H="50" Padding="10,10,10,5" TextAlignmentH="Left" TextAlignmentV="Top" Font="Regular28" Text="Progress Bar"/>
+                                <UIObject Texture="corner12" Name="Border"      HasHover="No" Margin="1,52,1,1" />
+                                <TextEdit Texture="corner15" Name="Text"                      Margin="4,56,4,4" OnLoad=":SetTemplateText" Clicked=":ChangeTemplateSelection" FocusGet=":ChangeTemplateSelection" ShowLineNumbers="Yes" ShowWhiteSpace="Yes" NewlineWithSpaces="Yes" ColorLineNumberBackground="Global.Transparent" Focus="CanHaveFocus" HideFocusFrame="Yes"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Anchors="3,0" Name="UserFeedback" Padding="10,10,10,5" W="800">
+                                <UIObject Texture="corner15" Name="SelectFrame" HasHover="No" Margin="0,0,0,0" BackColor="Global.Selected" Visible="No"/>
+                                <UIObject Texture="corner3"  Name="Title"       HasHover="No" Margin="1,1,1,1" H="50" Padding="10,10,10,5" TextAlignmentH="Left" TextAlignmentV="Top" Font="Regular28" Text="User Feedback"/>
+                                <UIObject Texture="corner12" Name="Border"      HasHover="No" Margin="1,52,1,1" />
+                                <TextEdit Texture="corner15" Name="Text"                      Margin="4,56,4,4" OnLoad=":SetTemplateText" Clicked=":ChangeTemplateSelection" FocusGet=":ChangeTemplateSelection" ShowLineNumbers="Yes" ShowWhiteSpace="Yes" NewlineWithSpaces="Yes" ColorLineNumberBackground="Global.Transparent" Focus="CanHaveFocus" HideFocusFrame="Yes"/>
+                            </UILayoutGrid>
+
+                            <UILayoutGrid Anchors="4,0" Name="MessageBox" Padding="10,10,10,5" W="1110">
+                                <UIObject Texture="corner15" Name="SelectFrame" HasHover="No" Margin="0,0,0,0" BackColor="Global.Selected" Visible="No"/>
+                                <UIObject Texture="corner3"  Name="Title"       HasHover="No" Margin="1,1,1,1" H="50" Padding="10,10,10,5" TextAlignmentH="Left" TextAlignmentV="Top" Font="Regular28" Text="MessageBox"/>
+                                <UIObject Texture="corner12" Name="Border"      HasHover="No" Margin="1,52,1,1" />
+                                <TextEdit Texture="corner15" Name="Text"                      Margin="4,56,4,4" OnLoad=":SetTemplateText" Clicked=":ChangeTemplateSelection" FocusGet=":ChangeTemplateSelection" ShowLineNumbers="Yes" ShowWhiteSpace="Yes" NewlineWithSpaces="Yes" ColorLineNumberBackground="Global.Transparent" Focus="CanHaveFocus" HideFocusFrame="Yes"/>
+                            </UILayoutGrid>
+                        </UILayoutGrid>
+
+
+                    </ScrollBox>
+                </ScrollContainer>
+
+                <UILayoutGrid Name="Buttons" Anchors="0,1" Font="Regular18">
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Fixed" Size="180"/>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Fixed" Size="180"/>
+                    </ItemCollectColumns>
+
+                    <IndicatorButton Anchors="0,0" Name="BackBtn"        Text="Back"             Texture="corner15" WantsNumericRedirect="Yes" Padding="10,0,10,0" Margin="10,5,10,5" Icon="arrow_left" IconAlignmentH="Left" Clicked=":CloseTemplates"/>
+                    <IndicatorButton Anchors="2,0" Name="UseTemplateBtn" Text="Use&#xD;Template" Texture="corner15" WantsNumericRedirect="Yes" Padding="10,0,10,0" Margin="10,5,10,5" ColorIndicator="Button.BackgroundPlease" Focus="WantsFocus" Clicked=":UseSelectedExample"/>
+                </UILayoutGrid>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="MaxSizeError" Anchors="0,0" Visible="No" DefaultMargin="0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="60" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="60" />
+                </ItemCollectRows>
+
+                <UIObject        Anchors="0,0"     Texture="corner0"  Padding="10,10,10,10" BackColor="Overlay.Background" HasHover="No" TextAlignmentH="Left" TextAlignmentV="Top" Text="Attention!" Font="Regular28" TextColor="Global.AlertText" TextShadow="Yes"/>
+                <UIObject        Anchors="0,1,0,2" Texture="corner0"  Padding="10,10,10,10" BackColor="Overlay.Background" HasHover="No" TextAlignmentH="Left" TextAlignmentV="Top" Text="This component exceeds the maximum allowed size. Please use an external editor." OnLoad=":TryToAddFileInfo"/>
+                <IndicatorButton Anchors="0,2"     Texture="corner15" Padding="10,10,10,10" Margin="50,5,50,5" Text="OK" AlignmentH="Center" Clicked=":CloseFileSizeError"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </MultiLineTextInput>
+</GMA3>

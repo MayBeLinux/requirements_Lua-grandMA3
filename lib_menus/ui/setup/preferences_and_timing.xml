@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="54" Name="PreferencesAndTiming" Guid="00 00 00 00 80 4A 00 00 30 52 36 54 85 B4 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/setup">
+        <ComponentXML Index="1" Guid="00 00 00 00 7E 18 00 00 33 52 36 54 85 B4 55 B0" FileName="preferences_and_timing.uixml" PlaceHolder="MainDialog" Toggle="No" />
+        <ComponentLua Index="2" Guid="00 00 00 00 C5 16 00 00 32 52 36 54 85 B4 55 B0" FileName="preferences_and_timing.lua" />
+    </Menu>
+</GMA3>

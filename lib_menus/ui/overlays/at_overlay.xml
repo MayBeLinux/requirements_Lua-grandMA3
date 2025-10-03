@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="AtOverlay" Guid="00 1B 21 63 76 CB 00 00 F8 52 36 54 14 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Guid="00 1B 21 63 03 89 00 00 FB 52 36 54 14 82 55 B0" FileName="at_overlay.uixml" PlaceHolder="ScreenOverlay" SearchFocusAllowed="No" BuddyGroupId="AtDialogs" BuddyGroupIdUnique="No" />
+        <ComponentLua FileName="at_overlay.lua" />
+    </Menu>
+</GMA3>

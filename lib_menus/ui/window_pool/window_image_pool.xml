@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="213" Name="WindowImagePool" Guid="39 44 BD 63 24 E0 4A 69 B5 A5 01 80 D1 11 3C 2B" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML Index="1" Guid="8B 1A A8 E4 41 DE 43 0F 8C 45 3A B6 CD 71 41 B7" FileName="window_image_pool.uixml" PlaceHolder="UiScreen" WindowSettings="PoolSettings" WindowContext="ContextGenericPool" Toggle="No" />
+    </Menu>
+</GMA3>

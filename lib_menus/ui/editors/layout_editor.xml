@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="LayoutEditor" Author="MA" Version="0.1.0.0" Path="/ui/editors" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" FileName="layout_editor.uixml" PlaceHolder="MainDialog" DisplayTypePreference="BigOrSmall" Toggle="No"  />
+        <ComponentLua Index="2" FileName="layout_element_default_handler.lua" />
+        <ComponentLua Index="3" FileName="generic_edit.lua" />
+        <ComponentLua Index="4" FileName="layout_editor.lua" />
+        <ComponentLua Index="5" FileName="editor_settings_load.lua" />
+    </Menu>
+</GMA3>

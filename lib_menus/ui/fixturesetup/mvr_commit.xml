@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.9.77.1">
+    <Menu Name="MvrCommit" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML FileName="mvr_commit.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="mvr_commit.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ShaperWindowContent Name="ShaperWindowContent" OnLoad=":OnShaperContentLoaded" Font="Regular18">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content"/>
+            <Item SizePolicy="Stretch" Size="8" />
+            <Item SizePolicy="Content" Size="80"/>
+            <Item SizePolicy="Content" Size="320"/>
+        </ItemCollectColumns>
+
+        <!-- Frame Mini faders -->
+        <UILayoutGrid Anchors="0,0,0,1" Name="FrameMiniFaders" Margin="4,4,4,4">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="30" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="80" />
+            </ItemCollectColumns>
+
+            <UIObject           Anchors="0,0"    Name="HeaderFramePos"   Text="Frame"               Texture="corner3" Focus="Never" Visible="1"/>
+            <ShaperPovFader     Anchors="0,1"    Name="Pov"              Text="POV"                 Texture="corner0" System="Shaper" Property="POV"        Visible="1" HeadLineTexture="corner0" Focus="InitialFocus" />
+            <IndicatorButton    Anchors="0,2"                            Text="Reset&#xD;POV"       Texture="corner12" Clicked=":OnResetPov" ToolTip="Reset Pov"/>
+
+        </UILayoutGrid>
+
+        <!-- The 2D view -->
+        <UILayoutGrid Anchors="1,0" Name="ViewGrid">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <DialogContainer Anchors="0,0" Name="ShaperDesignContainer" >
+                <BladeView Name="BladeView" ClickNearest="1" />
+            </DialogContainer>
+        </UILayoutGrid>
+
+        <!-- Shaper Mini faders -->
+        <ShaperEditorFaderGrid Anchors="2,0,2,1" Name="ShaperMiniFaders" Margin="0,4,4,4">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="30" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="80" />
+            </ItemCollectColumns>
+
+            <!-- Frame rot / POV -->
+            <UIObject          Anchors="0,0"    Name="HeaderFramePos"   Text="Shaper"               Texture="corner3" Focus="Never"         Visible="1"/>
+            <ShaperEditorFader Anchors="0,1"    Name="ShaperFaderRot"   Text="Rotation"             Texture="corner0" System="Shaper" Property="Rotation"   Visible="1" HeadLineTexture="corner0" />
+            <IndicatorButton   Anchors="0,2"                            Text="Reset&#xD;Rotation"   Texture="corner12" Clicked=":OnResetRotation" ToolTip="Reset Rotation"/>
+
+        </ShaperEditorFaderGrid>
+
+        <!-- Blade Mini faders -->
+        <ShaperEditorFaderGrid Anchors="3,0,3,1" Name="BladeMiniFaders" Margin="0,4,4,4">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="30" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="2" />
+                <Item SizePolicy="Fixed" Size="30" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+                <Item SizePolicy="Fixed" Size="80" />
+
+            </ItemCollectColumns>
+
+            <!-- Ins/Rot -->
+            <UIObject          Anchors="0,0,3,0"    Name="HeaderIns"        Text="Insert Blades"        Texture="corner3" Focus="Never"                     Visible="1"/>
+            <ShaperEditorFader Anchors="0,1"        Name="ShaperFader1Ins"  Text="1-Ins"              Texture="corner0" System="Shaper" Property="1Ins"   Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="1,1"        Name="ShaperFader2Ins"  Text="2-Ins"              Texture="corner0" System="Shaper" Property="2Ins"   Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="2,1"        Name="ShaperFader3Ins"  Text="3-Ins"              Texture="corner0" System="Shaper" Property="3Ins"   Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="3,1"        Name="ShaperFader4Ins"  Text="4-Ins"              Texture="corner0" System="Shaper" Property="4Ins"   Visible="1" HeadLineTexture="corner0" />
+
+            <UIObject          Anchors="0,3,3,3"    Name="HeaderRot"        Text="Rotate Blades"        Texture="corner3" Focus="Never"                     Visible="1" />
+            <ShaperEditorFader Anchors="0,4"        Name="ShaperFader1Rot"  Text="1-Rot"              Texture="corner0" System="Shaper" Property="1Rot"   Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="1,4"        Name="ShaperFader2Rot"  Text="2-Rot"              Texture="corner0" System="Shaper" Property="2Rot"   Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="2,4"        Name="ShaperFader3Rot"  Text="3-Rot"              Texture="corner0" System="Shaper" Property="3Rot"   Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="3,4"        Name="ShaperFader4Rot"  Text="4-Rot"              Texture="corner0" System="Shaper" Property="4Rot"   Visible="1" HeadLineTexture="corner0" />
+
+            <!-- A/B -->
+            <UIObject          Anchors="0,0,3,0"    Name="HeaderA"          Text="A Position Blades"    Texture="corner3" Focus="Never"                     Visible="0"/>
+            <ShaperEditorFader Anchors="0,1"        Name="ShaperFader1A"    Text="1-A"              Texture="corner0" System="Shaper" Property="1A"     Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="1,1"        Name="ShaperFader2A"    Text="2-A"              Texture="corner0" System="Shaper" Property="2A"     Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="2,1"        Name="ShaperFader3A"    Text="3-A"              Texture="corner0" System="Shaper" Property="3A"     Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="3,1"        Name="ShaperFader4A"    Text="4-A"              Texture="corner0" System="Shaper" Property="4A"     Visible="0" HeadLineTexture="corner0" />
+
+            <UIObject          Anchors="0,3,3,3"    Name="HeaderB"          Text="B Position Blades"    Texture="corner3" Focus="Never"                     Visible="0"/>
+            <ShaperEditorFader Anchors="0,4"        Name="ShaperFader1B"    Text="1-B"              Texture="corner0" System="Shaper" Property="1B"     Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="1,4"        Name="ShaperFader2B"    Text="2-B"              Texture="corner0" System="Shaper" Property="2B"     Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="2,4"        Name="ShaperFader3B"    Text="3-B"              Texture="corner0" System="Shaper" Property="3B"     Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="3,4"        Name="ShaperFader4B"    Text="4-B"              Texture="corner0" System="Shaper" Property="4B"     Visible="0" HeadLineTexture="corner0" />
+
+            <!-- Reset buttons -->
+            <IndicatorButton   Anchors="0,5"        Name="ShaperReset1"     Text="Reset&#xD;1"      Texture="corner4"  Clicked=":OnResetBlade1" ToolTip="Reset values of Blade 1"/>
+            <IndicatorButton   Anchors="1,5"        Name="ShaperReset2"     Text="Reset&#xD;2"      Texture="corner0"  Clicked=":OnResetBlade2" ToolTip="Reset values of Blade 2"/>
+            <IndicatorButton   Anchors="2,5"        Name="ShaperReset3"     Text="Reset&#xD;3"      Texture="corner0"  Clicked=":OnResetBlade3" ToolTip="Reset values of Blade 3"/>
+            <IndicatorButton   Anchors="3,5"        Name="ShaperReset4"     Text="Reset&#xD;4"      Texture="corner8"  Clicked=":OnResetBlade4" ToolTip="Reset values of Blade 4"/>
+
+        </ShaperEditorFaderGrid>
+
+        <!-- Big faders -->
+        <ShaperEditorFaderGrid Anchors="1,0,3,0" Name="BigFaders" Visible="0" Margin="4,4,4,4">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="30" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="4" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="4" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <!-- Ins/Rot -->
+            <UIObject          Anchors="0,0,3,0"    Name="HeaderIns"        Text="Insert Blades"        Texture="corner3" Focus="Never"       Visible="1"/>
+            <ShaperEditorFader Anchors="0,1"        Name="ShaperFader1Ins"  Text="1-Ins"              Texture="corner0" System="Shaper" Property="1Ins"      Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="1,1"        Name="ShaperFader2Ins"  Text="2-Ins"              Texture="corner0" System="Shaper" Property="2Ins"      Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="2,1"        Name="ShaperFader3Ins"  Text="3-Ins"              Texture="corner0" System="Shaper" Property="3Ins"      Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="3,1"        Name="ShaperFader4Ins"  Text="4-Ins"              Texture="corner0" System="Shaper" Property="4Ins"      Visible="1" HeadLineTexture="corner0" />
+
+            <UIObject          Anchors="5,0,8,0"    Name="HeaderRot"        Text="Rotate Blades"        Texture="corner3" Focus="Never"       Visible="1"/>
+            <ShaperEditorFader Anchors="5,1"        Name="ShaperFader1Rot"  Text="1-Rot"              Texture="corner0" System="Shaper" Property="1Rot"      Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="6,1"        Name="ShaperFader2Rot"  Text="2-Rot"              Texture="corner0" System="Shaper" Property="2Rot"      Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="7,1"        Name="ShaperFader3Rot"  Text="3-Rot"              Texture="corner0" System="Shaper" Property="3Rot"      Visible="1" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="8,1"        Name="ShaperFader4Rot"  Text="4-Rot"              Texture="corner0" System="Shaper" Property="4Rot"      Visible="1" HeadLineTexture="corner0" />
+
+            <!-- A/B -->
+            <UIObject          Anchors="0,0,3,0"    Name="HeaderA"          Text="A-Position Blades"    Texture="corner3" Focus="Never"     Visible="0"/>
+            <ShaperEditorFader Anchors="0,1"        Name="ShaperFader1A"    Text="1-A"              Texture="corner0" System="Shaper" Property="1A"        Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="1,1"        Name="ShaperFader1B"    Text="2-A"              Texture="corner0" System="Shaper" Property="1B"        Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="2,1"        Name="ShaperFader2A"    Text="3-A"              Texture="corner0" System="Shaper" Property="2A"        Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="3,1"        Name="ShaperFader2B"    Text="4-A"              Texture="corner0" System="Shaper" Property="2B"        Visible="0" HeadLineTexture="corner0" />
+
+            <UIObject          Anchors="5,0,8,0"    Name="HeaderB"          Text="B-Position Blades"    Texture="corner3" Focus="Never"     Visible="0"/>
+            <ShaperEditorFader Anchors="5,1"        Name="ShaperFader3A"    Text="1-B"              Texture="corner0" System="Shaper" Property="3A"        Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="6,1"        Name="ShaperFader3B"    Text="2-B"              Texture="corner0" System="Shaper" Property="3B"        Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="7,1"        Name="ShaperFader4A"    Text="3-B"              Texture="corner0" System="Shaper" Property="4A"        Visible="0" HeadLineTexture="corner0" />
+            <ShaperEditorFader Anchors="8,1"        Name="ShaperFader4B"    Text="4-B"              Texture="corner0" System="Shaper" Property="4B"        Visible="0" HeadLineTexture="corner0" />
+
+            <!-- Frame rot -->
+            <UIObject          Anchors="10,0"        Name="HeaderIns"        Text="Shaper"              Texture="corner3" Focus="Never"       Visible="1"/>
+            <ShaperEditorFader Anchors="10,1"        Name="HeaderFramePos"   Text=""                 Texture="corner0" System="Shaper" Property="Rotation"  Visible="1" HeadLineTexture="corner0" />
+        </ShaperEditorFaderGrid>
+
+        <!-- Toolbar -->
+        <UILayoutGrid Anchors="1,1" Name="ResetBarGraphic" Margin="0,0,4,4">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <IndicatorButton Anchors="0,0" Text="Reset Shaper"     Clicked=":OnResetShaper"    Texture="corner5" ToolTip="Reset Shaper (Blades and Rotation)"/>
+            <IndicatorButton Anchors="1,0" Text="Reset Blades"     Clicked=":OnResetAllBlades" Texture="corner10" ToolTip="Reset Blades"/>
+        </UILayoutGrid>
+
+        <UILayoutGrid Anchors="1,1" Name="ResetBarBigFaders" Margin="4,0,4,4">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <IndicatorButton Anchors="0,0" Text="Reset Shaper"     Clicked=":OnResetShaper"    Texture="corner5" ToolTip="Reset Shaper (Blades and Rotation)"/>
+            <IndicatorButton Anchors="1,0" Text="Reset Blades"     Clicked=":OnResetAllBlades" Texture="corner0" ToolTip="Reset Blades"/>
+            <IndicatorButton Anchors="2,0" Text="Reset Rotation"   Clicked=":OnResetRotation"  Texture="corner10"  ToolTip="Reset Rotation"/>
+
+        </UILayoutGrid>
+    </ShaperWindowContent>
+</GMA3>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window Name="Win3D" EditEncoderBar="StageViewBar" OnLoad=":View3DLoaded" HelpTopic="patch_3d_viewer.html" ReactToPreview="Yes" ReactToEdit="Yes">
+        <!-- Grid Layout --> -->
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <!-- .................................................. --> -->
+        <!-- Title Bar --> -->
+        <!-- .................................................. --> -->
+        <NormedTitleBar  Name="TitleBar" Anchors="0,0" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <!-- Grid Layout --> -->
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <!-- Buttons and controls --> -->
+            <TitleButton Name="TitleButton" Texture="corner2" Anchors="1,0,2,0" Text="3D" TrackEdit="Yes" ShowSelectionCount="Yes" TrackWorld="Yes" OnLoad=":OnTitlebuttonLoaded"/>
+            <TitleAutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <!-- <SwipeButton      OnLoad=":SetTarget" Text="BodyQuality"        Name="BodyQuality3d"   MinSize="60,0" W="100" Property="BodyQuality3d"    TextAutoAdjust="Yes" BackColor="global.Default"/> -->
+                <!--<IndicatorControl OnLoad=":SetTarget" Text="Select by Label"      Name="SelectByLabel"       MinSize="50,0" W="100" Property="SelectFixtureBySpotLabel"        TextAutoAdjust="Yes" BackColor="global.Default"/> -->
+                <IndicatorControl OnLoad=":SetTarget"    Name="Setup"              MinSize="60,0" W="70"  Text="Setup"                   Property="Setup"            TextAutoAdjust="No"  BackColor="global.Default"/>
+                <SwipeButton      OnLoad=":SetTarget"    Name="Camera"             MinSize="60,0" W="105" Text="Camera"                  Property="Camera"           TextAutoAdjust="No" BackColor="global.Default" IndirectEdit="1" />
+                <SwipeButton      OnLoad=":SetTarget"    Name="RenderQuality"      MinSize="60,0" W="110" Text="Render Quality"          Property="RenderQuality"    TextAutoAdjust="No" BackColor="global.Default" IndirectEdit="1" />
+                <SwipeButton      OnLoad=":SetTarget"    Name="Stage"              MinSize="60,0" W="100" Text="Stage"                   Property="Stage"            TextAutoAdjust="No" BackColor="global.Default" IndirectEdit="1" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowLabel"          MinSize="50,0" W="110" Text="Show Label on Body"      Property="ShowLabel"        TextAutoAdjust="Yes" BackColor="global.Default"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowLabOnEnd"       MinSize="50,0" W="110" Text="Show Label on Spot"      Property="ShowLabOnEnd"     TextAutoAdjust="Yes" BackColor="global.Default"/>
+
+                <SwipeButton      OnLoad=":SetTarget"    Name="TouchMode"          MinSize="50,0" W="115" Text="Touch Mode"              Property="InputControl3d"   TextAutoAdjust="No" BackColor="global.Default"/>
+
+                <SwipeButton      OnLoad=":SetTarget"    Name="SelectionMode"      MinSize="50,0" W="115" Text="Selection Mode"          Property="SelectionMode"    TextAutoAdjust="No" BackColor="global.Default"/>
+                <SwipeButton      OnLoad=":SetTarget"    Name="LinesOverlay"       MinSize="50,0" W="115" Text="Show Lines"              Property="LinesOverlay"     TextAutoAdjust="No" BackColor="global.Default"/>
+                <Button           OnLoad=":SetTargetDev" Name="AnalyzeMeshPool"    MinSize="50,0" W="100" Text="Analyze&#xD;Meshpool" signalValue="AnalyzeMeshPool"   Texture="corner3" Clicked=":AnalyzeMeshPool" Tooltip="Analyze Mesh Pool ( only for developers )" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowLabelFixtureId" MinSize="50,0" W="100" Text="Add Fixture ID"          Property="ShowLabFixtureId" TextAutoAdjust="Yes" AutoHide="Yes" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowLabelCID"       MinSize="50,0" W="100" Text="Add CID"                 Property="ShowLabCIE"       TextAutoAdjust="Yes" AutoHide="Yes" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowLabelPatch"     MinSize="50,0" W="100" Text="Add Patch"               Property="ShowLabPatch"     TextAutoAdjust="Yes" AutoHide="Yes" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowLabelName"      MinSize="50,0" W="100" Text="Add Name"                Property="ShowLabName"      TextAutoAdjust="Yes" AutoHide="Yes" />
+                <SwipeButton      OnLoad=":SetTarget"    Name="BloomIntensity"     MinSize="50,0" W="115" Text="Bloom Intensity"         Property="BloomIntensity"                        AutoHide="Yes" />
+                <PropertyInput    OnLoad=":SetTarget"    Name="ArrangementDepth"   MinSize="50,0" W="100" Text="Depth"                   Property="ArrangementDepth" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="Render Environmental" MinSize="50,0" W="120" Text="Render Environmental"    Property="RenderEnvironment" TextAutoAdjust="Yes" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="DrawSpaces"         MinSize="50,0" W="120" Text="Draw Target Spaces"      Property="DrawMArkerBoundaries" TextAutoAdjust="Yes" />
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowToolBar"        MinSize="50,0" W="100" Text="Show Toolbar"            Property="ShowToolBar"      TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="LensShading"        MinSize="50,0" W="100" Text="Lens Shading"            Property="LensShading"      TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="MarkFaultyMeshes"   MinSize="50,0" W="100" Text="Mark Faulty Meshes"      Property="MarkFaultyMeshes" TextAutoAdjust="Yes"/>
+                <SwipeButton      OnLoad=":SetTarget"    Name="MarkType"           MinSize="50,0" W="100" Text="Mark Type"               Property="ArrangementMarcType" TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="MarkUnpatched"      MinSize="50,0" W="100" Text="Mark Unpatched"          Property="MarkUnpatched"    TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="PointOfOrigin"      MinSize="50,0" W="100" Text="Point of Origin"         Property="PointOfOrigin"    TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowPigtails"       MinSize="50,0" W="100" Text="Show Pigtails"           Property="ShowPigtails"     TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="PrismLines"         MinSize="50,0" W="100" Text="Prism Lines"             Property="PrismLines"       TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="SelectByLabel"      MinSize="50,0" W="100" Text="Select by Label"         Property="SelectFixtureBySpotLabel" TextAutoAdjust="Yes" AutoHide="Yes"  />
+                <PropertyInput    OnLoad=":SetTarget"    Name="LabSelectionPrio"   MinSize="50,0" W="100" Text="Selection Priority"      Property="LabSelectionPrio" TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowFps"            MinSize="50,0" W="100" Text="Show fps"                Property="ShowFPS"          TextAutoAdjust="Yes"/>
+                <PropertyInput    OnLoad=":SetTarget"    Name="ShowSpotLabelSFID"  MinSize="50,0" W="110" Text="Spot Subfixture ID"      Property="ShowSpotLabelSubFixtureId" TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="Wireframed"         MinSize="50,0" W="110" Text="Wireframe"               Property="Wireframed"       TextAutoAdjust="Yes"/>
+                <PropertyInput    OnLoad=":SetTarget"    Name="LabOnlySelection"   MinSize="50,0" W="100" Text="Selection Only"          Property="LabOnlySelection" TextAutoAdjust="Yes"/>
+                <IndicatorControl OnLoad=":SetTarget"    Name="ShowSelection"      MinSize="50,0" W="100" Text="Show Selection"          Property="ShowSelection"    TextAutoAdjust="Yes"/>
+            </TitleAutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0" Icon="object_3d" ToolTip="Opens 3D Viewer Settings"/>
+        </NormedTitleBar>
+        <DialogFrame Name="Frame" Anchors="0,1" MixInBackColorFromParent="Yes">
+            <UILayoutGrid Name="LayoutGrid" Anchors="0,0">
+                <!-- .................................................. -->
+                <!-- Grid -->
+                <!-- .................................................. -->
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch"  />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content"/>
+                    <!-- Toolbar -->
+                    <Item SizePolicy="Stretch" MinSize="32"/>
+                    <!-- 3D -->
+                </ItemCollectColumns>
+                <!-- .................................................. --> -->
+                <!-- Tool Bar -->
+                <!-- .................................................. --> -->
+                <!-- .................................................. -->
+                <!-- Buttons Left Top -->
+                <!-- .................................................. -->
+                <!-- <AutoLayout Name="ToolbarLeftTop" SeparatorSupport="Yes" Texture="corner15" Anchors="0,0" Transparent="0" BackColor="Global.Transparent50" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" > -->
+                <Toolbar Name="ToolbarLeftTop" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,0" Direction="Vertical" >
+                    <ValueControl   UiGroupId="1"  H="60" W="60" OnLoad=":SetTarget" ShowLabel="No" ShowValue="No"  Name="Select"                      signalValue="select"                Texture="corner0" Icon="select"     Property="InputControl3d" Value="Select"            Undo="No" HotKey="Alt+S" Tooltip="Set Touchmode to 'Select'"/>
+                    <ValueControl   UiGroupId="1" H="60" W="60" OnLoad=":SetTarget" ShowLabel="No" ShowValue="No"  Name="Follow"                      signalValue="aim"                   Texture="corner0" Icon="follow"     Property="InputControl3d" Value="Follow"            Undo="No" HotKey="Alt+F" Tooltip="Set Touchmode to 'Follow'"/>
+                    <ValueControl   UiGroupId="1" H="60" W="60" OnLoad=":SetTarget" ShowLabel="No" ShowValue="No"  Name="Move"                        signalValue="move"                  Texture="corner0" Icon="move"       Property="InputControl3d" Value="Camera Move"       Undo="No" HotKey="Alt+M" Tooltip="Set Touchmode to 'Move'"/>
+                    <ValueControl   UiGroupId="1" H="60" W="60" OnLoad=":SetTarget" ShowLabel="No" ShowValue="No"  Name="Orbit"                       signalValue="orbit"                 Texture="corner0" Icon="rotate"     Property="InputControl3d" Value="Camera Orbit"      Undo="No" HotKey="Alt+O" Tooltip="Set Touchmode to 'Orbit'"/>
+                    <ValueControl   UiGroupId="1" H="60" W="60" OnLoad=":SetTarget" ShowLabel="No" ShowValue="No"  Name="Zoom"                        signalValue="zoom"                  Texture="corner0" Icon="zoom"       Property="InputControl3d" Value="Camera Zoom"       Undo="No" HotKey="Alt+Z" Tooltip="Set Touchmode to 'Zoom'"/>
+                    <ValueControl   UiGroupId="1" H="60" W="60" OnLoad=":SetTarget" ShowLabel="No" ShowValue="No"  Name="Pivot"                       signalValue="pivot"                 Texture="corner0" Icon="pivot"      Property="InputControl3d" Value="Camera Pivot"      Undo="No" HotKey="Alt+P" Tooltip="Set Touchmode to 'Pivot'"/>
+                    <ValueControl   UiGroupId="1" H="60" W="60" OnLoad=":SetTarget" ShowLabel="No" ShowValue="No"  Name="SetPivot"                    signalValue="setpivot"              Texture="corner0" Icon="setpivot"   Property="InputControl3d" Value="Camera Set Pivot"  Undo="No" HotKey="Alt+Q" Tooltip="Set Touchmode to 'Set Pivot'"/>
+                    <ValueControl   UiGroupId="1" H="60" W="60" OnLoad=":SetTarget" Name="FocusControl"       ShowLabel="No" ShowValue="No"           signalValue="Focus"                 Texture="corner0" Icon="suspension" Property="InputControl3d" Value="Focus"        Undo="No" HotKey="Alt+X" Tooltip="Set Touchmode to 'Focus'"/>
+                    <Button         UiGroupId="2" H="60" W="60 "                                                   Name="ResetCamera"                 signalValue="ResetCamera"           Texture="corner0" Clicked=":ResetCamera"     Icon="fit"                Tooltip="Camera zoom to fit"/>
+                    <Button         UiGroupId="2" H="60" W="60"                                                    Name="ResetCameraToSelection"      signalValue="ResetCamera"           Texture="corner0" Clicked=":ResetCamera"     Icon="fit_selected"       Tooltip="Camera zoom to selection"/>
+                    <Button         UiGroupId="2" H="60" W="60"                                                    Name="ReloadCamera"                signalValue="ReloadCamera"          Texture="corner0" Clicked=":ReloadCamera"    Icon="camera"             Tooltip="Reload Camera"/>
+                    <Button         UiGroupId="2" H="60" W="60"                                                    Name="SelectionToGrid"             signalValue="SelectionToGrid"       Texture="corner0" Clicked=":SelectionToGrid" Icon="sel_to_matricks"    Tooltip="Apply the current fixture selection in 3D perspective to Selection Grid."/>
+                </Toolbar>
+                <!-- </AutoLayout> -->
+                <!-- .................................................. -->
+                <!-- 3D Window -->
+                <!-- .................................................. -->
+                <View3D Name="View3D" Anchors="1,0" />
+            </UILayoutGrid>
+        </DialogFrame>
+    </Window>
+</GMA3>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="800" H="600" WantsModal="1" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Video" HelpTopic="videos.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Edit Video"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="2" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="Left" Anchors="0,0" Rows="8" Columns="2" DefaultMargin="10" DefaultMarginOnBorders="1" >
+
+                <SwipeButton Texture="corner15" Anchors="0,0,1,0" Property="Source" />
+                <PropertyInput Texture="corner15" Anchors="0,1,1,1" Property="Name" ValueRole="Default" />
+
+                <PropertyInput Texture="corner15" Anchors="0,2,1,2" Property="Note" />
+
+                <PropertyInput Texture="corner15" Anchors="0,3,1,3" Property="FileName"  />
+
+                <UILayoutGrid  Visible="0" Name="File" Anchors="0,4,1,7" Rows="4" Columns="2" DefaultMargin="10" >
+
+                    <PropertyInput Texture="corner15" Anchors="0,0,1,0" Property="FilePath" />
+
+                    <PropertyInput Texture="corner15" Anchors="0,1" Property="Width" />
+                    <PropertyInput Texture="corner15" Anchors="1,1" Property="Height" />
+
+                    <PropertyInput Texture="corner15" Anchors="0,2,1,2" Property="FileSize" />
+
+                    <IndicatorControl Name="Import"    Texture="corner15" Anchors ="0,3" Text="Import" IndicatorIcon="DialogButtonIcon" Clicked=":ImportVideo" />
+                    <IndicatorControl Name="Installed" Texture="corner15" Anchors="1,3" Property="Installed" />
+
+                </UILayoutGrid>
+
+                <UILayoutGrid  Visible="0" Name="NDI" Anchors="0,3,1,6" Rows="4" Columns="2" DefaultMargin="10" >
+                    <PropertyInput Text ="Select Source" Texture="corner15" Anchors="0,1,1,1" Property="NDISource" />
+                    <SwipeButton Text ="Select NDI Bandwidth" Texture="corner15" Anchors="0,2,1,2" Property="NDIBandwidth" />
+                </UILayoutGrid>
+
+
+            </UILayoutGrid>
+
+            <AppearancePreview Name="Preview" Texture="checkboard" Anchors="2,0"/>
+            <UIObject Name="MaxText" Anchors="2,0" Text="Resolution or frame rate of the NDI source is too high.&#xD;&#xD;Please restart the NDI source with&#xD;max. 1920 x 1080 / 60 fps." Interactive="false" TextColor="Global.AlertText" BackColor="Global.Transparent75"/>
+
+
+        </DialogFrame>
+    </GenericEditorOverlay>
+
+</GMA3>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="ShutdownMenuOverlay" W="600" H="250" AlignmentH="Left" AlignmentV="Top" WantsModal="0" ContentDriven="No" DefaultMargin="0" FocusSearchPolicy="Default" HelpTopic="shutdown_the_system.html" OnLoad=":ShutdownMenuDialogLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1"/>
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0" Name="Title" Rows="1" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Shutdown Menu" Icon="power" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="10" DefaultMarginOnBorders="Yes" Name="Content" Columns="4" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Fixed" Size="50"/>
+            </ItemCollectRows>
+            <IndicatorButton   Anchors="0,0" Texture="corner15" Clicked=":CommandLine"  Name="Shutdown" SignalValue="shutdown /NoAutoClose" ToolTip="Switches off the application." Icon="power" HotKey="Alt+X" Text="Shutdown" IconAlignmentV="Top" TextAlignmentV="Bottom" Padding="0,20,0,20"/>
+            <PropertyControl   Anchors="0,0" Interactive="No" Margin="0,45,70,0" Visible="true" BackColor="Global.Transparent" ActiveBackColor="Global.AlertText" ShowLabel="false" ShowValue="No" Texture="led_rect" AlignmentV="Top" AlignmentH="Right" W="10" H="10" Property="haveUpdate" Target="Temp.ReleaseFile" />
+            <PropertyControl   Anchors="0,1" Interactive="No" Visible="true" BackColor="Global.Transparent" ActiveBackColor="Global.Transparent" TextColor="Global.Transparent" ActiveTextColor="Global.AlertText" Text="Update and Shut Down" Font="Regular14" ShowLabel="true" ShowValue="No" Texture="transp" Property="haveUpdate" Target="Temp.ReleaseFile" TextAutoAdjust="Yes"/>
+
+            <IndicatorButton   Anchors="1,0" Texture="corner15" Clicked=":CommandLine"  Name="Reboot" SignalValue="reboot /NoAutoClose" ToolTip="Reboot" Icon="reboot" Text="Reboot" IconAlignmentV="Top" TextAlignmentV="Bottom" Padding="0,20,0,20"/>
+            <IndicatorButton   Anchors="2,0" Texture="corner15" Clicked=":CommandLine"  Name="Restart" SignalValue="restart /NoAutoClose" ToolTip="Restart" Icon="reboot" Text="Restart" IconAlignmentV="Top" TextAlignmentV="Bottom" Padding="0,20,0,20"/>
+            <IndicatorButton   Anchors="3,0" Texture="corner15" Clicked=":CommandLine"  SignalValue="menu DeskLock" ToolTip="Desk Lock" Icon="locked" Name="Desklock" Text="Lock" IconAlignmentV="Top" TextAlignmentV="Bottom" Padding="0,20,0,20"/>
+            <UIObject          Anchors="3,1" Interactive="No" BackColor="Global.Transparent" Text="Press Pause or F9 to unlock" Font="Regular14" Name="PauseText" TextAutoAdjust="Yes"/>
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

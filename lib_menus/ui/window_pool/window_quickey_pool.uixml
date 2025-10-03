@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="quickeys.html" >
+        <QuickeyPoolLayoutGrid Text="Quickeys" TitleButtonIcon="object_quickey"  ToolTip="Quickey pool window">
+            <PoolTitleButton />
+        </QuickeyPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>
+
+

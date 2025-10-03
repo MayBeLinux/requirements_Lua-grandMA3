@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ZoomFactorPopup AlignmentH="Center" AlignmentV="Center">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectColumns>
+
+        <TitleBar Name="TitleBar" Anchors="0,0" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="0" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Popup input" ContentDriven="Yes" ContentHeight="No" ForceContentMin="Yes" Icon=""/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+        <DialogFrame Name="Frame" Anchors="0,1" ExpandContent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <ScrollableItemList Anchors="0,1" Name="Popup" ContentDriven="Yes" ForceContentMin="Yes" ItemType="PopupItemButtonExt" AllowBlocks="Yes" />
+        </DialogFrame>
+    </ZoomFactorPopup>
+</GMA3>

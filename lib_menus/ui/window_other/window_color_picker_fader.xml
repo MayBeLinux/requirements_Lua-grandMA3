@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="201" Name="WindowColorPickerFader" Guid="00 1B 21 63 78 A9 00 00 05 53 36 54 00 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="00 1B 21 63 24 8E 00 00 04 53 36 54 00 82 55 B0" FileName="window_color_picker_fader.uixml" PlaceHolder="DialogContent" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 09 83 00 00 07 53 36 54 00 82 55 B0" FileName="window_color_picker_fader.lua" />
+    </Menu>
+</GMA3>

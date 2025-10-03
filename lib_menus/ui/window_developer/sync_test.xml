@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="172" Name="SyncTest" Guid="00 1B 21 63 DA 85 00 00 64 53 36 54 01 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="00 1B 21 63 24 EA 00 00 67 53 36 54 01 82 55 B0" FileName="sync_test.uixml" PlaceHolder="UiScreen" Toggle="No" />
+    </Menu>
+</GMA3>

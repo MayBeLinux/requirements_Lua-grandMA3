@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgFixtureSetup Name="DmxCurvesDlg" Destination="DmxCurves" OverrideKeybSC="Yes" OnLoad=":OnDmxCurvesDialogLoaded" HelpTopic="patch_dmx_curves.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="DMX Curves" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="2" Name="Content" >
+            <DBObjectGrid Name="CurvePointGrid" BackColor="UIGrid.Background" Anchors="0,0" Focus="InitialFocus" OnSelectedRow=":OnSelectedRowChanged" />
+            <UILayoutGrid Name="Square" Anchors="1,0" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+                <AutoLayout Name="MainToolBar" Anchors="0,0" Texture="corner15" Transparent="0" BackColor="Global.Transparent50" Direction="Vertical" Content="Yes"  ContentDriven="Yes" ChildrenFillPolicy="RowFirst" OnLoad=":OnLoadMainToolBar" >
+                    <ValueControl Name="MoveCanvas"     H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserMoveCanvase" Property="EditTools" Value="MoveArea"    Enabled="No"  Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Move working area" />
+                    <ValueControl Name="Select"         H="60" W="60" ShowLabel="No" ShowValue="No" Icon="select"            Property="EditTools" Value="Select"      Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : select point" HotKey="Alt+S" />
+                    <ValueControl Name="AddAbsolute"    H="60" W="60" ShowLabel="No" ShowValue="No" Icon="plus"              Property="EditTools" Value="AddAbsolute" Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Add absolute point" HotKey="Insert" />
+                    <ValueControl Name="DelSteps"       H="60" W="60" ShowLabel="No" ShowValue="No" Icon="minus"             Property="EditTools" Value="Delete"      Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Delete point" HotKey="Minus" />
+                    <ValueControl Name="MovePoints"     H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserMovePoint"   Property="EditTools" Value="MovePoint"   Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Move point" HotKey="Alt+M" />
+                    <ValueControl Name="MoveHandle"     H="60" W="60" ShowLabel="No" ShowValue="No" Icon="PhaserMoveHandle"  Property="EditTools" Value="MoveSpline"  Undo="No" OnLoad=":SetTarget" ToolTip="Mouse tool : Move handle" HotKey="Alt+H" />
+                </AutoLayout>
+                <UIDmxCurveEditor Anchors="1,0" />
+            </UILayoutGrid>
+
+        </MainDialogContent>
+        <!--
+        <MainDialogSubMenu>
+            <UIObject Texture="corner0" Anchors="0,9" HasHover="No"  />
+        </MainDialogSubMenu>
+-->
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportButton />
+                <MainDlgExportButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <MainDlgEditButton />
+                <UIObject Anchors="1,0,3,0" Texture="corner0" HasHover="0"/>
+                <SwipeButton Anchors="0,0" Name="DMXReadout" Text="DMXReadout" Property="DMXReadout" DirectCommand="Yes" DirectPrefix="DMXReadout" DirectQuotation="Yes" />
+                <UIObject Anchors="1,1,3,1" Name="FunctionsPlaceholderButton" Texture="corner8" HasHover="0"/>
+                <IndicatorButton Anchors="1,1" Name="Conflicts" Text="Show Warnings" Clicked=":ShowConflicts" />
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+        <PlaceHolder Name="MainDialog" />
+
+    </MainDlgFixtureSetup>
+</GMA3>

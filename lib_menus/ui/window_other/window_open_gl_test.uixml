@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window EditEncoderBar="StageViewBar" >
+
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+            <Item SizePolicy="Fixed" Size="25"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="OpenGlTestWindow" />
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip=""/>
+        </NormedTitleBar>
+        <UILayoutGrid Name="VpuMenu" Anchors="0,2" Transparent="true" ContentWidth="No">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="25" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+                <Item SizePolicy="Fixed" Size="128" />
+            </ItemCollectColumns>
+            <Button   Anchors="0,0" Texture="corner5" Clicked=":ActionPlay" Name="Play" SignalValue="play" ToolTip="Play clips." Text="Play clips"/>
+            <Button   Anchors="1,0" Texture="corner0" Clicked=":ActionStop" Name="Stop" SignalValue="stop" ToolTip="Stop clips." Text="Stop clips"/>
+            <Button   Anchors="2,0" Texture="corner0" Clicked=":ActionSpeedHalf" Name="SpeedHalf" SignalValue="SpeedHalf" ToolTip="Set clips half speed." Text="1/2 Speed"/>
+            <Button   Anchors="3,0" Texture="corner0" Clicked=":ActionSpeedNormal" Name="SpeedNormal" SignalValue="SpeedNormal" ToolTip="Set clips normal speed." Text="1/1 Speed"/>
+            <Button   Anchors="4,0" Texture="corner10"  Clicked=":ActionSpeedDouble" Name="SpeedDouble" SignalValue="SpeedDouble" ToolTip="Set clips double speed." Text="2/1 Speed"/>
+
+            <Button   Anchors="6,0" Texture="corner5" Clicked=":MyCppAction" SignalValue="tocpp" Text="To C++"/>
+            <Button   Anchors="7,0" Texture="corner10" Clicked=":OnVPULuaButtonClicked" Name="ToLua" SignalValue="tolua" ToolTip="Command to Lua." Text="To Lua"/>
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="VpuMenu" Anchors="0,1" Transparent="true">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="0"/>
+                <!-- Button top of the VPU Dialogs -->
+                <Item SizePolicy="Stretch"/>
+                <!-- VPU Debug Dialog -->
+                <Item SizePolicy="Fixed"  Size="0"/>
+                <!-- Spare Row -->
+                <Item SizePolicy="Fixed" Size="0"/>
+                <!-- Button bottom of the VPU Dialogs -->
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectColumns>
+            <!-- ........................................................................................................................ -->
+            <!-- Button bar ( currently unused ) -->
+            <!-- ........................................................................................................................ -->
+            <UILayoutGrid Name="VpuDebDialogMenu" Anchors="0,0" Transparent="true" ContentWidth="No">
+            </UILayoutGrid>
+            <!-- ........................................................................................................................ -->
+            <!-- VpuDialog and TextureDialog -->
+            <!-- ........................................................................................................................ -->
+            <VpuDialog Name="Vpu Dialog" Anchors="0,1" BackColor="Piano.White"/>
+            <!--<TextureDebDialog Name="Texture Dialog" Anchors="0,1" BackColor="Piano.White" visible="false"/> -->
+            <!-- ........................................................................................................................ -->
+        </UILayoutGrid>
+    </Window>
+</GMA3>

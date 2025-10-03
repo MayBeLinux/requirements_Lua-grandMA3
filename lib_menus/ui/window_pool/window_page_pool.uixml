@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="executor.html">
+        <PagePoolLayoutGrid Text="Pages" TitleButtonIcon="object_pages" ToolTip="Pages pool window">
+            <PoolTitleButton />
+        </PagePoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

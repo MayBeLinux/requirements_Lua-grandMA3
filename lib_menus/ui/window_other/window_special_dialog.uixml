@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <SpecialWindow OnLoad=":OnLoaded" SmallResizeArea="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1"  MinSize="50" />
+            </ItemCollectColumns>
+            <TitleButton   Anchors="1,0" Name="TitleButton" Texture="corner2" Text="Special Window" />
+            <PlaceHolder   Anchors="1,0" Name="SpecialDialogTitlebar" BlockLevel="Little"/>
+            <ContextButton Anchors="0,0" Texture="corner1" Icon="object_colpick" />
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" Focus="CanHaveFocus" >
+            <UILayoutGrid Name="TabWrapper">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectColumns>
+
+                <UITab Name="VTab" Type="Vertical" Anchors="0,0" W="90" H="100%" AvoidScroll="Yes" TabChanged=":VMyTabChanged" Property="RememberedTab" OnLoad=":SetTarget"/>
+                <DialogContainer Name="VTabContents" Anchors="1,0" ChangeActive=":VMyTabChanged" >
+                    <PlaceHolder Name="SpecialWindowContentPlaceholder" BlockLevel="Little" />
+                </DialogContainer>
+            </UILayoutGrid>
+        </DialogFrame>
+    </SpecialWindow>
+</GMA3>

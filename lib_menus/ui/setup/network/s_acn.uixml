@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="sACN" BackColor="MainDialog.Background" HelpTopic="dmx_ethernet_sacn.html" OnLoad=":SacnMenuLoaded">
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="sACN" Icon="setup_protocols"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent  onLoad=":sACNLoaded">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="150" />
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+
+
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="sACN" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes" Anchors="0,0" Columns="7">
+                <PropertyInput Anchors="0,0" Property="PreferredIP" Texture="corner15" />
+                <PropertyInput Anchors="1,0" Property="Interface" Text="Interface" Texture="corner15" />
+                <PropertyInput Anchors="2,0" Text="Enable Output" Property="Out" Texture="corner15" />
+                <PropertyInput Anchors="3,0" Text="Enable Input" Property="In" Texture="corner15" />
+                <PropertyInput Anchors="4,0" Property="SetupMode" Texture="corner15" />
+                <PropertyInput Anchors="5,0" Property="SendSacnIfIdleMaster" Texture="corner15" OnLoad=":SendIfIdleButtonLoaded"/>
+                <PropertyInput Anchors="6,0" Property="OutputDelay" Texture="corner15"/>
+            </UILayoutGrid>
+
+            <UITab Name="sACNTabs" Anchors="0,1" AvoidScroll="Yes" TabChanged=":TabChanged" UseTabRegistry="Yes">
+                <ItemStr Title="Data" Value="Data" />
+                <ItemStr Title="Discovery" Value="Discovery" />
+            </UITab>
+
+            <IndicatorButton Texture="corner15" Anchors="0,2" Name="NoDiscoveryInfo" Text="No sACN discovery information" H="60" Margin="20,20,20,20" Enabled="No" Clicked=":CommandLine"/>
+
+            <DialogContainer Name="TabData" Anchors="0,3" ChangeActive=":TabChanged">
+                <UILayoutGrid Name="Data" DefaultMargin="20" Margin="20,20,20,20" DefaultMarginOnBorders="Yes">
+                    <DBObjectGrid Name="ObjectGrid" Anchors="0,0" Focus="InitialFocus"/>
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Discovery" DefaultMargin="20" DefaultMarginOnBorders="Yes" Margin="20,20,20,20" >
+                    <DBObjectGrid Name="ObjectGrid" Anchors="0,0" AllowAddContent="false" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+            <IndicatorButton Texture="corner15" Anchors="0,4" Name="NoInputInfo2" Text="There are too many sACN Multicast Inputs configured. The software is limited to 20." H="60" Margin="20,20,20,20" Enabled="No" />
+            <IndicatorButton Texture="corner15" Anchors="0,4" Name="NoInputInfo" Text="Input has to be active to receive new discovery information." H="60" Margin="20,20,20,20" Enabled="No" />
+
+
+
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportButton ChangeDestination="Yes" />
+                <MainDlgExportButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0" Name="DeleteNodes" Text="Delete All Nodes" Clicked=":CommandLine" SignalValue="delete root 'DeviceConfigurations'.'DMXprotocols'.'sACN'.'sACNDiscoveryCollect'.'*'"/>
+                <IndicatorButton Anchors="0,1" Name="DeleteInactiveNodes" Text="Delete All Inactive Nodes" Clicked=":DeleteInactive" />
+                <UIObject Anchors="1,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialog>
+</GMA3>

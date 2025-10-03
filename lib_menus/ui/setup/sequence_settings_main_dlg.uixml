@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog OnLoad=":SequenceSettingsOverlayLoaded">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Sequence settings" Icon=""/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Texture="corner0" Content="Yes" >
+                <Button Name="LoadFromDefault" Clicked=":LoadFromDefault" W="130" Text="Load from&#xD;Default" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+                <Button Name="SaveToDefault" Clicked=":SaveToDefault" W="130" Text="Save as&#xD;Default" BackColor="TitleButton.Background" TextColor="Button.Text"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <MainDialogContent>
+            <PlaceHolder Name="ObjectSettings" />
+        </MainDialogContent>
+    </MainDialog>
+</GMA3>

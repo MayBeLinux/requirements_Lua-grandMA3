@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="StageSpacePopup"  Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="generic_popup.lua" />
+        <ComponentLua FileName="stage_space_popup.lua" />
+    </Menu>
+</GMA3>

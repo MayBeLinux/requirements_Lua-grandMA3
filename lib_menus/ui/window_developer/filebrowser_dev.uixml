@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window Name="Test" OnLoad=":OnFilebrowserExampleLoad">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="FilebrowserDev" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip="Configures help viewer"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50"/>
+                <Item SizePolicy="Fixed" Size="50"/>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Fixed" Size="50"/>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="100"/>
+            </ItemCollectColumns>
+
+            <UIObject Anchors="0,0" Text="Filter:" Texture="" />
+            <LineEdit Name="FilterField" Content="*" Anchors="1,0" ContentDriven="Yes" Execute=":FB_SetFilter" />
+            <UIObject Anchors="0,1" Text="Path:" Texture="" />
+            <LineEdit Name="PathField" Content="C:/" Anchors="1,1" Focus="InitialFocus" ContentDriven="Yes" Execute=":FB_SetPath" SetText=":FB_PathChanged" />
+            <FilebrowserView Name="FileBrowser" Anchors="0,2,2,2" />
+            <Button Name="Up" Text="Up" Clicked=":FB_GoUp" Anchors="2,0,2,1" Hotkey="Backspace" />
+        </DialogFrame>
+    </Window>
+</GMA3>

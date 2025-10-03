@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="139" Name="PopupDev" Guid="47 9D 35 86 C8 50 40 0A 99 7A B7 07 F4 86 0E E1" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="7D D4 82 DA A3 00 4D 5E 8C B4 7E 3F 1D A7 5B 4D" FileName="popup_dev.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="89 93 BE 3A 66 48 48 36 A3 7E 2E 00 97 7B 8A 95" FileName="popup_dev.lua" />
+    </Menu>
+</GMA3>

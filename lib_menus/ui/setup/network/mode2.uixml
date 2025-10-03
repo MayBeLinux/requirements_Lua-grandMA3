@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialogDest Name="Mode2" BackColor="MainDialog.Background" HelpTopic="Mode2.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Mode 2" Icon="network"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent>
+            <UiStationGrid Name="ManetStationGrid" Anchors="0,0" TargetObject="ManetSocket" LevelLimit="1"  Focus="InitialFocus" AllowFilterContent="Yes" OnLoad=":StationGridLoaded" >
+                <GridSettings ContentFilterType="SessionGridFilter" RememberSorting="Yes">
+                    <SessionGridFilter >
+                    </SessionGridFilter>
+                </GridSettings>
+            </UiStationGrid>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0" Texture="corner0" Text="Switch to grandMA3" Clicked=":Switchgma3Target" ToolTip="Reboot the device to grandMA3."/>
+                <IndicatorButton Anchors="1,0" Texture="corner0" Text="Switch to grandMA2" Clicked=":Switchgma2Target" ToolTip="Reboot the device to grandMA2."/>
+                <IndicatorButton Anchors="2,0" Texture="corner0" Text="Restart" Clicked=":RestartTarget" ToolTip="Restart the device."/>
+                <IndicatorButton Anchors="3,0" Texture="corner0" Text="Reboot" Clicked=":RebootTarget" ToolTip="Reboot the device."/>
+                <UIObject Anchors="0,1,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialogDest>
+</GMA3>

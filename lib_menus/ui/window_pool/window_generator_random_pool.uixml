@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow Name="RandomPool" HelpTopic="generator.html" >
+        <GeneratorRandomPoolLayoutGrid Text="Generator" TitleButtonIcon="object_generators" ReactToRecipeEdit="Yes"/>
+    </PoolWindow>
+</GMA3>

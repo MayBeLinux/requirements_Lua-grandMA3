@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog OverrideKeybSC="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="40" />
+            <Item SizePolicy="Fixed" Size="40" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="40" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="40" />
+        </ItemCollectColumns>
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Preferences and Timings" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Name="Content" >
+            <DialogContainer Name="Dialogs" ChangeActive=":PageChanged"  HelpTopic="cue_timing.html" >
+                <UILayoutGrid Name="CueDefaults" DefaultMargin="0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1"/>
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectColumns>
+
+                    <UILayoutGrid Anchors="0,0,0,2" OnLoad=":OnCueTimingPreferencesLoaded">
+
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed"   Size="10" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed"   Size="10" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+
+                        <UIObject Texture="" Anchors="0,0" Text="Cue Timings" />
+                        <UIObject Texture="" Anchors="2,0,3,0" Text="Feature Group Timings" />
+
+                        <PropertyInput Anchors="0,1" Property="CueInFade"    Text="CueIn Fade"  Texture="corner3" />
+                        <PropertyInput Anchors="0,2" Property="CueInDelay"   Text="CueIn Delay" />
+                        <PropertyInput Anchors="0,3" Property="CueOutFade"   Text="CueOut Fade"/>
+                        <PropertyInput Anchors="0,4" Property="CueOutDelay"  Text="CueOut Delay" />
+                        <PropertyInput Anchors="0,5" Property="SnapDelay"    Text="Snap Delay" />
+                        <PropertyInput Anchors="0,6" Property="CommandDelay" Text="Command Delay"/>
+                        <SwipeButton   Anchors="0,7" Property="Transition"   Text="Transition"  Texture="corner12"/>
+
+                        <PropertyInput Name="PresetFade01" Anchors="2,1" Property="PRESET1FADE" Texture="corner1" />
+                        <PropertyInput Name="PresetDela01" Anchors="3,1" Property="PRESET1DELAY" Texture="corner2" />
+                        <PropertyInput Name="PresetFade02" Anchors="2,2" Property="PRESET2FADE" />
+                        <PropertyInput Name="PresetDela02" Anchors="3,2" Property="PRESET2DELAY" />
+                        <PropertyInput Name="PresetFade03" Anchors="2,3" Property="PRESET3FADE" />
+                        <PropertyInput Name="PresetDela03" Anchors="3,3" Property="PRESET3DELAY" />
+                        <PropertyInput Name="PresetFade04" Anchors="2,4" Property="PRESET4FADE" />
+                        <PropertyInput Name="PresetDela04" Anchors="3,4" Property="PRESET4DELAY" />
+                        <PropertyInput Name="PresetFade05" Anchors="2,5" Property="PRESET5FADE" />
+                        <PropertyInput Name="PresetDela05" Anchors="3,5" Property="PRESET5DELAY" />
+                        <PropertyInput Name="PresetFade06" Anchors="2,6" Property="PRESET6FADE" />
+                        <PropertyInput Name="PresetDela06" Anchors="3,6" Property="PRESET6DELAY" />
+                        <PropertyInput Name="PresetFade07" Anchors="2,7" Property="PRESET7FADE" />
+                        <PropertyInput Name="PresetDela07" Anchors="3,7" Property="PRESET7DELAY" />
+                        <PropertyInput Name="PresetFade08" Anchors="2,8" Property="PRESET8FADE" />
+                        <PropertyInput Name="PresetDela08" Anchors="3,8" Property="PRESET8DELAY" />
+                        <PropertyInput Name="PresetFade09" Anchors="2,9" Property="PRESET9FADE" />
+                        <PropertyInput Name="PresetDela09" Anchors="3,9" Property="PRESET9DELAY" />
+                        <PropertyInput Name="PresetFade10" Anchors="2,10" Property="PRESET10FADE" />
+                        <PropertyInput Name="PresetDela10" Anchors="3,10" Property="PRESET10DELAY" />
+                        <PropertyInput Name="PresetFade11" Anchors="2,11" Property="PRESET11FADE" />
+                        <PropertyInput Name="PresetDela11" Anchors="3,11" Property="PRESET11DELAY" />
+                        <PropertyInput Name="PresetFade12" Anchors="2,12" Property="PRESET12FADE" Texture="corner4" />
+                        <PropertyInput Name="PresetDela12" Anchors="3,12" Property="PRESET12DELAY" Texture="corner8"/>
+
+
+                        <UIObject Texture="" Anchors="5,0" Text="MIB Preferences" />
+                        <UILayoutGrid Anchors="5,1,5,4" OnLoad=":OnCueTimingPreferencesLoaded">
+                            <ItemCollectRows>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                                <Item SizePolicy="Stretch" Size="1"/>
+                            </ItemCollectRows>
+                            <ItemCollectColumns>
+                                <Item SizePolicy="Stretch" Size="1" />
+                            </ItemCollectColumns>
+                            <SwipeButton   Anchors="0,0" Property="MIBMode"    Texture="corner3" />
+                            <PropertyInput Anchors="0,1" Property="MIBFade"    Texture="corner0" />
+                            <PropertyInput Anchors="0,2" Property="MIBDelay"   Texture="corner0" />
+                            <SwipeButton   Anchors="0,3" Property="MIBMultiStep" Texture="corner12" />
+                        </UILayoutGrid>
+
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+                <UIObject Name="SequenceDefaults" Transparent="Yes" OnVisible=":OnSequenceDefaultsVisible">
+                    <PlaceHolder Name="ObjectSettings" />
+                </UIObject>
+                <UIObject Name="PresetDefaults" Transparent="Yes" OnVisible=":OnPresetDefaultsVisible" HelpTopic="presets.html">
+                    <PlaceHolder Name="ObjectSettings" />
+                </UIObject>
+                <EditorPropertyButtons Name="TimecodeDefaults" DefaultMargin="24" DefaultMarginOnBorders="Yes" Margin="24,24,24,24" Anchors="0,0" BigModeColumns="5" BigModeRows="6" BigMode="Yes" OnLoad=":TimecodeDefaultsLoaded" HelpTopic="timecode.html"  Transparent="No">
+                    <EditorCategoryButton Text="Time" TextColor="Button.Text"/>
+                    <SwipeButton   Name="CurTCSlot"     Texture="corner15" Property="TCSlot"       ValueRole="DisplayShort" />
+                    <PropertyInput Name="CurTCOffset"   Texture="corner15" Property="OffsetTCSlot" ValueRole="DisplayShort" />
+
+                    <EditorCategoryButton Text="Playback" TextColor="Button.Text"/>
+                    <IndicatorControl Name="CurTCAutoStart"   Texture="corner15" Property="AutoStart"        />
+                    <IndicatorControl Name="CurTCAutoStop"    Texture="corner15" Property="AutoStop"         />
+                    <SwipeButton      Name="LoopMode"         Texture="corner15" Property="LoopMode"         ValueRole="DisplayShort" />
+                    <SwipeButton      Name="SwitchOff"        Texture="corner15" Property="SwitchOff"        ValueRole="DisplayShort" />
+                    <SwipeButton      Name="AssertPrevEvents" Texture="corner15" Property="AssertPrevEvents" ValueRole="DisplayShort" IgnoreActiveForEnums="Yes" Text="Assert Previous&#xD;Events" />
+
+                    <EditorCategoryButton Text="Display" TextColor="Button.Text"/>
+                    <SwipeButton Name="Time Readout"  Texture="corner15" Property="Timedisplayformat" />
+                    <SwipeButton Name="Frame Readout" Texture="corner15" Property="FrameReadout"      />
+
+                    <EditorCategoryButton Text="Other" TextColor="Button.Text"/>
+                    <PropertyInput Name="CurTCUserBits" Texture="corner15" Property="UserBits" ValueRole="DisplayShort" />
+
+                    <EditorCategoryButton Text="Record"/>
+                    <SwipeButton   Name="RecordGo"      Texture="corner15" Property="Goto" Text="Record Go" />
+                    <SwipeButton Name="EventsPlayback" Text="Playback and Record" TextAutoAdjust="Yes"  ValueAutoAdjust="Yes" Texture="corner15" Property="PlaybackAndRecord"        />
+                    <IndicatorControl Name="RecordRemotes"     Texture="corner15" Property="RecordRemoteEvents" TextAutoAdjust="Yes" />
+                </EditorPropertyButtons>
+
+                <DBObjectGrid Name="LayoutElementDefaults" OnVisible=":OnVisibleLayoutElementDefaults" />
+                <UIObject Name="EditKeyboardShortcuts" Transparent="Yes" OnVisible=":OnVisibleEditKeyboardShortcuts">
+                    <PlaceHolder Name="KeyboardShortcutPlace" />
+                </UIObject>
+
+                <UILayoutGrid Name="Timing" DefaultMargin="0">
+                    <UILayoutGrid DefaultMargin="10">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+                        <UIObject Texture="" Anchors="0,0" Text="Playback Timings"/>
+                        <UILayoutGrid Anchors="0,1" OnLoad=":OnPlaybackTimingLoaded" Rows="7" Columns="1" >
+                            <PropertyInput Anchors="0,0" Property="TimingGoto"          Text="Goto"     Texture="corner3" />
+                            <PropertyInput Anchors="0,1" Property="TimingGoBack"        Text="Go-"      Texture="corner12" />
+                            <PropertyInput Anchors="0,3" Property="TimingGoFast"        Text="&gt;&gt;&gt;"      Texture="corner3" />
+                            <PropertyInput Anchors="0,4" Property="TimingGoBackFast"    Text="&lt;&lt;&lt;"      Texture="corner12" />
+                        </UILayoutGrid>
+
+                        <UIObject Texture="" Anchors="1,0" Text="MIB Timings"/>
+                        <UILayoutGrid Anchors="1,1" OnLoad=":OnMIBTimingLoaded" Rows="7" Columns="1" >
+                            <PropertyInput Anchors="0,0" Property="MIBFade"    Texture="corner3" />
+                            <PropertyInput Anchors="0,1" Property="MIBDelay"   Texture="corner0" />
+                            <SwipeButton Anchors="0,2" Property="MIBTransition"   Texture="corner12" />
+                        </UILayoutGrid>
+
+                        <!--
+                        <UIObject Texture="" Anchors="2,0" Text="Learn" />
+                        <UILayoutGrid Anchors="2,1" OnLoad=":OnPlaybackTimingLoaded" Rows="7" Columns="1"  >
+                            <PropertyInput Anchors="0,0" Property="BeatsPerMeasure" Texture="corner15" />
+                        </UILayoutGrid>
+                       -->
+
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Global" DefaultMargin="0">
+                    <UILayoutGrid DefaultMargin="10">
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+                        <UIObject Texture="" Anchors="0,0" Text="Misc. Settings"/>
+                        <UILayoutGrid Anchors="0,1" OnLoad=":OnGlobalLoaded" Rows="6" Columns="1" >
+                            <SwipeButton Anchors="0,0" Property="TimecodeEventsRecordingfrom" Texture="corner15" />
+                        </UILayoutGrid>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="ExecConfigurations" DefaultMargin="0" HelpTopic="executor_configurations.html#executor_config_preferences">
+                    <UILayoutGrid>
+                        <ItemCollectRows>
+                            <Item SizePolicy="Fixed" Size="30" />
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                            <Item SizePolicy="Stretch" Size="1"/>
+                        </ItemCollectRows>
+                        <ItemCollectColumns>
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed" Size="10" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed" Size="10" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                            <Item SizePolicy="Fixed" Size="10" />
+                            <Item SizePolicy="Stretch" Size="1" />
+                        </ItemCollectColumns>
+
+                        <UIObject Anchors="0,0" Texture="" Text="Objects" />
+                        <UIObject Anchors="2,0" Texture="" Text="Masters" />
+
+                        <SwipeButton Anchors="0,1"  Target="~" Texture="corner3"    Property="ExecConfigSequence"       Text="Sequence" />
+                        <SwipeButton Anchors="0,2"  Target="~" Texture="corner0"    Property="ExecConfigMacro"          Text="Macro" />
+                        <SwipeButton Anchors="0,3"  Target="~" Texture="corner0"    Property="ExecConfigView"           Text="View" />
+                        <SwipeButton Anchors="0,4"  Target="~" Texture="corner0"    Property="ExecConfigWorld"          Text="World" />
+                        <SwipeButton Anchors="0,5"  Target="~" Texture="corner0"    Property="ExecConfigGroup"          Text="Group" />
+                        <SwipeButton Anchors="0,6"  Target="~" Texture="corner0"    Property="ExecConfigPreset"         Text="Preset" />
+                        <SwipeButton Anchors="0,7"  Target="~" Texture="corner0"    Property="ExecConfigPlugin"         Text="Plugin" />
+                        <SwipeButton Anchors="0,8"  Target="~" Texture="corner0"    Property="ExecConfigUser"           Text="User" />
+                        <SwipeButton Anchors="0,9"  Target="~" Texture="corner0"    Property="ExecConfigSound"          Text="Sound" />
+                        <SwipeButton Anchors="0,10" Target="~" Texture="corner0"    Property="ExecConfigScreenConfig"   Text="ScreenConfig" />
+                        <SwipeButton Anchors="0,11" Target="~" Texture="corner12"   Property="ExecConfigTimer"          Text="Timer" />
+
+                        <SwipeButton Anchors="2,1" Target="~" Texture="corner3"     Property="ExecConfigMaster"         Text="Grand/Selected Master" />
+                        <SwipeButton Anchors="2,2" Target="~" Texture="corner0"     Property="ExecConfigSpeedMaster"    Text="Speed Master" />
+                        <SwipeButton Anchors="2,3" Target="~" Texture="corner12"    Property="ExecConfigPlaybackMaster" Text="Playback Master" />
+                    </UILayoutGrid>
+                </UILayoutGrid>
+                <UILayoutGrid Name="Masters" DefaultMargin="0" HelpTopic="masters.html" Transparent="No">
+
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="30" />
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                        <Item SizePolicy="Stretch" Size="1"/>
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="10" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="5" />
+                    </ItemCollectColumns>
+
+                    <UIObject Anchors="2,0" Texture="" Text="Grand (Global)" />
+                    <UIObject Anchors="4,0" Texture="" Text="Speed (Global)" />
+                    <UIObject Anchors="6,0" Texture="" Text="Playback (Global)"/>
+                    <UIObject Anchors="8,0" Texture="" Text="Timing (Global)"/>
+
+                    <UIObject Anchors="0,8" Name="UserSelected" Texture="" Text="Selected (User)" TextAlignmentV="Bottom" Padding="0,0,0,4" OnLoad=":OnUserLoaded"/>
+
+                    <EnableMasterFaderButton Anchors="0,9" Target="ShowData.Masters.Selected.6" Texture="corner3" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="0,10" Target="ShowData.Masters.Selected.7" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="0,11" Target="ShowData.Masters.Selected.11" Texture="corner12" Property="FaderEnable"/>
+
+                    <EnableMasterFaderButton Anchors="2,1" Target="ShowData.Masters.Grand.1" Texture="corner3" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="2,2" Target="ShowData.Masters.Grand.2" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="2,3" Target="ShowData.Masters.Grand.6" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="2,4" Target="ShowData.Masters.Grand.13" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="2,5" Target="ShowData.Masters.Grand.14" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="2,6" Target="ShowData.Masters.Grand.15" Texture="corner12" Property="FaderEnable"/>
+
+                    <UIObject Anchors="2,8" Texture="" Name="UserGrand" Text="Grand (User)"  TextAlignmentV="Bottom" Padding="0,0,0,4" OnLoad=":OnUserLoaded"/>
+
+                    <EnableMasterFaderButton Anchors="2,9" Target="ShowData.Masters.Grand.3" Texture="corner3" Property="FaderEnable" />
+                    <EnableMasterFaderButton Anchors="2,10" Target="ShowData.Masters.Grand.4" Texture="corner0" Property="FaderEnable" />
+                    <EnableMasterFaderButton Anchors="2,11" Target="ShowData.Masters.Grand.5" Texture="corner0" Property="FaderEnable" />
+                    <EnableMasterFaderButton Anchors="2,12" Target="ShowData.Masters.Grand.8" Texture="corner0" Property="FaderEnable" />
+                    <EnableMasterFaderButton Anchors="2,13" Target="ShowData.Masters.Grand.9" Texture="corner0" Property="FaderEnable" />
+                    <EnableMasterFaderButton Anchors="2,14" Target="ShowData.Masters.Grand.10" Texture="corner0" Property="FaderEnable" />
+                    <EnableMasterFaderButton Anchors="2,15" Target="ShowData.Masters.Grand.11" Texture="corner0" Property="FaderEnable" />
+                    <EnableMasterFaderButton Anchors="2,16" Target="ShowData.Masters.Grand.12" Texture="corner12" Property="FaderEnable" />
+
+                    <EnableMasterFaderButton Anchors="4,1" Target="ShowData.Masters.Speed.1" Texture="corner3" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,2" Target="ShowData.Masters.Speed.2" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,3" Target="ShowData.Masters.Speed.3" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,4" Target="ShowData.Masters.Speed.4" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,5" Target="ShowData.Masters.Speed.5" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,6" Target="ShowData.Masters.Speed.6" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,7" Target="ShowData.Masters.Speed.7" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,8" Target="ShowData.Masters.Speed.8" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,9" Target="ShowData.Masters.Speed.9" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,10" Target="ShowData.Masters.Speed.10" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,11" Target="ShowData.Masters.Speed.11" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,12" Target="ShowData.Masters.Speed.12" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,13" Target="ShowData.Masters.Speed.13" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,14" Target="ShowData.Masters.Speed.14" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,15" Target="ShowData.Masters.Speed.15" Texture="corner0" Property="FaderEnable"/>
+                    <EnableMasterFaderButton Anchors="4,16" Target="ShowData.Masters.Speed.16" Texture="corner12" Property="FaderEnable"/>
+
+                    <ScrollContainer Anchors="6,1,6,17">
+                        <ScrollBox ResetChildrenSize="Yes">
+                            <UILayoutGrid DefaultMargin="0" Transparent="Yes">
+                                <ItemCollectRows>
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                </ItemCollectRows>
+
+                                <EnableMasterFaderButton Anchors="0,0" Target="ShowData.Masters.Playback.1" Texture="corner3" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,1" Target="ShowData.Masters.Playback.2" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,2" Target="ShowData.Masters.Playback.3" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,3" Target="ShowData.Masters.Playback.4" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,4" Target="ShowData.Masters.Playback.5" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,5" Target="ShowData.Masters.Playback.6" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,6" Target="ShowData.Masters.Playback.7" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,7" Target="ShowData.Masters.Playback.8" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,8" Target="ShowData.Masters.Playback.9" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,9" Target="ShowData.Masters.Playback.10" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,10" Target="ShowData.Masters.Playback.11" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,11" Target="ShowData.Masters.Playback.12" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,12" Target="ShowData.Masters.Playback.13" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,13" Target="ShowData.Masters.Playback.14" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,14" Target="ShowData.Masters.Playback.15" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,15" Target="ShowData.Masters.Playback.16" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,16" Target="ShowData.Masters.Playback.17" Texture="corner0" Property="FaderEnable"/>
+                                <EnableMasterFaderButton Anchors="0,17" Target="ShowData.Masters.Playback.18" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,18" Target="ShowData.Masters.Playback.19" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,19" Target="ShowData.Masters.Playback.20" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,20" Target="ShowData.Masters.Playback.21" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,21" Target="ShowData.Masters.Playback.22" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,22" Target="ShowData.Masters.Playback.23" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,23" Target="ShowData.Masters.Playback.24" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,24" Target="ShowData.Masters.Playback.25" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,25" Target="ShowData.Masters.Playback.26" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,26" Target="ShowData.Masters.Playback.27" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,27" Target="ShowData.Masters.Playback.28" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,28" Target="ShowData.Masters.Playback.29" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,29" Target="ShowData.Masters.Playback.30" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,30" Target="ShowData.Masters.Playback.31" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,31" Target="ShowData.Masters.Playback.32" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,32" Target="ShowData.Masters.Playback.33" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,33" Target="ShowData.Masters.Playback.34" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,34" Target="ShowData.Masters.Playback.35" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,35" Target="ShowData.Masters.Playback.36" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,36" Target="ShowData.Masters.Playback.37" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,37" Target="ShowData.Masters.Playback.38" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,38" Target="ShowData.Masters.Playback.39" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,39" Target="ShowData.Masters.Playback.40" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,40" Target="ShowData.Masters.Playback.41" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,41" Target="ShowData.Masters.Playback.42" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,42" Target="ShowData.Masters.Playback.43" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,43" Target="ShowData.Masters.Playback.44" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,44" Target="ShowData.Masters.Playback.45" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,45" Target="ShowData.Masters.Playback.46" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,46" Target="ShowData.Masters.Playback.47" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,47" Target="ShowData.Masters.Playback.48" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,48" Target="ShowData.Masters.Playback.49" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,49" Target="ShowData.Masters.Playback.50" Texture="corner12" Property="FaderEnable" />
+                            </UILayoutGrid>
+                        </ScrollBox>
+                    </ScrollContainer>
+
+                    <ScrollContainer Anchors="8,1,8,17">
+                        <ScrollBox ResetChildrenSize="Yes">
+                            <UILayoutGrid DefaultMargin="0" Transparent="Yes">
+                                <ItemCollectRows>
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                    <Item SizePolicy="Fixed" Size="43" />
+                                </ItemCollectRows>
+
+                                <EnableMasterFaderButton Anchors="0,0" Target="ShowData.Masters.Timing.1" Texture="corner3" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,1" Target="ShowData.Masters.Timing.2" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,2" Target="ShowData.Masters.Timing.3" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,3" Target="ShowData.Masters.Timing.4" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,4" Target="ShowData.Masters.Timing.5" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,5" Target="ShowData.Masters.Timing.6" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,6" Target="ShowData.Masters.Timing.7" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,7" Target="ShowData.Masters.Timing.8" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,8" Target="ShowData.Masters.Timing.9" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,9" Target="ShowData.Masters.Timing.10" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,10" Target="ShowData.Masters.Timing.11" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,11" Target="ShowData.Masters.Timing.12" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,12" Target="ShowData.Masters.Timing.13" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,13" Target="ShowData.Masters.Timing.14" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,14" Target="ShowData.Masters.Timing.15" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,15" Target="ShowData.Masters.Timing.16" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,16" Target="ShowData.Masters.Timing.17" Texture="corner0" Property="FaderEnable"/>
+                                <EnableMasterFaderButton Anchors="0,17" Target="ShowData.Masters.Timing.18" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,18" Target="ShowData.Masters.Timing.19" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,19" Target="ShowData.Masters.Timing.20" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,20" Target="ShowData.Masters.Timing.21" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,21" Target="ShowData.Masters.Timing.22" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,22" Target="ShowData.Masters.Timing.23" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,23" Target="ShowData.Masters.Timing.24" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,24" Target="ShowData.Masters.Timing.25" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,25" Target="ShowData.Masters.Timing.26" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,26" Target="ShowData.Masters.Timing.27" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,27" Target="ShowData.Masters.Timing.28" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,28" Target="ShowData.Masters.Timing.29" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,29" Target="ShowData.Masters.Timing.30" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,30" Target="ShowData.Masters.Timing.31" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,31" Target="ShowData.Masters.Timing.32" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,32" Target="ShowData.Masters.Timing.33" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,33" Target="ShowData.Masters.Timing.34" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,34" Target="ShowData.Masters.Timing.35" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,35" Target="ShowData.Masters.Timing.36" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,36" Target="ShowData.Masters.Timing.37" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,37" Target="ShowData.Masters.Timing.38" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,38" Target="ShowData.Masters.Timing.39" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,39" Target="ShowData.Masters.Timing.40" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,40" Target="ShowData.Masters.Timing.41" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,41" Target="ShowData.Masters.Timing.42" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,42" Target="ShowData.Masters.Timing.43" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,43" Target="ShowData.Masters.Timing.44" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,44" Target="ShowData.Masters.Timing.45" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,45" Target="ShowData.Masters.Timing.46" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,46" Target="ShowData.Masters.Timing.47" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,47" Target="ShowData.Masters.Timing.48" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,48" Target="ShowData.Masters.Timing.49" Texture="corner0" Property="FaderEnable" />
+                                <EnableMasterFaderButton Anchors="0,49" Target="ShowData.Masters.Timing.50" Texture="corner12" Property="FaderEnable" />
+                            </UILayoutGrid>
+                        </ScrollBox>
+                    </ScrollContainer>
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Group" HelpTopic="group_master.html">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="1"/>
+                    </ItemCollectRows>
+                    <EditorPropertyButtons Anchors="0,0" BigModeColumns="6" BigModeRows="5" BigMode="Yes" OnLoad=":GroupSettingsLoaded">
+                        <EditorCategoryButton Text="Store Settings" TextColor="Button.Text"/>
+                        <SwipeButton Property="MoveGridCursor1d" Text="Move Grid Cursor&#xD;1D Selection"/>
+                        <SwipeButton Property="MoveGridCursor2d3d" Text="Move Grid Cursor&#xD;2D/3D Selection"/>
+                    </EditorPropertyButtons>
+                    <EditorPropertyButtons Anchors="0,1" Name="Group" BigModeColumns="6" BigModeRows="5" BigMode="Yes" OnLoad=":GroupSettingsLoaded2">
+                        <EditorCategoryButton Text="Executor Assignment" TextColor="Button.Text"/>
+                        <SwipeButton Property="DefaultGroupMasterMode" Text="Mode"/>
+                    </EditorPropertyButtons>
+                </UILayoutGrid>
+            </DialogContainer>
+        </MainDialogContent>
+
+        <MainDialogPrimaryMenu>
+            <UITab TextAutoAdjust="No" Texture="corner5" ItemSize="75" W="100%" H="100%" Name="PagesTab"  Anchors="0,0" TabChanged=":PageChanged" Type="Vertical" >
+                <ItemStr Title="Cues" Value="CueDefaults" HelpTopic="cue_timing.html"/>
+                <ItemStr Title="Sequences" Value="SequenceDefaults" HelpTopic="cue_sequence_settings.html"/>
+                <ItemStr Title="Presets" Value="PresetDefaults" HelpTopic="presets.html" />
+                <ItemStr Title="Timecodes" Value="TimecodeDefaults" HelpTopic="timecode.html"/>
+                <ItemStr Title="Layout&#xD;Elements" Value="LayoutElementDefaults"/>
+                <ItemStr Title="Keyboard&#xD;Shortcuts" Value="EditKeyboardShortcuts" HelpTopic="do_shortcuts_keyboard.html"/>
+                <ItemStr Title="Executor&#xD;Config." Value="ExecConfigurations" TextAutoAdjust="Yes" HelpTopic="executor_configurations.html#executor_config_preferences"/>
+                <ItemStr Title="Timings" Value="Timing" />
+                <ItemStr Title="Masters" Value="Masters" HelpTopic="masters.html"/>
+                <ItemStr Title="Groups" Value="Group" HelpTopic="group_master.html"/>
+                <ItemStr Title="Global" Value="Global" />
+            </UITab>
+        </MainDialogPrimaryMenu>
+
+        <MainDialogPlaceHolder Name="StorePreferencesSubmenu" />
+    </MainDialog>
+</GMA3>

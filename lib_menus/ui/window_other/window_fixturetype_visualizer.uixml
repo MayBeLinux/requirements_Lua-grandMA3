@@ -1,0 +1,20 @@
+﻿<UILayoutGrid OnLoad=":OnLoad" Anchors="2,0" Name="Visualizer" BackColor="Global.AlertText" W="600" MinSize="375,0">
+    <ItemCollectRows>
+        <Item SizePolicy="Stretch" />
+    </ItemCollectRows>
+    <ItemCollectColumns>
+        <Item SizePolicy="Content" />
+        <Item SizePolicy="Stretch" />
+    </ItemCollectColumns>
+
+    <Toolbar Name="ToolbarLeftTop" BackColor="UIGrid.Background" MinSize="60,128" Anchors="0,0" Direction="Vertical" >
+        <IndicatorControl Icon="object_camera"     UiGroupId="1" H="60" W="60" Tooltip="Toggle camera focus." ShowLabel="No" ShowValue="No" OnLoad=":SetVisualizerTarget" Property="IsCameraFocusOnSelectedItem" />
+        <IndicatorControl Icon="object_world1"     UiGroupId="1" H="60" W="60" Tooltip="Toggle world or model transformation." ShowLabel="No" ShowValue="No" OnLoad=":SetVisualizerTarget" Property="IsWorldCoordinateSystemActive" />
+        <ValueControl    Icon="move"              UiGroupId="2" H="60" W="60" Tooltip="Activate translation mode."      ShowLabel="No" ShowValue="No" OnLoad=":SetVisualizerTarget" Property="ActiveController" Value="0"  />
+        <ValueControl    Icon="rotate"              UiGroupId="2" H="60" W="60" Tooltip="Activate rotation mode."         ShowLabel="No" ShowValue="No" OnLoad=":SetVisualizerTarget" Property="ActiveController" Value="1"  />
+        <ValueControl    Icon="PhaserSizing"      UiGroupId="2" H="60" W="60" Tooltip="Activate scale mode."            ShowLabel="No" ShowValue="No" OnLoad=":SetVisualizerTarget" Property="ActiveController" Value="2"  />
+    </Toolbar>
+
+    <!--Visualizer -->
+    <WindowFixturetypeVisualizer Name="Visualizer" Texture="corner0" Anchors="1,0" Focus="InitialFocus"/>
+</UILayoutGrid>

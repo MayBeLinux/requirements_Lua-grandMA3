@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow Name="TimerPool" HelpTopic="timers.html">
+        <TimePoolLayoutGrid Text="Timers" TitleButtonIcon="icon_timer" ToolTip="Timer pool window">
+            <PoolTitleButton />
+        </TimePoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <AppearanceEditContent Name="AppearanceEditContent" OnLoad=":OnLoaded" >
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="2" />
+        </ItemCollectColumns>
+
+        <UILayoutGrid Name="Left"  Anchors="0,0" Rows="2">
+            <UILayoutGrid Name="Top" Anchors="0,0" Margin="0,0,2,2" Columns="3">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+
+                <PropertyInput Name="ChangeName"    Texture="corner1"  Anchors="0,0,1,0" Property="Name" ValueRole="Default" />
+                <PropertyInput Name="ChangeNote"    Texture="corner2"  Anchors="2,0"    Property="Note" />
+                <PropertyInput Name="Image"         Texture="corner0"  Anchors="0,1,2,1" Property="Image" IndirectEdit="1" Focus="InitialFocus"/>
+                <SwipeButton   Name="ImageMode"     Texture="corner4" Anchors="0,2" Property="ImageMode" />
+                <SwipeButton   Name="ImageRotation" Texture="corner0" Anchors="1,2" Property="ImageRotation" />
+                <SwipeButton   Name="ImageMirror"   Texture="corner8" Anchors="2,2" Property="ImageMirror" />
+
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="Bottom" Anchors="0,1" Margin="0,2,2,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="30" />
+                    <Item SizePolicy="Stretch"/>
+                </ItemCollectRows>
+
+                <UIObject Texture="corner3" Anchors="0,0" Text="Preview" TextAlignmentH="Center" />
+                <AppearancePreview Name="Preview"   Texture="corner0"  Anchors="0,1" />
+            </UILayoutGrid>
+
+        </UILayoutGrid>
+
+        <UILayoutGrid Name="Right" Anchors="1,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Name="ImageColor" Anchors="0,0" Margin="2,0,0,2">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="30" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <UIObject Texture="corner1" Anchors="0,0,2,0" Text="Image Color" />
+                <IndicatorControl       Name="ImageRGBA"  Anchors="3,0,5,0" Texture="corner2" Property="ImageRGBA" ShowLabel="false" ShowValue="true" ColorIndicatorHeight="0" UseGridColor="false" />
+
+                <ColorInterfaceFader    Name="R"  Anchors="0,1" System="RGBImage" OnCreateNewAppearance=":OnCreateNewAppearance" Text="R"      HeadLineDimension="20" ButtonDimension="20" Texture="corner4"  Property="R" DrawGradient="1" UseDynamicIndicatorColor="Yes"/>
+                <ColorInterfaceFader    Name="G"  Anchors="1,1" System="RGBImage" OnCreateNewAppearance=":OnCreateNewAppearance" Text="G"      HeadLineDimension="20" ButtonDimension="20" Texture="corner0"  Property="G" DrawGradient="1" UseDynamicIndicatorColor="Yes" />
+                <ColorInterfaceFader    Name="B"  Anchors="2,1" System="RGBImage" OnCreateNewAppearance=":OnCreateNewAppearance" Text="B"      HeadLineDimension="20" ButtonDimension="20" Texture="corner0"  Property="B" DrawGradient="1" UseDynamicIndicatorColor="Yes"/>
+                <ColorPickHSRect        Name="CP" Anchors="3,1" System="RGBImage" OnCreateNewAppearance=":OnCreateNewAppearance" />
+                <ColorInterfaceFader    Name="Br" Anchors="4,1" System="HSBImage" OnCreateNewAppearance=":OnCreateNewAppearance" Text="B"      HeadLineDimension="20" ButtonDimension="20" Texture="corner0"  Property="B" DrawGradient="1" UseDynamicIndicatorColor="Yes"/>
+                <ColorInterfaceFader    Name="A"  Anchors="5,1" System="HSBImage" OnCreateNewAppearance=":OnCreateNewAppearance" Text="Alpha"  HeadLineDimension="20" ButtonDimension="20" Texture="corner8" Property="Alpha"/>
+            </UILayoutGrid>
+
+            <UILayoutGrid Name="BackgroundColor" Anchors="0,1" Margin="2,2,0,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Fixed" Size="30" />
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="4" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <UIObject Texture="corner1" Anchors="0,0,2,0" Text="Background Color" />
+                <IndicatorControl       Name="BackRGBA"   Anchors="3,0,5,0" Texture="corner2" Property="BackRGBA" ShowLabel="false" ShowValue="true" ColorIndicatorHeight="0" UseGridColor="false"/>
+
+                <ColorInterfaceFader    Name="R"  Anchors="0,1" System="RGBBackGround" OnCreateNewAppearance=":OnCreateNewAppearance" Text="R"      HeadLineDimension="20" ButtonDimension="20" Texture="corner4"  Property="R" DrawGradient="1" UseDynamicIndicatorColor="Yes"/>
+                <ColorInterfaceFader    Name="G"  Anchors="1,1" System="RGBBackGround" OnCreateNewAppearance=":OnCreateNewAppearance" Text="G"      HeadLineDimension="20" ButtonDimension="20" Texture="corner0"  Property="G" DrawGradient="1" UseDynamicIndicatorColor="Yes" />
+                <ColorInterfaceFader    Name="B"  Anchors="2,1" System="RGBBackGround" OnCreateNewAppearance=":OnCreateNewAppearance" Text="B"      HeadLineDimension="20" ButtonDimension="20" Texture="corner0"  Property="B" DrawGradient="1" UseDynamicIndicatorColor="Yes"/>
+                <ColorPickHSRect        Name="CP" Anchors="3,1" System="RGBBackGround" OnCreateNewAppearance=":OnCreateNewAppearance" />
+                <ColorInterfaceFader    Name="Br" Anchors="4,1" System="HSBBackGround" OnCreateNewAppearance=":OnCreateNewAppearance" Text="B"      HeadLineDimension="20" ButtonDimension="20" Texture="corner0"  Property="B" DrawGradient="1" UseDynamicIndicatorColor="Yes"/>
+                <ColorInterfaceFader    Name="A"  Anchors="5,1" System="HSBBackGround" OnCreateNewAppearance=":OnCreateNewAppearance" Text="Alpha"  HeadLineDimension="20" ButtonDimension="20" Texture="corner8" Property="Alpha"/>
+            </UILayoutGrid>
+
+        </UILayoutGrid>
+    </AppearanceEditContent>
+</GMA3>

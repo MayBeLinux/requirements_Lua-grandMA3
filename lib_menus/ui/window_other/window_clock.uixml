@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ClockWindow HelpTopic="si_clock.html" OnLoad=":ClockWindowLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="TitleBar">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1"  MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner0" Anchors="1,0" Text="Clock" />
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal"  Texture="corner2" Content="Yes" Inverted="Yes" >
+                <SwipeButton Texture="corner2" Name="ClockSource" Text="Clock Source" W="150" MinSize="100,0" Property="ClockSource" Undo="No"/>
+                <SwipeButton Texture="corner2" Name="SessionTimeStyleBtn" Text="Style" W="200" MinSize="100,0" Property="SessionTimeStyle" Undo="No" Visible="No"/>
+                <SwipeButton Texture="corner2" Name="SessionTimeStyleTZBtn" Text="Style" W="200" MinSize="100,0" Property="SessionTimeStyleTZ" Undo="No" Visible="No"/>
+                <SwipeButton Texture="corner2" Name="Slot" Text="Timecode Slot" W="150" MinSize="100,0" Property="TCSlot" Visible="No" Undo="No"/>
+                <SwipeButton Texture="corner2" Name="TimerIndex" Text="Timer" W="150" MinSize="100,0" Property="TimerIndex" Visible="No" Undo="No"/>
+                <TimecodeSlotPlayButton Visible="Yes" Name="PlayButton" MinSize="50,0" Text=" " W="60" />
+                <TimecodeSlotPauseButton Name="PauseButton" MinSize="50,0" Text=" " W="60"/>
+                <TimecodeSlotStopButton Visible="Yes" Name="StopButton" MinSize="50,0" Text=" " W="60" />
+                <TimerPlayButton Visible="No" Name="TimerPlayButton" MinSize="50,0" Text=" " W="60" />
+                <TimerPauseButton Visible="No" Name="TimerPauseButton" MinSize="50,0" Text=" " W="60"/>
+                <TimerStopButton Visible="No" Name="TimerStopButton" MinSize="50,0" Text=" " W="60" />
+                <PropertyInput Visible="Yes" Name="TimezoneBtn" MinSize="50,0" Text="Time Zone" Property="TimezoneStr" W="150" />
+            </AutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip="configures clock" Icon="object_clock"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" >
+            <DigitalClock Name="System" Visible="Yes" BackColor="Global.Default" Focus="CanHaveFocus" Texture="corner12" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                </ItemCollectColumns>
+
+                <PixelSymbol Anchors="0,0" />
+                <PixelSymbol Anchors="1,0" />
+                <SeparatorSymbol Anchors="2,0" />
+                <PixelSymbol Anchors="3,0" />
+                <PixelSymbol Anchors="4,0" />
+                <SeparatorSymbol Anchors="5,0" />
+                <PixelSymbol Anchors="6,0" />
+                <PixelSymbol Anchors="7,0" />
+            </DigitalClock>
+
+            <AnalogClock Visible="No">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+            </AnalogClock>
+
+            <DateClock Name="Date" Visible="No" BackColor="Global.Default" Focus="CanHaveFocus" Texture="corner12" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="2" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="2" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                </ItemCollectColumns>
+
+                <PixelSymbol Anchors="0,0" />
+                <PixelSymbol Anchors="1,0" />
+                <SeparatorSymbol Anchors="2,0" />
+                <PixelSymbol Anchors="3,0" />
+                <PixelSymbol Anchors="4,0" />
+                <SeparatorSymbol Anchors="5,0" />
+                <PixelSymbol Anchors="6,0" />
+                <PixelSymbol Anchors="7,0" />
+                <PixelSymbol Anchors="8,0" Name="AdditionalYear1"/>
+                <PixelSymbol Anchors="9,0" Name="AdditionalYear2"/>
+            </DateClock>
+
+            <TimecodeSlotClock Name="Timecode" Visible="No" BackColor="Global.Default" Focus="CanHaveFocus" Texture="corner12" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                </ItemCollectColumns>
+
+                <PixelSymbol Anchors="0,0" />
+                <PixelSymbol Anchors="1,0" />
+                <SeparatorSymbol Anchors="2,0" />
+                <PixelSymbol Anchors="3,0" />
+                <PixelSymbol Anchors="4,0" />
+                <SeparatorSymbol Anchors="5,0" />
+                <PixelSymbol Anchors="6,0" />
+                <PixelSymbol Anchors="7,0" />
+                <SeparatorSymbol Anchors="8,0" />
+                <PixelSymbol Anchors="9,0" />
+                <PixelSymbol Anchors="10,0" />
+                <SeparatorSymbol Anchors="11,0" />
+                <PixelSymbol Anchors="12,0" />
+                <PixelSymbol Anchors="13,0" />
+            </TimecodeSlotClock>
+
+            <TimerClock Name="Timer" Visible="No" BackColor="Global.Default" Focus="CanHaveFocus" Texture="corner12" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                </ItemCollectColumns>
+
+                <PixelSymbol Anchors="0,0" />
+                <PixelSymbol Anchors="1,0" />
+                <SeparatorSymbol Anchors="2,0" />
+                <PixelSymbol Anchors="3,0" />
+                <PixelSymbol Anchors="4,0" />
+                <SeparatorSymbol Anchors="5,0" />
+                <PixelSymbol Anchors="6,0" />
+                <PixelSymbol Anchors="7,0" />
+                <SeparatorSymbol Anchors="8,0" />
+                <PixelSymbol Anchors="9,0" />
+                <PixelSymbol Anchors="10,0" />
+                <SeparatorSymbol Anchors="11,0" />
+                <PixelSymbol Anchors="12,0" />
+                <PixelSymbol Anchors="13,0" />
+            </TimerClock>
+
+        </DialogFrame>
+    </ClockWindow>
+</GMA3>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDlgFixtureSetup Name="AttributeDefinitionsDlg" Destination="AttributeDefinitions.Attributes" HelpTopic="patch_attribute_definitions.html" OverrideKeybSC="Yes">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Attribute Definitions" Icon="logo_small"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogSecondaryMenu>
+            <MainDialogSubTabs>
+                <ItemStr Title="Attribute Definitions" Value="" />
+                <ItemStr Title="Activation Groups" Value="ActivationGroups" />
+                <ItemStr Title="Feature Groups" Value="FeatureGroups" />
+                <ItemStr Title="Deactivation Groups" Value="DeactivationGroups" />
+            </MainDialogSubTabs>
+        </MainDialogSecondaryMenu>
+
+        <MainDialogContent Rows="1" Columns="1" >
+            <DBObjectGrid Name="AttributeSetupGrid" BackColor="UIGrid.Background" Anchors="0,0" Focus="InitialFocus" />
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <UIObject Anchors="2,1,3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0"  Text="Reset&#xD;to Defaults" OnLoad=":OnResetToDefaultsLoad" Clicked=":CommandLine" SignalValue="lua 'Patch().ResetAttribDefinitionsToDefault()'" />
+                <UIObject Anchors="1,0,3,0" Texture="corner8" HasHover="0"/>
+                <UIObject Anchors="0,1,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+        <MainDialogPlaceHolder Name="MainDialog" />
+    </MainDlgFixtureSetup>
+</GMA3>

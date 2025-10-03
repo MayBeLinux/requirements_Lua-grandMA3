@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="LocalSettingsLoad" OnLoad=":LocalSettingsLoaded" W="800" H="480" MinSize="800,480" AlignmentH="Center" AlignmentV="Center" OverrideKeybSC="Yes" RelativeToDisplay="Yes" HelpTopic="local_settings.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+
+        <TitleBar Anchors="0,0" Name="Title" Texture="corner1">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleBtn" Texture="corner1" Anchors="0,0" Text="Local Settings" Icon="setup"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Frame">
+
+            <EditorPropertyButtons Name="Settings" Anchors="0,0" BigModeColumns="4" BigModeRows="6" BigMode="Yes" Target="StationSettings.LocalSettings">
+                <!--
+                <EditorCategoryButton Text="MIDI"/>
+                <IndicatorControl     Property="OnPCMidiFromWing"      Text="MIDI via&#xD;onPC command&#xD;wing"/>
+                <EditorPropertyButton Property="OnPCMidiInDeviceName"  Text="MIDI In Device"/>
+                <EditorPropertyButton Property="OnPCMidiOutDeviceName" Text="MIDI Out Device"/>
+                <EditorPropertyButton Property="OnPCMidiOffset"        Text="MIDI Offset"/>
+                <EditorSwipeButton Property="OnPCMidiTimecodeSlot"  Text="MIDI Timecode Slot"/>
+            -->
+
+                <!--
+                <EditorCategoryButton />
+                <EditorCategoryButton />
+
+                <EditorCategoryButton Text="Sound"/>
+                <EditorPropertyButton Visible="false"/>
+                <EditorPropertyButton Property="AudioOutDeviceName" Text="Audio Out Device" ValueAutoAdjust="Yes"/>
+
+                <EditorCategoryButton />
+                <EditorPropertyButton Visible="false"/>
+
+                <EditorSubCategoryButton Text="Other" TextAlignmentV="Bottom" Margin="0,0,0,10"/>
+                <IndicatorButton Visible="false"/>
+                <EditorPropertyButton Text="Force Login" Property="ForceLogin"/>
+
+            -->
+
+                <EditorCategoryButton Text="Sound"/>
+
+                <EditorPropertyButton Property="AudioOutDeviceName" Text="Audio Out Device" ValueAutoAdjust="Yes"/>
+
+
+                <EditorCategoryButton Text="Other" />
+
+                <EditorPropertyButton Text="Force Login" Property="ForceLogin"/>
+                <!--<IndicatorControl Text="Startup Showfile" IndicatorIcon="DialogButtonIcon" Clicked=":StartupshowfileEdit" Property="StartupShowfileName" ValueAutoAdjust="Yes"/>-->
+                <SwipeButton          Property="MouseCursorSize"      Text="Mouse Cursor Size" Name="BtnMouseCursorSize" />
+                <SwipeButton          Property="MouseSpeed"      Text="Mouse Speed" />
+
+
+            </EditorPropertyButtons>
+        </DialogFrame>
+
+        <ResizeCorner Name="Resizer" AlignmentH="Right" AlignmentV="Bottom" />
+    </ShadedOverlay>
+</GMA3>

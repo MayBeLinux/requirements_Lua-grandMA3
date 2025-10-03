@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Agenda Window Settings" Icon=""/>
+            <EditTitlebarButton Anchors="1,0"/>
+            <Button   Anchors="2,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="WindowAgenda"/>
+            <Button   Anchors="3,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="WindowAgenda" />
+            <DeleteWindowButton   Anchors="4,0"  />
+            <CloseButton Texture="corner2" Anchors="5,0" />
+        </TitleBar>
+
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+                <ItemStr Title="Columns" Value="ColumnConfig" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged">
+                <UILayoutGrid Name="Display" Rows ="4" Columns="4" DefaultMargin="10" Margin="10,10,10,10">
+                    <!-- Row 1 -->
+                    <PropertyInput Name="" Anchors="0,0" Texture="corner15" Property="ViewMode" Text="View Mode" ReferencedTitleButton="ViewMode"/>
+                    <PropertyInput Name="" Anchors="1,0" Texture="corner15" Property="StartOfWeek" Text="Start of Week"/>
+                    <PropertyInput Name="" Anchors="3,0" Texture="corner15" Property="VisibleDate" Text="Visible Date"/>
+
+                    <!-- Row 2 -->
+                    <TitlebuttonControl Anchors="0,1" Texture="corner15"  Visible="No" Text="Setup" ReferencedTitleButton="Setup"/>
+                    <TitlebuttonControl Anchors="1,1" Texture="corner15"  Visible="No" Text="Running" ReferencedTitleButton="Running"/>
+                    <TitlebuttonControl Anchors="2,1" Texture="corner15"  Visible="No" Text="Reset Selection" ReferencedTitleButton="ResetSelection"/>
+                    <TitlebuttonControl Anchors="3,1" Texture="corner15"  Visible="No" Text="DeleteOld" ReferencedTitleButton="DeleteOld"/>
+                    
+                    <!-- Row 3 -->
+                    <TitlebuttonControl Anchors="0,2" Texture="corner15"  Visible="No" Text="Navigate Today" ReferencedTitleButton="NavigateToday"/>
+                    <TitlebuttonControl Anchors="1,2" Texture="corner15"  Visible="No" Text="Navigate Previous" ReferencedTitleButton="NavigatePrevious"/>
+                    <TitlebuttonControl Anchors="2,2" Texture="corner15"  Visible="No" Text="Navigate Next" ReferencedTitleButton="NavigateNext"/>
+
+                </UILayoutGrid>
+
+                <!INCLUDE ../../include/content_column_set.uixml >
+
+                <!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+            </DialogContainer>
+        </DialogFrame>
+    </GenericContext>
+</GMA3>

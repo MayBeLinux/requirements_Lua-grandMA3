@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="135" Name="PoolOverlay" Guid="00 00 00 00 CA 26 00 00 0E 7F 27 00 E6 E5 1C 07" Author="MA" Version="0.1.0.0" Path="/ui/main_overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" Name="ComponentXML" Guid="00 00 00 00 99 36 00 00 0D 7F 27 00 E6 E5 1C 07" FileName="pool_overlay.uixml" PlaceHolder="MainOverlay" DisplayTypePreference="BigOrSmall" DefaultDisplay="1" />
+        <ComponentLua Index="2" FileName="pool_overlay.lua" />
+    </Menu>
+</GMA3>

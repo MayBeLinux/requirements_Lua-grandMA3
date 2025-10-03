@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+	<CommandWingBarWindow HelpTopic="ws_command_wing_bar.html"  OnLoad=":WindowCommandWingBarLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50"  />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner0" Anchors="1,0" Text="command wing Bar"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner2" Content="Yes">
+                <SwipeButton W="100" MinSize="50,0" Name="Wing" OnLoad=":SetSettingsTarget" Property="WingID" HelpTopic="ws_playback_controls.html"/>
+                <SwipeButton  W="100" MinSize="50,0" OnLoad=":SetSettingsTarget" Text="Page" Name="Page" Property="Page" TextAutoAdjust="Yes" />
+            </AutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0" Icon="object_commandwing" ToolTip="command wing Bar"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" Name="Frame" DefaultMargin="3" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="6" MinSize="100"  />
+                <Item SizePolicy="Stretch" Size="1" MinSize="50"  />
+                <Item SizePolicy="Stretch" Size="8" MinSize="200"  />
+            </ItemCollectColumns>
+            <!-- Executors -->
+			<CommandWingBarPlaybackContent Name="ExecutorSection" Anchors="0,0" Margin="0,0,3,0" FixedExecutorBlockCount="2" Font="Regular14" LowDpiFont="Regular9" >
+				<!INCLUDE ../../include/playback_control_content.uixml >
+			</CommandWingBarPlaybackContent>
+            <!-- Custom Masters -->
+            <UILayoutGrid Anchors="1,0" Name="MasterSection" Transparent="Yes" Texture="Corner15" BackColor="CustomMasters.Section" Margin="3,0,3,0" DefaultMarginOnBorders="No" Font="Regular14" LowDpiFont="Regular9">
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="6" />
+                    <Item SizePolicy="Stretch" Size="3" />
+                    <Item SizePolicy="Stretch" Size="2" />
+                </ItemCollectRows>
+                <UILayoutGrid Anchors="0,0" Name="MasterXfadeArea"   Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Stretch" Size="4" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                    </ItemCollectRows>
+                    <SpecialExecSection Anchors="0,0,1,0" Name="MasterXfadeLabel" Rows="1" Columns="2" ExecBarToDraw="1" Texture="Corner3" FirstRow="1" LastRow="1" />
+                    <HardwareFader Anchors="0,1,0,2" Name="XFade1" SpecialExecIndex="XFade1"  HeadLineTexture="Corner0" Texture="Corner12" BorderTexture="small_frame12" />
+                    <HardwareFader Anchors="1,1,1,2" Name="XFade2" SpecialExecIndex="XFade2"  HeadLineTexture="Corner0" Texture="Corner12" BorderTexture="small_frame12" />
+                </UILayoutGrid>
+
+                <UILayoutGrid Anchors="0,1,0,2" Name="LastSelectedArea"  Columns="2" Transparent="No" Texture="Corner15" BackColor="CustomMasters.Section">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" Size="3" />
+                        <Item SizePolicy="Stretch" Size="1" />
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <SpecialExecSection Anchors="0,0,1,1" Name="LastSelectedLabel" Rows="1" Columns="2" ExecBarToDraw="1" Texture="Corner3" FirstRow="2" LastRow="3" />
+                    <UILayoutGrid Anchors="0,2,1,2" Name="DefaultPlayback" Columns="3">
+                        <HardkeyButton Texture="Corner4"  Anchors="0,0" SignalValue="DEF_PAUSE" LedToken="Pause" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp"/>
+                        <HardkeyButton Texture="Corner0"  Anchors="1,0" SignalValue="DEF_GOBACK" LedToken="Go-" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp"/>
+                        <HardkeyButton Texture="Corner8"  Anchors="2,0" SignalValue="DEF_GO" LedToken="Go+" OnOffTexture="led_rect"  MouseUp=":MainDlgCmdCtrlHKMouseUp"/>
+                    </UILayoutGrid>
+                </UILayoutGrid>
+            </UILayoutGrid>
+            <!-- Encoders -->
+			<UILayoutGrid Anchors="2,0" Name="EncoderBarSection">
+				<!INCLUDE window_encoder_bar_content.uixml >
+			</UILayoutGrid>
+        </DialogFrame>
+    </CommandWingBarWindow>
+</GMA3>

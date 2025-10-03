@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window Name="UITabExample" OnLoad=":OnUITabExampleLoad" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" >
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="UITab example" Icon=""/>
+            <ContextButton Texture="corner1" Anchors="0,0" ToolTip="Dummy"/>
+        </NormedTitleBar>
+
+        <DialogFrame Name="Frame" Anchors="0,1">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Name="GenericTab" Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" />
+            <DialogContainer Name="TabContents" Anchors="0,1" ChangeActive=":MyTabChanged" >
+                <UILayoutGrid Name="MyTab1">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+
+                    <DialogButton Name="Dummy1" Text="Don't click me" Anchors="0,1" />
+                    <Button Name="Dummy2" Text="Yet another button" Anchors="1,0" />
+                    <IndicatorControl Name="Dummy3" Text="And this one's too" Anchors="1,2" />
+                </UILayoutGrid>
+                <AutoLayout Name="MyTab2" Direction="Vertical" Texture="corner15">
+                    <PropertyControl Text="On/Off dummy"/>
+                    <Button Text="Button" />
+                    <IndicatorControl Text="Indic button" />
+                </AutoLayout>
+                <UIObject Name="MyTab3" Text="This is just a label, nothing more. Yep, it's also possible to do it like this" TextAutoAdjust="Yes" />
+                <UILayoutGrid Name="MyTab4">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Content" />
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+
+                    <UITab Name="VGenericTab" Anchors="0,0" Type="Vertical" W="80" H="100%" AvoidScroll="Yes" TabChanged=":VMyTabChanged" />
+                    <DialogContainer Name="VTabContents" Anchors="1,0" ChangeActive=":VMyTabChanged" >
+                        <UIObject Name="MyTab1V" Text="Yes, we can go deeper" TextAutoAdjust="Yes" />
+                        <UIObject Name="MyTab2V" Text="Dummy text..." TextAutoAdjust="Yes" />
+                    </DialogContainer>
+                </UILayoutGrid>
+            </DialogContainer>
+        </DialogFrame>
+    </Window>
+</GMA3>

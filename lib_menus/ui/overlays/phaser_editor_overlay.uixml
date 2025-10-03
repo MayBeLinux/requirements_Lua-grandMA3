@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+
+	<ShadedOverlay Name="PhaserEditor" OnLoad=":OnLoad" WantsModal="0" FocusSearchPolicy="Default" AutoClose="0" AutoCloseOnOverlay="1"  ReactToPreview="Yes" ReactToEdit="Yes" IgnoreRequestedSize="Yes">
+		<ItemCollectRows>
+			<Item SizePolicy="Content" />
+			<Item SizePolicy="Stretch" />
+		</ItemCollectRows>
+		<ItemCollectColumns>
+			<Item SizePolicy="Stretch" Size="1" />
+		</ItemCollectColumns>
+
+		<TitleBar Anchors="0,0" Name="Title" MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+			<ItemCollectColumns>
+				<Item SizePolicy="Stretch" Size="1" MinSize="50" />
+				<Item SizePolicy="Content"/>
+				<Item SizePolicy="Fixed" Size="50" />
+			</ItemCollectColumns>
+			<TitleButton Anchors="0,0" Text="Phaser Editor" Texture="corner1" />
+
+			<AutoLayout Anchors="1,0"   Name="TitleButtons"    Direction="Horizontal" Inverted="Yes" Content="Yes" >
+				<SwipeButton        Texture="corner0" MinSize="100,0" OnLoad=":SetTarget" Property="Mode1D" Text="1D Mode" FocusSearchPolicy="Suppress" Undo="No" ToolTip="Toggle value / transition" />
+				<SwipeButton        Texture="corner0" MinSize="100,0" OnLoad=":SetTarget" Property="AbsRelMode" Text="Values" Undo="No" ToolTip="Choose Abs Rel view mode" />
+				<Button W="2" MinSize="2" Texture="corner2"  HasHover="No" BackColor="ContextButton.Background" />
+				<ValueRadioControl  Texture="corner0" MinSize="100,0" OnLoad=":SetTarget" Property="ViewMode" Text="Sheet" Value="Sheet" ToolTip="Set ViewMode to 'Sheet'"  />
+				<ValueRadioControl  Texture="corner0" MinSize="100,0" OnLoad=":SetTarget" Property="ViewMode" Text="1D"    Value="1D"    ToolTip="Set ViewMode to '1D'"  />
+				<ValueRadioControl  Texture="corner0" MinSize="100,0" OnLoad=":SetTarget" Property="ViewMode" Text="2D"    Value="2D"    ToolTip="Set ViewMode to '2D'"  />
+				<ValueRadioControl  Texture="corner0" MinSize="100,0" OnLoad=":SetTarget" Property="ViewMode" Text="Auto"  Value="Auto"  ToolTip="Set ViewMode to 'Auto'"  />
+			</AutoLayout>
+			
+			<CloseButton    Anchors="2,0" Texture="corner2"  CloseAction="Confirm" />
+		</TitleBar>
+		
+		<!INCLUDE ../../include/phaser_editor_content.uixml >
+	</ShadedOverlay>
+
+</GMA3>

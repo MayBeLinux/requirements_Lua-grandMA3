@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow Name="SoundPool" >
+        <SoundPoolLayoutGrid  Text="Sounds" TitleButtonIcon="object_sound3"  ToolTip="Sound pool window" HelpTopic="sound.html" >
+            <PoolTitleButton />
+        </SoundPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="187" Name="UserProfilesConfiguration" Guid="3A 6E D2 B6 AC A8 46 FA B0 29 BD 2D 0B 2B 31 91" Author="MA" Version="0.1.0.0" Path="/ui/setup/users">
+        <ComponentXML Index="1" Guid="12 E4 46 49 5D 49 4B F6 90 AD 22 66 A7 C8 64 36" FileName="user_profiles_configuration.uixml" PlaceHolder="MainDialog" Toggle="No" />
+        <ComponentLua Index="2" FileName="user_profiles_configuration.lua" />
+    </Menu>
+</GMA3>

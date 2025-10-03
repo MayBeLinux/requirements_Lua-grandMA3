@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <Window Name="WindowCustomMasterSection" HelpTopic="executor_special.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Anchors="0,0" Name="Title">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content"/>
+                <Item SizePolicy="Stretch" Size="1" MinSize="50"  />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0" Text="Custom Master Section"/>
+            <ContextButton Texture="corner1" Anchors="0,0" Icon="object_special_master" ToolTip="configures custom master section view"/>
+        </NormedTitleBar>
+
+        <CustomMasterLayoutGrid Anchors="0,1" OnTitleClick=":TitleClicked"  Font="Regular14" LowDpiFont="Regular9">
+            <DialogFrame Anchors="0,0" Name="Frame">
+                <!INCLUDE ../../include/custom_master_content.uixml >
+            </DialogFrame>
+        </CustomMasterLayoutGrid>
+
+
+    </Window>
+</GMA3>

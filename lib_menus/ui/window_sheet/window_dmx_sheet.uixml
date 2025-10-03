@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <Window Name="DMXSheetWindow" OnLoad=":DMXSheetWindowLoaded" ReactToPreview="Yes" ScrollTarget="Frame/DmxSheet" HelpTopic="patch_dmx_sheet.html">
+
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+
+        <NormedTitleBar Name="TitleBar" Anchors="0,0"  MixInBackColorFromParent="Yes" MixInBackColorFromParentRecursive="Yes">
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner2" Anchors="1,0,2,0" Text="DMX"/>
+            <TitleAutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="2,0" Name="TitleButtons" Direction="Horizontal"  Texture="corner2" Content="Yes" Inverted="Yes" >
+                <SwipeButton      Name="ValueReadoutControl" MinSize="50,0" W="100" Property="Readout" ShowLabel="Yes" TextAutoAdjust="No" Undo="No"/>
+                <Button           Name="UniverseUp"          MinSize="40,0" W="50"  Clicked=":UniverseUp" Icon="arrow_right" />
+                <PropertyInput    Name="UniverseControl"     MinSize="50,0" W="200" Property="Universe" TextAutoAdjust="No" ShowValue="Yes" TextAlignmentH="Left" TextColor="IndicatorControl.Title" Undo="No"/>
+                <Button           Name="UniverseDown"        MinSize="40,0" W="50"  Clicked=":UniverseDown" Icon="arrow_left" />
+                <PropertyInput    Name="AddressControl"      MinSize="50,0" W="100" Property="Address" TextAutoAdjust="No" ShowValue="Yes" TextAlignmentH="Left" TextColor="IndicatorControl.Title" Undo="No"/>
+                <IndicatorControl Name="OnlySelection"       MinSize="50,0" W="100" Property="OnlySelection" Text="Only Selection" TextAutoAdjust="Yes" ShowValue="Yes" TextAlignmentH="Left" TextColor="IndicatorControl.Title" Undo="No"/>
+                <IndicatorControl Name="DmxTestBar"          MinSize="50,0" W="120" Property="TestBar"       TextAutoAdjust="No" ShowValue="Yes" TextAlignmentH="Left" TextColor="IndicatorControl.Title" Undo="No" Text="Tester&#xD;Encoder Bar"/>
+                <SwipeButton      Name="AddressMode"         MinSize="50,0" W="120" Text="Address Mode" Property="AddressMode" AutoHide="Yes" TextAutoAdjust="Yes" />
+                <SwipeButton      Name="Levelbar"            MinSize="50,0" W="120" Text="Level Bar" AutoHide="Yes" Property="Levelbar"/>
+                <IndicatorControl Name="AutoColumns"         MinSize="50,0" W="100" Text="Auto&#xD;Columns" AutoHide="Yes" Property="AutoColumns" />
+                <PropertyInput    Name="AutoColumnsWidth"    MinSize="50,0" W="120" Text="Auto Columns&#xD;Width" TextAutoAdjust="No" AutoHide="Yes" Property="AutoColumnsWidth" />
+
+                <PropertyInput    Name="MaskValue"           MinSize="50,0" W="100" Text="Value"     Property="Value"     />
+                <PropertyInput    Name="MaskAttribute"       MinSize="50,0" W="100" Text="Attribute" Property="Attribute" />
+                <PropertyInput    Name="MaskID"              MinSize="50,0" W="100" Text="ID"        Property="ID"        />
+            </TitleAutoLayout>
+            <ContextButton Texture="corner1" Anchors="0,0"  Icon="object_dmx" ToolTip="configures DMX sheet"/>
+        </NormedTitleBar>
+
+        <DialogFrame Anchors="0,1" name="Frame"  MixInBackColorFromParent="Yes">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch"/>
+            </ItemCollectColumns>
+            <DMXSheet OnUniverseDownClicked=":UniverseDown" OnUniverseUpClicked=":UniverseUp" Anchors="0,0" Name="DmxSheet" DataType="DMXSheetGridData" DescriptionChanged=":CellChanged" BackColor="TextView.Background" />
+            <StatusBar Anchors="0,1" H="40" ChangeText=":CellChanged" Texture="corner12"/>
+        </DialogFrame>
+
+    </Window>
+</GMA3>

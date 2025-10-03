@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow HelpTopic="wvm_store_recall.html" >
+        <ViewPoolLayoutGrid  Text="Views" TitleButtonIcon="object_view"  ToolTip="View pool window">
+            <PoolTitleButton />
+        </ViewPoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

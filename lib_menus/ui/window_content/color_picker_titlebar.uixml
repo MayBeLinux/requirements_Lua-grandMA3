@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <UILayoutGrid Name="TitlebarContent" OnLoad=":OnColorTitlebarLoaded">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" MinSize="50" />
+            <Item SizePolicy="Content"/>
+        </ItemCollectColumns>
+        <!-- <TitleButton Texture="corner2" Anchors="0,0,1,0" Text="Color Picker" Name="TitleButton" /> -->
+
+        <TitleAutoLayout Name="Titlebuttons" Anchors="1,0" DefaultMargin="0" Direction="Horizontal" Content="Yes" Texture="corner2" Inverted="Yes">
+            <ValueRadioControl Name="CIE"            W="50"  MinSize="50,0"  Property="Mode" Value="CIE"    ShowValue="No" ToolTip="Show CIE controls."   Text="CIE" />
+            <ValueRadioControl Name="HSBField"       W="50"  MinSize="50,0"  Property="Mode" Value="HSB"    ShowValue="No" ToolTip="Show HSB field."      Text=" " Icon="HSRectIcon" ActiveIconColor="ColorPicker.White" IconColor="ColorPicker.HSBIcon" />
+            <ValueRadioControl Name="Fader"          W="70"  MinSize="50,0"  Property="Mode" Value="Fader"  ShowValue="No" ToolTip="Show Fader controls." Text="Fader" />
+            <ValueRadioControl Name="Book"           W="60"  MinSize="50,0"  Property="Mode" Value="Book"   ShowValue="No" ToolTip="Show color palettes." Text="Book" />
+            <Button            Name="Spacer"         W="10"  MinSize="10,0"  HasHover="No" BackColor="ContextButton.Background" />
+            <IndicatorControl  Name="OverdriveMode"  W="120" MinSize="120,0" Property="BrightnessOverdriveMode" Text="Constant&#xD;Brightness" Enabled="true" Margin="0,0,0,0"/>
+            <SwipeButton       Name="ColorMixMode"   W="120" MinSize="120,0" Property="ColorMixMode" Text="Color Space" Enabled="true"  />
+            <SwipeButton       Name="Mode"           W="100" MinSize="50,0"  Property="Mode" Text="Mode" Enabled="true" TextAutoAdjust="Yes" />
+            <SwipeButton       Name="ColorWheelMode" W="120" MinSize="60,0"  Property="ColorWheelMode" Text="Wheel Mix Mode" Enabled="true" TextAutoAdjust="Yes" />
+        </TitleAutoLayout>
+    </UILayoutGrid>
+</GMA3>

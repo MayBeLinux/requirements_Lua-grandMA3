@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="PoolSwipeEditSetting" Author="MA" Version="0.1.0.0" Path="/ui/window_pool">
+        <ComponentXML FileName="pool_swipe_edit_setting.uixml" PlaceHolder="PlaceHolder" Toggle="No" />
+        <ComponentLua FileName="pool_swipe_edit_setting.lua" />
+    </Menu>
+</GMA3>

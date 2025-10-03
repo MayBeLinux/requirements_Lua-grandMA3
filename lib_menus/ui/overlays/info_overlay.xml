@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="102" Name="InfoOverlay" Guid="70 4D 7B 2D 8F 04 00 00 20 58 86 BB 78 B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 8C 4C 00 00 27 58 86 BB 78 B1 01 1A" FileName="info_overlay.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua FileName="info_overlay.lua" />
+    </Menu>
+</GMA3>

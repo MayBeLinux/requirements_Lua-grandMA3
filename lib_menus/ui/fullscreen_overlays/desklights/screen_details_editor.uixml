@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericEditorOverlay W="650" H="600" AlignmentH="Center" AlignmentV="Center" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Screen Details"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="20" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="20" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UILayoutGrid Anchors="0,1" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="20" />
+                </ItemCollectColumns>
+
+                <UiFader Anchors="1,0" Name="ScreenBig" Property="ScreenBig" Target="StationSettings.DeskLightsCollect.Screens" System="Intensity"  />
+                <UiFader Anchors="3,0" Name="ScreenLetter" Property="ScreenLetter" Target="StationSettings.DeskLightsCollect.Screens" System="Intensity"  />
+                <UiFader Anchors="5,0" Name="ScreenSmall" Property="ScreenSmall" Target="StationSettings.DeskLightsCollect.Screens" System="Intensity"  />
+                <UiFader Anchors="7,0" Name="ScreenExternal" Property="ScreenExternal" Target="StationSettings.DeskLightsCollect.Screens" System="Intensity"  />
+
+            </UILayoutGrid>
+
+        </DialogFrame>
+    </GenericEditorOverlay>
+
+</GMA3>

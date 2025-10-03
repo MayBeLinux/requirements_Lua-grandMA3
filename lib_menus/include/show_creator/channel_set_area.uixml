@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+
+<UILayoutGrid Anchors="4,1" Name="ChannelSetArea"  Margin="0,0,6,0">
+    <ItemCollectRows>
+        <Item SizePolicy="Fixed" Size="50" />
+        <Item SizePolicy="Stretch" Size="1" />
+    </ItemCollectRows>
+
+    <UILayoutGrid Anchors="0,0" Name="ChannelSetSubTitle">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <TitleButton Name="Title" Anchors="0,0" Texture="corner3" Text="FixtureType Presets" />
+    </UILayoutGrid>
+    <UILayoutGrid Name="Frame" Anchors="0,1" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Fixed" Size="50" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <UILayoutGrid Anchors="0,0" Name="FilterBlock">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" Size="1" />
+            </ItemCollectColumns>
+            <UIObject Anchors="0,0" Text="Filter:" W="60" BackColor="global.BackGround" HasHover="No" />
+            <LineEdit Anchors="1,0" Name="FilterEdit" Focus="WantsFocus" Texture="corner5" Target="../../ChannelSetGrid/Internals/GridBase/ShowCreatorSheetSettings/ShowCreatorGridObjectContentFilter/Filter" Property="Filter" Clear=":ClearChannelSetFilters" Execute=":JumpToGrid" />
+            <IndicatorButton Anchors="2,0" Name="Clear" Text="Clear" Clicked=":ClearChannelSetFilters" W="80" Texture="corner10" WantsNumericRedirect="Yes" Focus="Never" />
+        </UILayoutGrid>
+        <DBObjectGrid Anchors="0,1" Name="ChannelSetGrid" OnLoad=":LinkSCSettings" BackColor="Global.Transparent" AllowMergeChildren="No" FilterBlockUIEnabled="No" AllowFilterContent="Yes"  AllowAddContent="No" AllowAddNewline="No" AllowEdit="No" CanProvideUiGridSelection="No" >
+            <ShowCreatorSheetSettings ContentFilterType="ShowCreatorGridObjectContentFilter" NoFixedColumns="No" GridType="ChannelSet" >
+                <ShowCreatorGridObjectContentFilter>
+                    <GridObjectContentFilterItem Name="Filter" Columns="Name" />
+                </ShowCreatorGridObjectContentFilter>
+            </ShowCreatorSheetSettings>
+        </DBObjectGrid>
+    </UILayoutGrid>
+</UILayoutGrid>
+

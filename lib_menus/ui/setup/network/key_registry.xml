@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="106" Name="KeyRegistry" Guid="00 1B 21 70 C7 96 00 00 31 52 36 54 89 D8 B2 AD" Author="MA" Version="0.1.0.0" Path="/ui/setup/network">
+        <ComponentXML Index="1" Guid="00 1B 21 70 6B B5 00 00 30 52 36 54 89 D8 B2 AD" FileName="key_registry.uixml" PlaceHolder="MainDialog" />
+    </Menu>
+</GMA3>

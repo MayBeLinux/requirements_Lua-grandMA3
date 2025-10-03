@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <PoolWindow Name="UniversePool" HelpTopic="patch_dmx_universe.html">
+        <UniversePoolLayoutGrid  Text="Universes" TitleButtonIcon="object_universe" ToolTip="DMX Universe pool window" NoEmptyNames="1">
+            <PoolTitleButton />
+        </UniversePoolLayoutGrid>
+    </PoolWindow>
+</GMA3>

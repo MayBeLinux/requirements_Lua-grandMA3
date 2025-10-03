@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <SettingsBox Columns="7" DefaultMargin="10" Margin ="10,10,10,10" HelpTopic="cue_sequence_settings.html" Focus="InitialFocus">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="0.5" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+
+        <UIObject       Texture=""          Anchors="0,0" Text="Label" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="1,0" Text="Start" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="2,0,3,0" Text="Playback" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="4,0" Text="Speed" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="5,0" Text="Protect" TextColor="Global.Bright" Interactive="No" />
+        <UIObject       Texture=""          Anchors="6,0" Text="MIB" TextColor="Global.Bright" Interactive="No" />
+
+        <PropertyInput   Texture ="corner3" Anchors="0,1" Property="Name"   ValueRole="Default"/>
+        <ScribbleInput   Texture="corner0"  Anchors="0,2" Name="Scribble"   AutoHide="Yes" />
+        <AppearanceInput Texture="corner0"  Anchors="0,3" Name="Appearance" AutoHide="Yes" />
+        <PropertyInput   Texture="corner0" Anchors="0,4" Property="Tags"  AutoHide="Yes"/>
+        <PropertyInput   Texture="corner0" Anchors="0,5" Property="Note" />
+        <PropertyInput   Texture="corner0"  Anchors="0,6" Property="PreferCueAppearance" />
+        <SwipeButton     Texture="corner12"  Anchors="0,7" Property="ExecutorDisplayMode" Text="Executor Display&#xD;Mode"/>
+
+        <PropertyInput  Texture ="corner3"  Anchors="1,1" Property="AutoStart" />
+        <PropertyInput                      Anchors="1,2" Property="AutoStop" />
+        <SwipeButton                        Anchors="1,3" Property="MasterGoMode" Text="Master Go Mode"/>
+        <PropertyInput                      Anchors="1,4" Property="AutoFix"   />
+        <PropertyInput                      Anchors="1,5" Property="CueZeroMode" Text="Cue Zero Mode"/>
+        <PropertyInput  Texture ="corner12" Anchors="1,6" Property="AutoStomp" />
+        <!--
+        <PropertyInput  Texture ="corner12" Anchors="1,7" Property="DelayToPhase" Text="Delay&#xD;To Phase"   />
+        -->
+        <PropertyInput  Texture ="corner1"  Anchors="2,1" Property="Tracking" />
+        <PropertyInput                      Anchors="2,2" Property="WrapAround"       />
+        <PropertyInput                      Anchors="2,3" Property="ReleaseFirstCue" />
+        <SwipeButton                        Anchors="2,4" Property="RestartMode" Text="Restart Mode"/>
+        <SwipeButton                        Anchors="2,5" Property="CueCommand" />
+        <PropertyInput  Texture ="corner12" Anchors="2,6" Property="XFadeReload" />
+
+        <PropertyInput  Texture ="corner2"  Anchors="3,1" Property="OutputFilter" ValueRole="DisplayShort" ValueAutoAdjust="Yes" Text="Output Filter"/>
+        <SwipeButton                        Anchors="3,2" Property="Priority" />
+        <PropertyInput                      Anchors="3,3" Property="SoftLTP"  />
+        <SwipeButton                        Anchors="3,4" Property="PlaybackMaster" Text="Playback Master" />
+        <SwipeButton                        Anchors="3,5" Property="XFadeMode" Name="XFadeModeBtn" Text="XFade Mode"/>
+        <SwipeButton    Texture ="corner12" Anchors="3,6" Property="Action" Text="Object Action" Name="ActionBtn"/>
+
+        <SwipeButton    Texture ="corner3"  Anchors="4,1" Property="RateMaster" Text="Rate Master"/>
+        <SwipeButton                        Anchors="4,2" Property="RateScale"  Text="Rate Scale"/>
+        <SwipeButton                        Anchors="4,3" Property="SpeedMaster" Text="Speed Master"/>
+        <SwipeButton                        Anchors="4,4" Property="SpeedScale"  Text="Speed Scale"/>
+        <PropertyInput  Texture ="corner12" Anchors="4,5" Property="SpeedFromRate" />
+
+        <PropertyInput  Texture ="corner3"  Anchors="5,1" Property="InputFilter" ValueRole="DisplayShort" ValueAutoAdjust="Yes" Text="Input Filter"/>
+        <PropertyInput                      Anchors="5,2" Property="SwapProtect"   />
+        <PropertyInput                      Anchors="5,3" Property="KillProtect"   />
+        <PropertyInput                      Anchors="5,4" Property="IncludeLinkLastGo" ValueRole="Default"/>
+        <PropertyInput                      Anchors="5,5" Property="UseExecutorTime"/>
+        <PropertyInput                      Anchors="5,6" Property="OffWhenOverridden"/>
+        <PropertyInput  Texture ="corner12" Anchors="5,7" Property="Lock" Text="Lock&#xD;Sequence"/>
+
+        <SwipeButton    Texture ="corner3"  Anchors="6,1" Text="MIB" Property="SequMIB" />
+        <SwipeButton    Texture ="corner0"  Anchors="6,2" Text="MIBMode" Property="SequMIBMode" />
+        <PropertyInput  Texture ="corner12" Anchors="6,4" Property="AutoPrePos" Visible="0" />
+    </SettingsBox>
+</GMA3>

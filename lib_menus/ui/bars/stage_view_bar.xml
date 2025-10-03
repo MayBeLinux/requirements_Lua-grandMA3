@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="167" Name="StageViewBar" Guid="00 00 00 00 E9 13 00 00 37 52 36 54 37 AD 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/bars" DisplayFrom="Intern1" DisplayTo="Intern1">
+        <ComponentXML Index="1" Guid="00 00 00 00 80 40 00 00 36 52 36 54 37 AD 55 B0" FileName="stage_view_bar.uixml" PlaceHolder="EncoderBar" Toggle="No" SearchFocusAllowed="No" />
+        <ComponentLua Index="2" Guid="00 00 00 00 B2 5D 00 00 39 52 36 54 37 AD 55 B0" FileName="stage_view_bar.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="189" Name="WebViewDev" Guid="73 7A 08 B0 D3 C5 40 1C A0 55 59 90 79 30 02 3C" Author="MA" Version="0.1.0.0" Path="/ui/window_developer">
+        <ComponentXML Index="1" Guid="86 9C 5E C5 CD 55 47 E0 8E 29 99 4B 9F 78 62 0E" FileName="web_view_dev.uixml" PlaceHolder="UiScreen" Toggle="No" />
+    </Menu>
+</GMA3>

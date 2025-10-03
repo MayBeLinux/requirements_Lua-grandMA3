@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="52" Name="DataPoolsConfiguration" Guid="58 C1 0D 6D CF 3D 4D 12 9B FA AD F5 0D C4 9C 6D" Author="MA" Version="0.1.0.0" Path="/ui/setup/users">
+        <ComponentXML Index="1" Guid="41 20 7B F1 16 EA 4E 7C 82 C1 AF B7 6B C9 85 B0" FileName="data_pools_configuration.uixml" PlaceHolder="MainDialog" Toggle="No" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Name="WindowAgenda" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" FileName="window_agenda.uixml" PlaceHolder="UiScreen" WindowSettings="WindowAgendaSettings" WindowContext="ContextAgendaWindow"/>
+        <ComponentLua FileName="window_agenda.lua" />
+    </Menu>
+</GMA3>

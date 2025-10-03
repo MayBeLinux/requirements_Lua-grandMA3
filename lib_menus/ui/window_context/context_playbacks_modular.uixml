@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="wvm_settings.html" >
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Modular Playbacks Window Settings" Icon=""/>
+
+            <Button   Anchors="1,0" Text="Load" Clicked=":LoadPrefClicked" SignalValue="PlaybackWindow" />
+            <Button   Anchors="2,0" Text="Save" Clicked=":SavePrefClicked" SignalValue="PlaybackWindow" />
+
+            <EditTitlebarButton Anchors="3,0"  />
+            <DeleteWindowButton   Anchors="4,0"  />
+            <CloseButton Texture="corner2" Anchors="5,0" />
+        </TitleBar>
+
+        <DialogFrame>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="Display" />
+            </UITab>
+
+            <DialogContainer Anchors="0,1" ChangeActive=":MyTabChanged" >
+
+                <UILayoutGrid Name="Display"  Rows="5" Columns="6" DefaultMargin="10" Margin="10,10,10,10" >
+                
+                    <IndicatorControl Anchors="0,0" Texture="corner15" Property="ShowTitleBar"  TextAutoAdjust="Yes" Text="Show Title Bar" />
+                    <PropertyInput Anchors="3,0" Texture="corner15" AutoHide="Yes" Property="Page" ReferencedTitleButton="Page"/>
+                    <SwipeButton Anchors="4,0" Texture="corner15" AutoHide="Yes" Property="WingID" Text="Wing ID" ReferencedTitleButton="Wing"/>
+                    <SwipeButton Anchors="5,0" Texture="corner15" AutoHide="Yes" Property="#Sections" />
+
+                    <PropertyInput Anchors="4,1" Texture="corner15" AutoHide="Yes" Property="Labels"        ReferencedTitleButton="Labels"/>
+                    <PropertyInput Anchors="4,2" Texture="corner15" AutoHide="Yes" Property="Executors"     ReferencedTitleButton="Executors"/>
+                
+                    <PropertyInput Anchors="0,1" Texture="corner15" AutoHide="Yes" Property="Row400" Text="Row 400" ReferencedTitleButton="Row400"/>
+                    <PropertyInput Anchors="0,2" Texture="corner15" AutoHide="Yes" Property="Row300" Text="Row 300" ReferencedTitleButton="Row300"/>
+                    <PropertyInput Anchors="0,3" Texture="corner15" AutoHide="Yes" Property="Row200" Text="Row 200" ReferencedTitleButton="Row200"/>
+                    <PropertyInput Anchors="0,4" Texture="corner15" AutoHide="Yes" Property="Row100" Text="Row 100" ReferencedTitleButton="Row100"/>
+
+
+
+                    <PropertyInput Anchors="1,1" Texture="corner15" AutoHide="Yes" Property="Row400" Text="Row 400" ReferencedTitleButton="Row400"/>
+                    <!--<AppearanceInput Name="Appearance" Anchors="1,7" Texture="corner15" />
+                    <ScribbleInput Name="Scribble" Anchors="3,7" Texture="corner15" />
+                    <PropertyInput Name="Color" Text="Color" Anchors="5,7" Texture="corner15" AutoHide="Yes" Property="Color" />
+                    <PropertyInput Name="Target" Text="Target" Anchors="11,7" Texture="corner15" AutoHide="Yes" Property="Target" /> -->
+
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="Mask" Rows ="4" Columns="6" DefaultMargin="10" Margin="10,10,10,10">
+                </UILayoutGrid>
+
+                <!INCLUDE ../../include/context_window_titlebuttons.uixml >
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ObjectProperties Name="SettingsTabContent" />
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="158" Name="PresetSettingsOverlay" Guid="" Author="MA" Version="0.1.0.0" Path="/ui/setup">
+        <ComponentXML Index="1" Guid="" FileName="preset_settings_overlay.uixml" PlaceHolder="ModalOverlay" Toggle="No" DisplayTypePreference="BigOrSmall"/>
+        <ComponentLua Index="2" Guid="" FileName="preset_settings_overlay.lua" />
+    </Menu>
+</GMA3>

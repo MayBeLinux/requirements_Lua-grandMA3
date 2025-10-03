@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="207" Name="WindowFixtureSheet" Guid="A0 16 B2 41 50 50 4D 57 82 7A 6F B4 06 2C 1D AB" Author="MA" Version="0.1.0.0" Path="/ui/window_sheet">
+        <ComponentXML Index="1" Guid="25 FC 29 65 F3 92 4A D7 88 BF 7A 38 BF 9D 77 E2" FileName="window_fixture_sheet.uixml" PlaceHolder="UiScreen" WindowSettings="FixtureSheetSettings" WindowContext="ContextFixtureSheet" Toggle="No" />
+        <ComponentLua Index="2" Guid="FE A0 E2 9A B9 BD 4F 59 B5 A6 0D 8A 2A 42 BF A4" FileName="window_fixture_sheet.lua" />
+    </Menu>
+</GMA3>

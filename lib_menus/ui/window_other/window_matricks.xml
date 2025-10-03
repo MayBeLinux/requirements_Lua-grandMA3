@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="216" Name="WindowMatricks" Guid="00 1B 21 63 15 BD 00 00 08 53 36 54 00 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="00 1B 21 63 B0 9E 00 00 0B 53 36 54 00 82 55 B0" FileName="window_matricks.uixml" PlaceHolder="UiScreen" WindowSettings="MatricksWindowSettings" Toggle="No" WindowContext="ContextMatricks" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 3A E4 00 00 0A 53 36 54 00 82 55 B0" FileName="window_matricks.lua" />
+    </Menu>
+</GMA3>

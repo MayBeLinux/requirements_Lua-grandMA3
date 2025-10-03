@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+
+<UILayoutGrid Anchors="0,1" Name="GenerateColorArea">
+    <ItemCollectRows>
+        <Item SizePolicy="Fixed" Size="50" />
+        <Item SizePolicy="Stretch" Size="1" />
+    </ItemCollectRows>
+    <UILayoutGrid Anchors="0,0" Name="GenerateSubTitle">
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectColumns>
+        <TitleButton Anchors="0,0" Texture="corner1" Text="Create Universal Mixcolor Presets" />
+        <IndicatorControl Name="UseBook" Texture="corner2" Text="Book" W="100" Anchors="1,0" OnLoad=":UseSettingsTarget" Property="UseColorBook" ShowLabel="Yes" TextColor="Button.Text" ColorIndicatorHeight="0" />
+    </UILayoutGrid>
+    <UILayoutGrid Name="Frame" Anchors="0,1" DefaultMargin="4" Texture="Corner12" BackColor="ShowCreator.Section" Transparent="No">
+        <ItemCollectRows>
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="60" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Fixed" Size="30" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+            <Item SizePolicy="Fixed" Size="30" />
+        </ItemCollectColumns>
+        <PropertyInput Name="Hue" Anchors="1,1" Texture="corner15" Property="AmountHue" OnLoad=":UseSettingsTarget" />
+        <PropertyInput Name="Saturation" Anchors="2,1" Texture="corner15" Property="AmountSaturation" OnLoad=":UseSettingsTarget" />
+        <SwipeButton Name="Sort" Anchors="3,1" Texture="corner15" Text="Sort By" Property="SortColorBySaturation" OnLoad=":UseSettingsTarget" />
+
+        <UILayoutGrid Anchors="0,0,4,2" Name="ColorBookArea">
+            <!INCLUDE ../../../include/content_color_book.uixml >
+        </UILayoutGrid>
+    </UILayoutGrid>
+</UILayoutGrid>
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <!-- <GenericEditorOverlay W="640" H="320" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" > -->
+    <CameraEditor W="640" H="400" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" DefaultTitle="Edit Camera" HelpTopic="patch_3d_camera.html">
+
+        <!--******************************-->
+        <!-- Titelbar -->
+        <!--******************************-->
+        <TitleBar Name="Titlebar" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="Title" Texture="corner1" Anchors="0,0" Text="Edit Camera"/>
+            <Button Name="ReloadCamera" Anchors="1,0" Text="Reload&#xD;Camera" W="110" Clicked=":ReloadCamera" SignalValue="ReloadCamera"/>
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+        <!--******************************-->
+        <!-- Dialog -->
+        <!--******************************-->
+        <DialogFrame Name="Frame">
+            <EditorPropertyButtons Anchors="0,0" BigModeColumns="4" BigModeRows="6" BigMode="Yes">
+                <EditorCategoryButton Text="Label"/>
+                <EditorNameButton />
+                <EditorScribbleButton />
+                <EditorAppearanceButton />
+                <EditorTagButton />
+                <EditorNoteButton />
+                <EditorCategoryButton Text="Settings"/>
+                <EditorSwipeButton Property="CameraMode"/>
+                <EditorPropertyButton Property="Fov"/>
+                <EditorPropertyButton Property="Roll"/>
+                <EditorPropertyButton Property="Zoom"/>
+                <EditorCategoryButton Text="Position"/>
+                <EditorPropertyButton Property="PosX"/>
+                <EditorPropertyButton Property="PosY"/>
+                <EditorPropertyButton Property="PosZ"/>
+                <EditorCategoryButton Text="Pan Tilt"/>
+                <EditorPropertyButton Property="Pan"/>
+                <EditorPropertyButton Property="Tilt"/>
+            </EditorPropertyButtons>
+        </DialogFrame>
+        <!-- </GenericEditorOverlay> -->
+    </CameraEditor>
+
+</GMA3>

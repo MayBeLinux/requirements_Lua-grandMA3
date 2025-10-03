@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog>
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="USB Configuration" Icon="setup_wings"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent>
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <DBObjectGrid Name="UsbNotifierGrid" BackColor="UIGrid.Background" Anchors="0,1" AllowAddContent="No" ChangeTarget=":MyTabChanged"/>
+        </MainDialogContent>
+
+        <MainDialogSubMenu W="150">
+            <DBObjectTab TargetObject="UsbNotifier" Anchors="0,0" IncludeTarget="No" Name="UsbNotifierGrid" Type="Vertical" H="500" AvoidScroll="Yes" TabChanged=":MyTabChanged" />
+        </MainDialogSubMenu>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+                <IndicatorButton Anchors="0,1" Text="Remove&#xD;Absent" Clicked=":CommandLine" SignalValue="Delete Root UsbNotifier "/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialog>
+</GMA3>

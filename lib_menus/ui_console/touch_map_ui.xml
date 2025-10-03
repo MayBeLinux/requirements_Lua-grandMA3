@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" UserRights="None"  Name="TouchMapUI" Guid="00 1B 21 63 F5 A1 00 00 6B 53 36 54 01 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui_console" DisplayFrom="TouchMapper" DisplayTo="TouchMapper" HostType="Console">
+        <ComponentXML UserRights="None"  Guid="00 1B 21 63 44 92 00 00 6A 53 36 54 01 82 55 B0" FileName="touch_map_ui.uixml" PlaceHolder="Display" Toggle="No" />
+    </Menu>
+</GMA3>

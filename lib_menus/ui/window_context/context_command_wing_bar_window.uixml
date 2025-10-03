@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <GenericContext W="800" H="480" AlignmentH="Center" AlignmentV="Center" WantsModal="1" HelpTopic="ws_command_wing_bar.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="100" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="command wing Bar Window Settings" Icon=""/>
+            <DeleteWindowButton   Anchors="1,0"  />
+            <CloseButton Texture="corner2" Anchors="2,0" />
+        </TitleBar>
+
+        <DialogFrame Name="DialogFrame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+
+            <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoad">
+                <ItemStr Title="Display" Value="DisplayTabs" />
+            </UITab>
+
+            <DialogContainer Name="MainDialogContainer" Anchors="0,1" ChangeActive=":MyTabChanged">
+
+                <UILayoutGrid Name="DisplayTabs">
+                    <!--..................................................-->
+                    <!--3D Window Grid-->
+                    <!--..................................................-->
+                    <ItemCollectRows>
+                        <Item SizePolicy="Content"/>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <!--..................................................-->
+                    <!--Tab Control-->
+                    <!--..................................................-->
+                    <UITab Anchors="0,0" AvoidScroll="Yes" TabChanged=":MyTabChanged" OnLoad=":OnTabLoadDev">
+                        <ItemStr Title="Playbacks" Value="PBS"/>
+                        <ItemStr Title="Custom Master Section"      Value="CMS" />
+                        <ItemStr Title="Encoder Bar"     Value="EBS" />
+                    </UITab>
+                    <DialogContainer Name="DialogContainer3D" Anchors="0,1" ChangeActive=":MyTabChanged" >
+                        <!--..................................................-->
+                        <!-- Playbacks Tab Page-->
+                        <!--..................................................-->
+                        <UILayoutGrid Name="PBS" Rows="4" Columns="6" DefaultMargin="8" DefaultMarginOnBorders="Yes">
+
+                            <IndicatorControl Anchors="0,0" Texture="corner15" Property="ShowTitleBar"  Text="Title Bar" />
+                            <SwipeButton Anchors="2,1" Texture="corner15"  AutoHide="Yes" Property="DisplayModeExec"            Text="Mode&#xD;Executors" />
+
+                            <SwipeButton Anchors="0,1"  Texture="corner15" AutoHide="Yes" Property="WingID" Text="Wing ID" HelpTopic="ws_playback_controls.html"/>
+                            <SwipeButton Anchors="1,1"  Texture="corner15" AutoHide="Yes" Property="Page" />
+
+                        </UILayoutGrid>
+                        <!--..................................................-->
+                        <!--Custom Master Section Tab-->
+                        <!--..................................................-->
+                        <UILayoutGrid Name="CMS" Rows="4" Columns="6" DefaultMargin="8" DefaultMarginOnBorders="Yes">
+                            <IndicatorControl Anchors="0,0" Texture="corner15" Property="ShowTitleBar"  Text="Title Bar" />
+
+                            <IndicatorControl Anchors="3,0" Texture="corner3" AutoHide="Yes" Property="ShowCustomMasters"         Text="Master&#xD;Section" />
+                            <SwipeButton Anchors="3,1" Texture="corner12" AutoHide="Yes" Property="DisplayModeCM"              Text="Mode&#xD;Masters" />
+
+
+                        </UILayoutGrid>
+                        <!--..................................................-->
+                        <!--EncoderBar Tab-->
+                        <!--..................................................-->
+                        <UILayoutGrid Name="EBS" DefaultMargin="8" DefaultMarginOnBorders="Yes" Rows="4" Columns="6">
+
+                            <PropertyInput Anchors="0,0" Texture="corner15" Property="ShowTitleBar" Text="Title Bar" />
+
+                            <PropertyInput Anchors="0,1,0,3" Texture="corner15" Property="ShowUserSettings" Text="User &#xD; Profile &#xD; Settings" />
+
+                            <PropertyInput Name="" Anchors="1,0,2,0" Texture="corner15" Property="ShowEncoderBank" Text="Encoder Bank" />
+
+                            <PropertyInput Name="" Anchors="1,1" Texture="corner15" Property="ShowEncoderPageSelector" Text="Encoder &#xD; Page" />
+                            <PropertyInput Name="" Anchors="2,1,3,1" Texture="corner15" Property="ShowLayerToolbar" Text="Layer Toolbar" />
+
+                            <PropertyInput Name="" Anchors="4,1" Texture="corner15" Property="ShowStepButtons" Text="Step &#xD; Buttons" />
+                            <PropertyInput Name="EncoderLabel" Anchors="1,2,2,2" Texture="corner15" Property="ShowEncoderLabel" Text="Encoder Label" />
+                            <PropertyInput Name="FunctionSelectorToggle" Anchors="3,2,4,2" Texture="corner15" Property="ShowFunctionSelector" Text="Function Selector" />
+                            <PropertyInput Name="EncoderToggle" Anchors="1,3,4,3" Texture="corner15" Property="FadeEncoder" Text="Fader Encoders" />
+
+                            <PropertyInput Name="" Anchors="3,0" Texture="corner15" Property="ShowToolPopups" Text="Tool &#xD; Pop-Ups" />
+                            <PropertyInput Name="" Anchors="4,0" Texture="corner15" Property="ShowTimeButtons" Text="Timing&#xD;Buttons" />
+
+                            <PropertyInput Anchors="5,1,5,3" Texture="corner15" AutoHide="Yes" Property="ShowGrandMaster" Text="Grand &#xD; Master" />
+                        </UILayoutGrid>
+
+                    </DialogContainer>
+                </UILayoutGrid>
+
+                <UILayoutGrid Name="RawSettings" Rows="5" Columns="3">
+                    <ScrollContainer Name="Enums" Visible="Yes">
+                        <ScrollBox>
+                            <ObjectProperties Name="SettingsTabContent" H="900" />
+                        </ScrollBox>
+                    </ScrollContainer>
+                </UILayoutGrid>
+            </DialogContainer>
+
+        </DialogFrame>
+
+    </GenericContext>
+</GMA3>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="CustomMasterSectionOverlay" Author="MA" Version="0.1.0.0" Path="/ui/overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML FileName="custom_master_section_overlay.uixml" PlaceHolder="MainOverlay"/>
+        <ComponentLua FileName="../window_other/window_custom_master_section.lua" />
+    </Menu>
+</GMA3>

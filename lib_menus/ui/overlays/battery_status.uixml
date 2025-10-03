@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.86.0">
+    <ShadedOverlay Name="Battery status" W="600" H="300" AlignmentH="Center" AlignmentV="Center" WantsModal="1" ContentDriven="No" DefaultMargin="0" OnLoad=":BatteryStautsMenuLoaded" >
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch" Size="1"/>
+        </ItemCollectRows>
+
+        <TitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Battery status" TextAlignmentH="Center" />
+            <CloseButton Texture="corner2" Anchors="1,0" CloseAction="Confirm"  />
+        </TitleBar>
+
+        <DialogFrame Anchors="0,1" DefaultMargin="4" Name="Content">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size ="70" />
+                <Item SizePolicy="Stretch" Size="1"/>
+                <Item SizePolicy="Stretch" Size="1"/>
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+                <Item SizePolicy="Stretch" />
+            </ItemCollectColumns>
+            <Button Name="PowerSourceText" Texture="corner0" BackColor="MessageCenter.NewSpamBackground" Anchors="0,0,2,0" Text="The console runs on AC." CloseAction="Confirm" />
+            <PropertyControl Visible="true" Interactive="No" BackColor="Button.Background" ShowLabel="true" Texture="corner0" Name="Ready"          Text="UPS Ready for Operation"     ValueAlignmentV="Center" Anchors="0,1" Property="Ready"          Target="HardwareStatus.BatteryStatus" DefaultAction="false" Padding="0,0,0,3" />
+            <PropertyControl Visible="true" Interactive="No" BackColor="Button.Background" ShowLabel="true" Texture="corner0" Name="AcPowerOk"      Text="AC Power Connected"     ValueAlignmentV="Center" Anchors="1,1" Property="AcPowerOk"      Target="HardwareStatus.BatteryStatus" DefaultAction="false" Padding="0,0,0,3" />
+            <PropertyControl Visible="true" Interactive="No" BackColor="Button.Background" ShowLabel="true" Texture="corner0" Name="Charging"       Text="Battery Charging" ValueAlignmentV="Center" Anchors="2,1" Property="Charging"       Target="HardwareStatus.BatteryStatus" DefaultAction="false" Padding="0,0,0,3" />
+            <PropertyControl Visible="true" Interactive="No" BackColor="Button.Background" ShowLabel="true" Texture="corner0" Name="BatteryFault"   Text="Battery Error"    ValueAlignmentV="Center" Anchors="0,2" Property="BatteryFault"   Target="HardwareStatus.BatteryStatus" DefaultAction="false" Padding="0,0,0,3" ValueActiveTextColor="MessageCenter.FlashAlertBackground" />
+            <PropertyControl Visible="true" Interactive="No" BackColor="Button.Background" ShowLabel="true" Texture="corner0" Name="BattVoltage"    Text="Battery Voltage"  ValueAlignmentV="Center" Anchors="1,2" Property="BattVoltage"    Target="HardwareStatus.BatteryStatus" DefaultAction="false" Padding="0,0,0,3" />
+            <PropertyControl Visible="true" Interactive="No" BackColor="Button.Background" ShowLabel="true" Texture="corner0" Name="BattPercentage" Text="State of Charge" Anchors="2,2">
+                <BatteryStatusIcon Name="BattIcon" Interactive="No" AlignmentH="Center" AlignmentV="Center" Category="Battery" Margin="0,10,0,0" BackColor="Global.Transparent"/>
+            </PropertyControl>
+
+            <!--<PropertyControl Visible="true" BackColor="Button.Background" ShowLabel="true" Texture="corner0"  Name="Battery" ValueAlignmentV="Bottom" Anchors="1,1" Property="Running" Target="HardwareStatus.BatteryStatus" DefaultAction="false" Padding="0,0,0,3" />-->
+        </DialogFrame>
+    </ShadedOverlay>
+</GMA3>

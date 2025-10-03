@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <BaseInput Name="FIDSelector" OnLoad=":OnFIDSelectorLoaded">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" />
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch"/>
+        </ItemCollectColumns>
+
+        <TitleBar Name="TitleBar" Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Select Fixture ID"  Icon=""/>
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch"/>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <UIGrid  Anchors="0,0" Name="FIDGrid" DataType="FIDGridData" CellType="UIGridCell" FilterBlockUIEnabled="No" SelectionType="SingleCellGridSelection" ScrollCellAutomaticWithOffset="Yes" ItemPlacementTypeV="Begin" >
+                <GridSettings ColumnsCount="10" Transposed="Yes" AdjustColumns="Yes" RowHeightFactor="2" />
+            </UIGrid>
+
+            <AutoLayout Name="ButtonBlock" W="260" Anchors="0,1" DefaultMargin="1" Direction="Horizontal" AlignmentH="Right" Texture="corner15" Content="Yes">
+                <Button Name="None" W="130" Text="None" Clicked=":DoSelectNone" />
+                <Button Name="Select" W="130" Text="Select" Clicked=":DoSelect" />
+            </AutoLayout>
+        </DialogFrame>
+    </BaseInput>
+</GMA3>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <KeybSCInput OnLoad=":TextInputLoaded" MinSize="200,0"  W="500" HelpTopic="do_shortcuts_keyboard.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectRows>
+        <TitleBar Anchors="0,0" Name="TitleBar" >
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Keyboard Shortcut Input" Icon=""/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame" DefaultMargin="5">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="60" />
+                <Item SizePolicy="Fixed" Size="60" />
+            </ItemCollectColumns>
+
+            <KeybSCEdit Name="InputField" Anchors="0,0,1,0" Focus="InitialFocus" ContentDriven="Yes" Execute=":CloseOK"  SetText=":NumericSet" Filter="0123456789.Δ" Clear=":ClearField" ShowKeyboardButton="No" />
+            <Button Name="ButtonOk" Anchors="1,0" Text="Ok" Enabled="Yes" Clicked=":CloseOK"/>
+            <Button Name="ButtonNone" Texture="corner0" Anchors="2,0" Text="None" Enabled="Yes" Clicked=":CloseNone"/>
+        </DialogFrame>
+
+        <PlaceHolder Name="ModalOverlay" />
+
+    </KeybSCInput>
+</GMA3>

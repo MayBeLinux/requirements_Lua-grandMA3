@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="GeneratorRandomEditBar" Author="MA" Version="0.1.0.0" Path="/ui/bars" DisplayFrom="Intern1" DisplayTo="Intern1">
+        <ComponentXML  FileName="generator_random_edit_bar.uixml" PlaceHolder="EncoderBar" Toggle="No" SearchFocusAllowed="No" />
+        <ComponentLua  FileName="generator_random_edit_bar.lua" />
+    </Menu>
+</GMA3>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="MasterControl" DefaultMargin="2" AutoCloseOnOverlay="Yes" HelpTopic="ws_master_controls.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Master Controls" Icon="fader" HelpTopic="ws_master_controls.html"/>
+            <AutoLayout DefaultMargin="0" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" HelpTopic="ws_master_controls.html"/>
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" HelpTopic="ws_master_controls.html"/>
+        </TitleBar>
+
+        <MainDialogContent Transparent="true" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="10" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <UiFader Text="Selected&#xD;Master" Target="ShowData.Masters.Selected.Master" Anchors="0,0" ToolTip="Master for selected executor" HelpTopic="ws_master_controls.html" />
+
+            <!--
+            <UiFader Text="Selected&#xD;Highlight" Target="ShowData.Masters.Selected.Highlight" Anchors="3,0" ToolTip="Highlight for selected executor" OnOffTexture="led_rect" Texture="corner1" HeadLineTexture="corner1" />
+            <UiFader Text="Selected&#xD;Lowlight" Target="ShowData.Masters.Selected.Lowlight" Anchors="4,0" ToolTip="Lowlight for selected executor" OnOffTexture="led_rect"    Texture="corner0" HeadLineTexture="corner0" />
+            <UiFader Text="Selected&#xD;Solo" Target="ShowData.Masters.Selected.Solo" Anchors="5,0" ToolTip="Solo for selected executor" OnOffTexture="led_rect"                Texture="corner2" HeadLineTexture="corner2" />
+            -->
+
+            <UiFader Text="Selected&#xD;Rate" Target="ShowData.Masters.Selected.Rate" Anchors="7,0" ToolTip="Rate for selected executor"  OnOffTexture="led_rect"    Texture="corner1" HeadLineTexture="corner1" HelpTopic="ws_master_controls.html"/>
+            <UiFader Text="Selected&#xD;Speed" Target="ShowData.Masters.Selected.Speed" Anchors="8,0" ToolTip="Speed for selected executor"  OnOffTexture="led_rect" Texture="corner2" HeadLineTexture="corner2" HelpTopic="ws_master_controls.html"/>
+
+            <UiFader Text="Selected&#xD;Time" Target="ShowData.Masters.Selected.Time" Anchors="10,0" ToolTip="Time override for selected executor" OnOffTexture="led_rect" Texture="corner1" HeadLineTexture="corner1" HelpTopic="ws_master_controls.html"/>
+            <UiFader Text="Selected&#xD;Temp" Target="ShowData.Masters.Selected.Temp" Anchors="11,0" ToolTip="Temp for selected executor"                                  Texture="corner2" HeadLineTexture="corner2" HelpTopic="ws_master_controls.html"/>
+
+            <UiFader Text="Selected&#xD;XFade" Target="ShowData.Masters.Selected.XFade" Anchors="13,0" ToolTip="XFade for selected executor"    Texture="corner1" HeadLineTexture="corner1" HelpTopic="ws_master_controls.html"/>
+            <UiFader Text="Selected&#xD;XFadeA" Target="ShowData.Masters.Selected.XFadeA" Anchors="14,0" ToolTip="XFadeA for selected executor" Texture="corner0" HeadLineTexture="corner0" HelpTopic="ws_master_controls.html"/>
+            <UiFader Text="Selected&#xD;XFadeB" Target="ShowData.Masters.Selected.XFadeB" Anchors="15,0" ToolTip="XFadeB for selected executor" Texture="corner2" HeadLineTexture="corner2" HelpTopic="ws_master_controls.html"/>
+
+
+            <GrandMasterFader Name="GrandMaster" Text="Grand&#xD;Master" Target="ShowData.Masters.Grand.Master" Anchors="0,2" ToolTip="GrandMaster" OnOffTexture="led_rect" Texture="corner1" HeadLineTexture="corner1" HelpTopic="do_control_grand.html"/>
+            <UiFader Name="GrandWorld"  Text="World&#xD;Master" Target="ShowData.Masters.Grand.World" Anchors="1,2" ToolTip="WorldMaster" OnOffTexture="led_rect"  Texture="corner2" HeadLineTexture="corner2" HelpTopic="ws_master_controls.html"/>
+
+            <UiFader Text="Highlight" Target="ShowData.Masters.Grand.Highlight" Anchors="3,2" ToolTip="GrandHighlight" OnOffTexture="led_rect" Texture="corner1" HeadLineTexture="corner1" HelpTopic="ws_master_controls.html"/>
+            <UiFader Text="Lowlight" Target="ShowData.Masters.Grand.Lowlight" Anchors="4,2" ToolTip="GrandLowlight" OnOffTexture="led_rect"    Texture="corner0" HeadLineTexture="corner0" HelpTopic="ws_master_controls.html"/>
+            <UiFader Text="Solo" Target="ShowData.Masters.Grand.Solo" Anchors="5,2" ToolTip="GrandSolo" OnOffTexture="led_rect"                     Texture="corner2" HeadLineTexture="corner2" HelpTopic="ws_master_controls.html"/>
+
+            <UiFader Name="GrandRate" Text="Grand&#xD;Rate" Target="ShowData.Masters.Grand.Rate" Anchors="7,2" ToolTip="GrandRate" OnOffTexture="led_rect"    Texture="corner1" HeadLineTexture="corner1" HelpTopic="ws_master_controls.html"/>
+
+            <UiFader Name="ProgTime" Text="Prog&#xD;Time" Target="ShowData.Masters.Grand.ProgramTime" Anchors="10,2" ToolTip="Programmer time override" OnOffTexture="led_rect" Texture="corner1" HeadLineTexture="corner1"/>
+            <UiFader Name="ProgXFade" Text="Prog&#xD;XFade" Target="ShowData.Masters.Grand.ProgramXFade" Anchors="11,2" ToolTip="Manual Programmer XFade" OnOffTexture="led_rect" Texture="corner0" HeadLineTexture="corner0"/>
+
+            <UiFader Name="ExecTime" Text="Executor&#xD;Time" Target="ShowData.Masters.Grand.ExecutorTime" Anchors="13,2" ToolTip="Executor time override" OnOffTexture="led_rect"      Texture="corner1" HeadLineTexture="corner1"/>
+            <UiFader Name="ExecXFade" Text="Executor&#xD;XFade" Target="ShowData.Masters.Grand.ExecutorXFade" Anchors="14,2" ToolTip="Manual Executor XFade" OnOffTexture="led_rect"      Texture="corner2" HeadLineTexture="corner2"/>
+            <UiFader Text="Blind" Target="ShowData.Masters.Grand.Blind" Anchors="15,2" ToolTip="GrandSolo" OnOffTexture="led_rect"                              Texture="corner3" HeadLineTexture="corner3" HelpTopic="ws_master_controls.html"/>
+
+            <UiFader Text="Sound&#xD;In" Target="ShowData.Masters.Grand.SoundIn" Anchors="17,2" ToolTip="GrandSoundIn" OnOffTexture="led_rect" Texture="corner1" HeadLineTexture="corner1" HelpTopic="ws_master_controls.html"/>
+            <UiFader Name="GrandSoundFade" Text="Sound&#xD;Fade" Target="ShowData.Masters.Grand.SoundFade" Anchors="18,2" ToolTip="GrandSoundFade" OnOffTexture="led_rect" Texture="corner0" HeadLineTexture="corner0" HelpTopic="ws_master_controls.html"/>
+            <UiFader Name="GrandSoundOut" Text="Sound&#xD;Out" Target="ShowData.Masters.Grand.SoundOut" Anchors="19,2" ToolTip="GrandSoundOut" OnOffTexture="led_rect" Texture="corner2" HeadLineTexture="corner2" HelpTopic=""/>
+
+        </MainDialogContent>
+    </MainDialog>
+</GMA3>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="86" Name="FixtureClasses" Guid="00 1B 21 63 32 CB 00 00 B6 52 36 54 08 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/fixturesetup">
+        <ComponentXML Index="1" Guid="00 1B 21 63 83 BF 00 00 B9 52 36 54 08 82 55 B0" FileName="fixture_classes.uixml" PlaceHolder="MainDialog" Toggle="No" />
+    </Menu>
+</GMA3>

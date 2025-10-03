@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="168" Name="StoreBar" Guid="00 00 00 00 EA 33 00 00 38 52 36 54 37 AD 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/bars" DisplayFrom="Intern1" DisplayTo="Intern1">
+        <ComponentXML Index="1" Guid="00 00 00 00 C9 23 00 00 3B 52 36 54 37 AD 55 B0" FileName="store_bar.uixml" PlaceHolder="EncoderBar" Toggle="No" SearchFocusAllowed="No" />
+        <ComponentLua Index="2" Guid="00 00 00 00 CC 48 00 00 3A 52 36 54 37 AD 55 B0" FileName="store_bar.lua" />
+    </Menu>
+</GMA3>

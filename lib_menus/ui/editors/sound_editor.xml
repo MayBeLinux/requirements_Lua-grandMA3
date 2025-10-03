@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="4" Name="SoundEditor" Author="MA" Version="0.1.0.0" Path="/ui/editors">
+        <ComponentXML Index="1" FileName="sound_editor.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" FileName="sound_editor.lua" />
+        <ComponentLua Index="3" FileName="editor_settings_load.lua" />
+    </Menu>
+</GMA3>

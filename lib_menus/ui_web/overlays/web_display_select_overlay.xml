@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" UserRights="None"  Name="WebDisplaySelectOverlay" Author="MA" Version="0.1.0.0" Path="/ui_web/overlays">
+        <ComponentXML UserRights="None"   FileName="web_display_select_overlay.uixml" PlaceHolder="ScreenOverlay" />
+        <ComponentLua UserRights="None"  FileName="web_display_select_overlay.lua" />
+    </Menu>
+</GMA3>

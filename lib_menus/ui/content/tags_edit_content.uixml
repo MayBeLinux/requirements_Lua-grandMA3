@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <TagsEditContent Name="TagsEditContent" OnLoad=":OnLoaded" DefaultMargin="5" DefaultMarginOnBorders="Yes" HelpTopic="tags.html">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectRows>
+        <ItemCollectColumns>
+            <Item SizePolicy="Stretch" Size="2" />
+            <Item SizePolicy="Stretch" Size="1" />
+        </ItemCollectColumns>
+        <UIObject Anchors="0,1,1,1" Name="EmptyText" Text="Another tag editor is already open. Use only one tag editor at a time." Interactive="No" BackColor="Global.Transparent75"/>
+        <UILayoutGrid Anchors="0,1" Name="AssignedArea" Margin="0,0,5,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Anchors="0,0" Name="AssignedSubTitle">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <TitleButton Anchors="0,0" Name="Title" Texture="corner3" Text="Assigned" />
+            </UILayoutGrid>
+            <UILayoutGrid Name="Frame" Anchors="0,1" DefaultMargin="4" Texture="Corner12" Transparent="No" BackColor="ShowCreator.Section" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="150" />
+                </ItemCollectColumns>
+                <DBObjectGrid Name="AssignedTagsGrid" TargetObject="" Anchors="0,0,1,0" SelectionType="SingleRowGridSelection" AllowAddNewline="No" LevelLimit="0" AllowMergeChildren="No" OnLoad=":SortByIndex" CellType="TagGridCell" DataType="TagGridData">
+                    <GridSettings AdjustColumns="Yes" />
+                </DBObjectGrid>
+                <IndicatorButton Anchors="1,1" Text="Unassign" Texture="corner15" Clicked=":DoUnassign" />
+            </UILayoutGrid>
+        </UILayoutGrid>
+        <UILayoutGrid Anchors="1,1" Name="UnassignedArea" Margin="5,0,0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Fixed" Size="50" />
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <UILayoutGrid Anchors="0,0" Name="UnassignedSubTitle">
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+                <TitleButton Anchors="0,0" Name="Title" Texture="corner3" Text="Unassigned" />
+            </UILayoutGrid>
+            <UILayoutGrid Name="Frame" Anchors="0,1" DefaultMargin="4" Texture="Corner12" Transparent="No" BackColor="ShowCreator.Section" >
+                <ItemCollectRows>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="50" />
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Fixed" Size="150" />
+                </ItemCollectColumns>
+                <DBObjectGrid Name="UnassignedTagsGrid" TargetObject="ShowData.Tags" Anchors="0,0,1,0" SelectionType="SingleRowGridSelection" LevelLimit="0"  AllowMergeChildren="No" AllowFilterContent="Yes" OnLoad=":SetFilterTarget" CellType="TagGridCell" DataType="TagGridData">
+                    <GridSettings ContentFilterType="UnassignedTagGridFilter" AdjustColumns="Yes" >
+                        <UnassignedTagGridFilter>
+                        </UnassignedTagGridFilter>
+                    </GridSettings>
+                </DBObjectGrid>
+                <IndicatorButton Anchors="1,1" Text="Assign" Texture="corner15" Clicked=":DoAssign" />
+            </UILayoutGrid>
+        </UILayoutGrid>
+    </TagsEditContent>
+</GMA3>

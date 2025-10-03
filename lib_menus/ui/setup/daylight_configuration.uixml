@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialog Name="MainDialog" HelpTopic="other_date_and_time.html" OnLoad=":OnLoadDaylightInfo" >
+        <TitleBar Name="TitleBar" Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Name="TitleButton" Texture="corner1" Anchors="0,0" Text="Date and Time" Icon="setup_time"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="2" Columns="3" Name="DaylightInfo">
+            <UILayoutGrid Anchors="0,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0,1,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner3" Anchors="0,0" Text="Yesterday" />
+                </TitleBar>
+                <UIObject Anchors="0,1" Text="Dawn" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,1" Target="StationSettings.TimeConfig" Property="YesterdayDawn" />
+                <UIObject Anchors="0,2" Text="Sunrise" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,2" Target="StationSettings.TimeConfig" Property="YesterdaySunrise" />
+                <UIObject Anchors="0,3" Text="Sunset" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,3" Target="StationSettings.TimeConfig" Property="YesterdaySunset" />
+                <UIObject Anchors="0,4" Text="Dusk" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,4" Target="StationSettings.TimeConfig" Property="YesterdayDusk" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="1,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0,1,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner3" Anchors="0,0" Text="Today" />
+                </TitleBar>
+                <UIObject Anchors="0,1" Text="Dawn" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,1" Target="StationSettings.TimeConfig" Property="TodayDawn" />
+                <UIObject Anchors="0,2" Text="Sunrise" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,2" Target="StationSettings.TimeConfig" Property="TodaySunrise" />
+                <UIObject Anchors="0,3" Text="Sunset" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,3" Target="StationSettings.TimeConfig" Property="TodaySunset" />
+                <UIObject Anchors="0,4" Text="Dusk" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,4" Target="StationSettings.TimeConfig" Property="TodayDusk" />
+            </UILayoutGrid>
+
+            <UILayoutGrid Anchors="2,0">
+                <ItemCollectRows>
+                    <Item SizePolicy="Content" />
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                    <Item SizePolicy="Stretch" Size="1"/>
+                </ItemCollectRows>
+                <ItemCollectColumns>
+                    <Item SizePolicy="Stretch" Size="1" />
+                    <Item SizePolicy="Stretch" Size="1" />
+                </ItemCollectColumns>
+
+                <TitleBar Anchors="0,0,1,0">
+                    <ItemCollectRows>
+                        <Item SizePolicy="Fixed" Size="50" />
+                    </ItemCollectRows>
+                    <ItemCollectColumns>
+                        <Item SizePolicy="Stretch" />
+                    </ItemCollectColumns>
+                    <TitleButton Texture="corner3" Anchors="0,0" Text="Tomorrow" />
+                </TitleBar>
+                <UIObject Anchors="0,1" Text="Dawn" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,1" Target="StationSettings.TimeConfig" Property="TomorrowDawn" />
+                <UIObject Anchors="0,2" Text="Sunrise" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,2" Target="StationSettings.TimeConfig" Property="TomorrowSunrise" />
+                <UIObject Anchors="0,3" Text="Sunset" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,3" Target="StationSettings.TimeConfig" Property="TomorrowSunset" />
+                <UIObject Anchors="0,4" Text="Dusk" HasHover="No" />
+                <IndicatorControl ShowLabel="No" ShowValue="Yes" Anchors="1,4" Target="StationSettings.TimeConfig" Property="TomorrowDusk" />
+            </UILayoutGrid>
+
+            <UIObject Anchors="0,1,2,1" Text="All times are based on the Location settings in the tab Session Time.&#xD;The times are calculated at sea level without any elevation on the horizon.&#xD;Maximum precision for all times is +/- 1 minute." TextAutoAdjust="Yes" HasHover="No"/>
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <UIObject Anchors="0,0,3,1" Texture="corner4" HasHover="0"/>
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+    </MainDialog>
+</GMA3>

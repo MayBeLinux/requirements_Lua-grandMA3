@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <KeyboardShortcutEditor Name="KeyboardShortcutEditor" DefaultMargin="2" ChangeDestination="1" OverrideKeybSC="Yes" HelpTopic="do_shortcuts_keyboard.html">
+
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Content" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Keyboard Shortcut Editor" Icon="settings"/>
+            <AutoLayout Margin="1,0,0,0" DefaultMargin="1" Anchors="1,0" Name="TitleButtons" Direction="Horizontal" Inverted="Yes" Texture="corner0" Content="Yes">
+                <ScreenSelectorButton MinSize="50,0" />
+            </AutoLayout>
+            <CloseButton Texture="corner2" Anchors="2,0" CloseAction="Ok" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="1" >
+            <DBObjectGrid Name="GenericEditorGrid" BackColor="UIGrid.Background" Anchors="0,0" DataType="EditKeybShortcutGridData" Focus="InitialFocus" AddTargets="Yes" />
+        </MainDialogContent>
+
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton AutoEnabled="false" Enabled="true" Text="Insert&#xD;new Keyboard Shortcut" UseComposedText="No"/>
+                <MainDlgDelButton AutoEnabled="false" Enabled="true" />
+                <MainDlgCutButton />
+                <MainDlgCopyButton />
+                <MainDlgPasteButton />
+                <MainDlgUndoButton />
+                <MainDlgImportEditorButton />
+                <MainDlgExportEditorButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <IndicatorButton Anchors="0,0" Name="ResetToDefaults" Text="Load&#xD;Defaults" Clicked=":OnResetToDefaults"/>
+                <UIObject Anchors="1,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="0,1,3,1" Texture="corner0" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+    </KeyboardShortcutEditor>
+</GMA3>

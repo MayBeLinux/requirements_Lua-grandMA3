@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="57" Name="DeskPatchEditor" Guid="38 1F 2A 41 A9 A4 44 BA 86 1A 01 80 5A 5F 4A C7" Author="MA" Version="0.1.0.0" Path="/ui/fullscreen_overlays/desklights">
+        <ComponentXML Index="1" Guid="EE 5D 01 53 64 8A 40 47 8C 5D 41 57 2A 92 36 94" FileName="desk_patch_editor.uixml" PlaceHolder="DesklightsSubMenu" />
+    </Menu>
+</GMA3>

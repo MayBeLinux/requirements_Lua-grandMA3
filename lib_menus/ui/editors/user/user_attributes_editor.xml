@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="UserAttributesEditor" Author="MA" Version="0.1.0.0" Path="/ui/editors/user" DisplayIndexConfigurable="Yes">
+        <ComponentXML FileName="user_attributes_editor.uixml" PlaceHolder="MainDialog" SingletonDialogGroup="User Attributes Editor"/>
+        <ComponentLua Index="2" Guid="" FileName="user_attributes_editor.lua" />
+    </Menu>
+</GMA3>

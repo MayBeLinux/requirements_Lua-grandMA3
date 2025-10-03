@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="223" Name="WindowSysteminfo" Guid="00 1B 21 63 10 D0 00 00 0F 53 36 54 07 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/window_other">
+        <ComponentXML Index="1" Guid="00 1B 21 63 29 E8 00 00 0E 53 36 54 07 82 55 B0" FileName="window_systeminfo.uixml" PlaceHolder="UiScreen" WindowSettings="SysteminfoWindowSettings" WindowContext="ContextSysteminfoWindow" Toggle="No" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 C0 B8 00 00 11 53 36 54 07 82 55 B0" FileName="window_systeminfo.lua" />
+    </Menu>
+</GMA3>

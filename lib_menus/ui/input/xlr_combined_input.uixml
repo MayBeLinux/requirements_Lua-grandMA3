@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <XlrPortInput Name="XlrCombinedInput" W="600" H="200" MinSize="600,200" WantsModal="1" onLoad=":WindowLoaded">
+
+        <TitleBar Anchors="0,0">
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="XLR Port Configuration" />
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <!-- body -->
+        <DialogFrame Name="Content">
+            <UILayoutGrid Name="PropertyButtons"  Rows ="2" Columns="4" DefaultMargin="10" Margin="10,10,10,10">
+                <PropertyInput Anchors="0,0" Texture="corner15" Name="Mode" MaxSize="339,84" WantsNumericRedirect="Yes"/>
+                <PropertyInput Anchors="1,0" Texture="corner15" Name="Universe" MaxSize="339,84" WantsNumericRedirect="Yes"/>
+                <PropertyInput Anchors="2,0" Texture="corner15" Name="Merge" MaxSize="339,84" WantsNumericRedirect="Yes"/>
+                <PropertyInput Anchors="3,0" Texture="corner15" Name="Prio" MaxSize="339,84" WantsNumericRedirect="Yes"/>
+                <PropertyInput Anchors="0,1" Texture="corner15" Name="FailureMode" MaxSize="339,84" WantsNumericRedirect="Yes"/>
+                <Button Anchors="3,1" Text="Apply" Clicked=":ApplyInterfaceChanges" Texture="corner15" MaxSize="339,84" Focus="WantsFocus" WantsNumericRedirect="Yes"/>
+            </UILayoutGrid>
+        </DialogFrame>
+        <ResizeCorner Name="Resizer" Anchors="0,1" AlignmentH="Right" AlignmentV="Bottom" />
+    </XlrPortInput>
+</GMA3>

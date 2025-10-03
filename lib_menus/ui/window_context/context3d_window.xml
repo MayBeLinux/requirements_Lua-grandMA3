@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="35" Name="Context3dWindow" Guid="70 4D 7B 2D AC 7F 00 00 12 58 86 BB 7A B1 01 1A" Author="MA" Version="0.1.0.0" Path="/ui/window_context">
+        <ComponentXML Index="1" Guid="70 4D 7B 2D 14 4C 00 00 11 58 86 BB 7A B1 01 1A" FileName="context3d_window.uixml" PlaceHolder="ModalOverlay" Toggle="No" />
+        <ComponentLua Index="2" Guid="31 92 B3 A4 C5 76 47 88 89 F9 C2 78 74 A8 7D A0" FileName="context3d_window.lua" />
+        <ComponentLua FileName="context_window_titlebutton.lua" />
+    </Menu>
+</GMA3>

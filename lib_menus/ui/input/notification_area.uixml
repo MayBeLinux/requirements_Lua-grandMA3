@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <NotificationArea Name="NotificationArea" DefaultMargin="0" W="300" AlignmentH="Center" AlignmentV="Center" UserRights="None" CanCoExistWithModal="Yes">
+        <ItemCollectRows>
+            <Item SizePolicy="Content" Size="1" />
+            <Item SizePolicy="Content" Size="1" />
+        </ItemCollectRows>
+
+        <TitleBar Anchors="0,0" DefaultMargin="0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Clicked=":OnTitleClick" Text="Notifications" Icon=""/>
+            <CloseButton Texture="corner2"  Anchors="1,0" CloseAction="Confirm" />
+        </TitleBar>
+
+        <DialogFrame Name="DialogFrame" Anchors="0,1" DefaultMargin="0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Content" Size="1" />
+            </ItemCollectColumns>
+
+            <ScrollContainer Name="ScrollContainer" ContentDriven="Yes" Anchors="0,0" >
+                <NotificationsGridScroller Name="NotificationsGridScroller"/>
+            </ScrollContainer>
+
+        </DialogFrame>
+
+    </NotificationArea>
+</GMA3>

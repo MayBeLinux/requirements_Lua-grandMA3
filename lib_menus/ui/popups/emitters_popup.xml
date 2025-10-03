@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="71" Name="EmittersPopup" Guid="00 1B 21 63 45 B6 00 00 A8 52 36 54 09 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/popups">
+        <ComponentXML Index="1" Guid="00 1B 21 63 0F 94 00 00 AB 52 36 54 09 82 55 B0" FileName="../input/popup.uixml" PlaceHolder="ModalOverlay" DisplayTypePreference="BigOrSmall" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 5E BB 00 00 AA 52 36 54 09 82 55 B0" FileName="emitters_popup.lua" />
+    </Menu>
+</GMA3>

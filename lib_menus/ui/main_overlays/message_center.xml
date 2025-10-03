@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="115" Name="MessageCenter" Guid="70 8B CD 59 F7 27 00 00 3E 52 36 54 9A 84 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/main_overlays" DisplayIndexConfigurable="Yes">
+        <ComponentXML Index="1" Guid="70 8B CD 59 9E 14 00 00 C1 52 36 54 9A 84 55 B0" FileName="message_center.uixml" PlaceHolder="MainOverlay" />
+        <ComponentLua Index="2" Guid="70 8B CD 59 35 34 00 00 C0 52 36 54 9A 84 55 B0" FileName="message_center.lua" />
+        <ComponentLua FileName="../content/placeholder_base.lua" />
+    </Menu>
+</GMA3>

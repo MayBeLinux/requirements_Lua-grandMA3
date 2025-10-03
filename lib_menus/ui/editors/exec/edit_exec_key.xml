@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="70" Name="EditExecKey" Guid="00 1B 21 63 79 9D 00 00 A7 52 36 54 09 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/editors/exec">
+        <ComponentXML Index="1" Guid="00 1B 21 63 80 D9 00 00 A6 52 36 54 09 82 55 B0" FileName="edit_exec_key.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 86 8D 00 00 A9 52 36 54 09 82 55 B0" FileName="edit_exec_key.lua" />
+    </Menu>
+</GMA3>

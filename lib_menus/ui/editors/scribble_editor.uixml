@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <ScribbleEditor MinSize="800,0" W="70%" WantsModal="0" OnSetEditTarget=":OnSetEditTarget" OnLoad=":OnLoaded" HelpTopic="scribbles_edit.html">
+        <TitleBar Anchors="0,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+
+            <TitleButton Name="Title" Texture="corner1" Anchors="0,0" Text="Edit Scribble" Icon="object_scribbles" />
+            <CloseButton Texture="corner2" Anchors="1,0" CloseAction="Confirm" />
+        </TitleBar>
+
+        <DialogFrame Name="Frame">
+            <ItemCollectRows>
+                <Item SizePolicy="Content" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectColumns>
+
+            <PlaceHolder Name="ScribbleEditPlaceholder" Anchors="0,0" H="0.5r"/>
+
+        </DialogFrame>
+    </ScribbleEditor>
+
+</GMA3>

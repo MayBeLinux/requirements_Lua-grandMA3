@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.0.36.0">
+    <MainDialogDest Name="KeyRegistry" BackColor="MainDialog.Background" Destination="KeyRegistry" HelpTopic="network_session_key.html">
+        <TitleBar Anchors="0,0,2,0" >
+            <ItemCollectRows>
+                <Item SizePolicy="Stretch" Size="1" />
+            </ItemCollectRows>
+            <ItemCollectColumns>
+                <Item SizePolicy="Stretch" Size="1" />
+                <Item SizePolicy="Fixed" Size="50" />
+            </ItemCollectColumns>
+            <TitleButton Texture="corner1" Anchors="0,0" Text="Network Key Registry" Icon="network"/>
+            <CloseButton Texture="corner2" Anchors="1,0" />
+        </TitleBar>
+
+        <MainDialogContent Rows="1" Columns="1">
+            <DBObjectGrid Name="ObjectGrid" Anchors="0,0" TargetObject="KeyRegistry" Focus="InitialFocus" />
+        </MainDialogContent>
+
+        <!--
+        <MainDialogSubMenu>
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,0" Text="Stations" Clicked=":CommandLine" SignalValue="menu 'Network'" />
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,1" Text="Keys"  State="1"  />
+            <DialogButton Texture="corner0" H="100" Anchors="0,2" Text="My&#xD;Interfaces" Clicked=":CommandLine" SignalValue="menu 'RemoteIpEditor'" />
+            <IndicatorButton Texture="corner0" H="100" Anchors="0,3" Text="Web&#xD;Remote" Clicked=":CommandLine" SignalValue="menu 'WebRemote'" />
+            <UIObject Texture="corner0" Anchors="0,9"  HasHover="0" />
+        </MainDialogSubMenu>
+-->
+        <MainDialogFunctionButtons>
+            <CmdDlgFunctionButtonsLeft>
+                <MainDlgInsertButton />
+                <MainDlgDelButton />
+                <UIObject Anchors="1,0,3,0" Texture="corner0" HasHover="0"/>
+                <UIObject Anchors="1,1" Texture="corner0" HasHover="0"/>
+                <MainDlgImportButton />
+                <MainDlgExportButton />
+            </CmdDlgFunctionButtonsLeft>
+            <CmdDlgFunctionButtonsRight>
+                <UIObject Anchors="0,0,3,1" Texture="corner8" HasHover="0"/>
+            </CmdDlgFunctionButtonsRight>
+        </MainDialogFunctionButtons>
+
+    </MainDialogDest>
+</GMA3>

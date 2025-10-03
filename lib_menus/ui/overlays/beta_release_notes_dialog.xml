@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Lock="Yes" Index="10" Name="BetaReleaseNotesDialog" Guid="00 1B 21 63 2D 99 00 00 FF 52 36 54 14 82 55 B0" Author="MA" Version="0.1.0.0" Path="/ui/overlays">
+        <ComponentXML Index="1" Guid="00 1B 21 63 52 D4 00 00 FE 52 36 54 14 82 55 B0" FileName="beta_release_notes_dialog.uixml" PlaceHolder="BetaReleaseNotesPlace" />
+        <ComponentLua Index="2" Guid="00 1B 21 63 CA A6 00 00 81 52 36 54 14 82 55 B0" FileName="beta_release_notes_dialog.lua" />
+    </Menu>
+</GMA3>

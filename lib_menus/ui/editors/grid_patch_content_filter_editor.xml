@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="0.8.1.2">
+    <Menu Name="GridPatchContentFilterEditor" Author="MA" Version="0.1.0.0" Path="/ui/editors">
+        <ComponentXML FileName="grid_patch_content_filter_editor.uixml" PlaceHolder="ModalOverlay" />
+        <ComponentLua FileName="grid_patch_content_filter_editor.lua" />
+    </Menu>
+</GMA3>
